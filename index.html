@@ -1,73 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Title</title>
+    <title>Micheal Olorunsola</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Micheal Olorunsola</h1>
-        <p>Statistics & Data Science student at Carnegie Mellon University</p>
-    </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>
-            I'm a Statistics & Data Science student at Carnegie Mellon University,
-            concentrating in Psychology. I'm interested in applied data modeling,
-            statistical inference, and using data to understand human behavior.
-        </p>
-        <p>
-            Outside of coursework, I'm a member of the National Society of Black
-            Engineers and the Black Student Union. I've also spent time volunteering
-            as a peer educator and at the Houston Food Bank.
-        </p>
-        <p>
-            When I'm not working, you'll usually find me listening to or producing
-            music, playing RPGs, or watching basketball.
-        </p>
-        <h3>Skills</h3>
-        <ul>
-            <li>Python, C++, Java, R, Lua, SQL, HTML5</li>
-            <li>System Modeling & Applied Data Modeling</li>
-            <li>Statistical Inference</li>
-            <li>PowerPoint, Excel</li>
-        </ul>
-    </section>
+    <div class="wrap">
+        <nav class="site-nav">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
 
-    <section id="projects">
-        <h2>Projects</h2>
-
-        <article class="project">
-            <h3>English Proficiency &amp; Language Acquisition: A Statistical Analysis</h3>
-            <p class="project-date">May 2024</p>
-            <img src="images/language-acquisition-plot.png" alt="GAM plots showing English proficiency vs. age of acquisition and duration of exposure">
-            <p>
-                Investigated predictors of English proficiency in second language
-                learners using data from Hartshorne, Tenenbaum & Pinker (2018), a
-                large-scale study of over 600,000 second language learners who
-                completed an online grammar test. Analyzed the effects of age of
-                acquisition, multilingual status, and self-reported psychiatric
-                diagnosis on proficiency outcomes across 130,000+ cleaned
-                observations. Used exploratory data analysis, Welch t-tests,
-                one-way ANOVA with Tukey post-hoc comparisons, bootstrapped
-                confidence intervals, and Generalized Additive Models (GAMs) with
-                thin-plate splines to capture non-linear acquisition-age effects,
-                validated with 10-fold cross-validation.
+        <header class="hero">
+            <h1>Micheal Olorunsola</h1>
+            <p class="tagline">
+                Finding patterns in <em>data</em>, chords in <em>music</em>,
+                and strategy in <em>games</em>.
             </p>
-            <a href="https://github.com/moloruns/Stats-Projects-r/tree/main/language_acquisition" target="_blank">View Code</a>
-        </article>
+        </header>
 
-        <!-- Additional <article class="project"> blocks go here -->
+        <section id="about">
+            <h2>About</h2>
+            <p>
+                I'm a Statistics & Data Science student at Carnegie Mellon University,
+                concentrating in Psychology. I'm interested in applied data modeling,
+                statistical inference, and using data to understand human behavior.
+            </p>
+            <p>
+                Outside of coursework, I'm a member of the National Society of Black
+                Engineers and the Black Student Union. I've also spent time volunteering
+                as a peer educator and at the Houston Food Bank.
+            </p>
+            <p>
+                When I'm not working, you'll usually find me listening to or producing
+                music, playing RPGs, or watching basketball.
+            </p>
+            <p class="skills-line">
+                <span class="label">Skills:</span>
+                Python, C++, Java, R, Lua, SQL, HTML5, system modeling, applied data
+                modeling and statistical inference, PowerPoint, Excel.
+            </p>
+        </section>
 
-    </section>
-    
-    <section id="contact">
-        <h2>Contact</h2>
-        <ul class="contact-list">
-            <li>Email: <a href="mailto:micheal.olorunsola2004@gmail.com">micheal.olorunsola2004@gmail.com</a></li>
-            <li>GitHub: <a href="https://github.com/moloruns" target="_blank">github.com/moloruns</a></li>
-        </ul>
-    </section>
+        <section id="projects">
+            <h2>Projects</h2>
+
+            <article class="project">
+                <h3>English Proficiency &amp; Language Acquisition: A Statistical Analysis</h3>
+                <p class="project-date">May 2024</p>
+                <img src="images/language-acquisition-plot.png" alt="GAM plots showing English proficiency vs. age of acquisition and duration of exposure">
+                <p>
+                    Investigated predictors of English proficiency in second language
+                    learners using data from Hartshorne, Tenenbaum & Pinker (2018), a
+                    large-scale study of over 600,000 second language learners who
+                    completed an online grammar test. Analyzed the effects of age of
+                    acquisition, multilingual status, and self-reported psychiatric
+                    diagnosis on proficiency outcomes across 130,000+ cleaned
+                    observations. Used exploratory data analysis, Welch t-tests,
+                    one-way ANOVA with Tukey post-hoc comparisons, bootstrapped
+                    confidence intervals, and Generalized Additive Models (GAMs) with
+                    thin-plate splines to capture non-linear acquisition-age effects,
+                    validated with 10-fold cross-validation.
+                </p>
+                <a href="https://github.com/moloruns/Stats-Projects-r/tree/main/language_acquisition" target="_blank">View code</a>
+            </article>
+
+            <!-- Additional <article class="project"> blocks go here -->
+
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <ul class="contact-list">
+                <li>Email: <a href="mailto:micheal.olorunsola2004@gmail.com">micheal.olorunsola2004@gmail.com</a></li>
+                <li>GitHub: <a href="https://github.com/moloruns" target="_blank">github.com/moloruns</a></li>
+            </ul>
+        </section>
+
+        <footer>
+            <p class="footer-name">Micheal Olorunsola</p>
+            <p class="footer-meta">&copy; 2026 Micheal Olorunsola. Built with HTML, CSS, and AI assistance.</p>
+        </footer>
+    </div>
+
 </body>
+</html>
