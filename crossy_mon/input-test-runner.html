@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Class Unit Tests</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            padding: 20px;
+            background: #1e1e1e;
+            color: #d4d4d4;
+        }
+        h1 {
+            color: #4ec9b0;
+        }
+        .test-output {
+            background: #252526;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            white-space: pre-wrap;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .pass {
+            color: #4ec9b0;
+        }
+        .fail {
+            color: #f48771;
+        }
+        .info {
+            color: #9cdcfe;
+        }
+        button {
+            background: #0e639c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+        button:hover {
+            background: #1177bb;
+        }
+    </style>
+</head>
+<body>
+    <h1>Input Class Unit Tests</h1>
+    <button onclick="runTests()">Run Tests</button>
+    <div id="output" class="test-output">Click "Run Tests" to start...</div>
+
+    <script src="player.js"></script>
+    <script src="input.js"></script>
+    <script>
+        function createMockKeyboardEvent(key) {
+            return {
+                key: key,
+                preventDefault: function() {
+                    this.defaultPrevented = true;
+                },
+                defaultPrevented: false
+            };
+        }
+
+        function log(message, className = '') {
+            const output = document.getElementById('output');
+            const span = document.createElement('span');
+            span.textContent = message + '\n';
+            if (className) span.className = className;
+            output.appendChild(span);
+        }
+
+        function clearLog() {
+            document.getElementById('output').textContent = '';
+        }
+
+        function runTests() {
+            clearLog();
+            const results = [];
+            
+            // Test 1: Arrow key mappings
+            log('=== Test 1: Arrow Key Mappings ===', 'info');
+            {
+                const gameState = { state: 'PLAYING', score: 0, maxYReached: 0, lastFrameTime: 0 };
+                const player = new Player(0, 0);
+                const input = new Input(player, gameState);
+                
+                const moveCalls = [];
+                const originalMove = player.move.bind(player);
+                player.move = function(dx, dy) {
+                    moveCalls.push({ dx, dy });
+                    return originalMove(dx, dy);
+                };
+                
+                input.handleKeyDown(createMockKeyboardEvent('ArrowUp'));
+                player.isMoving = false;
+                input.handleKeyDown(createMockKeyboardEvent('ArrowDown'));
+                player.isMoving = false;
+                input.handleKeyDown(createMockKeyboardEvent('ArrowLeft'));
+                player.isMoving = false;
+                input.handleKeyDown(createMockKeyboardEvent('ArrowRight'));
+                
+                const passed = moveCalls.length === 4 && 
+                              moveCalls[0].dx === 0 && moveCalls[0].dy === 1 &&
+                              moveCalls[1].dx === 0 && moveCalls[1].dy === -1 &&
+                              moveCalls[2].dx === -1 && moveCalls[2].dy === 0 &&
+                              moveCalls[3].dx === 1 && moveCalls[3].dy === 0;
+                
+                log('Arrow key mapping test: ' + (passed ? 'PASS' : 'FAIL'), passed ? 'pass' : 'fail');
+                log('Move calls: ' + JSON.stringify(moveCalls));
+                results.push({ test: 'Arrow key mappings', passed });
+            }
+            
+            // Test 2: WASD key mappings
+            log('\n=== Test 2: WASD Key Mappings ===', 'info');
+            {
+                const gameState = { state: 'PLAYING', score: 0, maxYReached: 0, lastFrameTime: 0 };
+                const player = new Player(5, 5);
+                const input = new Input(player, gameState);
+                
+                const moveCalls = [];
+                const originalMove = player.move.bind(player);
+                player.move = function(dx, dy) {
+                    moveCalls.push({ dx, dy });
+                    return originalMove(dx, dy);
+                };
+                
+                input.handleKeyDown(createMockKeyboardEvent('w'));
+                player.isMoving = false;
+                input.handleKeyDown(createMockKeyboardEvent('S'));
+                player.isMoving = false;
+                input.handleKeyDown(createMockKeyboardEvent('a'));
+                player.isMoving = false;
+                input.handleKeyDown(createMockKeyboardEvent('D'));
+                
+                const passed = moveCalls.length === 4 &&
+                              moveCalls[0].dx === 0 && moveCalls[0].dy === 1 &&
+                              moveCalls[1].dx === 0 && moveCalls[1].dy === -1 &&
+                              moveCalls[2].dx === -1 && moveCalls[2].dy === 0 &&
+                              moveCalls[3].dx === 1 && moveCalls[3].dy === 0;
+                
+                log('WASD key mapping test: ' + (passed ? 'PASS' : 'FAIL'), passed ? 'pass' : 'fail');
+                log('Move calls: ' + JSON.stringify(moveCalls));
+                results.push({ test: 'WASD key mappings', passed });
+            }
+            
+            // Test 3: Input blocking during animation
+            log('\n=== Test 3: Input Blocking During Animation ===', 'info');
+            {
+                const gameState = { state: 'PLAYING', score: 0, maxYReached: 0, lastFrameTime: 0 };
+                const player = new Player(0, 0);
+                const input = new Input(player, gameState);
+                
+                let moveCallCount = 0;
+                player.move = function(dx, dy) {
+                    moveCallCount++;
+                    this.isMoving = true;
+                    return true;
+                };
+                
+                input.handleKeyDown(createMockKeyboardEvent('ArrowUp'));
+                input.handleKeyDown(createMockKeyboardEvent('ArrowRight'));
+                input.handleKeyDown(createMockKeyboardEvent('ArrowDown'));
+                
+                const passed = moveCallCount === 1;
+                log('Animation blocking test: ' + (passed ? 'PASS' : 'FAIL'), passed ? 'pass' : 'fail');
+                log('Move call count: ' + moveCallCount + ' (expected: 1)');
+                results.push({ test: 'Input blocking during animation', passed });
+            }
+            
+            // Test 4: Input blocking when game is over
+            log('\n=== Test 4: Input Blocking When Game Over ===', 'info');
+            {
+                const gameState = { state: 'GAME_OVER', score: 10, maxYReached: 10, lastFrameTime: 0 };
+                const player = new Player(5, 10);
+                const input = new Input(player, gameState);
+                
+                let moveCallCount = 0;
+                player.move = function(dx, dy) {
+                    moveCallCount++;
+                    return true;
+                };
+                
+                input.handleKeyDown(createMockKeyboardEvent('ArrowUp'));
+                input.handleKeyDown(createMockKeyboardEvent('w'));
+                input.handleKeyDown(createMockKeyboardEvent('ArrowLeft'));
+                input.handleKeyDown(createMockKeyboardEvent('a'));
+                
+                const passed = moveCallCount === 0;
+                log('Game over blocking test: ' + (passed ? 'PASS' : 'FAIL'), passed ? 'pass' : 'fail');
+                log('Move call count: ' + moveCallCount + ' (expected: 0)');
+                results.push({ test: 'Input blocking when game over', passed });
+            }
+            
+            // Test 5: Correct direction vectors
+            log('\n=== Test 5: Direction Vector Correctness ===', 'info');
+            {
+                const gameState = { state: 'PLAYING', score: 0, maxYReached: 0, lastFrameTime: 0 };
+                const player = new Player(10, 10);
+                const input = new Input(player, gameState);
+                
+                const testCases = [
+                    { key: 'ArrowUp', expectedDx: 0, expectedDy: 1 },
+                    { key: 'ArrowDown', expectedDx: 0, expectedDy: -1 },
+                    { key: 'ArrowLeft', expectedDx: -1, expectedDy: 0 },
+                    { key: 'ArrowRight', expectedDx: 1, expectedDy: 0 },
+                    { key: 'w', expectedDx: 0, expectedDy: 1 },
+                    { key: 's', expectedDx: 0, expectedDy: -1 },
+                    { key: 'a', expectedDx: -1, expectedDy: 0 },
+                    { key: 'd', expectedDx: 1, expectedDy: 0 }
+                ];
+                
+                let allPassed = true;
+                for (const testCase of testCases) {
+                    let capturedDx = null, capturedDy = null;
+                    player.move = function(dx, dy) {
+                        capturedDx = dx;
+                        capturedDy = dy;
+                        return true;
+                    };
+                    
+                    input.handleKeyDown(createMockKeyboardEvent(testCase.key));
+                    
+                    if (capturedDx !== testCase.expectedDx || capturedDy !== testCase.expectedDy) {
+                        log(`FAIL: ${testCase.key} - Expected (${testCase.expectedDx}, ${testCase.expectedDy}), got (${capturedDx}, ${capturedDy})`, 'fail');
+                        allPassed = false;
+                    }
+                }
+                
+                log('Direction vector test: ' + (allPassed ? 'PASS' : 'FAIL'), allPassed ? 'pass' : 'fail');
+                results.push({ test: 'Direction vector correctness', passed: allPassed });
+            }
+            
+            // Test 6: Invalid keys ignored
+            log('\n=== Test 6: Invalid Keys Ignored ===', 'info');
+            {
+                const gameState = { state: 'PLAYING', score: 0, maxYReached: 0, lastFrameTime: 0 };
+                const player = new Player(0, 0);
+                const input = new Input(player, gameState);
+                
+                let moveCallCount = 0;
+                player.move = function(dx, dy) {
+                    moveCallCount++;
+                    return true;
+                };
+                
+                input.handleKeyDown(createMockKeyboardEvent(' '));
+                input.handleKeyDown(createMockKeyboardEvent('Enter'));
+                input.handleKeyDown(createMockKeyboardEvent('Escape'));
+                input.handleKeyDown(createMockKeyboardEvent('x'));
+                input.handleKeyDown(createMockKeyboardEvent('1'));
+                
+                const passed = moveCallCount === 0;
+                log('Invalid keys ignored test: ' + (passed ? 'PASS' : 'FAIL'), passed ? 'pass' : 'fail');
+                log('Move call count: ' + moveCallCount + ' (expected: 0)');
+                results.push({ test: 'Invalid keys ignored', passed });
+            }
+            
+            // Test 7: preventDefault called on valid input
+            log('\n=== Test 7: preventDefault Called ===', 'info');
+            {
+                const gameState = { state: 'PLAYING', score: 0, maxYReached: 0, lastFrameTime: 0 };
+                const player = new Player(0, 0);
+                const input = new Input(player, gameState);
+                
+                player.move = function(dx, dy) { return true; };
+                
+                const event = createMockKeyboardEvent('ArrowUp');
+                input.handleKeyDown(event);
+                
+                const passed = event.defaultPrevented === true;
+                log('preventDefault test: ' + (passed ? 'PASS' : 'FAIL'), passed ? 'pass' : 'fail');
+                results.push({ test: 'preventDefault called', passed });
+            }
+            
+            // Summary
+            log('\n=== TEST SUMMARY ===', 'info');
+            const totalTests = results.length;
+            const passedTests = results.filter(r => r.passed).length;
+            log(`Passed: ${passedTests}/${totalTests}`);
+            
+            if (passedTests === totalTests) {
+                log('✓ All tests passed!', 'pass');
+            } else {
+                log('✗ Some tests failed:', 'fail');
+                results.filter(r => !r.passed).forEach(r => {
+                    log(`  - ${r.test}`, 'fail');
+                });
+            }
+        }
+    </script>
+</body>
+</html>

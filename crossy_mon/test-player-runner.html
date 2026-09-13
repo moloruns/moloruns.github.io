@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Player Unit Tests</title>
+  <style>
+    body {
+      font-family: 'Courier New', monospace;
+      margin: 20px;
+      background-color: #f5f5f5;
+    }
+    h1 {
+      color: #333;
+    }
+    #results {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .pass {
+      color: #28a745;
+    }
+    .fail {
+      color: #dc3545;
+    }
+    .summary {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 3px;
+      font-weight: bold;
+    }
+    pre {
+      background-color: #f8f9fa;
+      padding: 10px;
+      border-left: 3px solid #dc3545;
+      margin: 5px 0;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>Player Unit Tests</h1>
+  <div id="results">Running tests...</div>
+
+  <script src="player.js"></script>
+  <script src="player.test.js"></script>
+  <script>
+    // Override console.log to capture test output
+    const output = [];
+    const originalLog = console.log;
+    const originalError = console.error;
+    
+    console.log = function(...args) {
+      output.push({ type: 'log', message: args.join(' ') });
+      originalLog.apply(console, args);
+    };
+    
+    console.error = function(...args) {
+      output.push({ type: 'error', message: args.join(' ') });
+      originalError.apply(console, args);
+    };
+    
+    // Run tests and display results
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        const resultsDiv = document.getElementById('results');
+        let html = '';
+        
+        output.forEach(item => {
+          if (item.message.startsWith('✓')) {
+            html += `<div class="pass">${item.message}</div>`;
+          } else if (item.message.startsWith('✗')) {
+            html += `<div class="fail">${item.message}</div>`;
+          } else if (item.type === 'error') {
+            html += `<pre class="fail">${item.message}</pre>`;
+          } else {
+            html += `<div>${item.message}</div>`;
+          }
+        });
+        
+        resultsDiv.innerHTML = html;
+      }, 100);
+    });
+  </script>
+</body>
+</html>

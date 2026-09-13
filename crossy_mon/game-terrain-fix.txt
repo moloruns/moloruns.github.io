@@ -1,0 +1,32 @@
+  generateInitialTerrain() {
+    const NUM_INITIAL_ROWS = 20; // Generate 20 rows ahead
+    const STARTING_Y = 0; // Start at player position (no terrain behind)
+    
+    for (let i = 0; i < NUM_INITIAL_ROWS; i++) {
+      const y = STARTING_Y + i;
+      
+      // Mix terrain types (grass, roads, rivers, train tracks)
+      let terrainRow;
+      const rand = Math.random();
+      
+      if (i < 3) {
+        // First 3 rows always grass (safe start)
+        terrainRow = generateGrass(y);
+      } else if (rand < 0.4) {
+        terrainRow = generateGrass(y);
+      } else if (rand < 0.65) {
+        terrainRow = generateRoad(y);
+        console.log(`Generated road at Y=${y} with ${terrainRow.obstacles.length} cars`);
+      } else if (rand < 0.85) {
+        terrainRow = generateRiver(y);
+        console.log(`Generated river at Y=${y} with ${terrainRow.platforms.length} platforms`);
+      } else {
+        terrainRow = generateTrainTrack(y);
+        console.log(`Generated train track at Y=${y}`);
+      }
+      
+      this.world.addTerrainRow(terrainRow);
+    }
+    
+    console.log(`Generated ${NUM_INITIAL_ROWS} initial terrain rows from Y=${STARTING_Y} to Y=${STARTING_Y + NUM_INITIAL_ROWS - 1}`);
+  }

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>World Class Tests</title>
+  <style>
+    body {
+      font-family: 'Courier New', monospace;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    h1 {
+      color: #333;
+      border-bottom: 2px solid #333;
+      padding-bottom: 10px;
+    }
+    #output {
+      background-color: #1e1e1e;
+      color: #d4d4d4;
+      padding: 20px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      white-space: pre-wrap;
+      overflow-x: auto;
+    }
+    .pass {
+      color: #4ec9b0;
+    }
+    .fail {
+      color: #f48771;
+    }
+    .summary {
+      color: #dcdcaa;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>World Class Unit Tests</h1>
+  <div id="output">Running tests...</div>
+
+  <script src="world.js"></script>
+  <script>
+    // Override console.log to display in page
+    const output = document.getElementById('output');
+    const originalLog = console.log;
+    const originalError = console.error;
+    
+    console.log = function(...args) {
+      const message = args.join(' ');
+      if (message.includes('✓')) {
+        output.innerHTML += `<span class="pass">${message}</span>\n`;
+      } else if (message.includes('Results:')) {
+        output.innerHTML += `\n<span class="summary">${message}</span>\n`;
+      } else {
+        output.innerHTML += message + '\n';
+      }
+      originalLog.apply(console, args);
+    };
+    
+    console.error = function(...args) {
+      const message = args.join(' ');
+      output.innerHTML += `<span class="fail">${message}</span>\n`;
+      originalError.apply(console, args);
+    };
+    
+    // Clear initial message
+    output.innerHTML = '';
+  </script>
+  <script src="world.test.js"></script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input System Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #333;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .test-result {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 3px;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+        }
+        .failure {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .log {
+            font-family: monospace;
+            font-size: 12px;
+            margin: 5px 0;
+        }
+        #playerDisplay {
+            margin: 20px 0;
+            padding: 20px;
+            background: #e3f2fd;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .instructions {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Input System Test</h1>
+    
+    <div class="instructions">
+        <h3>Instructions:</h3>
+        <p>Use arrow keys (↑ ↓ ← →) or WASD keys to move the player.</p>
+        <p>The player position should update after each key press.</p>
+        <p>Input should be blocked during animations and when game is over.</p>
+    </div>
+
+    <div id="playerDisplay">
+        Player Position: (X: <span id="playerX">0</span>, Y: <span id="playerY">0</span>)
+        <br>
+        Is Animating: <span id="isAnimating">No</span>
+        <br>
+        Game State: <span id="gameState">PLAYING</span>
+    </div>
+
+    <div class="test-section">
+        <h3>Test Controls:</h3>
+        <button onclick="setGameOver()">Set Game Over</button>
+        <button onclick="setPlaying()">Set Playing</button>
+        <button onclick="resetPlayer()">Reset Player Position</button>
+    </div>
+
+    <div class="test-section">
+        <h3>Input Log:</h3>
+        <div id="inputLog"></div>
+    </div>
+
+    <script src="player.js"></script>
+    <script src="input.js"></script>
+    <script>
+        // Create test game state
+        const gameState = {
+            state: 'PLAYING',
+            score: 0,
+            maxYReached: 0,
+            lastFrameTime: 0
+        };
+
+        // Create player
+        const player = new Player(0, 0);
+
+        // Create input system
+        const inputSystem = new Input(player, gameState);
+
+        // Log array
+        const logs = [];
+
+        // Update display function
+        function updateDisplay() {
+            document.getElementById('playerX').textContent = player.x;
+            document.getElementById('playerY').textContent = player.y;
+            document.getElementById('isAnimating').textContent = player.isAnimating() ? 'Yes' : 'No';
+            document.getElementById('gameState').textContent = gameState.state;
+        }
+
+        // Log input function
+        function logInput(message) {
+            const timestamp = new Date().toLocaleTimeString();
+            logs.unshift(`[${timestamp}] ${message}`);
+            if (logs.length > 20) logs.pop();
+            
+            const logDiv = document.getElementById('inputLog');
+            logDiv.innerHTML = logs.map(log => `<div class="log">${log}</div>`).join('');
+        }
+
+        // Override player.move to add logging
+        const originalMove = player.move.bind(player);
+        player.move = function(dx, dy) {
+            const result = originalMove(dx, dy);
+            if (result) {
+                logInput(`Move initiated: (dx: ${dx}, dy: ${dy}) → Target: (${player.targetPos.x}, ${player.targetPos.y})`);
+            } else {
+                logInput(`Move blocked: Player is animating`);
+            }
+            updateDisplay();
+            return result;
+        };
+
+        // Game loop to handle animations
+        function gameLoop(currentTime) {
+            if (!gameState.lastFrameTime) {
+                gameState.lastFrameTime = currentTime;
+            }
+            
+            const deltaTime = currentTime - gameState.lastFrameTime;
+            gameState.lastFrameTime = currentTime;
+            
+            const wasAnimating = player.isAnimating();
+            const completed = player.update(deltaTime);
+            
+            if (completed) {
+                logInput(`Animation completed at position (${player.x}, ${player.y})`);
+            }
+            
+            if (wasAnimating !== player.isAnimating()) {
+                updateDisplay();
+            }
+            
+            requestAnimationFrame(gameLoop);
+        }
+
+        // Test control functions
+        function setGameOver() {
+            gameState.state = 'GAME_OVER';
+            logInput('Game state changed to GAME_OVER - input should be blocked');
+            updateDisplay();
+        }
+
+        function setPlaying() {
+            gameState.state = 'PLAYING';
+            logInput('Game state changed to PLAYING - input should work');
+            updateDisplay();
+        }
+
+        function resetPlayer() {
+            player.x = 0;
+            player.y = 0;
+            player.isMoving = false;
+            player.animationProgress = 0;
+            logInput('Player position reset to (0, 0)');
+            updateDisplay();
+        }
+
+        // Intercept keydown events for logging
+        window.addEventListener('keydown', (e) => {
+            if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'w', 'W', 'a', 'A', 's', 'S', 'd', 'D'].includes(e.key)) {
+                if (gameState.state === 'GAME_OVER') {
+                    logInput(`Key pressed: ${e.key} - BLOCKED (Game Over)`);
+                } else if (player.isAnimating()) {
+                    logInput(`Key pressed: ${e.key} - BLOCKED (Animating)`);
+                }
+            }
+        }, { capture: true });
+
+        // Start game loop
+        requestAnimationFrame(gameLoop);
+
+        // Initial display
+        updateDisplay();
+        logInput('Input system initialized - ready for testing');
+    </script>
+</body>
+</html>

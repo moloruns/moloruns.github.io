@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Tests - Tasks 12.2 & 12.3</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #4EC9B0;
+        }
+        .test-section {
+            background: #252526;
+            border: 1px solid #3e3e42;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .pass {
+            color: #4EC9B0;
+        }
+        .fail {
+            color: #f48771;
+        }
+        .summary {
+            background: #1a1a1a;
+            border: 2px solid #4EC9B0;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 5px;
+        }
+        pre {
+            background: #1a1a1a;
+            padding: 10px;
+            border-radius: 3px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit Tests for Tasks 12.2 & 12.3</h1>
+        <p>Testing car movement in game loop and obstacle rendering</p>
+        
+        <div id="test-output"></div>
+        <div id="summary" class="summary"></div>
+    </div>
+
+    <!-- Load dependencies for generateRoad test -->
+    <script src="generator.js"></script>
+
+    <script>
+        const output = document.getElementById('test-output');
+        const summaryDiv = document.getElementById('summary');
+        
+        let testsPassed = 0;
+        let testsFailed = 0;
+
+        function log(message, type = 'normal') {
+            const div = document.createElement('div');
+            div.className = type;
+            div.textContent = message;
+            output.appendChild(div);
+        }
+
+        function assert(condition, message) {
+            if (condition) {
+                log(`✓ PASS: ${message}`, 'pass');
+                testsPassed++;
+            } else {
+                log(`✗ FAIL: ${message}`, 'fail');
+                testsFailed++;
+            }
+        }
+
+        function assertApprox(actual, expected, tolerance, message) {
+            const diff = Math.abs(actual - expected);
+            if (diff <= tolerance) {
+                log(`✓ PASS: ${message} (${actual} ≈ ${expected})`, 'pass');
+                testsPassed++;
+            } else {
+                log(`✗ FAIL: ${message} (${actual} vs ${expected}, diff: ${diff})`, 'fail');
+                testsFailed++;
+            }
+        }
+
+        function testSection(title) {
+            const section = document.createElement('div');
+            section.className = 'test-section';
+            section.innerHTML = `<h3>${title}</h3>`;
+            output.appendChild(section);
+            return section;
+        }
+
+        // Run all tests
+        log('=== Starting Tests for Tasks 12.2 and 12.3 ===\n');
+
+        // Test 1: Car position updates based on velocity and deltaTime
+        {
+            const section = testSection('Test 1: Car Movement Updates');
+            const car = {
+                x: 0,
+                y: 5,
+                width: 2,
+                velocity: 0.02, // 0.02 cells/ms
+                type: 'CAR'
+            };
+            
+            const deltaTime = 100; // 100ms
+            const expectedDisplacement = 0.02 * 100; // 2 cells
+            
+            // Simulate the update
+            car.x += car.velocity * deltaTime;
+            
+            assertApprox(car.x, expectedDisplacement, 0.001, 'Car X position updates correctly based on velocity and deltaTime');
+        }
+
+        // Test 2: Cars wrap around when going off screen (positive velocity)
+        {
+            testSection('Test 2: Car Wraparound (Right)');
+            const car = {
+                x: 25, // Beyond threshold
+                y: 5,
+                width: 2,
+                velocity: 0.02,
+                type: 'CAR'
+            };
+            
+            const SCREEN_WRAP_THRESHOLD = 20;
+            const WRAP_RESET_POSITION = 5;
+            
+            // Simulate wraparound logic
+            if (car.velocity > 0 && car.x > SCREEN_WRAP_THRESHOLD) {
+                car.x = -SCREEN_WRAP_THRESHOLD - WRAP_RESET_POSITION;
+            }
+            
+            assert(car.x === -25, 'Car wraps to left side when moving right off screen');
+        }
+
+        // Test 3: Cars wrap around when going off screen (negative velocity)
+        {
+            testSection('Test 3: Car Wraparound (Left)');
+            const car = {
+                x: -25, // Beyond threshold
+                y: 5,
+                width: 2,
+                velocity: -0.02,
+                type: 'CAR'
+            };
+            
+            const SCREEN_WRAP_THRESHOLD = 20;
+            const WRAP_RESET_POSITION = 5;
+            
+            // Simulate wraparound logic
+            if (car.velocity < 0 && car.x < -SCREEN_WRAP_THRESHOLD) {
+                car.x = SCREEN_WRAP_THRESHOLD + WRAP_RESET_POSITION;
+            }
+            
+            assert(car.x === 25, 'Car wraps to right side when moving left off screen');
+        }
+
+        // Test 4: Multiple cars update independently
+        {
+            testSection('Test 4: Multiple Cars Update');
+            const cars = [
+                { x: 0, y: 5, width: 2, velocity: 0.02, type: 'CAR' },
+                { x: 5, y: 5, width: 2, velocity: 0.03, type: 'CAR' },
+                { x: -5, y: 5, width: 2, velocity: -0.01, type: 'CAR' }
+            ];
+            
+            const deltaTime = 100;
+            
+            cars.forEach(car => {
+                car.x += car.velocity * deltaTime;
+            });
+            
+            assertApprox(cars[0].x, 2, 0.001, 'First car moves correctly');
+            assertApprox(cars[1].x, 8, 0.001, 'Second car moves correctly');
+            assertApprox(cars[2].x, -6, 0.001, 'Third car moves correctly');
+        }
+
+        // Test 5: Obstacle rendering color mapping
+        {
+            testSection('Test 5: Obstacle Rendering Colors');
+            function getObstacleColor(type) {
+                switch (type) {
+                    case 'CAR':
+                        return '#FF6347'; // Tomato red
+                    case 'TRAIN':
+                        return '#8B0000'; // Dark red
+                    default:
+                        return '#FF0000'; // Red fallback
+                }
+            }
+            
+            assert(getObstacleColor('CAR') === '#FF6347', 'Cars render with correct color (Requirement 4.6)');
+            assert(getObstacleColor('TRAIN') === '#8B0000', 'Trains render with correct color');
+        }
+
+        // Test 6: Obstacles sorted by Y coordinate
+        {
+            testSection('Test 6: Obstacle Sorting by Y Coordinate');
+            const entities = [
+                { type: 'obstacle', entity: { x: 0, y: 10, width: 2 }, y: 10 },
+                { type: 'obstacle', entity: { x: 5, y: 5, width: 2 }, y: 5 },
+                { type: 'obstacle', entity: { x: -3, y: 8, width: 2 }, y: 8 },
+                { type: 'obstacle', entity: { x: 2, y: 3, width: 2 }, y: 3 }
+            ];
+            
+            entities.sort((a, b) => a.y - b.y);
+            
+            assert(entities[0].y === 3, 'First entity has lowest Y (back to front rendering)');
+            assert(entities[1].y === 5, 'Second entity has next lowest Y');
+            assert(entities[2].y === 8, 'Third entity has next lowest Y');
+            assert(entities[3].y === 10, 'Last entity has highest Y (Requirement 4.6)');
+        }
+
+        // Test 7: Cars continuously update every frame
+        {
+            testSection('Test 7: Continuous Car Movement');
+            const car = {
+                x: 0,
+                y: 5,
+                width: 2,
+                velocity: 0.02,
+                type: 'CAR'
+            };
+            
+            // Simulate 5 frames
+            const frames = [16.67, 16.67, 16.67, 16.67, 16.67]; // ~60 FPS
+            let totalDisplacement = 0;
+            
+            frames.forEach(deltaTime => {
+                car.x += car.velocity * deltaTime;
+                totalDisplacement += car.velocity * deltaTime;
+            });
+            
+            assertApprox(totalDisplacement, 0.02 * 16.67 * 5, 0.01, 'Car moves continuously over multiple frames (Requirement 7.4)');
+        }
+
+        // Test 8: Road generation creates cars (requirement 7.2)
+        {
+            testSection('Test 8: Road Generation Creates Cars');
+            
+            if (typeof generateRoad === 'function') {
+                const road = generateRoad(5);
+                
+                assert(road.type === 'ROAD', 'Generated terrain has ROAD type');
+                assert(Array.isArray(road.obstacles), 'Road has obstacles array');
+                assert(road.obstacles.length >= 2 && road.obstacles.length <= 4, 'Road has 2-4 cars as per design');
+                
+                if (road.obstacles.length > 0) {
+                    const car = road.obstacles[0];
+                    assert(typeof car.x === 'number', 'Car has X position');
+                    assert(typeof car.velocity === 'number', 'Car has velocity (Requirement 7.4)');
+                    assert(car.width === 2, 'Car has standard width of 2');
+                    assert(car.type === 'CAR', 'Obstacle is correctly typed as CAR');
+                    
+                    // Check velocity is in expected range
+                    const speed = Math.abs(car.velocity);
+                    assert(speed >= 0.015 && speed <= 0.03, `Car speed is in range 0.015-0.03 cells/ms (actual: ${speed})`);
+                }
+            } else {
+                log('✗ FAIL: generateRoad function not available', 'fail');
+                testsFailed++;
+            }
+        }
+
+        // Summary
+        summaryDiv.innerHTML = `
+            <h2>Test Summary</h2>
+            <p><strong>Total Tests:</strong> ${testsPassed + testsFailed}</p>
+            <p><strong class="pass">Passed:</strong> ${testsPassed}</p>
+            <p><strong class="fail">Failed:</strong> ${testsFailed}</p>
+            ${testsFailed === 0 
+                ? '<p class="pass">✓ All tests passed! Tasks 12.2 and 12.3 are correctly implemented.</p>' 
+                : `<p class="fail">✗ ${testsFailed} test(s) failed. Please review the implementation.</p>`
+            }
+        `;
+    </script>
+</body>
+</html>

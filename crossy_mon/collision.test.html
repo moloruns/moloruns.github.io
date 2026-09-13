@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collision System Tests</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-section {
+            background-color: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-result {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 3px;
+        }
+        .pass {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .fail {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Collision System Tests</h1>
+    <div id="results"></div>
+
+    <!-- Load dependencies -->
+    <script src="world.js"></script>
+    <script src="collision.js"></script>
+
+    <script>
+        // Test utilities
+        function assertEqual(actual, expected, testName) {
+            const passed = actual === expected;
+            const resultDiv = document.createElement('div');
+            resultDiv.className = `test-result ${passed ? 'pass' : 'fail'}`;
+            resultDiv.textContent = `${passed ? '✓' : '✗'} ${testName}: Expected ${expected}, got ${actual}`;
+            return resultDiv;
+        }
+
+        function runTests() {
+            const resultsDiv = document.getElementById('results');
+
+            // Test 1: isOverlapping - basic overlap
+            const section1 = document.createElement('div');
+            section1.className = 'test-section';
+            section1.innerHTML = '<h2>Test 1: isOverlapping - Basic Overlap Detection</h2>';
+            
+            const player1 = { x: 5, y: 10 };
+            const entity1 = { x: 4, y: 10, width: 3 }; // Overlaps at x=5
+            section1.appendChild(assertEqual(
+                isOverlapping(player1, entity1),
+                true,
+                'Player at (5, 10) overlaps with entity at x=4, width=3'
+            ));
+
+            const player2 = { x: 3, y: 10 };
+            const entity2 = { x: 4, y: 10, width: 3 };
+            section1.appendChild(assertEqual(
+                isOverlapping(player2, entity2),
+                false,
+                'Player at (3, 10) does not overlap with entity at x=4, width=3'
+            ));
+
+            const player3 = { x: 5, y: 9 };
+            const entity3 = { x: 4, y: 10, width: 3 };
+            section1.appendChild(assertEqual(
+                isOverlapping(player3, entity3),
+                false,
+                'Player on different row does not overlap'
+            ));
+
+            resultsDiv.appendChild(section1);
+
+            // Test 2: checkCollisions - car collision
+            const section2 = document.createElement('div');
+            section2.className = 'test-section';
+            section2.innerHTML = '<h2>Test 2: checkCollisions - Car Obstacle</h2>';
+            
+            const world1 = new World();
+            world1.addTerrainRow({
+                y: 5,
+                type: 'ROAD',
+                obstacles: [
+                    { x: 3, y: 5, width: 2, type: 'CAR', velocity: 0.02 }
+                ],
+                platforms: []
+            });
+            
+            const playerOnCar = { x: 3, y: 5 };
+            section2.appendChild(assertEqual(
+                checkCollisions(playerOnCar, world1),
+                'COLLISION',
+                'Player colliding with car'
+            ));
+
+            const playerSafeonRoad = { x: 6, y: 5 };
+            section2.appendChild(assertEqual(
+                checkCollisions(playerSafeonRoad, world1),
+                'SAFE',
+                'Player safe on road without car'
+            ));
+
+            resultsDiv.appendChild(section2);
+
+            // Test 3: checkCollisions - water hazard
+            const section3 = document.createElement('div');
+            section3.className = 'test-section';
+            section3.innerHTML = '<h2>Test 3: checkCollisions - Water Hazard</h2>';
+            
+            const world2 = new World();
+            world2.addTerrainRow({
+                y: 8,
+                type: 'RIVER',
+                obstacles: [],
+                platforms: [
+                    { x: 2, y: 8, width: 3, type: 'LOG', velocity: 0.01 }
+                ]
+            });
+            
+            const playerInWater = { x: 6, y: 8 };
+            section3.appendChild(assertEqual(
+                checkCollisions(playerInWater, world2),
+                'WATER_HAZARD',
+                'Player in water without platform'
+            ));
+
+            const playerOnPlatform = { x: 3, y: 8 };
+            section3.appendChild(assertEqual(
+                checkCollisions(playerOnPlatform, world2),
+                'SAFE',
+                'Player safe on platform'
+            ));
+
+            resultsDiv.appendChild(section3);
+
+            // Test 4: checkCollisions - grass safety
+            const section4 = document.createElement('div');
+            section4.className = 'test-section';
+            section4.innerHTML = '<h2>Test 4: checkCollisions - Grass Safety</h2>';
+            
+            const world3 = new World();
+            world3.addTerrainRow({
+                y: 0,
+                type: 'GRASS',
+                obstacles: [],
+                platforms: []
+            });
+            
+            const playerOnGrass = { x: 0, y: 0 };
+            section4.appendChild(assertEqual(
+                checkCollisions(playerOnGrass, world3),
+                'SAFE',
+                'Player safe on grass'
+            ));
+
+            resultsDiv.appendChild(section4);
+
+            // Test 5: Edge cases
+            const section5 = document.createElement('div');
+            section5.className = 'test-section';
+            section5.innerHTML = '<h2>Test 5: Edge Cases</h2>';
+            
+            // No terrain at position
+            const world4 = new World();
+            const playerNoTerrain = { x: 10, y: 10 };
+            section5.appendChild(assertEqual(
+                checkCollisions(playerNoTerrain, world4),
+                'SAFE',
+                'Player on non-existent terrain is safe'
+            ));
+
+            // Entity at exact boundary
+            const player6 = { x: 4, y: 5 };
+            const entity6 = { x: 4, y: 5, width: 2 };
+            section5.appendChild(assertEqual(
+                isOverlapping(player6, entity6),
+                true,
+                'Player at entity start boundary overlaps'
+            ));
+
+            const player7 = { x: 6, y: 5 };
+            const entity7 = { x: 4, y: 5, width: 2 };
+            section5.appendChild(assertEqual(
+                isOverlapping(player7, entity7),
+                false,
+                'Player at entity end boundary does not overlap (exclusive)'
+            ));
+
+            resultsDiv.appendChild(section5);
+        }
+
+        // Run tests when page loads
+        window.addEventListener('DOMContentLoaded', runTests);
+    </script>
+</body>
+</html>

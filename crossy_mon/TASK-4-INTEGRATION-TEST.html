@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 4.1 & 4.2 Integration Test</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    canvas {
+      border: 2px solid #333;
+      background-color: #fff;
+      display: block;
+      margin: 20px auto;
+    }
+    .status-panel {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin: 20px 0;
+    }
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+    .status-item {
+      padding: 10px;
+      background-color: #f8f9fa;
+      border-radius: 3px;
+    }
+    .status-item strong {
+      display: block;
+      color: #495057;
+      margin-bottom: 5px;
+    }
+    .test-results {
+      margin-top: 20px;
+    }
+    .test-pass {
+      color: #28a745;
+      font-weight: bold;
+    }
+    .test-fail {
+      color: #dc3545;
+      font-weight: bold;
+    }
+    .controls {
+      text-align: center;
+      margin: 20px 0;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .info-box {
+      background-color: #e7f3ff;
+      border-left: 4px solid #007bff;
+      padding: 15px;
+      margin: 15px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Task 4.1 & 4.2 Integration Test</h1>
+    
+    <div class="info-box">
+      <strong>Task 4.1:</strong> Create Player class with state (x, y, isMoving, animationProgress, startPos, targetPos) and getCurrentPosition() method<br>
+      <strong>Task 4.2:</strong> Implement player rendering as a distinct colored shape using interpolated position
+    </div>
+
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    
+    <div class="controls">
+      <button onclick="testMoveSequence()">Run Movement Test</button>
+      <button onclick="testAnimation()">Test Animation</button>
+      <button onclick="testGetCurrentPosition()">Test getCurrentPosition()</button>
+      <button onclick="resetPlayer()">Reset Player</button>
+    </div>
+
+    <div class="status-panel">
+      <h3>Live Player State</h3>
+      <div class="status-grid">
+        <div class="status-item">
+          <strong>Grid Position</strong>
+          <span id="gridPosition">(0, 0)</span>
+        </div>
+        <div class="status-item">
+          <strong>Render Position</strong>
+          <span id="renderPosition">(0.00, 0.00)</span>
+        </div>
+        <div class="status-item">
+          <strong>Is Moving</strong>
+          <span id="isMoving">false</span>
+        </div>
+        <div class="status-item">
+          <strong>Animation Progress</strong>
+          <span id="animProgress">0%</span>
+        </div>
+        <div class="status-item">
+          <strong>Start Position</strong>
+          <span id="startPos">(0, 0)</span>
+        </div>
+        <div class="status-item">
+          <strong>Target Position</strong>
+          <span id="targetPos">(0, 0)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="status-panel test-results">
+      <h3>Test Results</h3>
+      <div id="testResults">No tests run yet. Click a test button above.</div>
+    </div>
+
+    <div class="info-box">
+      <strong>Manual Test:</strong> Use arrow keys or WASD to move the player and observe:<br>
+      • Player renders as a blue diamond shape ✓<br>
+      • Position interpolates smoothly during animation ✓<br>
+      • getCurrentPosition() returns interpolated values during movement ✓<br>
+      • Camera follows player position ✓
+    </div>
+  </div>
+
+  <script src="player.js"></script>
+  <script src="renderer.js"></script>
+  <script>
+    // Initialize canvas and systems
+    const canvas = document.getElementById('gameCanvas');
+    const renderer = new Renderer(canvas);
+    const player = new Player(0, 0);
+    
+    let lastFrameTime = performance.now();
+    let testLog = [];
+    
+    // Test logging
+    function logTest(name, passed, details = '') {
+      testLog.push({ name, passed, details });
+      updateTestResults();
+    }
+    
+    function updateTestResults() {
+      const resultsDiv = document.getElementById('testResults');
+      let html = '';
+      testLog.forEach(test => {
+        const className = test.passed ? 'test-pass' : 'test-fail';
+        const status = test.passed ? '✓ PASS' : '✗ FAIL';
+        html += `<div class="${className}">${status}: ${test.name}</div>`;
+        if (test.details) {
+          html += `<div style="margin-left: 20px; color: #666;">${test.details}</div>`;
+        }
+      });
+      resultsDiv.innerHTML = html;
+    }
+    
+    // Update status display
+    function updateStatus() {
+      const pos = player.getCurrentPosition();
+      document.getElementById('gridPosition').textContent = `(${player.x}, ${player.y})`;
+      document.getElementById('renderPosition').textContent = `(${pos.x.toFixed(2)}, ${pos.y.toFixed(2)})`;
+      document.getElementById('isMoving').textContent = player.isMoving;
+      document.getElementById('animProgress').textContent = `${(player.animationProgress * 100).toFixed(1)}%`;
+      document.getElementById('startPos').textContent = `(${player.startPos.x}, ${player.startPos.y})`;
+      document.getElementById('targetPos').textContent = `(${player.targetPos.x}, ${player.targetPos.y})`;
+    }
+    
+    // Test functions
+    function resetPlayer() {
+      player.x = 0;
+      player.y = 0;
+      player.isMoving = false;
+      player.animationProgress = 0;
+      player.startPos = { x: 0, y: 0 };
+      player.targetPos = { x: 0, y: 0 };
+      testLog = [];
+      updateTestResults();
+    }
+    
+    async function testMoveSequence() {
+      resetPlayer();
+      
+      // Test Task 4.1: Player state fields
+      logTest('Task 4.1: Player has x field', 'x' in player);
+      logTest('Task 4.1: Player has y field', 'y' in player);
+      logTest('Task 4.1: Player has isMoving field', 'isMoving' in player);
+      logTest('Task 4.1: Player has animationProgress field', 'animationProgress' in player);
+      logTest('Task 4.1: Player has startPos field', 'startPos' in player);
+      logTest('Task 4.1: Player has targetPos field', 'targetPos' in player);
+      
+      // Test initial position
+      logTest('Task 4.1: Player initializes at (0, 0)', player.x === 0 && player.y === 0);
+      
+      // Test movement
+      const moveResult = player.move(1, 0);
+      logTest('Task 4.1: move() returns true', moveResult === true);
+      logTest('Task 4.1: isMoving is true after move()', player.isMoving === true);
+      
+      await new Promise(resolve => setTimeout(resolve, 160));
+      
+      logTest('Task 4.1: Player position updates after animation', player.x === 1 && player.y === 0);
+    }
+    
+    async function testAnimation() {
+      resetPlayer();
+      
+      player.move(4, 0);
+      
+      // Sample positions during animation
+      const samples = [];
+      for (let i = 0; i < 5; i++) {
+        await new Promise(resolve => setTimeout(resolve, 30));
+        const pos = player.getCurrentPosition();
+        samples.push({ progress: player.animationProgress, x: pos.x, y: pos.y });
+      }
+      
+      // Verify interpolation
+      let allInterpolated = true;
+      samples.forEach(sample => {
+        if (sample.progress > 0 && sample.progress < 1) {
+          // During animation, x should be between 0 and 4
+          if (sample.x < 0 || sample.x > 4) {
+            allInterpolated = false;
+          }
+        }
+      });
+      
+      logTest('Task 4.2: Position interpolates during animation', allInterpolated, 
+        `Sampled ${samples.length} positions during movement`);
+    }
+    
+    function testGetCurrentPosition() {
+      resetPlayer();
+      
+      // Test when not moving
+      let pos = player.getCurrentPosition();
+      logTest('Task 4.1: getCurrentPosition() returns grid position when not moving', 
+        pos.x === 0 && pos.y === 0);
+      
+      // Test during animation
+      player.move(4, 2);
+      player.animationProgress = 0.5; // Simulate 50% progress
+      pos = player.getCurrentPosition();
+      
+      const expectedX = 2.0; // 50% between 0 and 4
+      const expectedY = 1.0; // 50% between 0 and 2
+      const tolerance = 0.01;
+      
+      const xCorrect = Math.abs(pos.x - expectedX) < tolerance;
+      const yCorrect = Math.abs(pos.y - expectedY) < tolerance;
+      
+      logTest('Task 4.1: getCurrentPosition() interpolates at 50%', 
+        xCorrect && yCorrect,
+        `Expected (2.0, 1.0), got (${pos.x.toFixed(2)}, ${pos.y.toFixed(2)})`);
+    }
+    
+    // Keyboard input
+    document.addEventListener('keydown', (event) => {
+      if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(event.key)) {
+        event.preventDefault();
+      }
+      
+      switch(event.key) {
+        case 'ArrowUp':
+        case 'w':
+        case 'W':
+          player.move(0, 1);
+          break;
+        case 'ArrowDown':
+        case 's':
+        case 'S':
+          player.move(0, -1);
+          break;
+        case 'ArrowLeft':
+        case 'a':
+        case 'A':
+          player.move(-1, 0);
+          break;
+        case 'ArrowRight':
+        case 'd':
+        case 'D':
+          player.move(1, 0);
+          break;
+      }
+    });
+    
+    // Draw grid
+    function drawGrid() {
+      const gridSize = 10;
+      for (let y = -gridSize; y <= gridSize; y++) {
+        for (let x = -gridSize; x <= gridSize; x++) {
+          const color = (x + y) % 2 === 0 ? '#e8e8e8' : '#d0d0d0';
+          renderer.drawTile(x, y, color);
+        }
+      }
+      renderer.drawTile(0, 0, '#90EE90');
+    }
+    
+    // Render loop
+    function render() {
+      renderer.clear();
+      
+      const playerPos = player.getCurrentPosition();
+      renderer.centerCameraOnPlayer(playerPos.x, playerPos.y);
+      
+      drawGrid();
+      
+      // Task 4.2: Draw player as distinct colored shape (blue diamond)
+      renderer.drawEntity(playerPos.x, playerPos.y, 1, '#4169E1', 0.5);
+      
+      updateStatus();
+    }
+    
+    // Game loop
+    function gameLoop(currentTime) {
+      const deltaTime = currentTime - lastFrameTime;
+      lastFrameTime = currentTime;
+      
+      player.update(deltaTime);
+      render();
+      
+      requestAnimationFrame(gameLoop);
+    }
+    
+    // Start
+    console.log('Task 4.1 & 4.2 Integration Test initialized');
+    requestAnimationFrame(gameLoop);
+  </script>
+</body>
+</html>

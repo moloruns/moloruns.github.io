@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generator Tests - Road Generation</title>
+  <style>
+    body {
+      font-family: monospace;
+      padding: 20px;
+      background: #1e1e1e;
+      color: #d4d4d4;
+    }
+    .test {
+      margin: 10px 0;
+      padding: 10px;
+      background: #252526;
+      border-left: 3px solid #007acc;
+    }
+    .pass {
+      border-left-color: #4ec9b0;
+    }
+    .fail {
+      border-left-color: #f48771;
+    }
+    h1 {
+      color: #4ec9b0;
+    }
+    h2 {
+      color: #569cd6;
+      margin-top: 20px;
+    }
+    .summary {
+      margin-top: 20px;
+      padding: 15px;
+      background: #2d2d30;
+      border-left: 4px solid #4ec9b0;
+      font-weight: bold;
+    }
+    .detail {
+      margin: 5px 0;
+      padding: 5px;
+      font-size: 12px;
+      color: #9cdcfe;
+    }
+  </style>
+</head>
+<body>
+  <h1>Generator Tests: Task 12.1 - Road Generation Logic</h1>
+  <div id="results"></div>
+  <div id="summary" class="summary"></div>
+
+  <script src="generator.js"></script>
+  <script>
+    const results = document.getElementById('results');
+    const summaryDiv = document.getElementById('summary');
+    let passCount = 0;
+    let failCount = 0;
+
+    function test(name, fn) {
+      try {
+        fn();
+        passCount++;
+        results.innerHTML += `<div class="test pass">✓ ${name}</div>`;
+      } catch (error) {
+        failCount++;
+        results.innerHTML += `<div class="test fail">✗ ${name}<br><span class="detail">${error.message}</span></div>`;
+      }
+    }
+
+    function assert(condition, message) {
+      if (!condition) {
+        throw new Error(message);
+      }
+    }
+
+    function assertBetween(value, min, max, label) {
+      if (value < min || value > max) {
+        throw new Error(`${label} expected to be between ${min} and ${max}, got ${value}`);
+      }
+    }
+
+    // Test Suite
+    console.log('Running generator tests...');
+
+    test('generateRoad returns object with correct structure', () => {
+      const road = generateRoad(5);
+      assert(road.y === 5, 'Y coordinate should match input');
+      assert(road.type === 'ROAD', 'Type should be ROAD');
+      assert(Array.isArray(road.obstacles), 'Obstacles should be an array');
+      assert(Array.isArray(road.platforms), 'Platforms should be an array');
+      assert(typeof road.metadata === 'object', 'Metadata should be an object');
+    });
+
+    test('generateRoad spawns 2-4 cars', () => {
+      const road = generateRoad(10);
+      const numCars = road.obstacles.length;
+      assertBetween(numCars, 2, 4, 'Number of cars');
+    });
+
+    test('generateRoad assigns valid direction (-1 or 1)', () => {
+      const road = generateRoad(15);
+      const direction = road.metadata.direction;
+      assert(direction === -1 || direction === 1, `Direction should be -1 or 1, got ${direction}`);
+    });
+
+    test('generateRoad assigns speed between 0.015-0.03 cells/ms', () => {
+      const road = generateRoad(20);
+      const speed = road.metadata.speed;
+      assertBetween(speed, 0.015, 0.03, 'Speed');
+    });
+
+    test('generateRoad cars have correct velocity (speed * direction)', () => {
+      const road = generateRoad(25);
+      const expectedVelocity = road.metadata.speed * road.metadata.direction;
+      for (const car of road.obstacles) {
+        const diff = Math.abs(car.velocity - expectedVelocity);
+        assert(diff < 0.0001, `Car velocity should be ${expectedVelocity}, got ${car.velocity}`);
+      }
+    });
+
+    test('generateRoad cars are type CAR', () => {
+      const road = generateRoad(30);
+      for (const car of road.obstacles) {
+        assert(car.type === 'CAR', `Car type should be CAR, got ${car.type}`);
+      }
+    });
+
+    test('generateRoad cars have correct y coordinate', () => {
+      const road = generateRoad(35);
+      for (const car of road.obstacles) {
+        assert(car.y === 35, `Car y coordinate should be 35, got ${car.y}`);
+      }
+    });
+
+    test('generateRoad cars have width property', () => {
+      const road = generateRoad(40);
+      for (const car of road.obstacles) {
+        assert(typeof car.width === 'number', 'Car should have numeric width');
+        assert(car.width > 0, 'Car width should be positive');
+      }
+    });
+
+    test('generateRoad cars have minimum 3-cell spacing', () => {
+      const road = generateRoad(45);
+      const cars = road.obstacles.sort((a, b) => a.x - b.x);
+      
+      for (let i = 1; i < cars.length; i++) {
+        const prevCar = cars[i - 1];
+        const currentCar = cars[i];
+        const gap = currentCar.x - (prevCar.x + prevCar.width);
+        assert(gap >= 3, `Gap between cars should be at least 3, got ${gap.toFixed(2)}`);
+      }
+    });
+
+    test('generateRoad multiple calls produce varying speeds', () => {
+      const speeds = new Set();
+      for (let i = 0; i < 10; i++) {
+        const road = generateRoad(i);
+        speeds.add(road.metadata.speed.toFixed(4));
+      }
+      assert(speeds.size > 1, 'Multiple roads should have varying speeds');
+    });
+
+    test('generateRoad multiple calls produce varying directions', () => {
+      const directions = new Set();
+      for (let i = 0; i < 10; i++) {
+        const road = generateRoad(i);
+        directions.add(road.metadata.direction);
+      }
+      assert(directions.size === 2, 'Roads should have both -1 and 1 directions over multiple calls');
+    });
+
+    test('generateRoad multiple calls produce varying car counts', () => {
+      const counts = new Set();
+      for (let i = 0; i < 20; i++) {
+        const road = generateRoad(i);
+        counts.add(road.obstacles.length);
+      }
+      assert(counts.size > 1, 'Multiple roads should have varying car counts (2, 3, or 4)');
+    });
+
+    // Summary
+    const total = passCount + failCount;
+    summaryDiv.innerHTML = `
+      <div>Tests completed: ${total}</div>
+      <div style="color: #4ec9b0;">Passed: ${passCount}</div>
+      <div style="color: ${failCount > 0 ? '#f48771' : '#4ec9b0'};">Failed: ${failCount}</div>
+    `;
+
+    console.log(`Tests: ${passCount}/${total} passed`);
+  </script>
+</body>
+</html>

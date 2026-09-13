@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renderer Tests</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-results {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .test-case {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ccc;
+        }
+        .test-case.pass {
+            border-left-color: #4caf50;
+        }
+        .test-case.fail {
+            border-left-color: #f44336;
+        }
+        .test-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .test-message {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .summary {
+            background: #333;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .summary.all-pass {
+            background: #4caf50;
+        }
+        .summary.has-fail {
+            background: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-results">
+        <h1>Renderer Class Tests</h1>
+        <div id="summary" class="summary"></div>
+        <div id="results"></div>
+    </div>
+
+    <canvas id="testCanvas" width="800" height="600" style="display:none;"></canvas>
+
+    <script src="renderer.js"></script>
+    <script>
+        // Simple test framework
+        const results = [];
+        
+        function assert(condition, message) {
+            if (!condition) {
+                throw new Error(message || 'Assertion failed');
+            }
+        }
+
+        function assertAlmostEqual(actual, expected, tolerance, message) {
+            if (Math.abs(actual - expected) > tolerance) {
+                throw new Error(message || `Expected ${expected}, got ${actual} (tolerance: ${tolerance})`);
+            }
+        }
+
+        function test(name, fn) {
+            try {
+                fn();
+                results.push({ name, pass: true });
+            } catch (error) {
+                results.push({ name, pass: false, message: error.message });
+            }
+        }
+
+        function runTests() {
+            const canvas = document.getElementById('testCanvas');
+            const renderer = new Renderer(canvas);
+
+            // Test 1: Constructor initialization
+            test('Constructor initializes canvas and context', () => {
+                assert(renderer.canvas === canvas, 'Canvas should be set');
+                assert(renderer.ctx !== null, 'Context should be initialized');
+                assert(renderer.ctx === canvas.getContext('2d'), 'Context should match canvas context');
+            });
+
+            // Test 2: TILE dimensions
+            test('TILE dimensions are set correctly', () => {
+                assert(renderer.TILE_WIDTH === 64, 'TILE_WIDTH should be 64');
+                assert(renderer.TILE_HEIGHT === 32, 'TILE_HEIGHT should be 32');
+            });
+
+            // Test 3: Camera initialization
+            test('Camera is initialized at origin', () => {
+                const newRenderer = new Renderer(canvas);
+                assert(newRenderer.cameraX === 0, 'Camera X should start at 0');
+                assert(newRenderer.cameraY === 0, 'Camera Y should start at 0');
+            });
+
+            // Test 4: gridToIso at origin
+            test('gridToIso returns correct coordinates at origin (0, 0)', () => {
+                const result = renderer.gridToIso(0, 0);
+                assert(result.screenX === 0, 'Screen X at origin should be 0');
+                assert(result.screenY === 0, 'Screen Y at origin should be 0');
+            });
+
+            // Test 5: gridToIso at positive X
+            test('gridToIso returns correct coordinates at positive X', () => {
+                const result = renderer.gridToIso(1, 0);
+                assert(result.screenX === 32, 'Screen X at (1,0) should be 32');
+                assert(result.screenY === 16, 'Screen Y at (1,0) should be 16');
+            });
+
+            // Test 6: gridToIso at positive Y
+            test('gridToIso returns correct coordinates at positive Y', () => {
+                const result = renderer.gridToIso(0, 1);
+                assert(result.screenX === -32, 'Screen X at (0,1) should be -32');
+                assert(result.screenY === 16, 'Screen Y at (0,1) should be 16');
+            });
+
+            // Test 7: gridToIso with both coordinates positive
+            test('gridToIso returns correct coordinates at (2, 3)', () => {
+                const result = renderer.gridToIso(2, 3);
+                // screenX = (2 - 3) * 32 = -32
+                // screenY = (2 + 3) * 16 = 80
+                assert(result.screenX === -32, 'Screen X at (2,3) should be -32');
+                assert(result.screenY === 80, 'Screen Y at (2,3) should be 80');
+            });
+
+            // Test 8: gridToIso with negative coordinates
+            test('gridToIso returns correct coordinates at negative values', () => {
+                const result = renderer.gridToIso(-1, -1);
+                // screenX = (-1 - (-1)) * 32 = 0
+                // screenY = (-1 + (-1)) * 16 = -32
+                assert(result.screenX === 0, 'Screen X at (-1,-1) should be 0');
+                assert(result.screenY === -32, 'Screen Y at (-1,-1) should be -32');
+            });
+
+            // Test 9: gridToIso follows formula exactly
+            test('gridToIso follows isometric projection formula', () => {
+                const testCases = [
+                    { x: 5, y: 3 },
+                    { x: -2, y: 4 },
+                    { x: 10, y: 10 },
+                    { x: 0, y: 5 }
+                ];
+
+                testCases.forEach(({ x, y }) => {
+                    const result = renderer.gridToIso(x, y);
+                    const expectedX = (x - y) * (renderer.TILE_WIDTH / 2);
+                    const expectedY = (x + y) * (renderer.TILE_HEIGHT / 2);
+                    assert(result.screenX === expectedX, 
+                        `Screen X at (${x},${y}) should be ${expectedX}, got ${result.screenX}`);
+                    assert(result.screenY === expectedY, 
+                        `Screen Y at (${x},${y}) should be ${expectedY}, got ${result.screenY}`);
+                });
+            });
+
+            // Test 10: centerCameraOnPlayer updates camera position
+            test('centerCameraOnPlayer sets camera to player isometric position', () => {
+                renderer.centerCameraOnPlayer(5, 3);
+                const expectedIso = renderer.worldToIso(5, 3);
+                assert(renderer.cameraX === expectedIso.screenX, 
+                    `Camera X should be ${expectedIso.screenX}, got ${renderer.cameraX}`);
+                assert(renderer.cameraY === expectedIso.screenY, 
+                    `Camera Y should be ${expectedIso.screenY}, got ${renderer.cameraY}`);
+            });
+
+            // Test 11: centerCameraOnPlayer at origin
+            test('centerCameraOnPlayer works at origin', () => {
+                renderer.centerCameraOnPlayer(0, 0);
+                assert(renderer.cameraX === 0, 'Camera X should be 0 at origin');
+                assert(renderer.cameraY === 0, 'Camera Y should be 0 at origin');
+            });
+
+            // Test 12: screenToCanvas with no camera offset
+            test('screenToCanvas uses the ahead-biased player anchor', () => {
+                renderer.cameraX = 0;
+                renderer.cameraY = 0;
+                const result = renderer.screenToCanvas(0, 0);
+                assert(result.x === canvas.width / 2,
+                    `Canvas X should be ${canvas.width / 2}, got ${result.x}`);
+                assert(result.y === canvas.height * renderer.PLAYER_SCREEN_Y_RATIO,
+                    `Canvas Y should use the lower player anchor, got ${result.y}`);
+            });
+
+            // Test 13: screenToCanvas with camera offset
+            test('screenToCanvas follows camera at the lower player anchor', () => {
+                renderer.cameraX = 100;
+                renderer.cameraY = 50;
+                const result = renderer.screenToCanvas(100, 50);
+                assert(result.x === canvas.width / 2,
+                    `Canvas X should be ${canvas.width / 2}, got ${result.x}`);
+                assert(result.y === canvas.height * renderer.PLAYER_SCREEN_Y_RATIO,
+                    `Canvas Y should use the lower player anchor, got ${result.y}`);
+            });
+
+            // Test 14: clear method doesn't throw
+            test('clear method executes without error', () => {
+                renderer.clear();
+                // If we get here without throwing, test passes
+                assert(true, 'clear should execute without error');
+            });
+
+            // Test 15: drawTile calls don't throw
+            test('drawTile executes without error', () => {
+                renderer.centerCameraOnPlayer(0, 0);
+                renderer.drawTile(0, 0, '#00FF00');
+                assert(true, 'drawTile should execute without error');
+            });
+
+            // Test 16: drawIsoRect calls don't throw
+            test('drawIsoRect executes without error', () => {
+                renderer.centerCameraOnPlayer(0, 0);
+                renderer.drawIsoRect(0, 0, 2, 2, '#FF0000');
+                assert(true, 'drawIsoRect should execute without error');
+            });
+
+            // Test 17: drawEntity calls don't throw
+            test('drawEntity executes without error', () => {
+                renderer.centerCameraOnPlayer(0, 0);
+                renderer.drawEntity(1.5, 2.5, 2, '#0000FF');
+                assert(true, 'drawEntity should execute without error');
+            });
+
+            // Test 18: drawEntity with float coordinates
+            test('drawEntity handles float coordinates for interpolation', () => {
+                renderer.centerCameraOnPlayer(0, 0);
+                renderer.drawEntity(1.5, 2.7, 1.5, '#FFFF00', 0.3);
+                assert(true, 'drawEntity should handle float coordinates');
+            });
+
+            // Test 19: Isometric projection maintains symmetry
+            test('gridToIso maintains isometric symmetry', () => {
+                // Moving right (x+1) and forward (y+1) should produce opposite X movements
+                const origin = renderer.gridToIso(0, 0);
+                const right = renderer.gridToIso(1, 0);
+                const forward = renderer.gridToIso(0, 1);
+                
+                const rightDeltaX = right.screenX - origin.screenX;
+                const forwardDeltaX = forward.screenX - origin.screenX;
+                
+                // Right should increase X, forward should decrease X by same amount
+                assert(rightDeltaX === -forwardDeltaX, 
+                    'X delta should be symmetric for right vs forward movement');
+                
+                // Both should increase Y by same amount
+                assert(right.screenY - origin.screenY === forward.screenY - origin.screenY,
+                    'Y delta should be equal for right and forward movement');
+            });
+
+            // Test 20: TILE_WIDTH and TILE_HEIGHT ratio
+            test('TILE_WIDTH to TILE_HEIGHT maintains 2:1 ratio', () => {
+                assert(renderer.TILE_WIDTH / renderer.TILE_HEIGHT === 2,
+                    'Isometric tiles should maintain 2:1 width to height ratio');
+            });
+
+            displayResults();
+        }
+
+        function displayResults() {
+            const passCount = results.filter(r => r.pass).length;
+            const failCount = results.filter(r => !r.pass).length;
+            const totalCount = results.length;
+
+            const summaryDiv = document.getElementById('summary');
+            summaryDiv.className = `summary ${failCount === 0 ? 'all-pass' : 'has-fail'}`;
+            summaryDiv.innerHTML = `
+                <h2>Test Summary</h2>
+                <p><strong>${passCount} / ${totalCount}</strong> tests passed</p>
+                ${failCount > 0 ? `<p><strong>${failCount}</strong> tests failed</p>` : '<p>All tests passed! ✓</p>'}
+            `;
+
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = results.map(result => `
+                <div class="test-case ${result.pass ? 'pass' : 'fail'}">
+                    <div class="test-name">${result.pass ? '✓' : '✗'} ${result.name}</div>
+                    ${result.message ? `<div class="test-message">${result.message}</div>` : ''}
+                </div>
+            `).join('');
+        }
+
+        // Run tests when page loads
+        window.addEventListener('DOMContentLoaded', runTests);
+    </script>
+</body>
+</html>

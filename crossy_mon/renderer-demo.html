@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renderer Visual Demo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            margin: 10px 0;
+        }
+        .info {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #333;
+            border-radius: 5px;
+            max-width: 800px;
+        }
+        canvas {
+            background-color: #2a2a2a;
+            border: 2px solid #444;
+            margin: 20px 0;
+        }
+        .controls {
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Renderer Class Visual Demo</h1>
+    
+    <div class="info">
+        <strong>Task 3.1 Implementation:</strong>
+        <ul>
+            <li>✓ gridToIso(x, y) with isometric projection formula</li>
+            <li>✓ Canvas context and drawing utilities</li>
+            <li>✓ Camera centering on position</li>
+            <li>✓ Functions to draw colored rectangles in isometric space</li>
+        </ul>
+        <p><strong>Formula:</strong> screenX = (x - y) × 32, screenY = (x + y) × 16</p>
+    </div>
+
+    <canvas id="demoCanvas" width="800" height="600"></canvas>
+
+    <div class="controls">
+        <button onclick="drawGrid()">Draw Grid</button>
+        <button onclick="drawTiles()">Draw Tiles</button>
+        <button onclick="drawPlayer()">Draw Player</button>
+        <button onclick="drawComplete()">Draw Complete Scene</button>
+        <button onclick="clearCanvas()">Clear</button>
+    </div>
+
+    <div class="info" id="output">
+        Click buttons above to test different rendering features.
+    </div>
+
+    <script src="renderer.js"></script>
+    <script>
+        const canvas = document.getElementById('demoCanvas');
+        const renderer = new Renderer(canvas);
+        const output = document.getElementById('output');
+
+        function updateOutput(message) {
+            output.innerHTML = `<strong>Output:</strong> ${message}`;
+        }
+
+        function clearCanvas() {
+            renderer.clear();
+            updateOutput('Canvas cleared.');
+        }
+
+        function drawGrid() {
+            renderer.clear();
+            renderer.centerCameraOnPlayer(0, 0);
+
+            // Draw a grid of tiles
+            updateOutput('Drawing isometric grid...');
+            
+            for (let y = -3; y <= 3; y++) {
+                for (let x = -3; x <= 3; x++) {
+                    const color = (x + y) % 2 === 0 ? '#444' : '#555';
+                    renderer.drawTile(x, y, color);
+                }
+            }
+
+            // Draw axes
+            renderer.drawTile(0, 0, '#FF0000'); // Origin in red
+
+            updateOutput('Grid drawn! Red tile marks the origin (0,0). Notice the isometric diamond pattern.');
+        }
+
+        function drawTiles() {
+            renderer.clear();
+            renderer.centerCameraOnPlayer(2, 2);
+
+            updateOutput('Drawing colored tiles at specific positions...');
+
+            // Draw some colored tiles
+            renderer.drawTile(0, 0, '#FF0000'); // Red
+            renderer.drawTile(1, 0, '#00FF00'); // Green
+            renderer.drawTile(0, 1, '#0000FF'); // Blue
+            renderer.drawTile(1, 1, '#FFFF00'); // Yellow
+            renderer.drawTile(2, 2, '#FF00FF'); // Magenta
+            renderer.drawTile(3, 1, '#00FFFF'); // Cyan
+            renderer.drawTile(1, 3, '#FFA500'); // Orange
+
+            updateOutput('Tiles drawn at various grid positions. Camera centered at (2,2).');
+        }
+
+        function drawPlayer() {
+            renderer.clear();
+            renderer.centerCameraOnPlayer(0, 0);
+
+            // Draw a simple terrain
+            for (let y = -2; y <= 3; y++) {
+                for (let x = -2; x <= 2; x++) {
+                    renderer.drawTile(x, y, '#2a7a2a'); // Grass
+                }
+            }
+
+            // Draw player at origin
+            renderer.drawEntity(0, 0, 1, '#FFD700', 0.5); // Gold player
+
+            updateOutput('Player (gold) drawn at origin on grass terrain. Camera follows player.');
+        }
+
+        function drawComplete() {
+            renderer.clear();
+            renderer.centerCameraOnPlayer(0, 2);
+
+            updateOutput('Drawing complete isometric scene...');
+
+            // Draw grass
+            for (let y = 0; y <= 4; y++) {
+                for (let x = -3; x <= 3; x++) {
+                    renderer.drawTile(x, y, '#2a7a2a');
+                }
+            }
+
+            // Draw a road
+            for (let x = -3; x <= 3; x++) {
+                renderer.drawTile(x, 1, '#404040');
+            }
+
+            // Draw some obstacles (cars)
+            renderer.drawEntity(-2, 1, 2, '#FF0000'); // Red car
+            renderer.drawEntity(1, 1, 1.5, '#0000FF'); // Blue car
+
+            // Draw river
+            for (let x = -3; x <= 3; x++) {
+                renderer.drawTile(x, 3, '#1e90ff');
+            }
+
+            // Draw platforms (logs)
+            renderer.drawEntity(-2, 3, 2, '#8B4513'); // Brown log
+            renderer.drawEntity(1, 3, 3, '#8B4513'); // Brown log
+
+            // Draw player
+            renderer.drawEntity(0, 2, 1, '#FFD700', 0.5); // Gold player
+
+            updateOutput('Complete scene: Grass (green), Road (gray) with cars (red/blue), River (blue) with logs (brown), Player (gold).');
+        }
+
+        // Test coordinate transformation on load
+        window.addEventListener('DOMContentLoaded', () => {
+            // Verify the isometric formula
+            const test1 = renderer.gridToIso(0, 0);
+            const test2 = renderer.gridToIso(1, 0);
+            const test3 = renderer.gridToIso(0, 1);
+            
+            console.log('Isometric Projection Tests:');
+            console.log(`gridToIso(0, 0) = (${test1.screenX}, ${test1.screenY}) - Expected: (0, 0)`);
+            console.log(`gridToIso(1, 0) = (${test2.screenX}, ${test2.screenY}) - Expected: (32, 16)`);
+            console.log(`gridToIso(0, 1) = (${test3.screenX}, ${test3.screenY}) - Expected: (-32, 16)`);
+            
+            drawGrid();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>World Class Integration Test</title>
+  <style>
+    body {
+      font-family: 'Courier New', monospace;
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    h1 {
+      color: #333;
+      border-bottom: 2px solid #333;
+      padding-bottom: 10px;
+    }
+    .section {
+      margin: 20px 0;
+      padding: 15px;
+      background-color: white;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .section h2 {
+      color: #555;
+      margin-top: 0;
+    }
+    pre {
+      background-color: #1e1e1e;
+      color: #d4d4d4;
+      padding: 15px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    .success {
+      color: #4ec9b0;
+      font-weight: bold;
+    }
+    .error {
+      color: #f48771;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>World Class Integration Test</h1>
+  
+  <div class="section">
+    <h2>Test 1: Create World with Multiple Terrain Types</h2>
+    <pre id="test1"></pre>
+  </div>
+  
+  <div class="section">
+    <h2>Test 2: Query Obstacles and Platforms</h2>
+    <pre id="test2"></pre>
+  </div>
+  
+  <div class="section">
+    <h2>Test 3: Terrain Cleanup Simulation</h2>
+    <pre id="test3"></pre>
+  </div>
+  
+  <div class="section">
+    <h2>Test Summary</h2>
+    <pre id="summary"></pre>
+  </div>
+
+  <script src="world.js"></script>
+  <script>
+    let testsPass = 0;
+    let testsTotal = 0;
+
+    function assert(condition, message) {
+      testsTotal++;
+      if (condition) {
+        testsPass++;
+        return `<span class="success">✓</span> ${message}`;
+      } else {
+        return `<span class="error">✗</span> ${message}`;
+      }
+    }
+
+    // Test 1: Create World with Multiple Terrain Types
+    function test1() {
+      const output = document.getElementById('test1');
+      let log = '';
+      
+      const world = new World();
+      
+      // Add grass terrain
+      world.addTerrainRow({
+        y: 0,
+        type: 'GRASS',
+        obstacles: [],
+        platforms: [],
+        metadata: {}
+      });
+      
+      // Add road with cars
+      world.addTerrainRow({
+        y: 1,
+        type: 'ROAD',
+        obstacles: [
+          { x: 2, y: 1, width: 2, velocity: 0.02, type: 'CAR' },
+          { x: 8, y: 1, width: 2, velocity: 0.02, type: 'CAR' }
+        ],
+        platforms: [],
+        metadata: { direction: 1, speed: 0.02 }
+      });
+      
+      // Add river with platforms
+      world.addTerrainRow({
+        y: 2,
+        type: 'RIVER',
+        obstacles: [],
+        platforms: [
+          { x: 1, y: 2, width: 3, velocity: 0.015, type: 'LOG' },
+          { x: 6, y: 2, width: 2, velocity: 0.015, type: 'LILY_PAD' }
+        ],
+        metadata: { direction: -1, speed: 0.015 }
+      });
+      
+      // Add train track
+      world.addTerrainRow({
+        y: 3,
+        type: 'TRAIN_TRACK',
+        obstacles: [
+          { x: 5, y: 3, width: 5, velocity: 0.05, type: 'TRAIN' }
+        ],
+        platforms: [],
+        metadata: { direction: 1, speed: 0.05 }
+      });
+      
+      log += assert(world.terrainRows.size === 4, 'World has 4 terrain rows') + '\n';
+      log += assert(world.getTerrainAt(0, 0).type === 'GRASS', 'Row 0 is GRASS') + '\n';
+      log += assert(world.getTerrainAt(0, 1).type === 'ROAD', 'Row 1 is ROAD') + '\n';
+      log += assert(world.getTerrainAt(0, 2).type === 'RIVER', 'Row 2 is RIVER') + '\n';
+      log += assert(world.getTerrainAt(0, 3).type === 'TRAIN_TRACK', 'Row 3 is TRAIN_TRACK') + '\n';
+      log += '\n<span class="success">World created successfully with all terrain types!</span>';
+      
+      output.innerHTML = log;
+    }
+
+    // Test 2: Query Obstacles and Platforms
+    function test2() {
+      const output = document.getElementById('test2');
+      let log = '';
+      
+      const world = new World();
+      
+      // Setup road with cars
+      world.addTerrainRow({
+        y: 5,
+        type: 'ROAD',
+        obstacles: [
+          { x: 3, y: 5, width: 2, velocity: 0.02, type: 'CAR' },  // Covers [3, 5)
+          { x: 10, y: 5, width: 2, velocity: 0.02, type: 'CAR' }  // Covers [10, 12)
+        ],
+        platforms: [],
+        metadata: {}
+      });
+      
+      // Setup river with platforms
+      world.addTerrainRow({
+        y: 10,
+        type: 'RIVER',
+        obstacles: [],
+        platforms: [
+          { x: 2, y: 10, width: 3, velocity: 0.015, type: 'LOG' },      // Covers [2, 5)
+          { x: 7, y: 10, width: 2, velocity: 0.015, type: 'LILY_PAD' }  // Covers [7, 9)
+        ],
+        metadata: {}
+      });
+      
+      // Test obstacle detection
+      log += '=== Obstacle Detection ===\n';
+      const obstacles1 = world.getObstaclesAt(4, 5);
+      log += assert(obstacles1.length === 1, 'Player at (4, 5) hits car') + '\n';
+      
+      const obstacles2 = world.getObstaclesAt(11, 5);
+      log += assert(obstacles2.length === 1, 'Player at (11, 5) hits second car') + '\n';
+      
+      const obstacles3 = world.getObstaclesAt(7, 5);
+      log += assert(obstacles3.length === 0, 'Player at (7, 5) is safe (no car)') + '\n';
+      
+      // Test platform detection
+      log += '\n=== Platform Detection ===\n';
+      const platform1 = world.getPlatformAt(3, 10);
+      log += assert(platform1 !== null && platform1.type === 'LOG', 'Player at (3, 10) is on LOG') + '\n';
+      
+      const platform2 = world.getPlatformAt(8, 10);
+      log += assert(platform2 !== null && platform2.type === 'LILY_PAD', 'Player at (8, 10) is on LILY_PAD') + '\n';
+      
+      const platform3 = world.getPlatformAt(6, 10);
+      log += assert(platform3 === null, 'Player at (6, 10) is in water (no platform)') + '\n';
+      
+      log += '\n<span class="success">Obstacle and platform queries working correctly!</span>';
+      
+      output.innerHTML = log;
+    }
+
+    // Test 3: Terrain Cleanup Simulation
+    function test3() {
+      const output = document.getElementById('test3');
+      let log = '';
+      
+      const world = new World();
+      
+      // Add many terrain rows
+      log += 'Adding 20 terrain rows...\n';
+      for (let y = 0; y < 20; y++) {
+        world.addTerrainRow({
+          y: y,
+          type: 'GRASS',
+          obstacles: [],
+          platforms: [],
+          metadata: {}
+        });
+      }
+      
+      log += assert(world.terrainRows.size === 20, 'World has 20 terrain rows') + '\n';
+      
+      // Simulate player moving forward and cleaning up old terrain
+      const playerY = 15;
+      const cleanupDistance = 10;
+      const minY = playerY - cleanupDistance;
+      
+      log += `\nSimulating player at Y=${playerY}, cleanup distance=${cleanupDistance}\n`;
+      log += `Removing terrain rows below Y=${minY}...\n`;
+      
+      // Remove old terrain rows
+      for (const [rowY] of world.terrainRows) {
+        if (rowY < minY) {
+          world.removeTerrainRow(rowY);
+        }
+      }
+      
+      log += assert(world.terrainRows.size === 15, 'World now has 15 terrain rows (removed 5 old rows)') + '\n';
+      log += assert(world.getTerrainAt(0, 3) === null, 'Terrain at Y=3 was removed') + '\n';
+      log += assert(world.getTerrainAt(0, 5) !== null, 'Terrain at Y=5 still exists') + '\n';
+      log += assert(world.getTerrainAt(0, 19) !== null, 'Terrain at Y=19 still exists') + '\n';
+      
+      log += '\n<span class="success">Terrain cleanup working correctly!</span>';
+      
+      output.innerHTML = log;
+    }
+
+    // Run all tests
+    function runAllTests() {
+      test1();
+      test2();
+      test3();
+      
+      const summary = document.getElementById('summary');
+      const passRate = ((testsPass / testsTotal) * 100).toFixed(1);
+      
+      if (testsPass === testsTotal) {
+        summary.innerHTML = `<span class="success">All tests passed! ${testsPass}/${testsTotal} (${passRate}%)</span>`;
+      } else {
+        summary.innerHTML = `<span class="error">Some tests failed: ${testsPass}/${testsTotal} passed (${passRate}%)</span>`;
+      }
+    }
+
+    // Run tests when page loads
+    window.addEventListener('DOMContentLoaded', runAllTests);
+  </script>
+</body>
+</html>

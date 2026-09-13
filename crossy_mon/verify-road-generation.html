@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Verify Road Generation - Task 12.1</title>
+  <style>
+    body {
+      font-family: monospace;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    h1 { color: #333; }
+    .verification { 
+      background: white; 
+      padding: 15px; 
+      margin: 10px 0;
+      border-left: 4px solid #4CAF50;
+    }
+    .detail { 
+      margin: 5px 0;
+      padding: 5px;
+      background: #f9f9f9;
+    }
+    .success { color: #4CAF50; }
+    .error { color: #f44336; }
+    pre {
+      background: #263238;
+      color: #aed581;
+      padding: 10px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Task 12.1: Road Generation Verification</h1>
+  <div id="output"></div>
+
+  <script src="generator.js"></script>
+  <script>
+    const output = document.getElementById('output');
+    let html = '';
+
+    // Generate multiple road samples
+    html += '<div class="verification"><h2>Generating 5 Sample Roads</h2>';
+    
+    for (let i = 1; i <= 5; i++) {
+      const road = generateRoad(i * 10);
+      
+      html += `<div class="detail">
+        <strong>Road ${i} (Y=${road.y}):</strong><br>
+        - Type: ${road.type}<br>
+        - Number of cars: ${road.obstacles.length}<br>
+        - Direction: ${road.metadata.direction} (${road.metadata.direction === 1 ? 'right' : 'left'})<br>
+        - Speed: ${road.metadata.speed.toFixed(5)} cells/ms<br>
+        - Cars:<br>
+      `;
+      
+      road.obstacles.forEach((car, idx) => {
+        html += `&nbsp;&nbsp;Car ${idx + 1}: x=${car.x.toFixed(2)}, width=${car.width}, velocity=${car.velocity.toFixed(5)}, type=${car.type}<br>`;
+      });
+      
+      // Check spacing
+      const sortedCars = [...road.obstacles].sort((a, b) => a.x - b.x);
+      for (let j = 1; j < sortedCars.length; j++) {
+        const gap = sortedCars[j].x - (sortedCars[j-1].x + sortedCars[j-1].width);
+        html += `&nbsp;&nbsp;Gap ${j}: ${gap.toFixed(2)} cells ${gap >= 3 ? '✓' : '✗ TOO SMALL!'}<br>`;
+      }
+      
+      html += '</div>';
+    }
+    html += '</div>';
+
+    // Verification checks
+    html += '<div class="verification"><h2>Requirement Verification</h2>';
+    
+    let allChecks = [];
+    
+    // Check 1: Spawns 2-4 cars
+    let check1Pass = true;
+    for (let i = 0; i < 30; i++) {
+      const road = generateRoad(i);
+      if (road.obstacles.length < 2 || road.obstacles.length > 4) {
+        check1Pass = false;
+        break;
+      }
+    }
+    allChecks.push({
+      name: 'Spawns 2-4 cars per road',
+      pass: check1Pass,
+      requirement: '7.2'
+    });
+    
+    // Check 2: Random direction
+    const directions = new Set();
+    for (let i = 0; i < 50; i++) {
+      const road = generateRoad(i);
+      directions.add(road.metadata.direction);
+    }
+    const check2Pass = directions.has(-1) && directions.has(1);
+    allChecks.push({
+      name: 'Assigns random direction (-1 or 1)',
+      pass: check2Pass,
+      requirement: '7.1'
+    });
+    
+    // Check 3: Speed range
+    let check3Pass = true;
+    for (let i = 0; i < 30; i++) {
+      const road = generateRoad(i);
+      if (road.metadata.speed < 0.015 || road.metadata.speed > 0.03) {
+        check3Pass = false;
+        break;
+      }
+    }
+    allChecks.push({
+      name: 'Assigns speeds between 0.015-0.03 cells/ms',
+      pass: check3Pass,
+      requirement: '7.3'
+    });
+    
+    // Check 4: Minimum 3-cell spacing
+    let check4Pass = true;
+    for (let i = 0; i < 30; i++) {
+      const road = generateRoad(i);
+      const sorted = [...road.obstacles].sort((a, b) => a.x - b.x);
+      for (let j = 1; j < sorted.length; j++) {
+        const gap = sorted[j].x - (sorted[j-1].x + sorted[j-1].width);
+        if (gap < 3) {
+          check4Pass = false;
+          break;
+        }
+      }
+      if (!check4Pass) break;
+    }
+    allChecks.push({
+      name: 'Ensures minimum 3-cell spacing between cars',
+      pass: check4Pass,
+      requirement: '7.2'
+    });
+    
+    // Check 5: Correct data structure
+    const testRoad = generateRoad(999);
+    const check5Pass = testRoad.type === 'ROAD' 
+      && Array.isArray(testRoad.obstacles)
+      && Array.isArray(testRoad.platforms)
+      && testRoad.platforms.length === 0
+      && testRoad.obstacles.every(c => c.type === 'CAR')
+      && testRoad.obstacles.every(c => c.y === 999);
+    allChecks.push({
+      name: 'Returns correct TerrainRow structure',
+      pass: check5Pass,
+      requirement: '7.1'
+    });
+    
+    // Display results
+    allChecks.forEach(check => {
+      const status = check.pass ? '<span class="success">✓ PASS</span>' : '<span class="error">✗ FAIL</span>';
+      html += `<div class="detail">${status} - ${check.name} (Req ${check.requirement})</div>`;
+    });
+    
+    const allPass = allChecks.every(c => c.pass);
+    const passCount = allChecks.filter(c => c.pass).length;
+    
+    html += `<div style="margin-top: 20px; padding: 10px; background: ${allPass ? '#e8f5e9' : '#ffebee'};">
+      <strong>Summary: ${passCount}/${allChecks.length} checks passed</strong><br>
+      ${allPass ? '🎉 All requirements validated successfully!' : '⚠️ Some checks failed - review implementation'}
+    </div>`;
+    
+    html += '</div>';
+    
+    output.innerHTML = html;
+    
+    console.log(`Verification complete: ${passCount}/${allChecks.length} passed`);
+  </script>
+</body>
+</html>

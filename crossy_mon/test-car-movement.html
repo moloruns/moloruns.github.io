@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Car Movement - Task 12.2 & 12.3</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #222;
+            color: white;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        canvas {
+            display: block;
+            margin: 20px auto;
+            background: #333;
+            border: 2px solid #555;
+        }
+        .info {
+            background: #444;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .success {
+            color: #7CFC00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Task 12.2 & 12.3 Test: Car Movement and Rendering</h1>
+        
+        <div class="info">
+            <h3>What to Look For:</h3>
+            <ul>
+                <li>✓ Road rows (dark gray) should appear</li>
+                <li>✓ Red cars should be visible on road rows</li>
+                <li>✓ Cars should move continuously left or right</li>
+                <li>✓ Cars should wrap around when they go off screen</li>
+                <li>✓ Cars are rendered as colored rectangles</li>
+                <li>✓ Obstacles are sorted by Y coordinate (back to front)</li>
+            </ul>
+        </div>
+        
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        
+        <div class="info">
+            <h3>Test Status: <span class="success">RUNNING</span></h3>
+            <p>Cars should be moving. If they're stationary, the test failed.</p>
+        </div>
+    </div>
+
+    <!-- Load all dependencies -->
+    <script src="player.js"></script>
+    <script src="world.js"></script>
+    <script src="generator.js"></script>
+    <script src="collision.js"></script>
+    <script src="renderer.js"></script>
+    <script src="input.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>

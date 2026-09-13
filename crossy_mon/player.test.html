@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Player Test - Crossy Road Clone</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+    canvas {
+      border: 2px solid #333;
+      background-color: #fff;
+      display: block;
+      margin: 20px auto;
+    }
+    .controls {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .info {
+      margin: 20px;
+      padding: 15px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="controls">
+    <h1>Player Class Test</h1>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    
+    <div class="info">
+      <h3>Test Controls</h3>
+      <p>Use arrow keys or WASD to move the player (blue diamond)</p>
+      <p id="status">Status: Ready</p>
+      <p id="position">Position: (0, 0)</p>
+      <p id="animation">Animation: Not moving</p>
+    </div>
+    
+    <div>
+      <button onclick="testMoveUp()">Move Up (Forward)</button>
+      <button onclick="testMoveDown()">Move Down (Back)</button>
+      <button onclick="testMoveLeft()">Move Left</button>
+      <button onclick="testMoveRight()">Move Right</button>
+    </div>
+  </div>
+
+  <script src="player.js"></script>
+  <script src="renderer.js"></script>
+  <script>
+    // Initialize canvas and renderer
+    const canvas = document.getElementById('gameCanvas');
+    const renderer = new Renderer(canvas);
+    
+    // Create player at origin
+    const player = new Player(0, 0);
+    
+    // Track last frame time for delta calculation
+    let lastFrameTime = performance.now();
+    
+    // Update status display
+    function updateStatus() {
+      const pos = player.getCurrentPosition();
+      document.getElementById('position').textContent = 
+        `Position: Grid (${player.x}, ${player.y}) | Render (${pos.x.toFixed(2)}, ${pos.y.toFixed(2)})`;
+      document.getElementById('animation').textContent = 
+        `Animation: ${player.isMoving ? `In progress (${(player.animationProgress * 100).toFixed(1)}%)` : 'Not moving'}`;
+    }
+    
+    // Test movement functions
+    function testMoveUp() {
+      if (player.move(0, 1)) {
+        document.getElementById('status').textContent = 'Status: Moving forward (up)';
+      }
+    }
+    
+    function testMoveDown() {
+      if (player.move(0, -1)) {
+        document.getElementById('status').textContent = 'Status: Moving backward (down)';
+      }
+    }
+    
+    function testMoveLeft() {
+      if (player.move(-1, 0)) {
+        document.getElementById('status').textContent = 'Status: Moving left';
+      }
+    }
+    
+    function testMoveRight() {
+      if (player.move(1, 0)) {
+        document.getElementById('status').textContent = 'Status: Moving right';
+      }
+    }
+    
+    // Keyboard input handling
+    document.addEventListener('keydown', (event) => {
+      // Prevent default arrow key scrolling
+      if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(event.key)) {
+        event.preventDefault();
+      }
+      
+      switch(event.key) {
+        case 'ArrowUp':
+        case 'w':
+        case 'W':
+          testMoveUp();
+          break;
+        case 'ArrowDown':
+        case 's':
+        case 'S':
+          testMoveDown();
+          break;
+        case 'ArrowLeft':
+        case 'a':
+        case 'A':
+          testMoveLeft();
+          break;
+        case 'ArrowRight':
+        case 'd':
+        case 'D':
+          testMoveRight();
+          break;
+      }
+    });
+    
+    // Draw grid for reference
+    function drawGrid() {
+      // Draw grid tiles around player
+      const gridSize = 10;
+      for (let y = -gridSize; y <= gridSize; y++) {
+        for (let x = -gridSize; x <= gridSize; x++) {
+          // Alternate colors for grid pattern
+          const color = (x + y) % 2 === 0 ? '#e8e8e8' : '#d0d0d0';
+          renderer.drawTile(x, y, color);
+        }
+      }
+      
+      // Draw origin marker (0, 0) in light green
+      renderer.drawTile(0, 0, '#90EE90');
+    }
+    
+    // Render function
+    function render() {
+      // Clear canvas
+      renderer.clear();
+      
+      // Get player's current position (interpolated during animation)
+      const playerPos = player.getCurrentPosition();
+      
+      // Center camera on player
+      renderer.centerCameraOnPlayer(playerPos.x, playerPos.y);
+      
+      // Draw grid
+      drawGrid();
+      
+      // Draw player as blue diamond
+      renderer.drawEntity(playerPos.x, playerPos.y, 1, '#4169E1', 0.5);
+      
+      // Update status display
+      updateStatus();
+    }
+    
+    // Game loop
+    function gameLoop(currentTime) {
+      const deltaTime = currentTime - lastFrameTime;
+      lastFrameTime = currentTime;
+      
+      // Update player animation
+      const animationCompleted = player.update(deltaTime);
+      if (animationCompleted) {
+        document.getElementById('status').textContent = 'Status: Movement complete';
+      }
+      
+      // Render
+      render();
+      
+      // Continue loop
+      requestAnimationFrame(gameLoop);
+    }
+    
+    // Start the test
+    console.log('Player test initialized');
+    console.log('Player initial state:', player);
+    requestAnimationFrame(gameLoop);
+  </script>
+</body>
+</html>
