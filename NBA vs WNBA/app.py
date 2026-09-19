@@ -447,6 +447,9 @@ def show_player_headshot(player):
 
 def player_card(player, label, key):
     st.caption(label)
+
+    show_player_headshot(player)
+
     st.subheader(player["PLAYER_NAME"])
     st.caption(
         f"{player['league']} · {player['season']} · {player['role']}"
@@ -577,10 +580,21 @@ def profile_page(players):
 
     player = match.iloc[0]
 
-    st.title(player["PLAYER_NAME"])
+    photo_column, title_column = st.columns([1, 4])
+
+    with photo_column:
+        show_player_headshot(player)
+
+    with title_column:
+        st.title(player["PLAYER_NAME"])
+        st.caption(
+            f"{player['league']} · {player['season']} regular season "
+            f"· {player['role']}"
+        )
+
     st.caption(
-        f"{player['league']} · {player['season']} regular season "
-        f"· {player['role']}"
+        "Headshot is the latest available image, not necessarily "
+        "from the selected season."
     )
 
     basic_tab, advanced_tab, totals_tab = st.tabs([
