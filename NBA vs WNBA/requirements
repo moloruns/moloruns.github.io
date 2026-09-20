@@ -7,9 +7,3 @@ requests
 Pillow
 nba_api
 
-DOWNLOAD THESE PYTHON FILES:
-app.py
-similarity_v3.py
-requirements.txt
-data/player_seasons.csv
-data/profile_stats/
