@@ -6,6 +6,7 @@ TO ACCESS THE APP, DOWNLOAD THESE FILES/FOLDERS FROM THIS FOLDER
  - similarity_v3.py
  - data (folder)
  - requirements.txt (these tell you the packages required for the imports)
+[RUN THIS COMMAND: streamlit run app.py]
 
 Search for a player, explore their closest cross-league matches, and inspect why the model considers them similar. Comparisons combine league-relative production, regression-adjusted statistics, shot selection, efficiency, and defensive box-score indicators.
 
