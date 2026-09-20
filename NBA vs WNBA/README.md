@@ -3,7 +3,7 @@ An interactive Python app for finding statistical counterparts between NBA and W
 
 TO ACCESS THE APP, DOWNLOAD THESE FILES/FOLDERS FROM THIS FOLDER
  - app.py
- - similarities_v3.py
+ - similarity_v3.py
  - data (folder)
  - requirements.txt (these tell you the packages required for the imports)
 
