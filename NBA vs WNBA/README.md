@@ -1,9 +1,12 @@
 Cross-League Player Comps
 An interactive Python app for finding statistical counterparts between NBA and WNBA players.
 
-## Live app
-
-[🏀 Try Cross-League Player Comps](https://your-app-name.streamlit.app)
+TO ACCESS THE APP, DOWNLOAD THESE FILES/FOLDERS FROM THIS FOLDER
+ - app.py
+ - similarity_v3.py
+ - data (folder)
+ - requirements.txt (these tell you the packages required for the imports)
+[RUN THIS COMMAND in terminal: streamlit run app.py]
 
 Search for a player, explore their closest cross-league matches, and inspect why the model considers them similar. Comparisons combine league-relative production, regression-adjusted statistics, shot selection, efficiency, and defensive box-score indicators.
 
