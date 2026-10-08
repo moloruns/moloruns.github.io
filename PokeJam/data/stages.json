@@ -1,0 +1,8 @@
+{
+  "defaultStage": "indigo",
+  "stages": [
+    {"id":"indigo","name":"Indigo Arena","region":"Kanto","title":"INDIGO","caption":"ARENA","texture":"indigoBackdrop","backdrop":"assets/arenas/indigo-backdrop-v1.png","doorCenter":892,"signY":123,"crowdRows":[80,98,141],"palette":{"jade":1529933,"mint":3718559}},
+    {"id":"sinnoh","name":"Sinnoh League","region":"Sinnoh","title":"SINNOH","caption":"LEAGUE","texture":"sinnohBackdrop","backdrop":"assets/arenas/sinnoh-backdrop-v1.png","doorCenter":823,"signY":123,"crowdRows":[89,129,145],"motion":"pennants","palette":{"jade":1865849,"mint":8578255,"gold":15318688}},
+    {"id":"pwt","name":"Pokemon World Tournament","shortName":"PWT","region":"Unova","title":"PWT","caption":"TOURNAMENT","texture":"pwtBackdrop","backdrop":"assets/arenas/pwt-backdrop-v1.png","doorCenter":875,"signY":124,"crowdRows":[83,120,143],"motion":"displays","palette":{"jade":10102854,"mint":4713471,"gold":15917669}}
+  ]
+}

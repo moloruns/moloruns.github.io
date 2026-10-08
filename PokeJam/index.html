@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PokeJam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="PokeJam home">
+      <span class="brand-mark"></span>
+      <span class="brand-text arcade-font">PokeJam</span>
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="compare.html">Compare</a>
+      <a href="pokedex.html">Pokedex</a>
+      <a href="play.html">Play</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-copy-block">
+        <h1 class="arcade-font">PokeJam</h1>
+        <p class="hero-copy">Pokemon step onto an arcade basketball court, backed by one attribute model that also matches them with NBA players.</p>
+        <div class="menu-grid" aria-label="PokeJam menu">
+          <a class="menu-card" href="play.html">
+            <strong class="arcade-font">Play 2v2</strong>
+            <span>Desktop prototype</span>
+          </a>
+          <a class="menu-card" href="compare.html">
+            <strong class="arcade-font">Compare</strong>
+            <span>Pokemon and NBA matches</span>
+          </a>
+          <a class="menu-card" href="pokedex.html">
+            <strong class="arcade-font">Pokedex</strong>
+            <span>Roster stars and bonuses</span>
+          </a>
+        </div>
+        <a class="how-to-play-link" href="play.html?help=1">How to Play</a>
+      </div>
+
+      <div class="sprite-stage" aria-label="PokeJam court artwork">
+        <div class="stage-scoreboard arcade-font">2v2 ARCADE</div>
+        <div class="court-lines"></div>
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="Pikachu">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/150.png" alt="Mewtwo">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/448.png" alt="Lucario">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/143.png" alt="Snorlax">
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    Fan project. Not affiliated with Nintendo, The Pokemon Company, 2K, or the NBA. Pokemon data and media from PokeAPI. NBA ratings via the community NBA 2K API.
+  </footer>
+</body>
+</html>

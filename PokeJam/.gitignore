@@ -1,0 +1,6 @@
+pipeline/cache/
+__pycache__/
+.env
+prompt_log.txt
+dist/
+.DS_Store

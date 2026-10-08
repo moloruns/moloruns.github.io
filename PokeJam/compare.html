@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Compare - PokeJam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js" defer></script>
+  <script type="module" src="js/compare.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="PokeJam home">
+      <span class="brand-mark"></span>
+      <span class="brand-text arcade-font">PokeJam</span>
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="compare.html">Compare</a>
+      <a href="pokedex.html">Pokedex</a>
+      <a href="play.html">Play</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <div class="section-title">
+      <div>
+        <h1 class="arcade-font">Compare</h1>
+        <p>Search any Pokemon or NBA player in the current data model.</p>
+      </div>
+    </div>
+
+    <form class="search-panel" id="compare-form">
+      <input id="query" name="query" list="search-options" autocomplete="off" placeholder="Pikachu, Stephen Curry, Snorlax..." aria-label="Pokemon or NBA player">
+      <datalist id="search-options"></datalist>
+      <button type="submit">Search</button>
+    </form>
+    <p class="small-text" id="message" role="status"></p>
+
+    <section class="compare-layout" aria-label="Comparison result">
+      <article class="card profile-card" id="pokemon-card"></article>
+      <article class="tool-panel chart-panel">
+        <div class="chart-wrap">
+          <canvas id="radar-chart" aria-label="Attribute radar chart"></canvas>
+        </div>
+      </article>
+      <article class="card profile-card" id="player-card"></article>
+    </section>
+
+    <section class="match-grid">
+      <article class="result-list" id="whole-matches"></article>
+      <article class="result-list" id="trait-matches"></article>
+    </section>
+
+    <section class="why-grid" id="why-match"></section>
+  </main>
+
+  <footer class="site-footer">
+    Fan project. Not affiliated with Nintendo, The Pokemon Company, 2K, or the NBA. Pokemon data and media from PokeAPI. NBA ratings via the community NBA 2K API.
+  </footer>
+</body>
+</html>

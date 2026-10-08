@@ -153,6 +153,7 @@ h3 {
 .project img {
     margin: 1.25rem 0;
     border: 1px solid var(--rule);
+    height: auto;
 }
 
 .project p:not(.project-date) {

@@ -1,0 +1,2963 @@
+{
+  "source": "https://github.com/PMDCollab/SpriteCollab",
+  "license": "Source repository: CC BY-NC 4.0; official sprites retain original rights holders.",
+  "players": {
+    "pikachu": {
+      "source": "https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/sprite/0025",
+      "credits": "2020-10-07 17:58:43.416193\tCHUNSOFT\tCUR\tUnspecified\tWalk,Attack,QuickStrike,Shoot,Shock,Sleep,Hurt,Idle,Swing,Double,Hop,Charge,Rotate,EventSleep,Wake,Eat,Tumble,Pose,Pull,Pain,Float,DeepBreath,Nod,Sit,LookUp,Sink,Trip,Laying,LeapForth,Head,Cringe,LostBalance,TumbleBack,Faint,HitGround\n",
+      "actions": {
+        "Idle": {
+          "width": 40,
+          "height": 56,
+          "durations": [
+            666.6666666666666,
+            33.333333333333336,
+            50.0,
+            50.0,
+            50.0,
+            33.333333333333336
+          ],
+          "path": "assets/animations/pikachu/Idle.png"
+        },
+        "Walk": {
+          "width": 32,
+          "height": 40,
+          "durations": [
+            133.33333333333334,
+            166.66666666666666,
+            133.33333333333334,
+            166.66666666666666
+          ],
+          "path": "assets/animations/pikachu/Walk.png"
+        },
+        "Shoot": {
+          "width": 40,
+          "height": 56,
+          "durations": [
+            16.666666666666668,
+            33.333333333333336,
+            100.0,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/pikachu/Shoot.png"
+        },
+        "Attack": {
+          "width": 80,
+          "height": 80,
+          "durations": [
+            33.333333333333336,
+            66.66666666666667,
+            16.666666666666668,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            66.66666666666667
+          ],
+          "path": "assets/animations/pikachu/Attack.png"
+        },
+        "Charge": {
+          "width": 40,
+          "height": 40,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/pikachu/Charge.png"
+        },
+        "Hurt": {
+          "width": 48,
+          "height": 64,
+          "durations": [
+            33.333333333333336,
+            133.33333333333334
+          ],
+          "path": "assets/animations/pikachu/Hurt.png"
+        },
+        "Pose": {
+          "width": 32,
+          "height": 40,
+          "durations": [
+            200.0,
+            33.333333333333336,
+            133.33333333333334
+          ],
+          "path": "assets/animations/pikachu/Pose.png"
+        }
+      }
+    },
+    "charizard": {
+      "source": "https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/sprite/0006",
+      "credits": "2020-10-07 17:58:43.345381\tCHUNSOFT\tCUR\tUnspecified\tAttack,Charge,Double,Hop,Hurt,Idle,Rotate,Shoot,Sleep,Strike,Swing,Walk\n2021-10-01 08:17:01.621356\t<@!237286997645983744>\tCUR\tPMDCollab_1\tCharge,Double,Faint,Hop,Hurt,Rotate,Shoot,Sleep,Strike,Swing\n2023-03-19 18:54:53.170665\t<@!237286997645983744>\tCUR\tPMDCollab_1\tFaint\n",
+      "actions": {
+        "Idle": {
+          "width": 40,
+          "height": 48,
+          "durations": [
+            250.0,
+            250.0,
+            250.0,
+            250.0
+          ],
+          "path": "assets/animations/charizard/Idle.png"
+        },
+        "Walk": {
+          "width": 40,
+          "height": 48,
+          "durations": [
+            133.33333333333334,
+            166.66666666666666,
+            133.33333333333334,
+            166.66666666666666
+          ],
+          "path": "assets/animations/charizard/Walk.png"
+        },
+        "Shoot": {
+          "width": 56,
+          "height": 56,
+          "durations": [
+            66.66666666666667,
+            100.0,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/charizard/Shoot.png"
+        },
+        "Attack": {
+          "width": 80,
+          "height": 88,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            66.66666666666667,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/charizard/Attack.png"
+        },
+        "Charge": {
+          "width": 48,
+          "height": 48,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/charizard/Charge.png"
+        },
+        "Hurt": {
+          "width": 64,
+          "height": 64,
+          "durations": [
+            33.333333333333336,
+            133.33333333333334
+          ],
+          "path": "assets/animations/charizard/Hurt.png"
+        }
+      }
+    },
+    "lucario": {
+      "source": "https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/sprite/0448",
+      "credits": "2020-10-07 17:58:44.723301\tCHUNSOFT\tCUR\tUnspecified\tWalk,Attack,QuickStrike,Strike,SpAttack,RearUp,Sleep,Hurt,Idle,Swing,Double,Hop,Charge,Rotate\n2023-03-19 21:50:39.908380\t<@!356635814668664832>\tCUR\tPMDCollab_1\tEventSleep,Wake,Eat,Tumble,Pose,Pull,Pain,Float,DeepBreath,Nod,Sit,LookUp,Sink,Trip,Laying,LeapForth,Head,Cringe,LostBalance,TumbleBack,HitGround,Faint\n2024-09-07 21:23:27.049432\t<@!356635814668664832>\tCUR\tCC_BY-NC_4\tEventSleep,Wake,Float,Trip,Laying,HitGround\n",
+      "actions": {
+        "Idle": {
+          "width": 32,
+          "height": 56,
+          "durations": [
+            666.6666666666666,
+            33.333333333333336,
+            33.333333333333336,
+            66.66666666666667,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/lucario/Idle.png"
+        },
+        "Walk": {
+          "width": 32,
+          "height": 48,
+          "durations": [
+            100.0,
+            100.0,
+            100.0,
+            100.0
+          ],
+          "path": "assets/animations/lucario/Walk.png"
+        },
+        "Attack": {
+          "width": 64,
+          "height": 72,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/lucario/Attack.png"
+        },
+        "Charge": {
+          "width": 32,
+          "height": 40,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/lucario/Charge.png"
+        },
+        "Hurt": {
+          "width": 40,
+          "height": 56,
+          "durations": [
+            33.333333333333336,
+            133.33333333333334
+          ],
+          "path": "assets/animations/lucario/Hurt.png"
+        },
+        "Pose": {
+          "width": 24,
+          "height": 48,
+          "durations": [
+            200.0,
+            33.333333333333336,
+            133.33333333333334
+          ],
+          "path": "assets/animations/lucario/Pose.png"
+        }
+      }
+    },
+    "snorlax": {
+      "source": "https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/sprite/0143",
+      "credits": "2020-10-07 17:58:43.739327\tCHUNSOFT\tCUR\tUnspecified\tWalk,Attack,Stomp,Shoot,Twirl,Sleep,Hurt,Idle,Swing,Double,Hop,Charge,Rotate\n",
+      "actions": {
+        "Idle": {
+          "width": 32,
+          "height": 64,
+          "durations": [
+            666.6666666666666,
+            16.666666666666668,
+            50.0,
+            66.66666666666667,
+            50.0,
+            16.666666666666668
+          ],
+          "path": "assets/animations/snorlax/Idle.png"
+        },
+        "Walk": {
+          "width": 32,
+          "height": 48,
+          "durations": [
+            133.33333333333334,
+            166.66666666666666,
+            133.33333333333334,
+            166.66666666666666
+          ],
+          "path": "assets/animations/snorlax/Walk.png"
+        },
+        "Shoot": {
+          "width": 40,
+          "height": 56,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            100.0,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/snorlax/Shoot.png"
+        },
+        "Attack": {
+          "width": 64,
+          "height": 88,
+          "durations": [
+            33.333333333333336,
+            133.33333333333334,
+            16.666666666666668,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/snorlax/Attack.png"
+        },
+        "Charge": {
+          "width": 32,
+          "height": 48,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/snorlax/Charge.png"
+        },
+        "Hurt": {
+          "width": 48,
+          "height": 64,
+          "durations": [
+            33.333333333333336,
+            133.33333333333334
+          ],
+          "path": "assets/animations/snorlax/Hurt.png"
+        }
+      }
+    },
+    "wartortle": {
+      "source": "https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/sprite/0008",
+      "credits": "2020-10-07 17:58:43.353362\tCHUNSOFT\tCUR\tUnspecified\tWalk,Attack,Ricochet,Shoot,Withdraw,Sleep,Hurt,Idle,Swing,Double,Hop,Charge,Rotate\n",
+      "actions": {
+        "Idle": {
+          "width": 24,
+          "height": 40,
+          "durations": [
+            666.6666666666666,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/wartortle/Idle.png"
+        },
+        "Walk": {
+          "width": 32,
+          "height": 40,
+          "durations": [
+            133.33333333333334,
+            166.66666666666666,
+            133.33333333333334,
+            166.66666666666666
+          ],
+          "path": "assets/animations/wartortle/Walk.png"
+        },
+        "Shoot": {
+          "width": 32,
+          "height": 40,
+          "durations": [
+            33.333333333333336,
+            133.33333333333334,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/wartortle/Shoot.png"
+        },
+        "Attack": {
+          "width": 64,
+          "height": 72,
+          "durations": [
+            66.66666666666667,
+            33.333333333333336,
+            66.66666666666667,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            66.66666666666667
+          ],
+          "path": "assets/animations/wartortle/Attack.png"
+        },
+        "Charge": {
+          "width": 32,
+          "height": 40,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/wartortle/Charge.png"
+        },
+        "Hurt": {
+          "width": 48,
+          "height": 48,
+          "durations": [
+            33.333333333333336,
+            133.33333333333334
+          ],
+          "path": "assets/animations/wartortle/Hurt.png"
+        },
+        "Swing": {
+          "width": 72,
+          "height": 72,
+          "durations": [
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            50.0,
+            33.333333333333336,
+            33.333333333333336,
+            16.666666666666668,
+            16.666666666666668
+          ],
+          "path": "assets/animations/wartortle/Swing.png"
+        },
+        "Hop": {
+          "width": 32,
+          "height": 80,
+          "durations": [
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336,
+            50.0,
+            66.66666666666667,
+            66.66666666666667,
+            50.0,
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336
+          ],
+          "path": "assets/animations/wartortle/Hop.png"
+        }
+      }
+    },
+    "venusaur": {
+      "source": "https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/sprite/0003",
+      "credits": "2020-10-07 17:58:43.332418\tCHUNSOFT\tCUR\tUnspecified\tWalk,Attack,Strike,Shoot,Dance,Shake,Sleep,Hurt,Idle,Swing,Double,Hop,Charge,Rotate\n",
+      "actions": {
+        "Idle": {
+          "width": 32,
+          "height": 32,
+          "durations": [
+            500.0,
+            266.6666666666667,
+            200.0,
+            266.6666666666667
+          ],
+          "path": "assets/animations/venusaur/Idle.png"
+        },
+        "Walk": {
+          "width": 32,
+          "height": 32,
+          "durations": [
+            133.33333333333334,
+            266.6666666666667,
+            133.33333333333334,
+            266.6666666666667
+          ],
+          "path": "assets/animations/venusaur/Walk.png"
+        },
+        "Shoot": {
+          "width": 40,
+          "height": 40,
+          "durations": [
+            200.0,
+            66.66666666666667,
+            66.66666666666667,
+            66.66666666666667,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/venusaur/Shoot.png"
+        },
+        "Attack": {
+          "width": 72,
+          "height": 72,
+          "durations": [
+            66.66666666666667,
+            33.333333333333336,
+            66.66666666666667,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            66.66666666666667
+          ],
+          "path": "assets/animations/venusaur/Attack.png"
+        },
+        "Charge": {
+          "width": 32,
+          "height": 40,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/venusaur/Charge.png"
+        },
+        "Hurt": {
+          "width": 48,
+          "height": 48,
+          "durations": [
+            33.333333333333336,
+            133.33333333333334
+          ],
+          "path": "assets/animations/venusaur/Hurt.png"
+        },
+        "Swing": {
+          "width": 72,
+          "height": 72,
+          "durations": [
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            50.0,
+            33.333333333333336,
+            33.333333333333336,
+            16.666666666666668,
+            16.666666666666668
+          ],
+          "path": "assets/animations/venusaur/Swing.png"
+        },
+        "Strike": {
+          "width": 72,
+          "height": 72,
+          "durations": [
+            66.66666666666667,
+            33.333333333333336,
+            66.66666666666667,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            66.66666666666667
+          ],
+          "path": "assets/animations/venusaur/Strike.png"
+        },
+        "Hop": {
+          "width": 40,
+          "height": 80,
+          "durations": [
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336,
+            50.0,
+            66.66666666666667,
+            66.66666666666667,
+            50.0,
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336
+          ],
+          "path": "assets/animations/venusaur/Hop.png"
+        },
+        "Shake": {
+          "width": 40,
+          "height": 40,
+          "durations": [
+            100.0,
+            100.0,
+            100.0,
+            100.0,
+            100.0,
+            100.0
+          ],
+          "path": "assets/animations/venusaur/Shake.png"
+        }
+      }
+    },
+    "gengar": {
+      "source": "https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/sprite/0094",
+      "credits": "2022-12-17 00:13:11.432426\tCHUNSOFT\tCUR\tUnspecified\tIdle,Walk,Sleep,Hurt,Attack,Charge,Shoot,Strike,Lick,Twirl,Swing,Double,Rotate,Hop\n2023-04-22 22:29:17.717502\t<@!237286997645983744>\tCUR\tPMDCollab_1\tEventSleep,Wake,Eat,Tumble,Pose,Pull,Pain,Float,DeepBreath,Nod,Sit,LookUp,Sink,Trip,Laying,LeapForth,Head,Cringe,LostBalance,TumbleBack,HitGround,Faint\n",
+      "actions": {
+        "Idle": {
+          "width": 32,
+          "height": 40,
+          "durations": [
+            666.6666666666666,
+            66.66666666666667,
+            50.0,
+            50.0,
+            50.0,
+            50.0,
+            50.0,
+            66.66666666666667
+          ],
+          "path": "assets/animations/gengar/Idle.png"
+        },
+        "Walk": {
+          "width": 32,
+          "height": 40,
+          "durations": [
+            133.33333333333334,
+            166.66666666666666,
+            133.33333333333334,
+            166.66666666666666
+          ],
+          "path": "assets/animations/gengar/Walk.png"
+        },
+        "Shoot": {
+          "width": 56,
+          "height": 64,
+          "durations": [
+            33.333333333333336,
+            66.66666666666667,
+            16.666666666666668,
+            16.666666666666668,
+            166.66666666666666,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/gengar/Shoot.png"
+        },
+        "Attack": {
+          "width": 72,
+          "height": 80,
+          "durations": [
+            66.66666666666667,
+            33.333333333333336,
+            66.66666666666667,
+            16.666666666666668,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            66.66666666666667
+          ],
+          "path": "assets/animations/gengar/Attack.png"
+        },
+        "Charge": {
+          "width": 32,
+          "height": 40,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/gengar/Charge.png"
+        },
+        "Hurt": {
+          "width": 48,
+          "height": 56,
+          "durations": [
+            33.333333333333336,
+            133.33333333333334
+          ],
+          "path": "assets/animations/gengar/Hurt.png"
+        },
+        "Pose": {
+          "width": 32,
+          "height": 40,
+          "durations": [
+            200.0,
+            33.333333333333336,
+            33.333333333333336,
+            133.33333333333334
+          ],
+          "path": "assets/animations/gengar/Pose.png"
+        },
+        "Float": {
+          "width": 32,
+          "height": 32,
+          "durations": [
+            150.0,
+            300.0,
+            150.0,
+            233.33333333333334
+          ],
+          "path": "assets/animations/gengar/Float.png"
+        },
+        "Lick": {
+          "width": 56,
+          "height": 64,
+          "durations": [
+            33.333333333333336,
+            66.66666666666667,
+            16.666666666666668,
+            16.666666666666668,
+            166.66666666666666,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/gengar/Lick.png"
+        },
+        "Strike": {
+          "width": 72,
+          "height": 72,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            66.66666666666667,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            66.66666666666667
+          ],
+          "path": "assets/animations/gengar/Strike.png"
+        },
+        "Hop": {
+          "width": 32,
+          "height": 80,
+          "durations": [
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336,
+            50.0,
+            66.66666666666667,
+            66.66666666666667,
+            50.0,
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336
+          ],
+          "path": "assets/animations/gengar/Hop.png"
+        },
+        "Twirl": {
+          "width": 32,
+          "height": 40,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/gengar/Twirl.png"
+        }
+      }
+    },
+    "mewtwo": {
+      "source": "https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/sprite/0150",
+      "credits": "2020-10-07 17:58:43.755287\tCHUNSOFT\tCUR\tUnspecified\tAttack,Charge,Double,Hop,Hover,Hurt,Idle,Punch,Rotate,Shoot,Sleep,Swing,Walk\n2022-04-14 00:56:01.712419\t<@!702275233125630042>\tCUR\tPMDCollab_1\tAttack,Charge,Cringe,DeepBreath,Double,Eat,EventSleep,Faint,Float,Head,HitGround,Hop,Hover,Hurt,Idle,Laying,LeapForth,LookUp,LostBalance,Nod,Pain,Pose,Pull,Punch,Rotate,Shoot,Sink,Sit,Sleep,Swing,Trip,Tumble,TumbleBack,Wake,Walk\n",
+      "actions": {
+        "Idle": {
+          "width": 32,
+          "height": 64,
+          "durations": [
+            666.6666666666666,
+            33.333333333333336,
+            66.66666666666667,
+            100.0,
+            133.33333333333334,
+            100.0,
+            66.66666666666667,
+            33.333333333333336
+          ],
+          "path": "assets/animations/mewtwo/Idle.png"
+        },
+        "Walk": {
+          "width": 48,
+          "height": 56,
+          "durations": [
+            200.0,
+            100.0,
+            100.0,
+            200.0,
+            100.0,
+            100.0
+          ],
+          "path": "assets/animations/mewtwo/Walk.png"
+        },
+        "Shoot": {
+          "width": 56,
+          "height": 64,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/mewtwo/Shoot.png"
+        },
+        "Attack": {
+          "width": 80,
+          "height": 88,
+          "durations": [
+            33.333333333333336,
+            50.0,
+            66.66666666666667,
+            16.666666666666668,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/mewtwo/Attack.png"
+        },
+        "Charge": {
+          "width": 32,
+          "height": 56,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/mewtwo/Charge.png"
+        },
+        "Hurt": {
+          "width": 48,
+          "height": 72,
+          "durations": [
+            33.333333333333336,
+            133.33333333333334
+          ],
+          "path": "assets/animations/mewtwo/Hurt.png"
+        },
+        "Pose": {
+          "width": 32,
+          "height": 56,
+          "durations": [
+            200.0,
+            33.333333333333336,
+            133.33333333333334
+          ],
+          "path": "assets/animations/mewtwo/Pose.png"
+        },
+        "Hover": {
+          "width": 48,
+          "height": 72,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            100.0,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            100.0,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/mewtwo/Hover.png"
+        },
+        "Punch": {
+          "width": 80,
+          "height": 88,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/mewtwo/Punch.png"
+        },
+        "Hop": {
+          "width": 40,
+          "height": 104,
+          "durations": [
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336,
+            50.0,
+            66.66666666666667,
+            66.66666666666667,
+            50.0,
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336
+          ],
+          "path": "assets/animations/mewtwo/Hop.png"
+        },
+        "SpAttack": {
+          "width": 48,
+          "height": 72,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            100.0,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            100.0,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/mewtwo/SpAttack.png"
+        }
+      }
+    },
+    "gardevoir": {
+      "source": "https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/sprite/0282",
+      "credits": "2022-07-09 22:37:29.896062\tCHUNSOFT\tCUR\tUnspecified\tIdle,Walk,Sleep,Hurt,Attack,Charge,Shoot,Strike,Appeal,SpAttack,Swing,Double,Rotate,Hop\n",
+      "actions": {
+        "Idle": {
+          "width": 32,
+          "height": 40,
+          "durations": [
+            100.0,
+            200.0,
+            100.0,
+            200.0
+          ],
+          "path": "assets/animations/gardevoir/Idle.png"
+        },
+        "Walk": {
+          "width": 32,
+          "height": 40,
+          "durations": [
+            133.33333333333334,
+            200.0,
+            133.33333333333334,
+            200.0
+          ],
+          "path": "assets/animations/gardevoir/Walk.png"
+        },
+        "Shoot": {
+          "width": 32,
+          "height": 40,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/gardevoir/Shoot.png"
+        },
+        "Attack": {
+          "width": 72,
+          "height": 72,
+          "durations": [
+            33.333333333333336,
+            66.66666666666667,
+            16.666666666666668,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/gardevoir/Attack.png"
+        },
+        "Charge": {
+          "width": 32,
+          "height": 40,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/gardevoir/Charge.png"
+        },
+        "Hurt": {
+          "width": 40,
+          "height": 56,
+          "durations": [
+            33.333333333333336,
+            133.33333333333334
+          ],
+          "path": "assets/animations/gardevoir/Hurt.png"
+        },
+        "SpAttack": {
+          "width": 32,
+          "height": 40,
+          "durations": [
+            16.666666666666668,
+            100.0,
+            16.666666666666668,
+            66.66666666666667,
+            83.33333333333333,
+            66.66666666666667,
+            83.33333333333333,
+            66.66666666666667
+          ],
+          "path": "assets/animations/gardevoir/SpAttack.png"
+        },
+        "Strike": {
+          "width": 72,
+          "height": 72,
+          "durations": [
+            33.333333333333336,
+            66.66666666666667,
+            16.666666666666668,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/gardevoir/Strike.png"
+        },
+        "Hop": {
+          "width": 32,
+          "height": 88,
+          "durations": [
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336,
+            50.0,
+            66.66666666666667,
+            66.66666666666667,
+            50.0,
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336
+          ],
+          "path": "assets/animations/gardevoir/Hop.png"
+        },
+        "Appeal": {
+          "width": 32,
+          "height": 40,
+          "durations": [
+            16.666666666666668,
+            100.0,
+            16.666666666666668,
+            66.66666666666667,
+            83.33333333333333,
+            66.66666666666667,
+            83.33333333333333,
+            66.66666666666667
+          ],
+          "path": "assets/animations/gardevoir/Appeal.png"
+        }
+      }
+    },
+    "weavile": {
+      "source": "https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/sprite/0461",
+      "credits": "2022-11-08 03:48:25.770646\tCHUNSOFT\tCUR\tUnspecified\tIdle,Walk,Sleep,Hurt,Attack,Charge,Shoot,SpAttack,Swing,Double,Rotate,Hop,QuickStrike\n",
+      "actions": {
+        "Idle": {
+          "width": 32,
+          "height": 48,
+          "durations": [
+            1000.0,
+            333.3333333333333
+          ],
+          "path": "assets/animations/weavile/Idle.png"
+        },
+        "Walk": {
+          "width": 32,
+          "height": 48,
+          "durations": [
+            133.33333333333334,
+            133.33333333333334,
+            133.33333333333334,
+            133.33333333333334
+          ],
+          "path": "assets/animations/weavile/Walk.png"
+        },
+        "Shoot": {
+          "width": 32,
+          "height": 64,
+          "durations": [
+            16.666666666666668,
+            33.333333333333336,
+            50.0,
+            50.0,
+            33.333333333333336,
+            16.666666666666668,
+            66.66666666666667,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/weavile/Shoot.png"
+        },
+        "Attack": {
+          "width": 64,
+          "height": 88,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            100.0,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            66.66666666666667,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/weavile/Attack.png"
+        },
+        "Charge": {
+          "width": 32,
+          "height": 48,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/weavile/Charge.png"
+        },
+        "Hurt": {
+          "width": 40,
+          "height": 56,
+          "durations": [
+            33.333333333333336,
+            133.33333333333334
+          ],
+          "path": "assets/animations/weavile/Hurt.png"
+        },
+        "QuickStrike": {
+          "width": 112,
+          "height": 136,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            100.0,
+            16.666666666666668,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            66.66666666666667,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/weavile/QuickStrike.png"
+        },
+        "Hop": {
+          "width": 32,
+          "height": 88,
+          "durations": [
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336,
+            50.0,
+            66.66666666666667,
+            66.66666666666667,
+            50.0,
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336
+          ],
+          "path": "assets/animations/weavile/Hop.png"
+        },
+        "SpAttack": {
+          "width": 32,
+          "height": 64,
+          "durations": [
+            16.666666666666668,
+            33.333333333333336,
+            50.0,
+            50.0,
+            33.333333333333336,
+            16.666666666666668,
+            66.66666666666667,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/weavile/SpAttack.png"
+        }
+      }
+    },
+    "arcanine": {
+      "source": "https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/sprite/0059",
+      "credits": "2020-10-07 17:58:43.511936\tCHUNSOFT\tCUR\tUnspecified\tWalk,Attack,QuickStrike,Shoot,SpAttack,Rumble,Sleep,Hurt,Idle,Swing,Double,Hop,Charge,Rotate\n",
+      "actions": {
+        "Idle": {
+          "width": 40,
+          "height": 48,
+          "durations": [
+            133.33333333333334
+          ],
+          "path": "assets/animations/arcanine/Idle.png"
+        },
+        "Walk": {
+          "width": 32,
+          "height": 48,
+          "durations": [
+            133.33333333333334,
+            166.66666666666666,
+            133.33333333333334,
+            166.66666666666666
+          ],
+          "path": "assets/animations/arcanine/Walk.png"
+        },
+        "Shoot": {
+          "width": 48,
+          "height": 56,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            100.0,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/arcanine/Shoot.png"
+        },
+        "Attack": {
+          "width": 72,
+          "height": 88,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            100.0,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/arcanine/Attack.png"
+        },
+        "Charge": {
+          "width": 40,
+          "height": 48,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/arcanine/Charge.png"
+        },
+        "Hurt": {
+          "width": 40,
+          "height": 56,
+          "durations": [
+            33.333333333333336,
+            133.33333333333334
+          ],
+          "path": "assets/animations/arcanine/Hurt.png"
+        },
+        "QuickStrike": {
+          "width": 120,
+          "height": 136,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            100.0,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/arcanine/QuickStrike.png"
+        },
+        "Hop": {
+          "width": 40,
+          "height": 96,
+          "durations": [
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336,
+            50.0,
+            66.66666666666667,
+            66.66666666666667,
+            50.0,
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336
+          ],
+          "path": "assets/animations/arcanine/Hop.png"
+        },
+        "SpAttack": {
+          "width": 40,
+          "height": 64,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            50.0,
+            50.0,
+            50.0,
+            33.333333333333336,
+            66.66666666666667,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/arcanine/SpAttack.png"
+        },
+        "Rumble": {
+          "width": 40,
+          "height": 64,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            50.0,
+            50.0,
+            50.0,
+            33.333333333333336,
+            66.66666666666667,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/arcanine/Rumble.png"
+        }
+      }
+    },
+    "onix": {
+      "source": "https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/sprite/0095",
+      "credits": "2020-10-07 17:58:43.602694\tCHUNSOFT\tCUR\tUnspecified\tWalk,Attack,Slam,Shoot,Twirl,Sleep,Hurt,Idle,Swing,Double,Hop,Charge,Rotate\n",
+      "actions": {
+        "Idle": {
+          "width": 96,
+          "height": 104,
+          "durations": [
+            266.6666666666667,
+            266.6666666666667,
+            266.6666666666667,
+            266.6666666666667
+          ],
+          "path": "assets/animations/onix/Idle.png"
+        },
+        "Walk": {
+          "width": 88,
+          "height": 112,
+          "durations": [
+            166.66666666666666,
+            233.33333333333334,
+            166.66666666666666,
+            233.33333333333334
+          ],
+          "path": "assets/animations/onix/Walk.png"
+        },
+        "Shoot": {
+          "width": 96,
+          "height": 112,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            100.0,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/onix/Shoot.png"
+        },
+        "Attack": {
+          "width": 128,
+          "height": 152,
+          "durations": [
+            33.333333333333336,
+            100.0,
+            16.666666666666668,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/onix/Attack.png"
+        },
+        "Charge": {
+          "width": 56,
+          "height": 104,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/onix/Charge.png"
+        },
+        "Hurt": {
+          "width": 80,
+          "height": 88,
+          "durations": [
+            33.333333333333336,
+            133.33333333333334
+          ],
+          "path": "assets/animations/onix/Hurt.png"
+        },
+        "Swing": {
+          "width": 120,
+          "height": 120,
+          "durations": [
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            50.0,
+            33.333333333333336,
+            33.333333333333336,
+            16.666666666666668,
+            16.666666666666668
+          ],
+          "path": "assets/animations/onix/Swing.png"
+        },
+        "Slam": {
+          "width": 128,
+          "height": 152,
+          "durations": [
+            33.333333333333336,
+            100.0,
+            16.666666666666668,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/onix/Slam.png"
+        },
+        "Hop": {
+          "width": 88,
+          "height": 160,
+          "durations": [
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336,
+            50.0,
+            66.66666666666667,
+            66.66666666666667,
+            50.0,
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336
+          ],
+          "path": "assets/animations/onix/Hop.png"
+        },
+        "Twirl": {
+          "width": 64,
+          "height": 104,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/onix/Twirl.png"
+        }
+      }
+    },
+    "marowak": {
+      "source": "https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/sprite/0105",
+      "credits": "2020-10-07 17:58:43.631617\tCHUNSOFT\tCUR\tUnspecified\tWalk,Attack,Strike,Punch,Shoot,Sleep,Hurt,Idle,Swing,Double,Hop,Charge,Rotate\n",
+      "actions": {
+        "Idle": {
+          "width": 32,
+          "height": 48,
+          "durations": [
+            666.6666666666666,
+            100.0,
+            266.6666666666667,
+            100.0
+          ],
+          "path": "assets/animations/marowak/Idle.png"
+        },
+        "Walk": {
+          "width": 32,
+          "height": 40,
+          "durations": [
+            133.33333333333334,
+            166.66666666666666,
+            133.33333333333334,
+            166.66666666666666
+          ],
+          "path": "assets/animations/marowak/Walk.png"
+        },
+        "Shoot": {
+          "width": 48,
+          "height": 56,
+          "durations": [
+            33.333333333333336,
+            100.0,
+            33.333333333333336,
+            33.333333333333336,
+            50.0,
+            66.66666666666667
+          ],
+          "path": "assets/animations/marowak/Shoot.png"
+        },
+        "Attack": {
+          "width": 72,
+          "height": 88,
+          "durations": [
+            33.333333333333336,
+            100.0,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/marowak/Attack.png"
+        },
+        "Charge": {
+          "width": 32,
+          "height": 40,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/marowak/Charge.png"
+        },
+        "Hurt": {
+          "width": 48,
+          "height": 56,
+          "durations": [
+            33.333333333333336,
+            133.33333333333334
+          ],
+          "path": "assets/animations/marowak/Hurt.png"
+        },
+        "Swing": {
+          "width": 72,
+          "height": 80,
+          "durations": [
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            50.0,
+            33.333333333333336,
+            33.333333333333336,
+            16.666666666666668,
+            16.666666666666668
+          ],
+          "path": "assets/animations/marowak/Swing.png"
+        },
+        "Strike": {
+          "width": 72,
+          "height": 80,
+          "durations": [
+            33.333333333333336,
+            100.0,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/marowak/Strike.png"
+        },
+        "Hop": {
+          "width": 32,
+          "height": 88,
+          "durations": [
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336,
+            50.0,
+            66.66666666666667,
+            66.66666666666667,
+            50.0,
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336
+          ],
+          "path": "assets/animations/marowak/Hop.png"
+        }
+      }
+    },
+    "infernape": {
+      "source": "https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/sprite/0392",
+      "credits": "2020-10-07 17:58:44.551761\tCHUNSOFT\tCUR\tUnspecified\tWalk,Attack,Strike,Shoot,MultiStrike,Sleep,Hurt,Idle,Swing,Double,Hop,Charge,Rotate\n2026-01-12 20:14:16.011685\t<@!330751862590406656>\tCUR\tCC_BY-NC_4\tDeepBreath,Nod,LookUp,Cringe\n",
+      "actions": {
+        "Idle": {
+          "width": 40,
+          "height": 64,
+          "durations": [
+            83.33333333333333,
+            83.33333333333333,
+            83.33333333333333,
+            83.33333333333333,
+            83.33333333333333,
+            83.33333333333333,
+            83.33333333333333,
+            83.33333333333333,
+            83.33333333333333,
+            83.33333333333333,
+            33.333333333333336,
+            50.0,
+            66.66666666666667,
+            50.0,
+            33.333333333333336
+          ],
+          "path": "assets/animations/infernape/Idle.png"
+        },
+        "Walk": {
+          "width": 40,
+          "height": 56,
+          "durations": [
+            100.0,
+            100.0,
+            100.0,
+            100.0
+          ],
+          "path": "assets/animations/infernape/Walk.png"
+        },
+        "Shoot": {
+          "width": 40,
+          "height": 56,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            133.33333333333334,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/infernape/Shoot.png"
+        },
+        "Attack": {
+          "width": 72,
+          "height": 88,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336
+          ],
+          "path": "assets/animations/infernape/Attack.png"
+        },
+        "Charge": {
+          "width": 40,
+          "height": 56,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/infernape/Charge.png"
+        },
+        "Hurt": {
+          "width": 48,
+          "height": 72,
+          "durations": [
+            33.333333333333336,
+            133.33333333333334
+          ],
+          "path": "assets/animations/infernape/Hurt.png"
+        },
+        "Strike": {
+          "width": 72,
+          "height": 88,
+          "durations": [
+            33.333333333333336,
+            100.0,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            100.0,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/infernape/Strike.png"
+        },
+        "MultiStrike": {
+          "width": 80,
+          "height": 96,
+          "durations": [
+            33.333333333333336,
+            66.66666666666667,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            66.66666666666667,
+            33.333333333333336,
+            33.333333333333336,
+            66.66666666666667,
+            33.333333333333336,
+            33.333333333333336,
+            66.66666666666667,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/infernape/MultiStrike.png"
+        },
+        "Hop": {
+          "width": 32,
+          "height": 104,
+          "durations": [
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336,
+            50.0,
+            66.66666666666667,
+            66.66666666666667,
+            50.0,
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336
+          ],
+          "path": "assets/animations/infernape/Hop.png"
+        },
+        "Rotate": {
+          "width": 32,
+          "height": 56,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/infernape/Rotate.png"
+        },
+        "DeepBreath": {
+          "width": 32,
+          "height": 56,
+          "durations": [
+            200.0,
+            100.0,
+            100.0,
+            100.0,
+            100.0,
+            100.0,
+            100.0,
+            166.66666666666666,
+            66.66666666666667
+          ],
+          "path": "assets/animations/infernape/DeepBreath.png"
+        }
+      }
+    },
+    "luxray": {
+      "source": "https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/sprite/0405",
+      "credits": "2020-10-07 17:58:44.589659\tCHUNSOFT\tCUR\tUnspecified\tWalk,Attack,Strike,Shoot,TailWhip,Shake,Sleep,Hurt,Idle,Swing,Double,Hop,Charge,Rotate\n",
+      "actions": {
+        "Idle": {
+          "width": 40,
+          "height": 48,
+          "durations": [
+            500.0,
+            200.0,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            200.0
+          ],
+          "path": "assets/animations/luxray/Idle.png"
+        },
+        "Walk": {
+          "width": 40,
+          "height": 48,
+          "durations": [
+            166.66666666666666,
+            166.66666666666666,
+            166.66666666666666,
+            166.66666666666666
+          ],
+          "path": "assets/animations/luxray/Walk.png"
+        },
+        "Shoot": {
+          "width": 48,
+          "height": 56,
+          "durations": [
+            16.666666666666668,
+            33.333333333333336,
+            133.33333333333334,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/luxray/Shoot.png"
+        },
+        "Attack": {
+          "width": 64,
+          "height": 80,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            66.66666666666667,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/luxray/Attack.png"
+        },
+        "Charge": {
+          "width": 40,
+          "height": 48,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/luxray/Charge.png"
+        },
+        "Hurt": {
+          "width": 40,
+          "height": 56,
+          "durations": [
+            33.333333333333336,
+            133.33333333333334
+          ],
+          "path": "assets/animations/luxray/Hurt.png"
+        },
+        "Strike": {
+          "width": 64,
+          "height": 80,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            66.66666666666667,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/luxray/Strike.png"
+        },
+        "Hop": {
+          "width": 48,
+          "height": 96,
+          "durations": [
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336,
+            50.0,
+            66.66666666666667,
+            66.66666666666667,
+            50.0,
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336
+          ],
+          "path": "assets/animations/luxray/Hop.png"
+        },
+        "Shake": {
+          "width": 40,
+          "height": 48,
+          "durations": [
+            133.33333333333334,
+            33.333333333333336,
+            133.33333333333334,
+            33.333333333333336,
+            133.33333333333334,
+            33.333333333333336,
+            133.33333333333334,
+            33.333333333333336,
+            133.33333333333334,
+            33.333333333333336
+          ],
+          "path": "assets/animations/luxray/Shake.png"
+        }
+      }
+    },
+    "croagunk": {
+      "source": "https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/sprite/0453",
+      "credits": "2022-11-08 03:48:21.065675\tCHUNSOFT\tCUR\tUnspecified\tIdle,Walk,Sleep,Hurt,Attack,Charge,Shoot,Strike,Jab,RearUp,Swing,Double,Rotate,Hop\n2025-09-07 17:52:49.454926\t<@!330751862590406656>\tCUR\tCC_BY-NC_4\tEventSleep,Wake,Eat,Tumble,Pose,Pull,Pain,Float,DeepBreath,Nod,Sit,LookUp,Sink,Trip,Laying,LeapForth,Head,Cringe,LostBalance,TumbleBack,HitGround,Faint\n2025-09-10 07:01:13.092054\t<@!330751862590406656>\tCUR\tCC_BY-NC_4\tPose,Pull,Nod,Sit,LookUp,Sink,LostBalance\n",
+      "actions": {
+        "Idle": {
+          "width": 32,
+          "height": 48,
+          "durations": [
+            666.6666666666666,
+            16.666666666666668,
+            33.333333333333336,
+            100.0,
+            33.333333333333336,
+            16.666666666666668,
+            16.666666666666668
+          ],
+          "path": "assets/animations/croagunk/Idle.png"
+        },
+        "Walk": {
+          "width": 24,
+          "height": 32,
+          "durations": [
+            166.66666666666666,
+            166.66666666666666,
+            166.66666666666666,
+            166.66666666666666
+          ],
+          "path": "assets/animations/croagunk/Walk.png"
+        },
+        "Shoot": {
+          "width": 32,
+          "height": 40,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            100.0,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/croagunk/Shoot.png"
+        },
+        "Attack": {
+          "width": 64,
+          "height": 72,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            100.0,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336
+          ],
+          "path": "assets/animations/croagunk/Attack.png"
+        },
+        "Charge": {
+          "width": 32,
+          "height": 32,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/croagunk/Charge.png"
+        },
+        "Hurt": {
+          "width": 32,
+          "height": 56,
+          "durations": [
+            33.333333333333336,
+            133.33333333333334
+          ],
+          "path": "assets/animations/croagunk/Hurt.png"
+        },
+        "Pose": {
+          "width": 24,
+          "height": 32,
+          "durations": [
+            200.0,
+            33.333333333333336,
+            133.33333333333334
+          ],
+          "path": "assets/animations/croagunk/Pose.png"
+        },
+        "Jab": {
+          "width": 72,
+          "height": 80,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            100.0,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            66.66666666666667,
+            16.666666666666668,
+            33.333333333333336
+          ],
+          "path": "assets/animations/croagunk/Jab.png"
+        },
+        "Strike": {
+          "width": 72,
+          "height": 80,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            100.0,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            66.66666666666667,
+            16.666666666666668,
+            33.333333333333336
+          ],
+          "path": "assets/animations/croagunk/Strike.png"
+        },
+        "Hop": {
+          "width": 32,
+          "height": 80,
+          "durations": [
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336,
+            50.0,
+            66.66666666666667,
+            66.66666666666667,
+            50.0,
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336
+          ],
+          "path": "assets/animations/croagunk/Hop.png"
+        }
+      }
+    },
+    "staraptor": {
+      "source": "https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/sprite/0398",
+      "credits": "2020-10-07 17:58:44.566719\tCHUNSOFT\tCUR\tUnspecified\tAttack,Charge,Double,Hop,Hover,Hurt,Idle,QuickStrike,Rotate,Shoot,Sleep,Swing,Walk\n2021-02-04 20:28:54.902361\t<@!117780585635643396>\tCUR\tPMDCollab_1\tDouble\n",
+      "actions": {
+        "Idle": {
+          "width": 32,
+          "height": 48,
+          "durations": [
+            200.0,
+            166.66666666666666,
+            200.0,
+            166.66666666666666
+          ],
+          "path": "assets/animations/staraptor/Idle.png"
+        },
+        "Walk": {
+          "width": 32,
+          "height": 48,
+          "durations": [
+            133.33333333333334,
+            166.66666666666666,
+            133.33333333333334,
+            166.66666666666666
+          ],
+          "path": "assets/animations/staraptor/Walk.png"
+        },
+        "Shoot": {
+          "width": 40,
+          "height": 56,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            100.0,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/staraptor/Shoot.png"
+        },
+        "Attack": {
+          "width": 64,
+          "height": 72,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            66.66666666666667,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/staraptor/Attack.png"
+        },
+        "Charge": {
+          "width": 32,
+          "height": 48,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/staraptor/Charge.png"
+        },
+        "Hurt": {
+          "width": 40,
+          "height": 56,
+          "durations": [
+            33.333333333333336,
+            133.33333333333334
+          ],
+          "path": "assets/animations/staraptor/Hurt.png"
+        },
+        "Hover": {
+          "width": 32,
+          "height": 64,
+          "durations": [
+            50.0,
+            50.0,
+            50.0,
+            50.0,
+            50.0,
+            50.0,
+            50.0,
+            50.0,
+            50.0,
+            33.333333333333336,
+            16.666666666666668
+          ],
+          "path": "assets/animations/staraptor/Hover.png"
+        },
+        "QuickStrike": {
+          "width": 120,
+          "height": 128,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            66.66666666666667,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/staraptor/QuickStrike.png"
+        },
+        "Hop": {
+          "width": 32,
+          "height": 96,
+          "durations": [
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336,
+            50.0,
+            66.66666666666667,
+            66.66666666666667,
+            50.0,
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336
+          ],
+          "path": "assets/animations/staraptor/Hop.png"
+        }
+      }
+    },
+    "darkrai": {
+      "source": "https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/sprite/0491",
+      "credits": "2022-11-08 03:47:19.670949\tCHUNSOFT\tCUR\tUnspecified\tIdle,Walk,Sleep,Hurt,Attack,Charge,Shoot,SpAttack,RearUp,Swing,Double,Rotate,Hop,QuickStrike\n2022-11-08 04:14:41.871948\t<@!544245909639397378>\tCUR\tPMDCollab_1\tEventSleep,Wake,Eat,Tumble,Pose,Pull,Pain,Float,DeepBreath,Nod,Sit,LookUp,Sink,Trip,Laying,LeapForth,Head,Cringe,LostBalance,TumbleBack,HitGround,Faint\n",
+      "actions": {
+        "Idle": {
+          "width": 40,
+          "height": 80,
+          "durations": [
+            333.3333333333333,
+            100.0,
+            100.0,
+            333.3333333333333,
+            100.0,
+            100.0,
+            100.0
+          ],
+          "path": "assets/animations/darkrai/Idle.png"
+        },
+        "Walk": {
+          "width": 40,
+          "height": 80,
+          "durations": [
+            116.66666666666667,
+            116.66666666666667,
+            150.0,
+            150.0,
+            150.0,
+            116.66666666666667,
+            116.66666666666667,
+            116.66666666666667
+          ],
+          "path": "assets/animations/darkrai/Walk.png"
+        },
+        "Shoot": {
+          "width": 32,
+          "height": 80,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            16.666666666666668,
+            16.666666666666668,
+            16.666666666666668,
+            16.666666666666668,
+            16.666666666666668,
+            16.666666666666668,
+            16.666666666666668,
+            16.666666666666668,
+            16.666666666666668,
+            16.666666666666668,
+            16.666666666666668,
+            16.666666666666668,
+            16.666666666666668,
+            16.666666666666668,
+            16.666666666666668,
+            16.666666666666668,
+            16.666666666666668,
+            16.666666666666668
+          ],
+          "path": "assets/animations/darkrai/Shoot.png"
+        },
+        "Attack": {
+          "width": 80,
+          "height": 104,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            100.0,
+            16.666666666666668,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            66.66666666666667,
+            50.0,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/darkrai/Attack.png"
+        },
+        "Charge": {
+          "width": 32,
+          "height": 80,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/darkrai/Charge.png"
+        },
+        "Hurt": {
+          "width": 48,
+          "height": 96,
+          "durations": [
+            33.333333333333336,
+            133.33333333333334
+          ],
+          "path": "assets/animations/darkrai/Hurt.png"
+        },
+        "Pose": {
+          "width": 32,
+          "height": 80,
+          "durations": [
+            66.66666666666667,
+            33.333333333333336,
+            33.333333333333336,
+            66.66666666666667
+          ],
+          "path": "assets/animations/darkrai/Pose.png"
+        },
+        "SpAttack": {
+          "width": 48,
+          "height": 96,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            50.0,
+            66.66666666666667,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            66.66666666666667,
+            50.0,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/darkrai/SpAttack.png"
+        },
+        "QuickStrike": {
+          "width": 128,
+          "height": 152,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            100.0,
+            16.666666666666668,
+            16.666666666666668,
+            16.666666666666668,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            66.66666666666667,
+            50.0,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/darkrai/QuickStrike.png"
+        },
+        "Hop": {
+          "width": 32,
+          "height": 120,
+          "durations": [
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336,
+            50.0,
+            66.66666666666667,
+            66.66666666666667,
+            50.0,
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336
+          ],
+          "path": "assets/animations/darkrai/Hop.png"
+        }
+      }
+    },
+    "tangrowth": {
+      "source": "https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/sprite/0465",
+      "credits": "2020-10-07 17:58:44.782144\tCHUNSOFT\tCUR\tUnspecified\tWalk,Attack,Strike,Shoot,SpAttack,Emit,Sleep,Hurt,Idle,Swing,Double,Hop,Charge,Rotate\n",
+      "actions": {
+        "Idle": {
+          "width": 32,
+          "height": 48,
+          "durations": [
+            666.6666666666666,
+            133.33333333333334,
+            133.33333333333334,
+            133.33333333333334,
+            133.33333333333334
+          ],
+          "path": "assets/animations/tangrowth/Idle.png"
+        },
+        "Walk": {
+          "width": 32,
+          "height": 48,
+          "durations": [
+            166.66666666666666,
+            166.66666666666666,
+            166.66666666666666,
+            166.66666666666666
+          ],
+          "path": "assets/animations/tangrowth/Walk.png"
+        },
+        "Shoot": {
+          "width": 40,
+          "height": 56,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            100.0,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/tangrowth/Shoot.png"
+        },
+        "Attack": {
+          "width": 64,
+          "height": 72,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            100.0,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/tangrowth/Attack.png"
+        },
+        "Charge": {
+          "width": 40,
+          "height": 48,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/tangrowth/Charge.png"
+        },
+        "Hurt": {
+          "width": 40,
+          "height": 64,
+          "durations": [
+            33.333333333333336,
+            133.33333333333334
+          ],
+          "path": "assets/animations/tangrowth/Hurt.png"
+        },
+        "Swing": {
+          "width": 72,
+          "height": 80,
+          "durations": [
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            50.0,
+            33.333333333333336,
+            33.333333333333336,
+            16.666666666666668,
+            16.666666666666668
+          ],
+          "path": "assets/animations/tangrowth/Swing.png"
+        },
+        "Strike": {
+          "width": 80,
+          "height": 80,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            100.0,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            100.0,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/tangrowth/Strike.png"
+        },
+        "Hop": {
+          "width": 40,
+          "height": 96,
+          "durations": [
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336,
+            50.0,
+            66.66666666666667,
+            66.66666666666667,
+            50.0,
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336
+          ],
+          "path": "assets/animations/tangrowth/Hop.png"
+        },
+        "SpAttack": {
+          "width": 40,
+          "height": 56,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            133.33333333333334,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            66.66666666666667,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/tangrowth/SpAttack.png"
+        },
+        "Emit": {
+          "width": 40,
+          "height": 56,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            133.33333333333334,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            66.66666666666667,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/tangrowth/Emit.png"
+        }
+      }
+    },
+    "garchomp": {
+      "source": "https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/sprite/0445",
+      "credits": "2020-10-07 17:58:44.712330\tCHUNSOFT\tCUR\tUnspecified\tWalk,Attack,Strike,Shoot,SpAttack,RearUp,Sleep,Hurt,Idle,Swing,Double,Hop,Charge,Rotate\n",
+      "actions": {
+        "Idle": {
+          "width": 48,
+          "height": 56,
+          "durations": [
+            666.6666666666666,
+            33.333333333333336,
+            200.0,
+            166.66666666666666,
+            200.0,
+            33.333333333333336
+          ],
+          "path": "assets/animations/garchomp/Idle.png"
+        },
+        "Walk": {
+          "width": 40,
+          "height": 48,
+          "durations": [
+            166.66666666666666,
+            166.66666666666666,
+            166.66666666666666,
+            166.66666666666666
+          ],
+          "path": "assets/animations/garchomp/Walk.png"
+        },
+        "Shoot": {
+          "width": 56,
+          "height": 64,
+          "durations": [
+            16.666666666666668,
+            33.333333333333336,
+            66.66666666666667,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/garchomp/Shoot.png"
+        },
+        "Attack": {
+          "width": 72,
+          "height": 80,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            100.0,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/garchomp/Attack.png"
+        },
+        "Charge": {
+          "width": 48,
+          "height": 48,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/garchomp/Charge.png"
+        },
+        "Hurt": {
+          "width": 48,
+          "height": 72,
+          "durations": [
+            33.333333333333336,
+            133.33333333333334
+          ],
+          "path": "assets/animations/garchomp/Hurt.png"
+        },
+        "Strike": {
+          "width": 72,
+          "height": 80,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            100.0,
+            16.666666666666668,
+            16.666666666666668,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/garchomp/Strike.png"
+        },
+        "Hop": {
+          "width": 40,
+          "height": 104,
+          "durations": [
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336,
+            50.0,
+            66.66666666666667,
+            66.66666666666667,
+            50.0,
+            33.333333333333336,
+            16.666666666666668,
+            33.333333333333336
+          ],
+          "path": "assets/animations/garchomp/Hop.png"
+        },
+        "RearUp": {
+          "width": 40,
+          "height": 64,
+          "durations": [
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336,
+            33.333333333333336
+          ],
+          "path": "assets/animations/garchomp/RearUp.png"
+        }
+      }
+    }
+  }
+}

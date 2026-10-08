@@ -1,0 +1,49 @@
+{
+  "defaultLineup": ["pikachu", "charizard", "lucario", "snorlax"],
+  "players": [
+    {"slug":"pikachu","id":25,"name":"Pikachu","region":"Kanto","visual":{"bodySize":52,"scale":2.2,"staticScale":1.05,"auraRadius":23}},
+    {"slug":"charizard","id":6,"name":"Charizard","region":"Kanto","visual":{"bodySize":78,"scale":2.1,"staticScale":1.18,"auraRadius":32}},
+    {"slug":"lucario","id":448,"name":"Lucario","region":"Sinnoh","visual":{"bodySize":68,"scale":2.25,"staticScale":1.05,"auraRadius":23}},
+    {"slug":"snorlax","id":143,"name":"Snorlax","region":"Kanto","visual":{"bodySize":88,"scale":2.2,"staticScale":1.34,"auraRadius":33,"iceWidth":94}},
+    {"slug":"wartortle","id":8,"name":"Wartortle","region":"Kanto","visual":{
+      "bodySize":54,"scale":2.25,"staticScale":1.05,"auraRadius":24,
+      "ball":{"side":18,"gather":42,"carry":32,"release":40,"dribble":24},
+      "animation":{"style":"biped","cadence":1.15,"actions":{"idle":"Idle","pass":"Shoot","catch":"Charge","steal":"Swing","shove":"Swing","block":"Hop","dunk":"Swing","ultimate":"Shoot","perk":"Shoot","celebrate":"Hop"}}
+    }},
+    {"slug":"venusaur","id":3,"name":"Venusaur","region":"Kanto","visual":{
+      "scale":2.7,"staticScale":1.6,"bodySize":90,"auraRadius":44,"iceWidth":112,
+      "ball":{"side":28,"gather":48,"carry":38,"release":46,"dribble":24},
+      "animation":{"style":"heavy","cadence":0.9,"actions":{"idle":"Idle","pass":"Shoot","catch":"Charge","steal":"Swing","shove":"Strike","block":"Hop","dunk":"Strike","ultimate":"Shoot","perk":"Shoot","celebrate":"Shake"}}
+    }},
+    {"slug":"gengar","id":94,"name":"Gengar","region":"Kanto","visual":{
+      "bodySize":68,"scale":2.1,"staticScale":1.15,"auraRadius":29,
+      "ball":{"side":22,"gather":50,"carry":38,"release":46,"dribble":26},
+      "animation":{"style":"spectral","cadence":1.1,"actions":{"idle":"Float","pass":"Shoot","catch":"Charge","steal":"Lick","shove":"Strike","block":"Hop","dunk":"Strike","ultimate":"Shoot","perk":"Shoot","celebrate":"Twirl"}}
+    }},
+    {"slug":"mewtwo","id":150,"name":"Mewtwo","region":"Kanto","visual":{
+      "bodySize":78,"scale":2.0,"staticScale":1.15,"auraRadius":29,
+      "ball":{"side":20,"gather":60,"carry":46,"release":54,"dribble":30},
+      "animation":{"style":"psychic","cadence":1.05,"actions":{"idle":"Hover","pass":"Shoot","catch":"Charge","steal":"Punch","shove":"Punch","block":"Hop","dunk":"Punch","ultimate":"SpAttack","perk":"SpAttack","celebrate":"Pose"}}
+    }},
+    {"slug":"gardevoir","id":282,"name":"Gardevoir","region":"Sinnoh","visual":{
+      "bodySize":66,"scale":2.15,"staticScale":1.1,"auraRadius":28,
+      "ball":{"side":18,"gather":58,"carry":44,"release":52,"dribble":28},
+      "animation":{"style":"psychic","cadence":1.05,"actions":{"idle":"Idle","pass":"SpAttack","catch":"Charge","steal":"Strike","shove":"Strike","block":"Hop","dunk":"Strike","ultimate":"SpAttack","perk":"SpAttack","celebrate":"Appeal"}}
+    }},
+    {"slug":"weavile","id":461,"name":"Weavile","region":"Sinnoh","visual":{
+      "bodySize":66,"scale":2.15,"staticScale":1.05,"auraRadius":25,
+      "ball":{"side":18,"gather":46,"carry":34,"release":42,"dribble":26},
+      "animation":{"style":"agile","cadence":1.35,"actions":{"idle":"Idle","pass":"Shoot","catch":"Charge","steal":"QuickStrike","shove":"QuickStrike","block":"Hop","dunk":"Attack","ultimate":"SpAttack","perk":"SpAttack","celebrate":"Hop"}}
+    }},
+    {"slug":"arcanine","id":59,"name":"Arcanine","region":"Kanto","visual":{"scale":2.2,"staticScale":1.35,"bodySize":84,"auraRadius":36,"animation":{"style":"heavy","cadence":1.1,"actions":{"idle":"Idle","pass":"Shoot","catch":"Charge","steal":"QuickStrike","shove":"Charge","block":"Hop","dunk":"Attack","ultimate":"SpAttack","perk":"SpAttack","celebrate":"Rumble"}}}},
+    {"slug":"onix","id":95,"name":"Onix","region":"Kanto","visual":{"scale":2,"staticScale":1.6,"bodySize":110,"auraRadius":40,"iceWidth":116,"animation":{"style":"heavy","cadence":0.8,"actions":{"idle":"Idle","pass":"Shoot","catch":"Charge","steal":"Swing","shove":"Slam","block":"Hop","dunk":"Slam","ultimate":"Slam","perk":"Slam","celebrate":"Twirl"}}}},
+    {"slug":"marowak","id":105,"name":"Marowak","region":"Kanto","visual":{"scale":2.2,"staticScale":1.1,"bodySize":64,"auraRadius":26,"animation":{"style":"biped","cadence":1.1,"actions":{"idle":"Idle","pass":"Shoot","catch":"Charge","steal":"Swing","shove":"Strike","block":"Hop","dunk":"Strike","ultimate":"Strike","perk":"Strike","celebrate":"Hop"}}}},
+    {"slug":"infernape","id":392,"name":"Infernape","region":"Sinnoh","visual":{"scale":2.2,"staticScale":1.15,"bodySize":72,"auraRadius":29,"animation":{"style":"agile","cadence":1.3,"actions":{"idle":"Idle","pass":"Shoot","catch":"Charge","steal":"Strike","shove":"MultiStrike","block":"Hop","dunk":"Attack","ultimate":"Rotate","perk":"Shoot","celebrate":"DeepBreath"}}}},
+    {"slug":"luxray","id":405,"name":"Luxray","region":"Sinnoh","visual":{"scale":2.2,"staticScale":1.2,"bodySize":74,"auraRadius":30,"animation":{"style":"agile","cadence":1.2,"actions":{"idle":"Idle","pass":"Shoot","catch":"Charge","steal":"Strike","shove":"Strike","block":"Hop","dunk":"Attack","ultimate":"Shoot","perk":"Shoot","celebrate":"Shake"}}}},
+    {"slug":"croagunk","id":453,"name":"Croagunk","region":"Sinnoh","visual":{"scale":2.2,"staticScale":1.05,"bodySize":56,"auraRadius":23,"animation":{"style":"agile","cadence":1.25,"actions":{"idle":"Idle","pass":"Shoot","catch":"Charge","steal":"Jab","shove":"Strike","block":"Hop","dunk":"Strike","ultimate":"Shoot","perk":"Shoot","celebrate":"Pose"}}}},
+    {"slug":"staraptor","id":398,"name":"Staraptor","region":"Sinnoh","visual":{"scale":2,"staticScale":1.2,"bodySize":76,"auraRadius":31,"animation":{"style":"flying","cadence":1.15,"actions":{"idle":"Hover","pass":"Shoot","catch":"Charge","steal":"QuickStrike","shove":"Attack","block":"Hop","dunk":"Attack","ultimate":"Attack","perk":"Attack","celebrate":"Hop"}}}},
+    {"slug":"darkrai","id":491,"name":"Darkrai","region":"Sinnoh","visual":{"scale":2.1,"staticScale":1.2,"bodySize":80,"auraRadius":32,"animation":{"style":"spectral","cadence":1.1,"actions":{"idle":"Idle","pass":"SpAttack","catch":"Charge","steal":"QuickStrike","shove":"Attack","block":"Hop","dunk":"Attack","ultimate":"SpAttack","perk":"SpAttack","celebrate":"Pose"}}}},
+    {"slug":"tangrowth","id":465,"name":"Tangrowth","region":"Sinnoh","visual":{"scale":2.1,"staticScale":1.4,"bodySize":92,"auraRadius":40,"iceWidth":108,"animation":{"style":"heavy","cadence":0.9,"actions":{"idle":"Idle","pass":"Shoot","catch":"Charge","steal":"Swing","shove":"Strike","block":"Hop","dunk":"Strike","ultimate":"SpAttack","perk":"Emit","celebrate":"Hop"}}}},
+    {"slug":"garchomp","id":445,"name":"Garchomp","region":"Sinnoh","visual":{"scale":2.1,"staticScale":1.25,"bodySize":88,"auraRadius":36,"animation":{"style":"agile","cadence":1.2,"actions":{"idle":"Idle","pass":"Shoot","catch":"Charge","steal":"Strike","shove":"Strike","block":"Hop","dunk":"Attack","ultimate":"RearUp","perk":"Attack","celebrate":"Hop"}}}}
+  ]
+}

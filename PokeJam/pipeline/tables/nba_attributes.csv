@@ -1,0 +1,653 @@
+name,team,overall,speed,shooting,layup,dunk,passing,power,steal,block,rebound,ball_handling
+Nikola Jokic,Denver Nuggets,97,16.5,96.4,97.2,50.2,99.9,99.9,84.7,70.9,96.1,46.4
+Shai Gilgeous-Alexander,Oklahoma City Thunder,97,94.1,96.9,99.8,68.7,99.5,40.9,95.6,73.5,22.8,99.2
+Victor Wembanyama,San Antonio Spurs,97,24.3,85.0,89.2,86.3,79.1,77.1,88.3,99.9,96.2,49.8
+Luka Doncic,Los Angeles Lakers,96,71.3,91.8,99.1,71.9,99.6,77.5,62.7,53.3,58.1,97.2
+Jalen Brunson,New York Knicks,96,85.4,98.1,99.8,19.1,98.2,28.2,42.9,7.7,9.0,98.2
+Giannis Antetokounmpo,Miami Heat,96,95.1,5.8,99.8,99.0,98.1,94.2,95.1,73.5,97.2,91.9
+Anthony Edwards,Minnesota Timberwolves,95,98.7,92.6,99.1,94.2,82.6,65.7,86.9,70.9,32.3,99.5
+Cade Cunningham,Detroit Pistons,94,82.6,94.4,97.2,57.4,99.3,62.9,87.0,77.5,42.6,95.7
+Jayson Tatum,Boston Celtics,93,87.4,95.6,98.0,88.6,88.7,62.2,90.9,15.1,57.9,88.3
+Donovan Mitchell,Cleveland Cavaliers,93,98.8,97.5,99.1,93.9,94.1,48.6,89.6,32.2,31.5,99.8
+Stephen Curry,Golden State Warriors,93,82.6,99.8,98.0,5.9,97.2,6.3,66.6,45.5,18.2,97.5
+Kevin Durant,Houston Rockets,93,58.9,99.3,98.5,79.5,88.3,70.0,48.5,73.5,33.4,89.6
+Karl-Anthony Towns,New York Knicks,93,52.9,88.0,77.5,66.6,80.8,95.6,26.5,64.4,96.8,32.3
+Kawhi Leonard,Toronto Raptors,93,88.6,99.5,95.2,74.8,86.7,80.8,99.2,50.3,66.2,88.3
+Tyrese Maxey,Philadelphia 76ers,92,99.1,98.7,98.5,38.2,94.7,13.9,83.8,68.8,12.9,99.8
+Joel Embiid,Philadelphia 76ers,91,11.8,89.5,93.3,64.8,82.9,99.8,27.3,86.9,89.8,19.8
+Devin Booker,Phoenix Suns,91,74.8,98.5,98.0,47.5,90.6,47.0,51.6,32.2,21.9,96.4
+Jaylen Brown,Philadelphia 76ers,91,81.1,89.0,99.1,90.0,89.6,73.7,74.3,45.5,62.3,82.6
+LeBron James,Philadelphia 76ers,91,90.9,53.9,99.1,98.4,98.4,96.4,64.5,64.4,52.8,91.8
+Tyrese Haliburton,Indiana Pacers,90,82.6,97.9,97.2,21.7,99.8,21.9,85.2,61.0,16.2,95.7
+Anthony Davis,Washington Wizards,90,60.5,39.3,74.3,98.7,54.4,97.9,86.0,92.9,94.9,52.6
+Jamal Murray,Denver Nuggets,89,69.9,99.0,94.5,63.9,95.9,39.9,47.7,40.2,20.5,91.0
+Austin Reaves,Los Angeles Lakers,88,74.8,75.1,97.2,40.2,94.9,16.9,41.5,45.5,34.0,85.4
+OG Anunoby,New York Knicks,88,88.1,82.3,74.3,91.4,16.3,88.9,96.9,73.5,50.4,55.4
+Deni Avdija,Portland Trail Blazers,88,58.3,69.4,92.1,55.0,89.0,77.9,50.4,61.0,65.7,60.7
+Scottie Barnes,Toronto Raptors,88,76.3,74.5,93.3,97.5,96.5,86.2,92.1,91.9,77.5,77.5
+Jalen Johnson,Atlanta Hawks,87,52.9,78.3,94.5,95.6,96.1,62.3,45.6,45.5,76.2,73.0
+Evan Mobley,Cleveland Cavaliers,87,49.3,29.7,49.8,95.9,66.2,67.9,63.0,94.9,87.7,28.9
+Kyrie Irving,Dallas Mavericks,87,86.7,99.6,99.1,17.9,87.0,6.7,78.4,45.5,34.3,97.6
+Cooper Flagg,Dallas Mavericks,87,86.7,64.8,95.2,75.9,68.4,54.8,74.8,76.2,60.2,68.1
+Alperen Sengun,Houston Rockets,87,11.6,23.2,77.5,62.0,91.5,93.8,87.2,83.1,86.7,19.1
+Pascal Siakam,Indiana Pacers,87,55.4,44.4,95.9,88.0,77.5,83.0,76.7,40.2,66.3,63.7
+Bam Adebayo,Miami Heat,87,62.1,59.7,80.4,95.0,66.0,98.5,79.3,64.4,85.2,38.0
+Paolo Banchero,Orlando Magic,87,69.9,66.1,94.5,94.6,84.6,91.5,32.9,56.8,70.6,66.5
+Stephon Castle,San Antonio Spurs,87,90.7,49.2,95.9,57.7,96.7,63.8,86.0,36.1,55.9,84.9
+Trae Young,Washington Wizards,87,85.4,95.8,97.2,11.3,98.8,4.5,70.7,7.7,1.2,98.0
+James Harden,Cleveland Cavaliers,87,83.2,97.0,96.4,64.2,95.0,70.6,76.7,45.5,32.3,95.5
+Amen Thompson,Houston Rockets,86,99.5,16.9,86.4,96.9,87.0,50.5,90.0,56.8,72.0,97.3
+Chet Holmgren,Oklahoma City Thunder,86,47.3,78.1,89.2,70.2,21.9,22.2,89.8,96.9,86.9,33.2
+Damian Lillard,Portland Trail Blazers,86,88.8,99.9,89.2,71.1,95.2,41.0,71.9,15.1,20.8,95.3
+Lauri Markkanen,Utah Jazz,86,18.5,87.3,70.6,63.1,53.5,80.1,40.6,50.3,69.7,17.6
+Jaren Jackson Jr.,Utah Jazz,86,40.9,43.2,65.8,85.0,12.3,90.9,57.9,93.9,52.7,12.7
+LaMelo Ball,Minnesota Timberwolves,86,85.4,91.5,74.3,60.7,99.0,7.0,91.9,27.1,53.5,98.0
+Michael Porter Jr.,Brooklyn Nets,85,71.3,92.3,95.9,88.9,49.3,66.5,62.0,27.1,74.0,75.7
+Brandon Miller,Charlotte Hornets,85,68.4,91.3,70.6,91.2,76.2,36.7,62.0,73.5,53.1,85.4
+Jarrett Allen,Cleveland Cavaliers,85,41.1,31.5,83.1,94.4,10.7,92.7,63.8,83.1,93.2,3.9
+Jalen Duren,Detroit Pistons,85,31.2,11.7,83.1,98.1,20.6,97.5,71.5,83.1,99.2,22.6
+Ausar Thompson,Detroit Pistons,85,99.8,5.4,77.5,96.1,64.4,60.9,99.8,86.9,75.8,84.6
+Jimmy Butler,Golden State Warriors,85,90.0,84.7,90.9,63.6,95.3,81.1,92.7,21.2,59.0,88.3
+Jaden McDaniels,Minnesota Timberwolves,85,83.5,96.1,86.4,57.4,15.1,37.6,83.1,80.4,32.8,63.4
+Zion Williamson,New Orleans Pelicans,85,78.6,31.8,89.2,99.9,60.7,99.6,64.5,61.0,64.3,68.9
+Trey Murphy III,New Orleans Pelicans,85,70.5,88.4,74.3,91.8,43.9,56.0,61.4,40.2,42.9,45.0
+Jalen Williams,Oklahoma City Thunder,85,96.7,71.4,89.2,57.1,85.9,84.0,93.2,40.2,45.5,92.3
+Franz Wagner,Orlando Magic,85,32.6,83.5,95.9,67.9,85.9,72.3,72.0,40.2,60.7,66.9
+Domantas Sabonis,Sacramento Kings,85,3.1,43.6,70.6,47.6,90.4,90.0,23.4,21.2,96.4,14.7
+Dylan Harper,San Antonio Spurs,85,96.9,68.8,96.4,72.9,82.0,51.2,82.1,50.3,41.9,98.4
+Tyler Herro,Milwaukee Bucks,85,60.5,98.8,96.4,13.3,86.3,38.3,24.9,45.5,27.2,76.9
+Kon Knueppel,Charlotte Hornets,84,25.1,86.7,83.1,32.1,73.8,52.1,36.3,27.1,55.8,49.8
+Josh Giddey,Chicago Bulls,84,63.7,26.9,97.2,37.1,98.7,50.7,27.5,53.3,73.8,88.3
+Rudy Gobert,Minnesota Timberwolves,84,10.9,1.6,1.2,53.9,26.5,98.1,51.6,92.9,97.9,0.4
+Mikal Bridges,New York Knicks,84,81.4,93.5,65.8,68.7,84.4,53.1,94.6,76.2,25.1,72.2
+Desmond Bane,Orlando Magic,84,55.0,97.2,93.3,49.0,72.5,42.1,64.9,45.5,32.6,67.6
+De’Aaron Fox,San Antonio Spurs,84,99.6,68.2,98.0,58.7,95.7,4.7,84.7,27.1,20.0,99.0
+Keyonte George,Utah Jazz,84,60.5,95.3,94.5,27.0,95.7,15.7,38.9,32.2,16.3,85.4
+Ivica Zubac,Indiana Pacers,84,7.6,19.9,80.4,85.0,39.4,92.9,29.6,80.4,97.4,0.8
+Darius Garland,Los Angeles Clippers,84,96.2,96.7,86.4,24.1,97.3,5.6,52.2,15.1,4.1,99.2
+Norman Powell,Chicago Bulls,84,66.9,81.7,92.1,52.5,67.7,48.6,76.1,32.2,15.6,77.5
+Brandon Ingram,Los Angeles Clippers,84,41.9,91.9,94.5,75.9,73.8,5.4,39.3,70.9,47.5,71.5
+Ja Morant,Portland Trail Blazers,84,99.9,65.9,93.3,78.0,97.6,7.4,77.7,21.2,13.7,99.6
+Nickeil Alexander-Walker,Atlanta Hawks,83,66.2,95.0,86.4,17.3,74.1,48.0,83.7,56.8,16.6,71.9
+Derrick White,Boston Celtics,83,98.2,93.6,89.2,24.7,91.8,8.0,81.7,91.0,34.3,95.0
+Aaron Gordon,Denver Nuggets,83,57.7,60.5,65.8,99.6,41.0,85.9,56.9,36.1,71.2,30.7
+V.J. Edgecombe,Philadelphia 76ers,83,98.5,90.9,86.4,83.2,79.2,16.3,82.7,53.3,53.3,94.2
+Alexandre Sarr,Washington Wizards,83,36.0,25.5,70.6,92.4,50.8,54.8,65.3,99.7,85.8,46.8
+C.J. McCollum,Atlanta Hawks,83,79.5,87.2,77.5,21.9,77.5,28.2,13.1,50.3,19.2,91.4
+Julius Randle,Brooklyn Nets,83,45.6,51.5,95.2,73.2,71.5,96.1,30.1,21.2,69.2,63.9
+DeMar DeRozan,Denver Nuggets,83,66.9,80.8,93.3,87.3,75.4,72.3,45.2,32.2,7.7,81.4
+Payton Pritchard,Boston Celtics,82,47.3,98.4,89.2,0.7,90.7,12.1,3.7,10.7,27.8,77.2
+Dejounte Murray,New Orleans Pelicans,82,86.7,75.7,94.5,27.7,94.2,9.0,96.4,27.1,44.2,92.3
+Josh Hart,New York Knicks,82,82.1,71.2,90.9,13.7,76.9,67.9,82.7,36.1,78.5,80.1
+Isaiah Hartenstein,Oklahoma City Thunder,82,15.3,18.6,70.6,76.5,39.6,96.4,53.0,84.4,99.5,12.2
+Ajay Mitchell,Oklahoma City Thunder,82,74.8,81.4,97.2,16.0,75.0,15.4,89.0,50.3,30.5,83.6
+Dillon Brooks,Phoenix Suns,82,73.5,86.2,36.2,44.2,21.2,75.9,96.7,15.1,23.6,47.8
+Jrue Holiday,Portland Trail Blazers,82,80.9,89.6,86.4,8.6,91.1,56.9,97.8,7.7,49.0,78.7
+Donovan Clingan,Portland Trail Blazers,82,2.1,34.7,7.4,54.1,30.6,97.2,18.6,95.6,99.8,7.7
+Zach LaVine,Sacramento Kings,82,80.4,92.9,90.9,96.5,51.6,18.0,1.6,27.1,4.2,92.9
+R.J. Barrett,Toronto Raptors,82,85.4,50.7,92.1,76.8,85.0,67.6,51.6,40.2,54.8,89.0
+Immanuel Quickley,Toronto Raptors,82,76.3,90.6,90.9,35.0,89.4,16.7,66.3,4.8,25.7,82.6
+Naz Reid,Charlotte Hornets,82,4.8,54.7,80.4,83.0,38.9,98.4,65.3,86.9,74.9,16.0
+Paul George,Boston Celtics,82,74.4,93.9,74.3,67.9,72.9,68.5,94.8,56.8,44.7,87.7
+Dyson Daniels,Atlanta Hawks,81,84.0,6.8,83.1,34.5,82.1,46.5,99.5,45.5,68.9,77.9
+Onyeka Okongwu,Atlanta Hawks,81,41.9,80.4,86.4,88.7,25.2,88.9,61.6,85.5,80.5,21.9
+Matas Buzelis,Chicago Bulls,81,61.4,74.7,86.4,93.8,45.2,55.0,30.9,92.9,60.4,64.5
+Andrew Nembhard,Indiana Pacers,81,77.2,85.2,65.8,15.6,93.0,9.3,70.5,10.7,5.0,73.0
+Alex Caruso,Oklahoma City Thunder,81,91.0,76.2,49.8,39.1,71.7,39.2,99.3,61.0,39.4,80.8
+Cason Wallace,Oklahoma City Thunder,81,75.4,63.6,77.5,18.2,69.1,22.5,99.6,50.3,24.0,71.7
+Jalen Green,Phoenix Suns,81,96.2,68.6,83.1,88.3,81.2,17.1,55.0,15.1,36.8,93.3
+Shaedon Sharpe,Portland Trail Blazers,81,95.6,63.9,89.2,89.5,53.3,30.1,90.2,7.7,46.5,90.3
+Devin Vassell,San Antonio Spurs,81,50.8,95.5,60.4,33.6,69.6,36.7,67.3,45.5,24.2,59.6
+Kristaps Porzingis,Golden State Warriors,81,19.6,90.3,54.8,82.5,25.4,84.1,31.8,94.4,70.5,27.2
+Ayo Dosunmu,Minnesota Timberwolves,81,55.4,98.2,93.3,34.5,78.9,32.2,58.8,36.1,26.4,70.1
+Walker Kessler,Los Angeles Lakers,81,2.7,21.7,7.4,54.1,6.6,91.1,18.6,98.8,98.7,6.8
+Tobias Harris,San Antonio Spurs,81,34.2,93.2,65.8,71.9,72.2,76.5,54.5,56.8,56.2,48.5
+Neemias Queta,Boston Celtics,80,10.6,20.3,49.8,44.9,19.4,94.1,39.7,95.6,95.5,2.7
+Cameron Johnson,Denver Nuggets,80,29.5,80.0,60.4,48.6,34.4,45.0,44.4,45.5,27.8,14.0
+Jabari Smith Jr.,Houston Rockets,80,52.9,77.8,31.1,84.3,32.7,68.5,36.3,76.2,65.5,55.8
+Cedric Coward,Memphis Grizzlies,80,91.5,54.1,90.9,82.2,57.1,37.3,44.4,56.8,74.6,70.9
+Ty Jerome,Memphis Grizzlies,80,30.8,95.9,90.9,7.8,96.9,11.7,51.0,27.1,30.8,69.2
+Zach Edey,Memphis Grizzlies,80,1.0,48.2,3.8,49.3,17.3,98.7,36.3,99.2,99.6,3.0
+Ryan Rollins,Milwaukee Bucks,80,92.9,80.9,83.1,29.6,87.6,1.3,75.4,50.3,37.3,84.0
+Saddiq Bey,New Orleans Pelicans,80,26.0,62.0,83.1,44.6,55.9,73.4,46.8,7.7,60.8,41.6
+Jalen Suggs,Orlando Magic,80,97.9,87.6,77.5,80.4,83.1,38.3,98.3,76.2,37.3,90.1
+Anthony Black,Orlando Magic,80,68.9,46.4,86.4,44.2,81.8,30.6,91.3,68.8,28.1,79.1
+Toumani Camara,Portland Trail Blazers,80,57.1,35.0,77.5,66.9,45.9,82.4,98.5,45.5,51.7,25.8
+Collin Murray-Boyles,Toronto Raptors,80,87.4,20.6,83.1,56.6,52.1,75.1,86.7,91.0,73.2,62.7
+Isaiah Collier,Utah Jazz,80,97.2,17.4,92.1,40.9,98.5,45.0,56.0,50.3,9.0,96.9
+Kyshawn George,Washington Wizards,80,28.8,79.6,77.5,20.6,57.7,36.7,64.5,80.4,51.0,40.9
+Coby White,Charlotte Hornets,80,90.0,69.9,89.2,40.0,90.0,24.5,30.6,10.7,27.4,96.7
+Grayson Allen,Charlotte Hornets,80,72.1,95.2,65.8,40.2,65.1,13.0,86.0,32.2,14.5,77.9
+Nicolas Claxton,Chicago Bulls,80,40.3,15.3,54.8,82.0,30.0,69.9,35.7,89.6,87.0,10.5
+Bobby Portis Jr.,Miami Heat,80,18.9,74.2,31.1,43.9,18.2,94.9,38.5,32.2,83.5,19.3
+Miles Bridges,Phoenix Suns,80,49.8,47.6,86.4,92.7,64.8,83.8,36.0,50.3,58.6,62.3
+Mitchell Robinson,Boston Celtics,80,10.9,3.6,6.0,87.2,25.7,93.3,77.1,96.4,98.8,2.3
+Ryan Kalkbrenner,Charlotte Hornets,79,0.8,27.8,3.8,70.8,3.8,87.5,11.7,96.9,82.0,2.1
+Moussa Diabaté,Charlotte Hornets,79,37.7,14.2,60.4,78.1,13.3,64.6,19.7,86.9,95.6,22.2
+Tre Jones,Chicago Bulls,79,69.9,72.5,90.9,3.2,93.6,24.9,77.4,21.2,17.9,87.0
+Daniel Gafford,Dallas Mavericks,79,39.1,6.5,36.2,86.4,2.5,86.2,23.9,93.9,93.3,5.5
+P.J. Washington,Dallas Mavericks,79,57.4,26.3,20.1,58.5,17.0,75.1,68.6,83.1,73.0,38.3
+Dereck Lively II,Dallas Mavericks,79,6.7,5.0,77.5,73.8,59.0,79.4,11.7,97.6,92.9,10.0
+Naji Marshall,Dallas Mavericks,79,17.9,25.9,95.2,45.6,73.2,62.9,59.7,4.8,44.0,43.5
+Christian Braun,Denver Nuggets,79,79.9,40.6,86.4,65.1,59.6,53.8,52.0,32.2,48.6,53.1
+Duncan Robinson,Detroit Pistons,79,17.7,79.2,60.4,23.8,48.8,24.8,32.7,45.5,7.7,36.0
+Daniss Jenkins,Detroit Pistons,79,47.3,90.4,70.6,10.1,92.9,2.6,85.2,40.2,26.8,79.1
+Draymond Green,Golden State Warriors,79,60.2,31.1,36.2,26.3,92.7,87.0,96.1,70.9,61.6,60.7
+Brandin Podziemski,Golden State Warriors,79,76.3,77.8,93.3,28.6,63.1,29.3,77.8,21.2,58.6,87.5
+Fred VanVleet,Houston Rockets,79,74.8,72.6,20.1,9.4,92.0,19.6,86.0,45.5,11.8,92.3
+Reed Sheppard,Houston Rockets,79,96.9,89.2,45.1,46.4,83.4,17.3,93.6,73.5,13.7,86.3
+T.J. McConnell,Indiana Pacers,79,65.9,81.2,70.6,0.4,99.2,6.8,98.1,36.1,27.1,70.1
+Aaron Nesmith,Indiana Pacers,79,56.7,67.3,40.6,27.8,43.2,58.3,13.7,56.8,38.3,39.1
+Andrew Wiggins,Miami Heat,79,76.3,70.9,65.8,87.0,36.7,50.2,63.8,84.4,48.8,82.0
+Myles Turner,Milwaukee Bucks,79,15.1,76.3,8.7,47.0,18.3,94.4,52.7,96.1,65.0,1.5
+Kevin Porter Jr.,Milwaukee Bucks,79,69.3,88.3,80.4,55.4,93.5,23.2,94.0,53.3,44.7,89.2
+Herbert Jones,New Orleans Pelicans,79,73.1,47.5,2.9,51.3,58.2,59.1,97.9,61.0,25.1,55.8
+Jeremiah Fears,New Orleans Pelicans,79,97.2,58.8,77.5,41.6,82.4,11.0,67.6,53.3,36.3,98.8
+Derik Queen,New Orleans Pelicans,79,6.3,28.6,77.5,37.7,86.7,94.9,66.9,86.9,85.4,27.4
+Wendell Carter Jr.,Orlando Magic,79,17.1,69.2,65.8,58.0,38.1,97.6,52.7,66.2,84.6,11.7
+Collin Gillespie,Phoenix Suns,79,76.3,90.1,70.6,17.7,90.9,12.1,64.0,27.1,44.4,84.0
+Scoot Henderson,Portland Trail Blazers,79,97.6,81.5,74.3,83.8,85.2,30.4,54.2,40.2,20.8,96.1
+Keegan Murray,Sacramento Kings,79,57.9,44.9,54.8,77.0,30.4,57.4,65.6,91.0,57.0,54.8
+Malik Monk,Sacramento Kings,79,69.9,91.6,60.4,70.9,78.4,16.0,28.2,56.8,4.7,76.2
+Maxime Raynaud,Sacramento Kings,79,14.6,57.7,40.6,51.9,10.4,81.7,6.1,64.4,88.7,11.1
+Keldon Johnson,San Antonio Spurs,79,55.4,84.3,90.9,53.8,57.0,68.5,33.1,10.7,75.2,70.1
+Julian Champagnie,San Antonio Spurs,79,35.7,90.0,70.6,13.3,29.5,60.4,48.9,53.3,61.3,33.8
+Jakob Poeltl,Toronto Raptors,79,3.0,19.4,60.4,28.5,46.3,95.3,59.1,80.4,92.7,3.2
+Brice Sensabaugh,Utah Jazz,79,21.2,80.1,83.1,12.4,42.1,67.3,19.7,27.1,35.0,43.5
+Ace Bailey,Utah Jazz,79,87.9,66.7,26.6,77.0,40.1,39.3,53.1,73.5,47.0,74.3
+Kel’el Ware,Milwaukee Bucks,79,23.2,41.0,31.1,99.2,2.1,84.7,23.9,92.9,98.4,12.0
+John Collins,Detroit Pistons,79,26.2,67.4,83.1,98.8,13.1,78.8,16.0,78.6,68.1,18.1
+Marcus Smart,Houston Rockets,79,74.2,70.4,20.1,25.4,68.4,72.3,97.2,45.5,15.2,62.7
+Kelly Oubre Jr.,Indiana Pacers,79,54.7,75.2,80.4,85.5,55.3,33.4,80.1,53.3,46.0,54.5
+Rui Hachimura,Los Angeles Clippers,79,38.6,78.7,45.1,90.7,4.4,83.5,4.3,40.2,21.7,47.3
+Collin Sexton,Los Angeles Lakers,79,96.2,93.3,77.5,55.6,78.0,9.6,67.6,21.2,8.6,95.0
+Jerami Grant,Memphis Grizzlies,79,56.2,55.7,74.3,86.7,55.0,58.7,49.7,66.2,26.1,63.2
+Anfernee Simons,Philadelphia 76ers,79,95.3,91.2,93.3,87.5,74.5,12.8,17.2,15.1,13.1,88.3
+Darryn Peterson,Utah Jazz,79,85.4,87.0,80.4,81.7,59.9,34.0,86.6,27.1,21.5,90.6
+AJ Dybantsa,Washington Wizards,79,88.4,52.9,70.6,93.5,47.5,58.5,43.0,21.2,62.8,82.0
+Cameron Boozer,Memphis Grizzlies,79,20.6,69.7,45.1,46.9,64.0,91.5,59.5,24.3,91.3,31.7
+Peyton Watson,Cleveland Cavaliers,79,61.9,76.5,31.1,59.7,31.3,47.6,68.6,87.8,49.3,61.1
+Tim Hardaway Jr.,Miami Heat,79,35.1,91.0,86.4,52.8,63.6,30.8,16.7,10.7,5.9,57.4
+Bennedict Mathurin,New Orleans Pelicans,79,85.4,74.3,54.8,67.5,70.8,35.1,33.8,27.1,58.4,83.2
+Gui Santos,Golden State Warriors,78,36.0,37.7,83.1,39.6,61.9,8.8,60.7,56.8,67.1,42.3
+Tari Eason,Houston Rockets,78,79.1,30.4,65.8,62.5,8.7,63.8,94.2,61.0,81.0,54.1
+Obi Toppin,Indiana Pacers,78,28.2,40.0,92.1,99.3,41.5,73.5,14.6,7.7,66.7,21.7
+Jarace Walker,Indiana Pacers,78,71.9,53.3,31.1,95.5,56.4,88.4,45.9,45.5,56.1,37.3
+Jaylen Wells,Memphis Grizzlies,78,80.8,86.2,54.8,29.4,32.0,47.5,70.9,15.1,26.1,57.2
+Pelle Larsson,Miami Heat,78,81.2,68.0,45.1,60.7,53.9,41.4,28.2,32.2,33.8,49.5
+Donte DiVincenzo,Minnesota Timberwolves,78,92.1,83.8,86.4,56.4,79.4,38.9,89.3,45.5,34.6,83.2
+Miles McBride,New York Knicks,78,92.9,93.8,40.6,29.6,64.6,10.4,59.9,21.2,11.0,92.6
+Mark Williams,Phoenix Suns,78,18.9,12.3,49.8,75.5,13.0,91.8,61.0,89.6,97.0,1.5
+Robert Williams III,Portland Trail Blazers,78,24.7,13.4,83.1,73.6,23.7,93.9,78.1,99.5,99.0,9.0
+Kyle Filipowski,Utah Jazz,78,31.4,32.5,6.0,42.3,40.6,84.7,56.0,70.9,90.0,30.3
+Bilal Coulibaly,Washington Wizards,78,83.2,25.0,60.4,91.4,61.3,38.0,92.6,84.4,46.2,41.0
+Tre Johnson,Washington Wizards,78,66.6,96.5,45.1,75.7,47.9,22.8,30.9,45.5,19.0,82.6
+Will Riley,Washington Wizards,78,46.4,39.8,77.5,14.8,49.0,19.7,39.7,10.7,31.5,56.1
+Jared McCain,Oklahoma City Thunder,78,52.9,89.8,60.4,16.5,61.1,17.7,41.5,10.7,21.9,81.1
+Isaiah Joe,Detroit Pistons,78,45.2,99.2,89.2,38.4,42.7,3.1,30.1,27.1,20.2,44.9
+Jaime Jaquez Jr.,Milwaukee Bucks,78,33.4,26.2,89.2,88.4,72.6,75.1,49.7,36.1,57.3,43.8
+Santi Aldama,Dallas Mavericks,78,11.3,51.2,65.8,30.9,64.4,67.9,56.6,73.5,76.5,26.1
+Quentin Grimes,Los Angeles Lakers,78,89.1,58.7,77.5,24.4,68.6,49.6,64.9,45.5,24.5,80.1
+Caris LeVert,Milwaukee Bucks,78,50.6,51.3,70.6,72.2,82.7,29.3,78.9,86.9,14.5,76.6
+Nikola Vucevic,Orlando Magic,78,8.5,82.7,14.3,32.6,78.6,97.8,15.0,68.8,88.0,1.5
+Deandre Ayton,Washington Wizards,78,32.1,28.9,65.8,89.8,21.4,97.0,33.1,85.5,94.6,22.0
+Luguentz Dort,Atlanta Hawks,78,84.3,65.4,26.6,89.2,34.0,76.2,96.2,56.8,32.8,64.5
+Max Strus,Los Angeles Clippers,78,52.9,97.5,40.6,22.5,58.7,33.0,11.4,1.0,74.5,53.1
+Sam Merrill,Cleveland Cavaliers,77,20.2,77.8,14.3,2.2,69.2,26.5,30.9,15.1,11.8,46.4
+Paul Reed,Detroit Pistons,77,4.5,28.3,77.5,54.4,18.6,71.5,76.7,97.6,94.2,10.4
+Al Horford,Golden State Warriors,77,15.6,81.9,7.4,40.6,84.7,92.3,73.2,94.4,75.7,7.3
+Brook Lopez,Los Angeles Clippers,77,5.3,54.8,0.5,36.6,26.8,99.0,68.6,94.9,46.4,0.4
+Derrick Jones Jr.,Los Angeles Clippers,77,66.6,64.5,60.4,99.8,18.9,64.6,79.3,88.7,36.0,31.2
+G.G. Jackson,Memphis Grizzlies,77,70.8,60.4,36.2,90.2,20.6,47.8,46.2,86.9,65.3,55.3
+Davion Mitchell,Miami Heat,77,87.4,45.9,70.6,2.8,81.4,45.0,76.7,15.1,5.6,91.4
+Kyle Kuzma,Milwaukee Bucks,77,41.9,49.3,54.8,70.2,64.2,55.8,54.8,56.8,55.4,55.6
+Landry Shamet,New York Knicks,77,90.0,71.2,77.5,46.1,66.3,5.0,9.8,32.2,7.0,80.8
+Jaylin Williams,Oklahoma City Thunder,77,6.7,84.0,54.8,49.6,67.6,80.1,22.3,85.5,65.9,12.8
+De’Andre Hunter,Sacramento Kings,77,67.8,71.9,54.8,53.6,42.3,61.7,24.9,15.1,42.6,47.8
+Jose Alvarado,New York Knicks,77,73.7,58.4,26.6,11.3,71.1,2.6,97.5,15.1,22.3,63.6
+Isaiah Stewart,Memphis Grizzlies,77,24.5,50.1,60.4,50.7,5.1,96.4,0.4,98.2,75.2,8.5
+Jonas Valančiūnas,Free Agency,77,3.3,36.7,70.6,39.3,33.3,98.8,1.9,91.9,97.4,2.7
+Caleb Wilson,Chicago Bulls,77,81.8,11.6,77.5,98.5,29.7,51.2,83.5,90.3,85.5,53.1
+Jarred Vanderbilt,Los Angeles Lakers,76,62.4,17.9,26.6,81.3,15.3,62.0,88.7,61.0,88.1,31.1
+Sam Hauser,Boston Celtics,76,14.4,94.2,3.8,9.7,13.4,58.8,3.3,50.3,44.0,13.9
+Noah Clowney,Brooklyn Nets,76,18.3,33.8,10.7,83.0,34.1,50.2,47.9,73.5,49.2,21.2
+Egor Dëmin,Brooklyn Nets,76,36.8,56.1,80.4,37.1,92.0,36.7,59.1,45.5,32.3,74.6
+Nolan Traore,Brooklyn Nets,76,90.0,21.4,60.4,27.2,88.4,14.9,53.7,61.0,3.5,94.2
+Jalen Smith,Chicago Bulls,76,26.4,36.0,20.1,97.2,6.1,72.0,2.4,89.6,92.3,9.4
+Jaylon Tyson,Cleveland Cavaliers,76,59.7,39.6,54.8,48.1,45.5,53.1,48.9,53.3,64.3,70.6
+Moses Moody,Golden State Warriors,76,46.2,66.3,86.4,30.3,34.6,56.5,57.5,68.8,35.0,56.4
+De’Anthony Melton,Golden State Warriors,76,61.7,42.9,40.6,24.4,70.2,24.1,98.3,56.8,42.4,73.0
+Cam Spencer,Memphis Grizzlies,76,37.7,97.3,14.3,2.4,95.5,23.4,23.2,21.2,16.9,62.2
+Jordan Clarkson,New York Knicks,76,55.8,40.2,80.4,45.3,60.4,19.1,5.4,27.1,30.3,88.3
+Kenrich Williams,Oklahoma City Thunder,76,32.3,66.5,74.3,27.0,55.8,49.6,78.4,27.1,68.6,34.9
+Tristan da Silva,Orlando Magic,76,55.9,66.1,54.8,31.3,38.3,54.5,49.3,45.5,41.9,32.3
+Precious Achiuwa,Sacramento Kings,76,44.1,7.9,65.8,90.5,6.2,79.2,75.6,78.6,91.8,24.5
+Harrison Barnes,San Antonio Spurs,76,51.4,58.2,89.2,89.2,37.7,88.6,38.5,21.2,21.1,67.2
+Luke Kornet,San Antonio Spurs,76,0.7,28.8,7.4,30.6,23.5,90.0,9.0,91.9,87.3,4.9
+Carter Bryant,San Antonio Spurs,76,96.2,37.8,20.1,82.7,20.3,61.3,52.0,73.5,71.8,58.1
+Jamal Shead,Toronto Raptors,76,99.3,22.8,31.1,9.3,96.2,18.0,67.6,32.2,4.4,96.1
+Ja’Kobe Walter,Toronto Raptors,76,88.3,82.5,49.8,46.7,44.1,16.3,64.2,36.1,37.3,65.9
+Jusuf Nurkic,Utah Jazz,76,4.4,49.5,7.4,32.8,81.7,99.3,74.2,61.0,95.8,2.3
+Carlton Carrington,Washington Wizards,76,55.1,68.6,14.3,21.1,85.7,20.9,8.5,27.1,20.8,84.4
+Justin Champagnie,Washington Wizards,76,37.7,53.5,70.6,69.2,28.2,56.0,80.4,80.4,87.8,38.0
+Ousmane Dieng,Milwaukee Bucks,76,58.9,63.1,8.7,60.7,62.9,28.8,12.5,61.0,42.9,58.1
+Royce O’Neale,Charlotte Hornets,76,45.8,48.1,60.4,33.2,39.2,66.6,72.9,53.3,47.5,31.9
+Keon Ellis,Brooklyn Nets,76,78.4,28.0,54.8,26.1,24.3,10.7,98.7,83.1,13.3,68.4
+Marvin Bagley III,Denver Nuggets,76,40.0,36.3,45.1,85.7,22.2,88.0,34.0,83.1,91.9,28.5
+Sandro Mamukelashvili,Los Angeles Lakers,76,10.6,45.2,31.1,38.7,47.3,86.9,38.0,76.2,77.8,16.6
+Andre Drummond,New York Knicks,76,11.1,17.6,5.0,90.5,32.4,99.5,60.1,90.0,99.9,11.6
+Dean Wade,Philadelphia 76ers,76,48.8,32.9,60.4,87.8,9.9,70.5,80.6,61.0,61.8,14.7
+Jaxson Hayes,Utah Jazz,76,14.0,7.7,60.4,90.9,2.4,70.8,5.9,91.0,80.1,6.2
+Khris Middleton,Washington Wizards,76,36.0,87.6,60.4,16.2,70.9,74.3,55.6,21.2,48.2,59.4
+Aaron Wiggins,Atlanta Hawks,76,85.4,68.3,54.8,28.1,47.6,7.2,44.9,66.2,36.4,58.1
+Zaccharie Risacher,Dallas Mavericks,76,51.0,25.4,54.8,36.2,34.9,28.5,81.8,73.5,55.0,62.0
+Dennis Schroder,Charlotte Hornets,76,91.9,58.1,74.3,8.3,91.3,3.3,59.1,21.2,19.0,93.3
+Bradley Beal,Los Angeles Clippers,76,67.8,76.7,83.1,58.2,65.4,45.9,16.4,61.0,14.5,82.6
+Klay Thompson,Miami Heat,76,39.6,78.5,10.7,12.7,19.7,56.9,3.9,45.5,5.6,35.7
+Brandon Williams,Golden State Warriors,76,63.7,52.2,92.1,2.7,89.4,31.1,44.9,45.5,24.5,80.4
+Jake LaRavia,Los Angeles Lakers,75,32.0,23.5,70.6,53.1,47.0,65.4,91.8,61.0,53.8,28.1
+Luka Garza,Boston Celtics,75,1.2,55.9,54.8,12.0,14.6,77.9,20.5,77.5,69.2,3.5
+Baylor Scheierman,Boston Celtics,75,54.5,94.9,49.8,7.6,54.1,35.8,14.6,10.7,61.8,61.9
+Hugo González,Boston Celtics,75,47.3,34.4,45.1,52.1,17.4,41.2,75.6,68.8,76.3,50.5
+Day’Ron Sharpe,Brooklyn Nets,75,13.7,18.0,60.4,55.1,53.1,97.3,68.9,70.9,98.1,12.3
+Danny Wolf,Brooklyn Nets,75,3.5,34.1,31.1,38.6,67.9,80.9,13.1,76.2,79.1,25.7
+Zach Collins,Chicago Bulls,75,19.6,48.8,20.1,57.0,12.7,84.7,23.5,66.2,90.9,6.1
+Isaac Okoro,Chicago Bulls,75,73.8,33.2,70.6,64.6,33.8,65.7,61.3,56.8,23.1,56.8
+Max Christie,Dallas Mavericks,75,94.6,94.7,26.6,67.5,42.3,19.3,43.6,40.2,12.9,64.1
+Julian Strawther,Denver Nuggets,75,23.5,55.0,65.8,15.6,35.6,27.6,56.6,21.2,28.4,39.6
+Ron Holland,Detroit Pistons,75,93.3,24.0,80.4,78.8,21.9,53.5,97.6,61.0,72.2,74.3
+Javonte Green,Detroit Pistons,75,38.6,65.7,49.8,68.4,24.6,33.0,97.3,61.0,50.7,51.9
+Gary Payton II,Golden State Warriors,75,77.4,19.1,86.4,61.7,49.8,28.9,99.0,64.4,81.4,65.9
+Jay Huff,Indiana Pacers,75,2.8,72.8,3.8,29.1,19.1,80.1,35.7,98.8,60.5,4.9
+Kris Dunn,Los Angeles Clippers,75,88.8,54.4,26.6,43.0,70.5,33.0,98.8,21.2,27.8,80.8
+Scotty Pippen Jr.,Memphis Grizzlies,75,76.3,53.5,74.3,26.1,97.5,0.5,70.3,73.5,22.9,91.4
+Olivier-Maxence Prosper,Memphis Grizzlies,75,68.8,46.1,74.3,84.7,26.9,71.8,56.9,50.3,66.0,28.9
+Terrence Shannon Jr.,Minnesota Timberwolves,75,94.6,66.9,80.4,79.7,41.2,58.3,32.2,4.8,10.8,86.3
+Yves Missi,New Orleans Pelicans,75,41.3,1.2,2.9,96.2,4.7,80.6,1.2,98.5,86.6,6.5
+Adem Bona,Philadelphia 76ers,75,50.1,7.6,10.7,96.7,0.8,81.4,9.8,97.6,81.8,17.3
+Jordan Goodwin,Phoenix Suns,75,66.3,45.5,45.1,0.2,74.6,48.6,95.8,36.1,74.2,67.2
+Oso Ighodaro,Phoenix Suns,75,68.2,2.1,36.2,97.2,35.4,70.2,56.0,80.4,78.8,27.5
+Nique Clifford,Sacramento Kings,75,83.7,34.3,54.8,50.5,43.7,25.1,57.5,45.5,45.3,72.4
+Jock Landale,Atlanta Hawks,75,6.3,38.0,49.8,49.0,25.1,91.9,24.9,73.5,79.5,11.9
+Kevin Huerter,Detroit Pistons,75,61.1,38.9,86.4,23.3,72.3,17.6,49.3,66.2,39.0,67.7
+Mike Conley,Boston Celtics,75,73.2,52.4,31.1,28.9,88.6,1.0,68.6,45.5,6.8,81.7
+Luke Kennard,Phoenix Suns,75,26.4,97.9,31.1,4.8,65.0,18.3,15.6,15.1,15.0,51.5
+Pat Spencer,Phoenix Suns,75,47.3,60.1,12.7,65.3,87.6,29.3,35.4,10.7,37.3,75.2
+Ziaire Williams,Los Angeles Lakers,75,94.6,50.2,31.1,86.6,10.4,18.7,92.3,56.8,20.2,84.0
+Jaden Ivey,Free Agency,75,91.5,86.6,86.4,61.9,75.8,20.9,50.1,73.5,28.4,93.3
+Guerschon Yabusele,Free Agency,75,14.2,55.4,65.8,59.9,31.5,92.4,7.6,53.3,76.0,24.1
+Kentavious Caldwell-Pope,Philadelphia 76ers,75,74.4,92.4,40.6,25.1,59.4,39.5,82.9,32.2,17.1,58.1
+Keaton Wagler,Los Angeles Clippers,75,36.0,74.7,36.2,10.7,93.3,14.2,32.2,15.1,9.8,74.0
+Darius Acuff Jr.,Sacramento Kings,75,99.1,88.7,83.1,67.3,96.4,19.3,34.8,9.2,3.8,98.5
+Bruce Brown,Free Agency,75,58.9,27.3,45.1,42.9,77.2,57.9,85.2,36.1,51.7,76.2
+Devin Carter,Free Agency,75,98.1,60.1,40.6,72.6,85.5,31.4,92.9,40.2,62.0,89.3
+Dalton Knecht,Los Angeles Lakers,74,50.4,62.5,60.4,43.6,21.6,34.6,32.2,76.2,31.8,49.5
+Jordan Walsh,Boston Celtics,74,66.0,43.0,10.7,77.3,19.7,43.9,91.2,80.4,76.8,38.6
+Terance Mann,Brooklyn Nets,74,33.6,74.0,80.4,60.7,85.4,34.6,33.6,36.1,42.3,66.3
+Sion James,Charlotte Hornets,74,93.9,64.2,36.2,62.8,53.8,75.7,48.4,40.2,43.2,59.8
+Grant Williams,Charlotte Hornets,74,20.5,73.7,54.8,18.4,57.3,82.0,20.9,66.2,70.9,24.1
+Patrick Williams,Chicago Bulls,74,34.7,50.4,5.0,49.5,26.0,54.3,46.8,53.3,40.0,39.1
+Thomas Bryant,Cleveland Cavaliers,74,12.1,76.0,14.3,33.6,1.8,92.6,9.8,85.5,89.1,15.4
+Will Richard,Golden State Warriors,74,58.9,81.1,80.4,37.8,35.2,35.4,95.4,15.1,35.2,40.6
+Clint Capela,Houston Rockets,74,7.0,1.8,5.0,58.0,2.2,96.9,78.8,96.9,96.8,5.1
+Steven Adams,Houston Rockets,74,8.7,3.3,8.7,45.0,43.2,99.2,60.1,77.5,94.7,2.7
+Jordan Miller,Los Angeles Clippers,74,72.1,57.4,83.1,71.4,41.3,15.9,25.8,27.1,45.1,49.0
+Kobe Sanders,Los Angeles Clippers,74,51.4,72.9,54.8,81.5,65.7,20.2,31.3,21.2,23.6,65.0
+Javon Small,Memphis Grizzlies,74,92.3,82.5,54.8,74.3,80.5,11.0,53.4,40.2,50.7,86.3
+Simone Fontecchio,Miami Heat,74,14.8,90.6,54.8,11.9,28.8,56.9,14.6,27.1,56.4,16.9
+Gary Trent Jr.,Milwaukee Bucks,74,71.5,86.0,70.6,71.7,51.0,33.8,35.7,4.8,0.1,77.5
+A.J. Green,Milwaukee Bucks,74,27.5,94.6,40.6,20.0,49.6,12.6,18.3,7.7,5.6,51.7
+Jordan Poole,New Orleans Pelicans,74,68.6,46.9,54.8,28.8,86.4,32.4,11.3,53.3,3.1,92.7
+Karlo Matkovic,New Orleans Pelicans,74,5.4,52.7,60.4,53.3,9.3,83.4,19.1,96.1,82.7,13.7
+DeAndre Jordan,New Orleans Pelicans,74,17.6,0.1,1.2,86.0,9.4,98.2,8.1,94.9,99.2,1.0
+Goga Bitadze,Orlando Magic,74,3.6,18.3,0.4,38.0,40.9,95.8,25.8,95.6,93.9,18.4
+Justin Edwards,Philadelphia 76ers,74,76.3,81.9,74.3,71.4,42.9,34.9,63.1,45.5,15.9,65.9
+Dominick Barlow,Philadelphia 76ers,74,25.5,9.3,70.6,59.2,8.2,63.8,28.8,80.4,66.9,35.4
+Ryan Dunn,Phoenix Suns,74,89.3,16.0,36.2,74.8,24.9,57.7,90.6,68.8,75.2,42.3
+Dylan Cardwell,Sacramento Kings,74,9.4,2.4,26.6,92.2,27.1,95.9,38.9,96.9,98.2,5.8
+Jamison Battle,Toronto Raptors,74,15.0,93.0,26.6,15.1,6.6,59.3,7.0,27.1,59.3,23.2
+Vit Krejci,Portland Trail Blazers,74,47.3,57.6,74.3,47.8,51.8,25.5,43.9,45.5,14.5,56.1
+Josh Minott,Brooklyn Nets,74,43.4,84.0,49.8,84.0,22.9,43.3,94.4,77.5,66.7,33.8
+Leonard Miller,Chicago Bulls,74,37.7,24.2,86.4,90.2,10.0,46.1,22.7,61.0,81.4,50.5
+Isaiah Jackson,Los Angeles Clippers,74,37.7,8.8,31.1,74.5,6.8,60.9,34.4,93.9,95.3,18.8
+Walter Clayton Jr.,Memphis Grizzlies,74,89.1,73.8,45.1,22.8,77.7,12.1,30.1,53.3,10.0,86.3
+Kasparas Jakucionis,Milwaukee Bucks,74,76.3,80.3,54.8,36.6,86.1,40.6,45.2,27.1,41.0,91.4
+Bones Hyland,Minnesota Timberwolves,74,94.6,84.4,77.5,5.3,77.8,0.2,58.1,45.5,11.3,86.3
+Moritz Wagner,Brooklyn Nets,74,30.1,70.0,31.1,53.5,16.8,92.1,48.2,7.7,84.1,11.4
+Taurean Prince,Detroit Pistons,74,65.0,88.9,49.8,79.4,31.7,51.7,68.0,36.1,15.4,47.8
+Kris Murray,Memphis Grizzlies,74,30.0,25.7,12.7,59.2,19.2,51.7,66.5,61.0,45.8,34.4
+Trey Lyles,Minnesota Timberwolves,74,16.8,36.1,40.6,35.4,27.9,73.8,50.7,64.4,80.5,17.6
+Josh Okogie,Utah Jazz,74,91.5,30.1,36.2,63.0,30.1,42.7,90.4,40.2,42.1,78.3
+Cameron Thomas,Free Agency,74,51.4,60.7,90.9,64.3,39.8,23.5,3.5,10.7,3.8,69.6
+Cole Anthony,Free Agency,74,85.4,40.4,65.8,68.2,87.2,21.9,41.0,64.4,53.1,90.9
+Cameron Payne,Free Agency,74,47.3,56.7,65.8,4.2,80.8,1.8,62.8,64.4,18.6,81.1
+Lonzo Ball,Free Agency,74,91.5,12.2,20.1,50.0,92.3,14.9,95.9,45.5,59.9,94.2
+Mario Hezonja,Cleveland Cavaliers,74,47.3,55.2,65.8,60.7,38.7,48.6,69.1,45.5,39.2,62.5
+Marcus Sasser,Dallas Mavericks,74,62.4,59.3,60.4,3.0,76.0,12.1,81.4,27.1,5.2,76.8
+Matisse Thybulle,Los Angeles Lakers,74,71.7,56.4,40.6,22.8,9.7,34.2,99.8,81.8,40.1,36.5
+Kevin Love,Free Agency,74,9.0,83.7,20.1,19.7,62.1,94.6,13.7,64.4,92.6,8.1
+Mikel Brown Jr.,Brooklyn Nets,74,76.3,82.9,77.5,62.5,88.0,13.3,70.2,4.8,3.1,90.6
+Kingston Flemings,Atlanta Hawks,74,98.4,71.5,65.8,61.6,91.6,5.8,77.2,6.4,1.3,96.9
+Ben Simmons,Sacramento Kings,74,65.0,8.2,70.6,93.0,89.8,85.6,74.8,68.8,72.5,85.4
+Dorian Finney-Smith,Atlanta Hawks,74,48.8,15.9,83.1,78.3,32.9,56.9,55.4,36.1,47.8,15.7
+Buddy Hield,Charlotte Hornets,74,52.1,57.9,60.4,22.2,59.3,32.0,72.2,45.5,38.3,73.0
+Asa Newell,Atlanta Hawks,73,39.1,27.1,40.6,91.0,11.4,62.9,63.3,76.2,60.0,42.3
+Ben Saraf,Brooklyn Nets,73,72.5,47.3,8.7,8.1,92.3,28.6,60.7,21.2,14.5,79.8
+Tidjane Salaün,Charlotte Hornets,73,53.9,23.8,49.8,84.0,5.9,42.3,22.7,50.3,79.7,32.9
+Quenton Jackson,Indiana Pacers,73,90.0,45.6,77.5,79.2,82.3,1.5,65.6,27.1,33.1,73.8
+Ben Sheppard,Indiana Pacers,73,85.4,68.9,60.4,21.1,57.6,16.7,58.7,10.7,37.8,61.7
+Yanic Konan Niederhauser,Los Angeles Clippers,73,27.8,12.0,14.3,97.6,0.3,76.3,0.7,96.1,90.1,8.2
+Nikola Jovic,Miami Heat,73,25.5,16.8,49.8,13.3,60.9,71.0,39.7,64.4,54.2,43.0
+Dru Smith,Miami Heat,73,29.5,51.9,65.8,7.8,81.1,13.7,96.5,61.0,43.6,66.3
+Bryce McGowens,New Orleans Pelicans,73,44.6,79.4,31.1,71.4,13.6,9.6,38.2,27.1,9.0,58.8
+Tyler Kolek,New York Knicks,73,62.1,61.0,77.5,8.3,88.0,20.9,39.7,21.2,33.5,67.4
+Noah Penda,Orlando Magic,73,50.6,19.2,20.1,42.1,49.5,63.8,78.6,73.5,85.0,34.4
+Khaman Maluach,Phoenix Suns,73,8.7,10.0,20.1,68.9,3.4,84.7,11.1,99.2,93.5,7.1
+Rasheer Fleming,Phoenix Suns,73,43.7,28.5,31.1,66.3,5.3,85.6,50.7,84.4,63.3,35.0
+Sidy Cissoko,Portland Trail Blazers,73,44.6,11.4,54.8,67.7,31.0,64.3,37.4,61.0,29.1,35.4
+Sviatoslav Mykhailiuk,Utah Jazz,73,76.3,96.2,31.1,14.0,45.7,29.3,9.0,7.7,19.4,47.0
+Jamir Watkins,Washington Wizards,73,83.2,27.7,36.2,91.9,39.0,52.5,75.2,73.5,63.1,73.0
+Corey Kispert,Atlanta Hawks,73,52.9,79.1,36.2,15.4,50.2,55.4,29.6,32.2,26.4,44.6
+Tyus Jones,Denver Nuggets,73,31.7,62.7,93.3,0.1,90.3,8.4,90.6,10.7,1.8,72.0
+Kobe Brown,Indiana Pacers,73,13.3,62.2,60.4,29.1,56.1,84.7,17.8,45.5,67.9,33.4
+Taylor Hendricks,Memphis Grizzlies,73,40.6,37.5,70.6,66.9,15.9,52.1,66.9,77.5,66.5,42.3
+Jevon Carter,Orlando Magic,73,67.8,85.4,45.1,3.2,67.0,36.7,87.3,40.2,7.7,76.2
+Bogdan Bogdanovic,Houston Rockets,73,47.3,52.9,45.1,47.2,66.8,61.6,30.1,15.1,25.4,65.3
+Gradey Dick,Los Angeles Clippers,73,48.5,69.6,36.2,49.0,30.3,24.1,80.4,21.2,43.8,65.0
+Jaden Hardy,Los Angeles Lakers,73,79.9,78.7,54.8,76.3,61.6,9.1,5.3,21.2,8.2,79.5
+Quinten Post,Memphis Grizzlies,73,1.3,70.4,14.3,32.4,33.1,78.3,3.7,80.4,77.4,4.4
+Caleb Love,Philadelphia 76ers,73,65.3,64.3,54.8,14.3,75.5,32.6,22.3,10.7,23.6,83.2
+Rayan Rupert,Philadelphia 76ers,73,28.0,24.8,65.8,34.1,37.8,26.5,86.0,21.2,52.5,44.1
+Kyle Anderson,Toronto Raptors,73,42.9,21.5,83.1,15.9,81.5,63.3,90.2,80.4,59.4,59.1
+Vince Williams Jr.,Free Agency,73,49.5,20.8,45.1,22.8,91.1,26.5,74.8,66.2,63.6,53.6
+Drew Eubanks,Free Agency,73,14.4,16.6,14.3,60.1,2.8,83.0,23.9,96.9,84.0,4.5
+Ochai Agbaji,Free Agency,73,77.6,61.4,60.4,89.2,16.6,54.3,54.4,61.0,48.6,73.0
+Joe Ingles,Free Agency,73,42.9,65.0,70.6,6.4,79.8,59.0,80.8,10.7,25.7,36.2
+Jalen Pickett,Los Angeles Clippers,73,33.9,47.2,45.1,3.8,72.8,34.2,32.7,15.1,41.6,61.4
+Morez Johnson Jr.,Dallas Mavericks,73,72.5,22.4,20.1,97.9,14.0,91.5,6.5,80.4,78.5,20.4
+Yaxel Lendeborg,Golden State Warriors,73,39.1,60.7,54.8,86.1,66.5,72.9,71.1,68.8,61.1,60.2
+Brayden Burries,Milwaukee Bucks,73,65.0,71.7,70.6,50.5,55.1,40.6,66.1,15.1,35.4,70.5
+Trendon Watford,New Orleans Pelicans,73,17.3,21.1,74.3,81.3,71.2,87.3,4.3,73.5,67.7,16.9
+Tre Mann,Washington Wizards,73,41.9,51.8,86.4,5.3,80.0,9.9,33.6,21.2,43.3,75.1
+Nicolas Batum,Free Agency,73,35.1,52.5,40.6,51.8,47.8,66.2,37.0,61.0,36.8,48.4
+Nick Richards,Miami Heat,73,33.0,20.2,0.9,70.2,0.3,74.0,0.2,91.0,95.9,7.9
+Jonathan Kuminga,Minnesota Timberwolves,73,85.4,23.1,89.2,94.6,58.5,75.9,46.2,50.3,81.2,51.0
+Aday Mara,Oklahoma City Thunder,73,2.4,4.7,1.8,33.8,54.8,89.3,10.5,95.6,80.8,7.4
+Cody Williams,Minnesota Timberwolves,73,91.5,33.4,60.4,65.0,36.2,33.5,41.5,61.0,31.2,83.6
+Josh Green,Utah Jazz,73,92.9,69.1,45.1,57.7,32.1,36.7,84.4,15.1,33.2,54.1
+John Konchar,Free Agency,73,21.7,17.7,49.8,14.6,68.9,45.0,79.7,85.5,69.6,46.4
+Cam Whitmore,Denver Nuggets,73,85.4,31.4,83.1,75.1,38.4,70.3,69.9,53.3,48.4,93.3
+Julian Reese,New Orleans Pelicans,73,21.5,6.7,60.4,55.8,11.0,82.4,19.7,45.5,97.9,24.9
+D’Angelo Russell,Free Agency,73,45.3,59.0,86.4,5.3,94.5,18.9,4.8,15.1,22.3,90.6
+Robert Dillingham,Free Agency,73,95.1,38.3,20.1,56.8,63.9,0.7,69.9,15.1,24.5,98.7
+Mouhamed Gueye,Atlanta Hawks,72,22.5,9.4,26.6,79.0,22.7,49.6,54.8,81.8,78.0,18.4
+Drake Powell,Brooklyn Nets,72,93.5,62.3,45.1,89.6,52.6,20.9,47.7,32.2,8.2,58.1
+Noa Essengue,Chicago Bulls,72,81.8,15.0,31.1,80.0,29.1,21.5,77.5,32.2,54.4,49.0
+Craig Porter Jr.,Cleveland Cavaliers,72,63.7,33.5,54.8,9.9,79.8,4.4,97.0,84.4,61.4,70.9
+Caleb Martin,Dallas Mavericks,72,31.5,15.6,80.4,19.2,48.5,35.8,84.1,56.8,48.1,32.3
+Spencer Jones,Denver Nuggets,72,20.2,35.8,49.8,18.9,7.9,42.5,49.3,66.2,45.6,30.9
+Jae’Sean Tate,Houston Rockets,72,28.6,15.7,86.4,63.9,55.4,82.4,84.0,27.1,62.2,43.5
+Johnny Furphy,Indiana Pacers,72,39.5,36.4,54.8,48.6,22.7,24.1,27.7,40.2,77.2,23.1
+Myron Gardner,Miami Heat,72,43.2,49.8,49.8,45.9,58.8,60.6,81.4,38.2,91.5,44.1
+Jericho Sims,Milwaukee Bucks,72,69.9,7.1,6.0,97.8,5.8,84.7,7.7,45.5,91.6,3.5
+Jaylen Clark,Minnesota Timberwolves,72,78.8,12.5,31.1,51.2,17.7,30.8,95.1,40.2,39.8,57.0
+Joan Beringer,Minnesota Timberwolves,72,16.2,1.9,12.7,92.2,3.4,52.4,8.1,91.0,91.0,9.3
+Mohamed Diawara,New York Knicks,72,34.4,57.1,20.1,93.2,18.5,69.6,13.1,40.2,41.3,22.5
+Nikola Topic,Oklahoma City Thunder,72,58.1,49.0,74.3,19.6,92.6,32.2,25.5,36.1,6.6,88.3
+Jamal Cain,Orlando Magic,72,23.2,63.0,70.6,63.9,8.4,29.8,15.6,15.1,51.2,21.5
+Jase Richardson,Orlando Magic,72,78.4,65.1,54.8,76.2,65.6,16.3,21.9,15.1,26.8,82.0
+Tristan Vukcevic,Washington Wizards,72,7.8,50.5,77.5,35.4,23.2,74.6,15.1,91.9,72.3,13.3
+Jahmai Mashack,Memphis Grizzlies,72,87.4,9.9,12.7,54.8,45.7,30.3,93.5,68.8,24.8,36.8
+Kam Jones,Milwaukee Bucks,72,49.9,32.2,60.4,4.8,84.9,21.7,28.2,1.0,7.1,78.9
+Jonathan Isaac,Orlando Magic,72,53.8,2.8,8.7,63.3,5.4,75.1,94.8,98.2,84.9,26.5
+Ariel Hukporti,Philadelphia 76ers,72,1.8,14.8,1.8,54.6,7.4,90.4,2.8,97.6,92.1,8.4
+Micah Potter,Portland Trail Blazers,72,1.5,77.5,2.2,36.6,20.9,89.6,17.8,56.8,79.2,4.1
+Dante Exum,Free Agency,72,63.7,46.5,45.1,16.7,74.8,29.7,87.8,45.5,4.8,74.3
+Amir Coffey,Free Agency,72,47.3,67.6,83.1,34.5,52.8,31.7,27.3,45.5,19.9,66.7
+Eric Gordon,Free Agency,72,63.7,73.2,45.1,46.5,57.9,48.6,62.0,61.0,0.6,78.7
+Dalano Banton,Free Agency,72,52.9,30.9,83.1,23.3,83.9,45.6,66.9,80.4,27.8,63.2
+Monte Morris,Free Agency,72,79.9,73.4,65.8,6.7,90.1,2.8,31.6,21.2,10.3,87.2
+Mason Plumlee,Free Agency,72,5.1,5.6,74.3,85.0,72.0,94.7,44.4,88.7,94.9,9.6
+Kelly Olynyk,Free Agency,72,0.5,21.9,49.8,22.0,74.3,80.1,29.4,68.8,81.7,3.8
+Aaron Holiday,Free Agency,72,54.2,65.3,65.8,1.6,74.1,7.7,63.3,15.1,2.8,82.6
+Anthony Gill,Free Agency,72,24.9,39.5,49.8,77.7,16.2,81.1,43.9,68.8,58.8,16.3
+Seth Curry,Free Agency,72,58.9,94.1,86.4,1.8,61.6,3.5,17.2,27.1,18.5,75.7
+Maxi Kleber,Free Agency,72,26.8,10.4,36.2,47.9,45.3,88.1,40.4,76.2,62.5,18.8
+A.J. Lawson,Free Agency,72,51.8,30.0,70.6,64.6,36.6,4.8,42.4,53.3,63.6,42.3
+Gabe Vincent,Free Agency,72,37.7,61.2,70.6,1.1,69.9,18.0,34.6,7.7,3.3,69.6
+Keaton Wallace,Free Agency,72,67.3,61.7,54.8,6.7,73.5,7.7,84.7,36.1,17.4,64.5
+Karim Lopez,Memphis Grizzlies,72,24.7,30.3,40.6,72.8,56.5,67.1,34.3,56.8,55.4,40.0
+Lonnie Walker IV,Denver Nuggets,72,97.6,63.3,77.5,65.3,62.6,43.5,34.0,45.5,36.1,75.7
+Cameron Carr,Los Angeles Lakers,72,93.7,72.3,49.8,83.4,45.0,7.2,48.2,50.3,15.6,79.4
+Nate Ament,Milwaukee Bucks,72,48.2,52.1,36.2,51.6,54.2,25.2,42.2,24.3,35.8,59.4
+Kyle Lowry,Free Agency,72,85.4,59.1,12.7,4.2,80.3,42.9,93.8,61.0,12.4,86.3
+Dwight Powell,Dallas Mavericks,72,21.5,18.5,26.6,41.2,23.1,88.9,72.5,68.8,84.7,15.7
+Ryan Nembhard,Denver Nuggets,72,67.3,65.6,60.4,1.5,97.9,1.2,43.6,4.8,9.3,89.9
+K.J. Simpson,Free Agency,72,67.8,28.1,60.4,22.3,84.3,13.1,76.1,1.0,35.7,84.7
+Ron Harper Jr.,Boston Celtics,71,27.5,48.4,31.1,30.3,27.4,43.6,23.2,36.1,43.5,40.7
+Pat Connaughton,Charlotte Hornets,71,57.7,24.3,60.4,80.9,65.3,22.3,35.0,64.4,55.1,54.4
+Liam McNeeley,Charlotte Hornets,71,54.8,67.7,10.7,20.6,53.6,35.1,42.2,15.1,55.4,46.0
+Nae’Qwan Tomlin,Cleveland Cavaliers,71,39.1,22.0,54.8,81.1,40.3,56.4,63.6,88.7,54.7,44.1
+Tyrese Proctor,Cleveland Cavaliers,71,74.0,83.2,49.8,33.4,75.7,10.2,43.3,2.5,17.3,85.4
+Moussa Cisse,Dallas Mavericks,71,9.8,0.4,5.0,88.0,0.5,68.5,9.3,99.7,97.6,6.7
+Zeke Nnaji,Denver Nuggets,71,56.2,41.2,45.1,80.3,1.2,80.1,11.0,86.9,71.2,9.7
+DaRon Holmes II,Denver Nuggets,71,36.6,42.3,12.7,50.8,15.4,65.7,18.8,73.5,40.3,23.5
+Thomas Sorber,Oklahoma City Thunder,71,16.6,14.6,20.1,66.0,60.0,89.3,69.5,88.7,82.2,22.9
+Jabari Walker,Philadelphia 76ers,71,47.3,32.5,26.6,60.7,7.1,78.1,50.2,61.0,83.1,37.0
+Daeqwon Plowden,Sacramento Kings,71,78.1,51.6,60.4,74.2,17.7,54.1,37.8,15.1,29.4,53.1
+Jordan McLaughlin,San Antonio Spurs,71,38.6,49.9,83.1,14.3,84.1,11.4,91.5,1.0,9.8,71.4
+Chaney Johnson,Brooklyn Nets,71,63.7,31.7,45.1,92.9,36.9,74.2,79.3,73.5,74.8,36.5
+Jalen Slawson,Indiana Pacers,71,23.8,43.3,20.1,66.5,33.5,52.1,84.3,90.3,56.8,31.4
+Jamaree Bouyea,Phoenix Suns,71,79.9,14.3,65.8,3.5,69.7,2.4,82.3,78.6,30.5,79.8
+Haywood Highsmith,Phoenix Suns,71,49.6,45.2,60.4,24.9,13.7,40.1,83.4,70.9,38.7,39.1
+Trayce Jackson-Davis,Toronto Raptors,71,53.6,7.3,36.2,98.2,38.0,79.0,21.4,93.9,90.7,37.7
+Blake Hinson,Utah Jazz,71,13.1,44.4,20.1,14.6,29.8,45.8,0.5,15.1,26.8,28.6
+L.J. Cryer,Golden State Warriors,71,80.4,85.6,20.1,2.5,63.4,11.6,10.8,1.0,10.6,86.3
+Charles Bassey,Golden State Warriors,71,22.5,8.7,20.1,84.5,4.2,82.4,23.9,97.6,98.5,13.0
+Larry Nance Jr.,Indiana Pacers,71,16.9,23.7,31.1,93.3,56.7,79.0,91.6,87.8,72.8,20.6
+Kevon Looney,Los Angeles Lakers,71,19.1,3.1,20.1,43.3,40.0,78.6,69.5,83.1,95.2,18.1
+Branden Carlson,Portland Trail Blazers,71,0.4,35.5,0.1,20.8,9.0,61.3,0.8,92.9,75.5,1.2
+Jonathan Mogbo,Sacramento Kings,71,79.4,9.0,70.6,69.7,49.9,66.9,72.9,78.6,89.6,47.8
+Pete Nance,Milwaukee Bucks,71,12.9,53.1,36.2,70.2,8.7,69.6,20.9,66.2,57.6,13.3
+Jeremiah Robinson-Earl,Free Agency,71,15.3,67.1,65.8,56.1,29.2,64.8,20.2,1.0,88.9,29.4
+Cody Martin,Free Agency,71,28.9,18.9,86.4,34.5,70.0,35.8,86.4,78.6,63.6,51.7
+Dario Šarić,Free Agency,71,22.2,41.3,40.6,23.7,68.8,63.4,55.3,1.0,83.4,30.3
+Garrison Mathews,Free Agency,71,8.1,86.4,65.8,13.0,59.7,37.6,12.5,45.5,2.2,37.2
+Chris Boucher,Free Agency,71,7.8,63.4,40.6,81.8,5.0,56.2,19.7,85.5,86.1,3.2
+James Wiseman,Free Agency,71,14.0,10.2,20.1,54.6,16.5,80.1,5.6,84.4,94.4,24.1
+Markelle Fultz,Free Agency,71,63.7,22.4,74.3,40.9,71.9,37.8,88.5,21.2,22.6,73.5
+Omer Yurtseven,Free Agency,71,5.0,10.7,7.4,42.4,14.8,88.3,16.7,36.1,90.3,13.6
+Jalen Wilson,Atlanta Hawks,71,70.8,53.8,49.8,40.9,25.5,50.9,12.5,7.7,28.8,47.2
+Jett Howard,Dallas Mavericks,71,27.5,70.2,36.2,20.2,43.2,44.2,4.7,53.3,34.3,46.8
+Oscar Tshiebwe,Houston Rockets,71,34.2,6.4,65.8,70.2,14.3,90.0,25.8,32.2,96.5,6.4
+Julian Phillips,Houston Rockets,71,49.2,29.2,20.1,73.4,12.8,10.0,62.0,56.8,38.6,34.7
+Christian Koloko,New Orleans Pelicans,71,33.9,3.0,6.0,70.2,2.7,66.2,47.1,98.5,70.0,8.7
+Nate Williams,Free Agency,71,25.5,85.6,31.1,30.3,32.7,26.5,10.5,1.0,39.6,41.3
+Sharife Cooper,Free Agency,71,96.2,85.8,65.8,16.9,83.5,0.8,6.1,21.2,30.0,96.1
+Blake Wesley,Free Agency,71,58.9,3.9,70.6,83.7,83.9,4.2,95.4,21.2,16.6,81.4
+Tyrese Martin,Free Agency,71,31.0,32.2,14.3,17.3,73.2,46.3,16.4,15.1,50.2,50.5
+Nick Smith Jr.,Free Agency,71,85.4,73.5,77.5,77.3,59.1,6.3,19.7,27.1,0.8,86.3
+Lindy Waters III,Free Agency,71,19.9,72.0,20.1,7.4,44.6,19.9,50.7,56.8,37.3,26.9
+Tony Bradley,Free Agency,71,5.6,11.1,54.8,26.5,9.6,93.6,14.2,56.8,85.7,5.8
+Jeff Green,Free Agency,71,30.3,58.5,65.8,73.1,27.9,77.1,5.8,73.5,25.1,35.2
+Killian Hayes,Free Agency,71,63.7,12.7,40.6,7.2,93.8,24.5,73.5,45.5,31.1,78.1
+Isaiah Livers,Free Agency,71,40.0,77.1,49.8,10.8,32.3,53.3,38.2,21.2,18.8,50.5
+Jeremy Sochan,Portland Trail Blazers,71,34.7,9.6,80.4,65.7,79.5,60.0,44.4,50.3,73.5,56.7
+Trey Jemison III,Toronto Raptors,71,5.8,0.7,2.9,63.4,6.4,93.5,47.1,89.6,80.3,7.6
+Labaron Philon Jr.,Philadelphia 76ers,71,93.7,59.9,54.8,11.6,89.0,5.1,69.5,4.8,17.9,95.0
+Zuby Ejiofor,Atlanta Hawks,71,39.8,11.0,36.2,80.0,41.6,90.6,46.4,90.3,80.0,34.7
+Chris Cenac Jr.,Boston Celtics,71,33.2,13.9,6.0,97.2,14.5,75.5,18.9,73.5,87.5,19.3
+Hannes Steinbach,Charlotte Hornets,71,8.2,23.4,7.4,48.4,25.8,89.6,36.9,73.5,92.9,12.5
+Dailyn Swain,Chicago Bulls,71,79.1,37.0,45.1,56.6,51.8,47.3,58.5,4.8,54.1,61.1
+Tarik Biberovic,Dallas Mavericks,71,23.8,92.7,20.1,6.2,20.9,28.0,7.0,1.0,15.2,40.0
+Alpha Diallo,Denver Nuggets,71,58.3,38.3,36.2,41.6,58.4,41.9,89.2,21.2,13.9,50.5
+Ebuka Okorie,Detroit Pistons,71,92.9,66.7,49.8,19.4,78.4,14.2,74.5,3.1,12.2,94.7
+Georges Niang,Golden State Warriors,71,4.2,79.6,54.8,6.7,44.2,60.0,18.3,27.1,44.7,21.4
+Koa Peat,Phoenix Suns,71,62.7,5.1,70.6,95.8,43.5,85.9,26.5,36.1,36.6,37.7
+Alex Karaban,Sacramento Kings,71,27.1,79.8,8.7,25.7,46.5,60.0,17.8,38.2,30.0,26.3
+Tarris Reed Jr.,San Antonio Spurs,71,29.1,5.3,49.8,69.4,37.2,95.5,42.7,88.7,94.1,20.9
+Andre Jackson Jr.,Toronto Raptors,71,80.4,26.6,10.7,85.8,44.4,27.8,88.1,21.2,59.0,45.6
+Allen Graves,Toronto Raptors,71,25.5,56.8,31.1,43.2,60.9,60.6,31.3,21.2,23.6,33.8
+Dalen Terry,Golden State Warriors,71,52.9,26.5,49.8,31.1,76.8,27.4,88.0,80.4,50.7,75.4
+Micah Peavy,Memphis Grizzlies,71,81.8,24.5,49.8,62.2,63.3,39.0,58.3,36.1,38.9,60.2
+Jordan Hawkins,Free Agency,71,31.0,51.0,45.1,3.8,48.4,9.6,24.3,53.3,21.5,52.3
+Gary Harris,Free Agency,71,57.4,76.9,60.4,29.8,61.6,33.7,51.2,40.2,16.6,60.2
+Adou Thiero,Los Angeles Lakers,70,92.3,11.3,40.6,92.6,3.6,65.2,73.7,56.8,64.0,48.2
+Bronny James Jr.,Los Angeles Lakers,70,94.6,41.6,31.1,74.6,41.9,45.0,62.5,30.0,13.4,71.1
+Isaac Jones,Detroit Pistons,70,26.6,4.8,20.1,66.0,1.6,83.0,7.0,91.9,74.3,22.8
+Cam Christie,Los Angeles Clippers,70,87.0,42.0,7.4,51.5,43.7,5.4,28.2,21.2,56.7,64.1
+Keshad Johnson,Miami Heat,70,84.1,14.5,31.1,91.6,17.7,66.2,30.1,83.1,77.7,39.5
+Colin Castleton,Orlando Magic,70,7.4,37.2,6.0,30.0,17.0,74.5,9.0,77.5,86.4,10.0
+Yang Hansen,Portland Trail Blazers,70,1.8,25.2,1.8,41.3,53.0,85.4,21.5,78.6,69.2,0.7
+David Jones-Garcia,San Antonio Spurs,70,45.6,40.2,31.1,61.4,78.8,41.9,71.4,50.3,59.7,28.9
+Alijah Martin,Toronto Raptors,70,96.2,43.9,49.8,68.4,51.4,40.3,88.5,61.0,40.5,68.6
+P.J. Hall,Charlotte Hornets,70,21.9,42.5,10.7,84.5,12.5,83.0,47.4,68.8,93.7,23.5
+John Poulakidas,Dallas Mavericks,70,12.1,49.6,10.7,16.3,7.7,27.6,15.6,1.0,39.4,21.2
+Cormac Ryan,Milwaukee Bucks,70,23.8,92.1,40.6,21.1,48.2,25.5,57.5,64.4,11.8,31.9
+Mohamed Bamba,Utah Jazz,70,9.1,13.1,2.9,60.1,3.1,71.4,40.6,99.2,91.3,5.3
+Elijah Harkless,Detroit Pistons,70,79.1,38.9,40.6,10.4,68.0,25.5,89.5,36.1,51.9,77.1
+Johnny Juzang,Free Agency,70,29.5,88.6,26.6,39.1,20.1,50.4,15.6,21.2,40.8,45.8
+Orlando Robinson,Free Agency,70,3.9,41.5,20.1,27.4,27.5,77.1,11.7,70.9,88.3,4.7
+Colby Jones,Free Agency,70,44.6,16.4,45.1,26.7,50.5,13.5,54.0,83.1,47.2,38.6
+Tosan Evbuomwan,Free Agency,70,16.3,29.5,49.8,18.9,48.2,46.9,17.2,53.3,64.7,44.4
+Dariq Whitehead,Free Agency,70,63.7,64.6,20.1,80.0,36.4,41.6,36.3,15.1,25.7,73.8
+Drew Timme,Free Agency,70,2.5,47.9,12.7,36.9,46.1,73.2,20.6,32.2,62.8,10.0
+Xavier Tillman Sr.,Free Agency,70,12.3,6.1,36.2,43.8,26.3,90.6,72.5,64.4,73.0,14.3
+Mac McClung,Free Agency,70,49.0,12.8,60.4,76.6,73.2,6.3,52.4,27.1,34.7,59.8
+Patrick Baldwin Jr.,Free Agency,70,12.9,38.1,40.6,31.3,15.7,65.2,37.4,77.5,69.9,18.8
+David Roddy,Free Agency,70,44.1,62.8,54.8,18.4,35.8,90.0,41.2,53.3,61.0,24.1
+Doug McDermott,Free Agency,70,11.3,72.2,65.8,25.2,26.2,57.4,2.5,32.2,5.2,22.3
+Garrett Temple,Free Agency,70,28.5,21.2,20.1,2.1,67.3,10.4,81.2,36.1,49.5,40.4
+E.J. Liddell,Free Agency,70,37.7,42.0,45.1,58.4,28.6,71.0,6.4,88.7,71.8,23.5
+Antonio Reeves,Free Agency,70,71.1,80.6,70.6,31.7,28.2,15.1,13.4,21.2,14.0,54.8
+Bismack Biyombo,Free Agency,70,4.7,2.2,2.9,44.4,28.9,95.2,33.4,92.9,87.2,0.4
+Wendell Moore Jr.,Free Agency,70,34.7,48.5,26.6,82.2,24.0,44.2,80.0,45.5,67.6,36.8
+Henri Veesaar,Atlanta Hawks,70,15.9,25.9,20.1,77.7,28.5,66.9,9.8,85.5,89.1,24.8
+Joshua Jefferson,Brooklyn Nets,70,19.9,14.0,26.6,36.2,62.9,72.9,73.9,27.1,57.4,30.3
+Christian Anderson,Charlotte Hornets,70,90.0,77.2,31.1,15.3,87.8,1.6,62.3,4.8,1.8,94.2
+Meleek Thomas,Cleveland Cavaliers,70,59.4,84.9,20.1,16.7,62.3,1.9,72.3,6.4,6.6,65.6
+Bruce Thornton,Houston Rockets,70,56.2,89.3,65.8,9.6,76.5,52.8,60.7,4.8,2.7,84.4
+Braden Smith,Indiana Pacers,70,37.7,75.4,20.1,5.7,97.8,2.1,56.4,2.5,1.8,70.1
+Isaiah Evans,Minnesota Timberwolves,70,65.6,77.4,20.1,38.9,42.6,14.6,28.2,15.1,2.1,58.7
+Caleb Houstan,New Orleans Pelicans,70,68.4,78.9,20.1,4.2,21.1,15.6,44.4,21.2,9.5,54.1
+Kobe Bufkin,New Orleans Pelicans,70,92.9,34.6,70.6,50.0,70.3,8.2,8.5,61.0,54.5,97.8
+Bennett Stirtz,Oklahoma City Thunder,70,29.5,88.1,20.1,11.1,96.9,8.0,53.4,4.8,4.5,69.2
+Jayden Quaintance,San Antonio Spurs,70,61.3,1.5,14.3,95.2,23.8,77.7,73.4,92.9,78.8,29.7
+Taelon Peter,San Antonio Spurs,70,57.0,57.3,65.8,62.5,55.6,3.5,89.0,45.5,22.3,49.0
+Malachi Smith,Toronto Raptors,70,40.4,63.9,20.1,1.9,78.1,26.5,81.1,32.2,33.7,66.7
+Malaki Branham,Orlando Magic,70,76.3,54.5,40.6,59.2,37.5,14.6,20.2,27.1,52.4,53.1
+Grant Nelson,Brooklyn Nets,70,7.1,17.3,14.3,46.2,11.7,46.3,16.2,73.5,71.5,17.6
+A.J. Johnson,New Orleans Pelicans,70,72.5,43.8,36.2,51.0,68.2,0.4,3.0,15.1,29.7,88.3
+Taj Gibson,New Orleans Pelicans,70,5.9,31.2,7.4,35.8,4.1,87.7,56.0,68.8,88.6,1.5
+Bez Mbeng,Miami Heat,70,52.1,9.1,10.7,23.3,52.1,17.3,82.4,53.3,23.2,49.0
+Kevin McCullar Jr.,New York Knicks,70,60.0,45.8,49.8,52.1,36.0,38.7,72.9,76.2,68.5,35.8
+Johni Broome,Free Agency,70,13.3,16.2,36.2,13.9,52.6,79.5,24.5,85.5,83.1,26.8
+Yuki Kawamura,Los Angeles Clippers,70,87.9,59.4,8.7,15.0,93.9,20.0,26.9,2.1,31.5,94.2
+Amari Williams,Boston Celtics,69,23.2,4.1,10.7,79.0,54.7,81.7,29.0,81.8,65.1,27.8
+Enrique Freeman,Minnesota Timberwolves,69,41.9,8.5,40.6,83.5,15.6,53.8,22.9,61.0,38.1,25.4
+Pacome Dadiet,New York Knicks,69,56.7,42.7,31.1,31.5,15.0,30.1,35.2,40.2,38.0,57.2
+Brooks Barnhizer,Oklahoma City Thunder,69,45.9,43.5,20.1,45.2,63.7,68.9,79.3,40.2,46.0,40.0
+Malevy Leons,Golden State Warriors,69,25.8,30.8,2.9,28.3,10.2,38.7,78.0,86.9,58.2,10.7
+RayJ Dennis,Atlanta Hawks,69,66.9,35.4,36.2,11.0,80.5,3.0,60.4,10.7,3.8,72.4
+DaQuan Jeffries,Free Agency,69,63.7,55.7,31.1,86.9,12.2,49.9,14.3,76.2,28.9,45.3
+Kennedy Chandler,Free Agency,69,69.3,18.2,45.1,39.8,89.2,0.2,52.7,32.2,10.6,94.2
+Drew Peterson,Free Agency,69,10.4,46.7,36.2,33.1,47.0,43.3,9.8,27.1,67.3,29.2
+Stanley Umude,Free Agency,69,24.2,59.6,10.7,10.1,33.7,31.7,28.2,68.8,46.7,33.8
+DeJon Jarreau,Free Agency,69,52.1,15.4,20.1,24.7,62.1,4.1,87.7,32.2,70.3,56.5
+Luke Travers,Free Agency,69,22.9,22.2,20.1,23.3,22.2,23.7,2.2,61.0,7.3,41.3
+Bobi Klintman,Free Agency,69,35.4,39.2,14.3,55.3,50.1,49.2,69.5,64.4,30.0,45.3
+Jules Bernard,Free Agency,69,18.0,48.7,45.1,17.3,46.7,27.2,1.0,15.1,57.7,36.2
+Trentyn Flowers,Free Agency,69,65.3,19.7,4.4,96.4,31.3,3.8,41.9,15.1,46.9,55.0
+Skal Labissiere,Free Agency,69,19.4,33.1,4.4,52.7,8.1,69.2,27.1,68.8,89.6,19.8
+Andersson Garcia,Free Agency,69,19.2,13.7,20.1,74.0,13.9,68.5,67.9,68.8,79.8,25.4
+Alondes Williams,Free Agency,69,85.4,29.1,65.8,45.9,54.5,40.3,3.1,56.8,53.9,74.8
+John Tonje,Portland Trail Blazers,69,41.9,86.9,60.4,43.5,19.7,43.8,15.6,21.2,40.8,43.0
+Harrison Ingram,Utah Jazz,69,60.9,19.6,36.2,69.1,34.7,65.0,53.7,18.3,64.5,58.1
+TyTy Washington Jr.,Free Agency,69,69.9,34.9,49.8,42.7,58.1,20.9,70.7,15.1,11.4,89.9
+Thanasis Antetokounmpo,Free Agency,69,51.4,7.4,70.6,78.5,41.8,59.4,2.7,45.5,68.8,42.3
+Tyler Smith,Free Agency,69,30.4,32.7,6.0,94.1,7.3,62.5,1.9,67.1,89.3,27.7
+Adama Bal,Free Agency,69,42.7,35.2,12.7,37.5,51.2,11.0,26.5,1.0,6.2,65.3
+JD Davison,Free Agency,69,90.0,25.0,31.1,67.1,77.1,20.9,57.1,70.9,29.2,93.3
+Tyler Bilodeau,Brooklyn Nets,69,11.8,83.1,26.6,20.3,39.4,59.6,21.9,9.2,35.4,24.6
+Sergio De Larrea,Dallas Mavericks,69,30.6,61.7,36.2,12.4,60.5,15.3,17.8,15.1,41.5,55.1
+Tobi Lawal,Dallas Mavericks,69,82.6,4.5,26.6,99.5,29.4,39.9,7.0,67.1,72.6,52.1
+Trevon Brazile,Denver Nuggets,69,54.4,10.8,31.1,94.9,48.8,71.8,55.1,78.6,51.4,30.7
+Ugonna Onyenso,Detroit Pistons,69,15.7,9.7,10.7,65.6,9.1,86.6,38.9,94.4,73.7,8.7
+Baba Miller,Los Angeles Clippers,69,27.1,5.9,60.4,69.6,31.0,52.7,45.6,61.0,78.1,33.1
+Ryan Conwell,Miami Heat,69,56.7,75.8,40.6,30.8,47.0,26.0,22.3,4.8,19.6,51.2
+Bogoljub Markovic,Milwaukee Bucks,69,7.3,46.2,6.0,25.8,27.7,42.5,34.8,50.3,71.5,16.5
+Otega Oweh,Oklahoma City Thunder,69,72.5,24.6,60.4,80.8,24.8,53.8,75.8,15.1,18.3,61.1
+Izaiyah Nelson,Orlando Magic,69,50.2,10.5,26.6,95.3,23.4,62.0,51.2,88.7,90.4,29.5
+Ja’Kobi Gillespie,San Antonio Spurs,69,90.0,61.2,36.2,17.9,71.4,8.5,83.2,1.0,0.2,87.3
+Maliq Brown,San Antonio Spurs,69,83.7,2.5,20.1,61.3,24.2,58.1,91.0,80.4,51.4,25.1
+Jaden Bradley,Toronto Raptors,69,81.4,40.7,20.1,11.7,76.6,38.3,71.2,2.5,1.0,67.9
+Felix Okpara,Washington Wizards,69,60.9,4.4,31.1,85.4,1.9,81.5,7.0,88.7,70.2,27.1
+Lucas Williamson,Free Agency,69,36.8,19.9,20.1,8.6,46.3,33.0,73.9,4.8,12.4,51.2
+Dillon Jones,Free Agency,69,60.0,8.1,31.1,18.6,56.2,77.1,32.2,27.1,73.4,43.0
+Chris Mañon,Los Angeles Lakers,68,82.6,15.1,40.6,75.2,52.4,39.6,92.4,56.8,19.7,41.5
+Chaz Lanier,Detroit Pistons,68,77.6,45.0,60.4,37.3,18.0,23.0,25.2,2.9,32.0,69.2
+Tolu Smith,Detroit Pistons,68,4.1,4.2,5.0,41.9,7.6,91.1,17.2,73.5,84.4,7.0
+Vladislav Goldin,Miami Heat,68,0.2,13.7,1.8,32.8,22.5,87.2,1.2,80.4,77.1,4.2
+Rocco Zikarsky,Minnesota Timberwolves,68,1.6,2.7,0.9,34.0,3.8,76.6,21.1,87.8,84.4,1.9
+CJ Huntley,Phoenix Suns,68,9.8,20.9,60.4,87.7,12.0,12.6,12.0,67.1,83.7,11.0
+Chucky Hepburn,Toronto Raptors,68,78.0,41.8,31.1,0.5,83.7,5.8,94.0,7.7,8.6,71.2
+Keshon Gilbert,Atlanta Hawks,68,69.1,30.6,49.8,8.8,67.4,36.7,85.5,9.2,12.7,60.5
+Tristan Enaruna,Cleveland Cavaliers,68,77.8,27.3,20.1,52.5,49.2,62.9,71.7,36.1,52.1,58.1
+Riley Minix,Cleveland Cavaliers,68,12.6,50.8,4.4,21.5,7.0,55.3,66.1,36.1,67.4,17.1
+Zyon Pullin,Minnesota Timberwolves,68,63.7,38.9,20.1,1.1,69.4,23.0,40.3,7.7,9.5,74.9
+Alex Morales,Orlando Magic,68,40.6,29.4,20.1,47.3,56.7,45.0,87.5,7.7,68.1,52.6
+Chris Youngblood,Portland Trail Blazers,68,35.4,55.2,14.3,17.3,11.7,43.0,19.2,7.7,53.5,32.6
+Jayson Kent,Portland Trail Blazers,68,46.1,67.9,20.1,75.4,14.2,41.4,14.0,4.8,0.4,37.7
+Koby Brea,Phoenix Suns,68,22.9,83.4,26.6,10.5,40.4,35.5,26.5,32.2,40.5,30.0
+Trey Alexander,Utah Jazz,68,54.1,56.5,36.2,0.8,62.6,2.2,10.5,4.8,8.2,61.7
+Tamar Bates,Utah Jazz,68,32.6,84.6,20.1,35.0,11.1,20.9,48.7,4.8,29.4,39.1
+Jahmyl Telfort,Free Agency,68,22.2,33.8,36.2,44.7,33.3,76.8,47.4,15.1,49.8,26.6
+Kevon Harris,Free Agency,68,31.7,47.9,45.1,53.0,21.6,46.7,57.5,45.5,49.9,42.3
+N’Faly Dante,Free Agency,68,20.8,1.0,8.7,72.5,1.0,75.1,21.9,82.1,81.0,11.3
+Jackson Rowe,Free Agency,68,18.6,18.8,10.7,48.2,35.6,59.7,42.6,40.2,64.0,20.4
+Kyle Mangas,Free Agency,68,28.2,57.0,26.6,3.5,66.6,24.1,79.8,21.2,50.2,45.3
+Lawson Lovering,Free Agency,68,2.2,0.8,1.8,25.5,8.7,86.6,45.6,68.8,88.3,15.0
+Payton Sandfort,Free Agency,68,16.0,82.1,31.1,9.1,11.9,34.6,5.1,15.1,16.0,17.6
+Tyreke Key,Free Agency,68,37.7,87.8,60.4,1.3,60.2,27.1,68.2,4.8,11.0,59.0
+Malik Williams,Free Agency,68,6.3,13.3,12.7,35.4,1.3,78.5,26.5,85.5,93.7,9.0
+Darius Brown II,Free Agency,68,63.7,73.1,40.6,5.7,94.5,22.6,24.5,36.1,6.4,68.4
+Javonte Cooke,Free Agency,68,32.6,32.0,40.6,41.6,50.7,14.2,29.0,10.7,41.3,44.6
+Gabe McGlothan,Free Agency,68,21.0,40.9,10.7,59.2,11.3,71.2,65.9,40.2,70.9,28.1
+Kadary Richmond,Free Agency,68,63.7,20.5,40.6,38.2,57.4,48.0,92.9,4.8,47.9,63.0
+Buddy Boeheim,Free Agency,68,9.4,70.8,20.1,21.5,18.8,18.5,31.6,32.2,30.9,28.1
+Max Shulga,Free Agency,68,41.1,63.9,40.6,4.5,70.6,31.7,61.1,2.9,21.2,65.0
+Josh Oduro,Free Agency,68,8.4,13.0,0.7,32.0,44.9,72.9,43.2,50.3,76.9,20.2
+Hayden Gray,Free Agency,68,42.6,29.8,20.1,19.9,75.0,31.1,82.0,21.2,6.1,52.3
+Olivier Sarr,Free Agency,68,18.2,36.9,2.9,66.0,5.6,72.9,1.5,91.0,86.0,13.3
+Isaiah Stevens,Free Agency,68,95.5,54.2,31.1,5.0,87.3,6.3,4.3,1.0,0.6,89.5
+Emanuel Miller,Free Agency,68,70.8,26.8,20.1,80.6,27.2,48.6,29.2,36.1,56.4,29.8
+Norchad Omier,Free Agency,68,27.1,22.8,20.1,49.8,4.5,83.7,49.9,30.0,90.6,16.3
+Trevon Scott,Free Agency,68,10.1,22.8,45.1,35.7,35.0,57.4,0.1,24.3,82.2,26.1
+Mouhamadou Gueye,Free Agency,68,9.4,3.8,7.4,55.8,3.0,51.5,12.5,94.9,82.6,14.2
+Dillon Mitchell,Boston Celtics,68,75.2,1.2,26.6,93.6,51.4,44.4,65.3,61.0,76.6,31.4
+Kylan Boswell,Charlotte Hornets,68,72.9,44.4,20.1,12.2,67.0,36.7,59.5,40.2,7.7,80.1
+Michael Ajayi,Charlotte Hornets,68,33.6,8.4,20.1,56.2,38.6,69.2,37.2,55.0,92.4,20.8
+Tobe Awaka,Chicago Bulls,68,45.0,6.2,10.7,78.6,4.8,84.7,8.5,32.2,82.9,14.5
+Jaylin Sellers,Chicago Bulls,68,59.6,75.5,26.6,40.4,34.3,26.5,93.3,53.3,68.3,40.0
+Ernest Udeh Jr.,Cleveland Cavaliers,68,29.5,0.5,20.1,82.5,0.1,96.7,5.0,83.1,86.3,5.5
+Bryce Hopkins,Denver Nuggets,68,36.4,17.1,31.1,59.2,40.7,64.2,75.1,15.1,62.8,33.8
+Isaiah Crawford,Houston Rockets,68,13.7,38.6,20.1,39.6,10.8,50.9,37.7,30.0,59.7,19.8
+Sean Pedulla,Houston Rockets,68,44.1,61.9,49.8,6.7,83.2,8.7,46.5,4.8,10.3,68.1
+Quadir Copeland,Houston Rockets,68,43.4,36.6,20.1,31.7,65.9,47.2,76.3,9.2,11.8,53.8
+Nick Martinelli,Los Angeles Clippers,68,3.8,76.7,20.1,13.3,26.6,49.2,1.9,27.1,52.1,15.7
+Arthur Kaluma,Los Angeles Lakers,68,43.7,44.7,45.1,59.2,30.8,69.6,41.0,32.2,49.6,47.8
+AK Okereke,Los Angeles Lakers,68,17.3,33.8,20.1,24.1,31.8,86.6,13.7,45.5,45.1,25.4
+Tre Donaldson,Miami Heat,68,73.4,42.5,26.6,7.2,76.2,20.9,80.9,15.1,17.6,78.5
+Jaron Pierre Jr.,New Orleans Pelicans,68,48.5,56.2,36.2,28.1,24.5,18.7,9.8,27.1,2.5,50.5
+Malik Dia,New Orleans Pelicans,68,12.6,11.9,20.1,45.6,16.0,93.1,4.3,32.2,64.7,19.8
+Josh Dix,Oklahoma City Thunder,68,21.0,70.6,20.1,27.5,44.7,45.0,12.5,15.1,17.6,32.7
+Emanuel Sharp,Sacramento Kings,68,65.6,74.9,20.1,9.0,36.2,25.8,41.8,2.5,2.4,49.0
+Trevor Keels,Free Agency,68,41.9,37.3,20.1,36.0,80.1,55.1,40.1,45.5,28.6,68.9
+Tristen Newton,Free Agency,68,61.7,35.7,26.6,6.1,75.2,11.0,39.2,27.1,57.1,76.2
+Curtis Jones,Free Agency,68,44.6,16.4,45.1,26.7,50.5,13.5,54.0,83.1,47.2,38.6
+Khalifa Diop,Cleveland Cavaliers,68,10.1,3.5,2.9,73.6,1.5,87.8,36.7,68.8,79.4,10.7
+Graham Ike,Golden State Warriors,68,6.3,44.1,10.7,42.6,37.3,93.1,25.5,36.1,78.3,15.3
+Rafael Castro,Free Agency,68,21.9,7.0,10.7,77.7,20.1,61.3,7.4,80.4,83.8,15.1
+Adam Flagler,Sacramento Kings,67,33.0,47.0,20.1,12.7,37.0,3.9,21.2,4.8,1.5,46.0
+Jamarion Sharp,Free Agency,67,0.1,0.2,0.2,32.3,0.7,67.3,7.9,92.9,82.4,0.1
+Russell Westbrook,Free Agency,80,97.6,27.5,92.1,72.3,93.3,55.6,58.3,15.1,65.5,96.5

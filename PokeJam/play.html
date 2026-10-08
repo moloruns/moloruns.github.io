@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Play - PokeJam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/arena.css">
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3.90.0/dist/phaser.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+  <script src="js/finishes.js" defer></script>
+  <script src="js/arena.js" defer></script>
+  <script src="js/animator.js" defer></script>
+  <script src="js/audio.js" defer></script>
+  <script src="js/style.js" defer></script>
+  <script src="js/phase21.js" defer></script>
+  <script src="js/fire_perks.js" defer></script>
+  <script src="js/match_setup.js" defer></script>
+  <script src="js/play.js" defer></script>
+</head>
+<body class="arena-page">
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="PokeJam home">
+      <span class="brand-mark"></span>
+      <span class="brand-text arcade-font">PokeJam</span>
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="compare.html">Compare</a>
+      <a href="pokedex.html">Pokedex</a>
+      <a href="play.html">Play</a>
+    </nav>
+  </header>
+
+  <section id="match-setup" class="page match-setup" aria-labelledby="setup-title" hidden>
+    <div class="setup-heading"><div><p class="league-label">EXHIBITION / 2v2</p><h1 id="setup-title" class="arcade-font" tabindex="-1">Choose Your Teams</h1></div><button id="setup-cancel" class="icon-button" type="button" title="Return to match" aria-label="Return to match"><i data-lucide="x" aria-hidden="true"></i></button></div>
+    <ol class="setup-steps" aria-label="Match setup"><li id="teams-step" aria-current="step">01 / TEAMS</li><li id="stage-step">02 / STAGE</li></ol>
+    <div id="setup-teams">
+      <div class="setup-toolbar"><label for="setup-mode">Match</label><select id="setup-mode"><option value="solo">Solo</option><option value="coop">2-player co-op</option></select><button id="random-all" type="button"><i data-lucide="shuffle" aria-hidden="true"></i> Random All</button></div>
+      <div id="team-editor"></div>
+      <div class="roster-heading"><h2>Roster</h2><span id="roster-slot" aria-live="polite">Your Lead</span></div>
+      <div id="setup-roster" class="setup-roster" aria-label="Pokemon roster"></div>
+    </div>
+    <div id="setup-stages" hidden>
+      <fieldset id="stage-options" class="stage-options"><legend class="sr-only">Choose stage</legend></fieldset>
+      <div class="setup-footer"><button id="setup-back" type="button"><i data-lucide="arrow-left" aria-hidden="true"></i> Teams</button><button id="setup-start" type="button"><i data-lucide="play" aria-hidden="true"></i> Start Match</button></div>
+    </div>
+  </section>
+  <main class="page game-shell">
+    <div class="section-title">
+      <div>
+        <p class="league-label">KANTO LEAGUE / EXHIBITION</p>
+        <h1 class="arcade-font">Indigo Arena</h1>
+      </div>
+      <div class="match-actions">
+        <label for="match-mode" class="small-text">Match</label>
+        <select id="match-mode" aria-label="Match mode">
+          <option value="solo">Solo</option>
+          <option value="coop">2-player co-op</option>
+        </select>
+        <button id="switch-mon" class="icon-button" type="button" aria-label="Switch controlled Pokemon" title="Switch Pokemon (Q)">
+          <i data-lucide="arrow-left-right" aria-hidden="true"></i>
+        </button>
+        <button id="ultimate-finish" class="icon-button" type="button" aria-label="Ultimate finish" title="Ultimate finish (E); Shift + E for a dunk" disabled>
+          <i data-lucide="zap" aria-hidden="true"></i>
+        </button>
+        <button id="pause-match" class="icon-button" type="button" aria-label="Pause match" aria-pressed="false" title="Pause / resume">
+          <i data-lucide="pause" aria-hidden="true"></i>
+        </button>
+        <button id="restart-match" class="icon-button" type="button" aria-label="Restart match" title="Restart match">
+          <i data-lucide="rotate-ccw" aria-hidden="true"></i>
+        </button>
+        <button id="choose-lineup" class="icon-button" type="button" aria-label="Choose lineup" title="Choose lineup">
+          <i data-lucide="users" aria-hidden="true"></i>
+        </button>
+        <button id="audio-toggle" class="icon-button" type="button" aria-label="Mute audio" aria-pressed="false" title="Mute audio">
+          <i data-lucide="volume-2" aria-hidden="true"></i>
+        </button>
+        <button id="open-settings" class="icon-button" type="button" aria-label="Arena settings" title="Arena settings">
+          <i data-lucide="settings-2" aria-hidden="true"></i>
+        </button>
+        <button id="how-to-play" class="icon-button" type="button" aria-label="How to Play" title="How to Play">
+          <i data-lucide="book-open" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="match-scoreboard" aria-label="Match scoreboard">
+      <div class="team-score home"><span class="team-label">PLAYER</span><strong id="player-score">0</strong><span class="style-score">STYLE <b id="player-style">0</b></span></div>
+      <div class="match-clock"><span id="match-period">Q1</span><strong id="match-clock">2:00</strong><span id="match-possession">Pikachu</span><span id="shot-clock" class="shot-clock-mini" role="timer" aria-label="Shot clock"><i data-lucide="timer" aria-hidden="true"></i><span class="shot-clock-label">SHOT</span><b id="shot-clock-value">24</b></span></div>
+      <div class="team-score away"><span class="team-label">CPU</span><strong id="cpu-score">0</strong><span class="style-score">STYLE <b id="cpu-style">0</b></span></div>
+    </div>
+    <section class="game-frame" aria-label="Indigo Arena">
+      <div id="game-root" aria-label="PokeJam game canvas"></div>
+      <div id="shot-meters" class="shot-meters" aria-label="Shot timing meters"></div>
+      <div id="ultimate-meters" class="ultimate-meters" aria-label="Players and ultimate charge"></div>
+    </section>
+    <div class="arena-broadcast"><span class="live-indicator">ARENA PA</span><span id="arena-call" aria-live="polite"></span><span id="fire-status"></span></div>
+    <section id="match-results" class="match-results" hidden>
+      <div class="results-heading"><h2 id="result-title" tabindex="-1">Final</h2><div class="results-actions"><button id="rematch" type="button"><i data-lucide="rotate-ccw" aria-hidden="true"></i> Rematch</button><button id="results-lineup" type="button"><i data-lucide="users" aria-hidden="true"></i> Change Lineup</button><a href="index.html"><i data-lucide="home" aria-hidden="true"></i> Main Menu</a></div></div>
+      <p id="result-summary"></p>
+      <div class="results-scroll"><table><thead><tr><th>Pokemon</th><th>PTS</th><th>FG</th><th>FG%</th><th>AST</th><th>DUNK</th><th>STL</th><th>BLK</th><th>STYLE</th></tr></thead><tbody id="result-rows"></tbody></table></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    Noncommercial fan project. Not affiliated with Nintendo, The Pokemon Company, 2K, or the NBA. <a href="assets/animations/CREDITS.md">Art credits</a>. Data from PokeAPI and the community NBA 2K API.
+  </footer>
+  <dialog id="controls-dialog" class="arena-dialog controls-dialog" aria-labelledby="controls-title">
+    <div class="dialog-heading"><div><p class="controls-eyebrow">POKEJAM / COURTSIDE MANUAL</p><h2 id="controls-title" class="arcade-font">How to Play</h2></div><button type="button" class="icon-button close-dialog" aria-label="Close How to Play" title="Close"><i data-lucide="x" aria-hidden="true"></i></button></div>
+    <div class="controls-table" role="table" aria-label="Keyboard controls">
+      <div class="controls-row controls-head" role="row"><span role="columnheader">Action</span><span role="columnheader">Player 1 / Solo</span><span role="columnheader">Player 2 / Co-op</span></div>
+      <div class="controls-row" role="row"><strong role="cell">Move</strong><span class="key-group" role="cell"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span><span class="key-group" role="cell"><kbd aria-label="Up arrow"><i data-lucide="arrow-up" aria-hidden="true"></i></kbd><kbd aria-label="Left arrow"><i data-lucide="arrow-left" aria-hidden="true"></i></kbd><kbd aria-label="Down arrow"><i data-lucide="arrow-down" aria-hidden="true"></i></kbd><kbd aria-label="Right arrow"><i data-lucide="arrow-right" aria-hidden="true"></i></kbd></span></div>
+      <div class="controls-row" role="row"><strong role="cell">Turbo</strong><span class="key-group" role="cell"><kbd class="key-wide">Shift</kbd></span><span class="key-group" role="cell"><kbd class="key-wide" aria-label="Enter"><i data-lucide="corner-down-left" aria-hidden="true"></i> Enter</kbd></span></div>
+      <div class="controls-row" role="row"><strong role="cell">Shoot / Dunk</strong><span class="key-group" role="cell"><kbd>J</kbd></span><span class="key-group" role="cell"><kbd>K</kbd></span></div>
+      <div class="controls-row" role="row"><strong role="cell">Steal / Block</strong><span class="key-group" role="cell"><kbd>J</kbd></span><span class="key-group" role="cell"><kbd>K</kbd></span></div>
+      <div class="controls-row" role="row"><strong role="cell">Pass / Lob / Call</strong><span class="key-group" role="cell"><kbd>I</kbd></span><span class="key-group" role="cell"><kbd>L</kbd></span></div>
+      <div class="controls-row" role="row"><strong role="cell">Jockey</strong><span class="key-group" role="cell"><kbd>I</kbd></span><span class="key-group" role="cell"><kbd>L</kbd></span></div>
+      <div class="controls-row" role="row"><strong role="cell">Shove</strong><span class="key-group" role="cell"><kbd class="key-wide">Shift</kbd><span>+</span><kbd>I</kbd></span><span class="key-group" role="cell"><kbd class="key-wide">Enter</kbd><span>+</span><kbd>L</kbd></span></div>
+      <div class="controls-row" role="row"><strong role="cell">Ultimate</strong><span class="key-group" role="cell"><kbd>E</kbd></span><span class="key-group" role="cell"><kbd>O</kbd></span></div>
+      <div class="controls-row" role="row"><strong role="cell">Ultimate Dunk</strong><span class="key-group" role="cell"><kbd class="key-wide">Shift</kbd><span>+</span><kbd>E</kbd></span><span class="key-group" role="cell"><kbd class="key-wide">Enter</kbd><span>+</span><kbd>O</kbd></span></div>
+      <div class="controls-row" role="row"><strong role="cell">Break Ice / Wake Up</strong><span class="key-group" role="cell"><kbd>J</kbd><span>/</span><kbd>I</kbd></span><span class="key-group" role="cell"><kbd>K</kbd><span>/</span><kbd>L</kbd></span></div>
+      <div class="controls-row" role="row"><strong role="cell">Switch Mon</strong><span class="key-group" role="cell"><kbd>Q</kbd></span><span class="control-note" role="cell">Solo only</span></div>
+      <div class="controls-row" role="row"><strong role="cell">Pause</strong><span class="key-group" role="cell"><kbd class="key-wide">Esc</kbd></span><span class="control-note" role="cell">Shared pause</span></div>
+    </div>
+    <div class="controls-tips">
+      <section><h3><i data-lucide="target" aria-hidden="true"></i> Offense</h3><p>Tap shoot without turbo to pump fake. Hold to jump, then release in the green zone. Hold near the rim to dunk; landing with an unreleased shot is travel. Take off outside the arc for a three-point dunk.</p><p>Hold pass to set up a lob, then release while your teammate is airborne. A CPU finishes automatically; a human receiver presses shoot. Off ball, hold call to request it.</p></section>
+      <section><h3><i data-lucide="shield" aria-hidden="true"></i> Defense</h3><p>Hold jockey to guard. Shoot becomes steal against a dribbler and block against a shot or dunk. Turbo + jockey shoves on defense: it costs stamina and can stun on contact.</p><p>Alternate the two escape keycaps to break ice or wake up. Holding one key does not count.</p></section>
+      <section><h3><i data-lucide="flame" aria-hidden="true"></i> Fire &amp; Ultimates</h3><p>Three consecutive makes ignite 15 seconds of fire. Each make adds five seconds. An opposing basket or a direct steal ends it; missing does not. Non-scoring attacks trigger on cooldown on either side of the ball.</p><p>Baskets, steals and blocks charge your ultimate. A typed aura and READY portrait mean it is available. Activate while holding the ball; turbo forces a dunk.</p></section>
+      <section><h3><i data-lucide="users" aria-hidden="true"></i> Match</h3><p>Four two-minute quarters, a 24-second shot clock and overtime for ties. Solo control follows your team's ball holder; switch off ball to defend with your other mon. Co-op keeps both players assigned.</p><p>Arrows also move Player 1 in solo. Pause, lineup and settings are available in the toolbar.</p></section>
+    </div>
+  </dialog>
+  <dialog id="arena-settings" class="arena-dialog">
+    <div class="dialog-heading"><h2>Arena Settings</h2><button type="button" class="icon-button close-dialog" aria-label="Close settings" title="Close"><i data-lucide="x" aria-hidden="true"></i></button></div>
+    <label class="setting-row"><span>Sound effects</span><input id="sfx-volume" type="range" min="0" max="1" step="0.05" value="0.5"></label>
+    <label class="setting-row"><span>Crowd</span><input id="crowd-volume" type="range" min="0" max="1" step="0.05" value="0.22"></label>
+    <label class="setting-row"><span>Announcer</span><input id="announcer-volume" type="range" min="0" max="1" step="0.05" value="0.6"></label>
+    <label class="setting-row"><span>Spoken callouts</span><input id="spoken-callouts" type="checkbox"></label>
+    <label class="setting-row"><span>Reduced effects</span><input id="reduced-effects" type="checkbox"></label>
+    <fieldset class="meter-mode"><legend>Shot meter</legend><label><input type="radio" name="meter-mode" value="gauge" checked> Gauge</label><label><input type="radio" name="meter-mode" value="arc"> Arc</label><label><input type="radio" name="meter-mode" value="bar"> Bar</label></fieldset>
+  </dialog>
+  <dialog id="lineup-dialog" class="arena-dialog">
+    <div class="dialog-heading"><h2>Choose Lineups</h2><button type="button" class="icon-button close-dialog" aria-label="Close lineup" title="Close"><i data-lucide="x" aria-hidden="true"></i></button></div>
+    <form id="lineup-form">
+      <div class="lineup-teams">
+        <section><h3>Your Team</h3>
+          <label class="setting-row"><span>Lead</span><select id="lineup-lead" required></select></label>
+          <div class="lineup-preview" id="lineup-lead-preview"><img alt=""><div><p class="lineup-rating"></p><p class="lineup-finish"></p><p class="lineup-perks"></p></div></div>
+          <label class="setting-row"><span>Teammate</span><select id="lineup-partner" required></select></label>
+          <div class="lineup-preview" id="lineup-partner-preview"><img alt=""><div><p class="lineup-rating"></p><p class="lineup-finish"></p><p class="lineup-perks"></p></div></div>
+        </section>
+        <section><h3>CPU Team</h3>
+          <label class="setting-row"><span>Lead</span><select id="lineup-cpu-lead" required></select></label>
+          <div class="lineup-preview" id="lineup-cpu-lead-preview"><img alt=""><div><p class="lineup-rating"></p><p class="lineup-finish"></p><p class="lineup-perks"></p></div></div>
+          <label class="setting-row"><span>Teammate</span><select id="lineup-cpu-partner" required></select></label>
+          <div class="lineup-preview" id="lineup-cpu-partner-preview"><img alt=""><div><p class="lineup-rating"></p><p class="lineup-finish"></p><p class="lineup-perks"></p></div></div>
+        </section>
+      </div>
+      <p id="lineup-error" class="lineup-error" role="status" hidden>Choose four different Pokemon.</p>
+      <button type="submit"><i data-lucide="play" aria-hidden="true"></i> Start Match</button>
+    </form>
+  </dialog>
+</body>
+</html>
