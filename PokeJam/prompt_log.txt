@@ -1,1086 +1,1093 @@
 Prompt log
 
+
 Agent 1: Pokejam project idea review; Claude Opus 5.5 (High effort)
 >> me
 
 Project 2: Creative Web App
 
 Assignment Overview
-Goal: Design and implement a creative, portfolio-ready web application while
-using AI effectively as part of your process. This project emphasizes attention
-to detail, thoughtful use of AI, clear documentation, and a polished final
-product. The goal is to produce something that demonstrates technical skill and
-creative problem-solving.
-
-Timeline: Roughly 10 days to complete. Expect to spend about 8 hours of
-focused work.
-
-Why This Matters: This assignment asks you to combine your technical skills
-with responsible and strategic AI usage to produce a project you can show in
-interviews and on your portfolio.
-
+Goal: Design and implement a creative, portfolio-ready web application while using AI effectively as part of your process. This project emphasizes attention to detail, thoughtful use of AI, clear documentation of your process, and demonstrable learning since the start of the semester.
+Timeline: Roughly 10 days to complete. Expect to spend about 8 hours of focused work.
+Why This Matters: This assignment asks you to combine your technical skills with responsible and strategic AI usage to produce a project you can show in interviews and on your portfolio.
 Examples of what you might build:
-An interactive character that showcases persona design, with graphical
-representation, memory between visits, and safe prompt management.
-Some sort of useful web tool that uses a third-party API and stores user data
-securely on a backend, with a nicely designed frontend.
-A visualization dashboard that performs meaningful data analysis and
-interactive graphical exploration of a public dataset.
-A web-based game that uses computer vision as part of its core mechanic.
+An interactive character that showcases persona design, with sort of graphical representation, memory between visits, and safe prompt management
+Some sort of useful web tool that uses a third-party API and stores user data (securely) on a backend, with a nicely-designed frontend
+A visualization dashboard that performs meaningful data analysis and interactive graphical exploration of a public dataset
+A web-based game that uses computer vision as part of its core mechanic
+Note: We expect you to understand and be able to explain what each part of the code is responsible for, and you'll need to write or substantially modify at least some of your code, so be careful not to just vibe-code until it's too complicated for you to grasp. As you work, ask yourself this: Would you be comfortable discussing this project in an in-person technical job interview, without notes? If not, begin investing effort in understanding the code the AI has written for you, or focus on simplifying the project until you feel you understand and can discuss it.
 
-Note: We expect you to understand and be able to explain what each part of the
-code is responsible for, and you'll need to write or substantially modify at
-least some of your code, so be careful not to rely only on AI-generated
-outputs.
+Deployed web app (public URL): A running, publicly accessible web application (This might be hosted on Github Pages or elsewhere, like Render or Vercel. Research and pick an option that makes sense for you.). It should also work on a phone, or at least degrade gracefully on a small screen, since this is a portfolio piece and people will open it on their phones. If your project is genuinely desktop-only (a WebGL game or something that needs a webcam, for example), that's fine, but say so in your README.
 
-Deployed web app (public URL): A running, publicly accessible web application.
-This might be hosted on GitHub Pages or elsewhere, like Render or Vercel.
-Research and pick an option that makes sense for the app.
+This is the overview for a project for class/my own personal portfolio. 
+For my first task, I want a genuine review of my idea for the project at hand; I want to build a web app that is essentially NBA jam but with pokemon. This will feature a system where we can select, instead of teams, from regions a bunch of pokemon (maybe 20-30 per region) that we can use to play in a 3v3 basketball game, that is basically nba jam (down to the aesthetics, backgrounds maybe we can implement various stages from pokemon games but also feature some nba jam stages, dunk animations but we make them pokemon moves, etc.). Additionally, in this game, there will be a feature that lets you compare nba players with pokemon (whether or not they're in the game, as if my model works for stats between mons in the game and nba players, they should work for pokemon universally in the entire pokedex). This basketball comparison mechanic should be familiar, as in this repository, I did something similar in the NBA vs WNBA folder, where I compared NBA and WNBA players over last season (only single season sample, as I fell short on time, but you kind of get the idea of what it should be). I want that same mechanic, but now between NBA players and pokemon. 
+That being said, I plan on using nba api and poke api for sure as of now, but im not sure on other apis i may need so bear that in mind (im pretty sure i should be fine with those though). I also plan on this game to be implemented in java. The game will be hosted on my github pages (but in the case of me needing a backend like render I will have a separate repository for that as well).  
+Now, please make a separate folder called "PokeJam" and a file called "reveiw1.txt" and let me know all opinions on this idea as it applies to what is required in the project (if it is adequate), as well as criticisms/further ideas you have that could enhance this.
 
-This is the overview for a project for class and my own personal portfolio.
-For my first task, I want a genuine review of my idea for the project at hand:
-I want to build a web app that is essentially NBA Jam but with Pokémon. This
-will feature a system where we can select, compare, and match Pokémon to NBA
-players using a custom rating model.
-
-That being said, I plan on using the NBA API and PokéAPI for sure as of now,
-but I'm not sure on other APIs I may need, so bear that in mind. I'm pretty
-sure I should be fine with those though. I also plan to build a polished game
-experience with a comparison model in the same app.
-
-Now, please make a separate folder called "PokeJam" and a file called
-"review1.txt" and let me know all opinions on this idea as it applies to what
-is required in the project (if it is adequate), as well as things I should be
-careful about.
 
 >>> AI
 
-I wrote the review to [PokeJam/review1.txt](PokeJam/review1.txt). I spelled it
-"review1" rather than "reveiw1"; tell me if you want your spelling back.
+I wrote the review to [PokeJam/review1.txt](PokeJam/review1.txt). I spelled it "review1" rather than "reveiw1"; tell me if you want your spelling back.
 
-Verdict: the idea is more than good enough for the assignment. It's creative,
-it's clearly yours, and it combines CrossyMon and NBA vs WNBA, which gives
-you a ready-made story about how much you've learned and how the project is
-built around your own design decisions.
+**Verdict:** the idea is more than good enough for the assignment. It's creative, it's clearly yours, and it combines CrossyMon and NBA vs WNBA, which gives you a ready-made story about how much you've learned. The risk is how big it is, not the idea itself.
 
-Main points in the review:
+**Main points in the review:**
 
-1. Scope. 180–270 characters, 3v3 with computer-controlled players, custom
-   dunk animations, several stages, a comparison model, and mobile support is
-   far more than ~8 focused hours. The review suggests scaling the first build
-   down to a smaller version.
-2. "Java." Please confirm whether you mean JavaScript. Browsers can't run Java,
-   and getting it onto GitHub Pages means extra build tooling, which also makes
-   the code harder to explain in an interview.
-3. The comparison model has to work differently from NBA vs WNBA. That project
-   worked because both leagues have the same box-score stats. Pokémon and NBA
-   players share no stats at all, so this needs a custom cross-mapping model.
-4. Biggest suggestion: one rating system for both halves. Use NBA Jam-style
-   attributes (Speed, Shooting, Dunk, Passing, Power, Steal, Block, Rebound) as
-   the comparison space, and let the same numbers drive both the comparison and
-   the gameplay.
-5. Hosting. nba_api can't be called from a browser, and the NBA stats site often
-   blocks servers, so a Render backend would be unreliable too. Download the
-   NBA data with Python on your machine and export JSON for the site.
-6. Art. Canvas only draws the first frame of the animated Pokémon GIFs. The
-   review suggests animating static sprites in code (squash and stretch, big
-   jump arcs, screen shake) and giving each of the characters an arcade-style
-   motion language.
-7. Mobile and copyright. Decide on purpose whether the game gets touch controls
-   or a friendly "desktop only" message. Nintendo does file takedowns against
-   fan games on GitHub, so the review lists a risk and mitigation plan.
+1. **Scope.** 180–270 characters, 3v3 with computer-controlled players, custom dunk animations, several stages, a comparison model and mobile support is far more than ~8 focused hours. The review splits it into three tiers and suggests building the comparison tool first, so you have a finished, deployed piece even if the game runs long. It also points out that NBA Jam is actually 2v2.
+2. **"Java."** Please confirm whether you mean JavaScript. Browsers can't run Java, and getting it onto GitHub Pages means extra build tooling, which also makes the code harder to explain in an interview. JavaScript matches CrossyMon, and I suggest Phaser 3 for the game.
+3. **The comparison model has to work differently from NBA vs WNBA.** That project worked because both leagues have the same box-score stats. Pokemon and NBA players share no stats at all, so this has to be a translation: you design a set of basketball attributes, write a formula from each side into them, and then find the closest matches. Be upfront that those formulas are your design choices, like your WNBA README was about its weights.
+4. **Biggest suggestion: one rating system for both halves.** Use NBA Jam-style attributes (Speed, Shooting, Dunk, Passing, Power, Steal, Block, Rebound) as the comparison space, and let the same numbers set each character's in-game ratings. That makes it one product instead of two, and adding more Pokemon becomes nearly free. The review includes a starting table of formulas for both sides and a way to sanity-check the results.
+5. **Hosting.** nba_api can't be called from a browser, and the NBA stats site often blocks servers, so a Render backend would be unreliable too. Download the NBA data with Python on your machine and save it as JSON in the repo, like you did before. With that, you don't need a backend at all.
+6. **Art.** Canvas only draws the first frame of the animated Pokemon GIFs. The review suggests animating static sprites in code (squash and stretch, big jump arcs, screen shake) and giving each of the 18 types its own dunk effect.
+7. **Mobile and copyright.** Decide on purpose whether the game gets touch controls or a friendly "desktop only" message. Nintendo does file takedowns against fan games on GitHub, so the review lists simple ways to lower that risk.
 
-Section 7 of the file lists eight decisions to make before you start coding.
-The first four are Java vs JavaScript, Phaser vs plain canvas, 2v2 vs 3v3,
-and how many regions go in the first version. On the model side, the largest
-open choice is how to translate Pokémon stats into NBA Jam attributes.
+Section 7 of the file lists eight decisions to make before you start coding. The first four are Java vs JavaScript, Phaser vs plain canvas, 2v2 vs 3v3, and how many regions go in the first version. Once you've made those, I can help set up the data pipeline.
 
 >>
 
 great.
-first thing's first, I definitely meant JavaScript. As for needing Python to
-access pokeAPI and nba api, that's also fine. I'm pretty sure I even have the
-data from the NBA WNBA project. Secondly, if Phaser 3 would be better
-(stylistically, easier to implement, whatever), sure let's do it. Thirdly,
-let's do 2v2 then. Also, 1–2 regions for now with 8–12 Pokémon is good. I also
-like that proposed mapping of stats. Individually translating selected
-Pokémon's stats and having our model convert NBA stats to something along
-those lines is a really good way of doing it, while taking into account
-percentiles and "styles match".
+first thing's first, i definitely meant javascript. As for needing python to access
+pokeAPI and nba api, that's also fine (im pretty sure i even have the data from 
+the nba wnba project). Secondly, if phaser 3 would be better (stylistically, 
+easier to implement, whatever), sure let's do it. Thirdly, let's do 2v2 then. 
+Also, 1-2 regions for now with 8-12 mons is good. I also like that proposed 
+mapping of stats. individually translating selected pokemon's stats and having 
+our model convert nba stats to something along those lines is a really good way 
+of doing it (whilst taking into account percentiles and "styles match"). 
+a couple things i thought of were dunking being a fighting, flying type bonus, 
+blocking being a steel, rock bonus, and speed being having a boost for electric 
+types. For the regions, we'll do kanto and sinnoh for now, with 10 mons each. As
+suggested, I agree that a single season here is valid as sample size isn't 
+really key here. For mobile, we will plan for there being an onscreen joystick 
+with buttons you could touch on screen (the comparison mechanic should be simple 
+and function relatively the same). A leaderboard service for the backend (for something 
+like style points) could be really cool i guess. Now make a separate "revision1.txt" 
+that essentially corrects/confirms these decisions we've just made.  after that, make an empty 
+SPEC.md file outlining sections for game specifications containing NO REQUIREMENTS and provides 
+fields for this game's specifications that i will add later (Game Specification; overiew; 
+controls; core gameplay interface and audio; technical notes). 
 
-a couple things I thought of were dunking being a Fighting/Flying type bonus,
-blocking being a Steel/Rock bonus, and speed being boosted for Electric types.
-For the regions, we'll do Kanto and Sinnoh for now, with 10 Pokémon each. As
-suggested, I agree that a single season here is valid as sample size isn't
-really key here. For mobile, we will plan for there being an on-screen
-joystick with buttons you could touch on screen. The comparison mechanic should
-be simple and function relatively the same. A leaderboard service for the
-backend (for something like style points) could be really cool, I guess. Now
-make a separate "revision1.txt" that essentially corrects/confirms these
-decisions we've just made. After that, make an empty SPEC.md file outlining
-sections for game specifications containing NO REQUIREMENTS and provides fields
-for this game's specifications that I will add later (Game Specification;
-overview; controls; core gameplay; interface and audio; technical notes).
-
-What I intend to do with this revision is start another agent that will review
-said revision along with the spec after I fill it up.
+what i intend to do with this revision is start another agent that will review
+said revision along with the spec after i fill it up.
 
 >>>
 
-Written for: the agent that will review the revision next to your SPEC, plus
-you. So [revision1.txt](PokeJam/revision1.txt) opens with a short project
-summary and doesn't assume the reader has seen the earlier assignment.
+Written for: the agent that will review the revision next to your SPEC, plus you. So [revision1.txt](PokeJam/revision1.txt) opens with a short project summary and doesn't assume the reader has seen this chat.
 
 Both files are in [PokeJam/](PokeJam/).
 
-[revision1.txt](PokeJam/revision1.txt) marks every item as CONFIRMED,
-CORRECTED, CHANGED or OPEN:
-- Confirmed: JavaScript with Phaser 3, a Python pipeline that exports JSON,
-  GitHub Pages hosting, 2v2, and Kanto + Sinnoh with 10 Pokémon each.
-- Mapping: your type bonuses are in the attribute table. Electric boosts Speed,
-  Fighting/Flying boost Dunk, Steel/Rock boost Block. The Overall vs Style
-  match modes and the two-way comparison model are now part of the plan.
-- Mobile: an on-screen joystick and touch buttons are now part of the first
-  version. The comparison tool will be a responsive page.
-- Leaderboard: it's new in scope. I added notes for the reviewing agent:
+**[revision1.txt](PokeJam/revision1.txt)** marks every item as CONFIRMED, CORRECTED, CHANGED or OPEN:
+- **Confirmed:** JavaScript with Phaser 3, a Python pipeline that exports JSON, GitHub Pages hosting, 2v2, and Kanto + Sinnoh with 10 Pokemon each.
+- **Mapping:** your type bonuses are in the attribute table. Electric boosts Speed, Fighting/Flying boost Dunk, Steel/Rock boost Block. The Overall vs Style match modes and the two-way comparison (NBA player to Pokemon and back) are confirmed too.
+- **Mobile:** an on-screen joystick and touch buttons are now part of the first version. The comparison tool will be a responsive page.
+- **Leaderboard:** it's new in scope. I added notes for the reviewing agent:
   - scores sent from the browser can be faked
   - any key in frontend code is public
   - display names need filtering
   - it should come after the core game works
-- Section 9 lists all 12 open items in one place, so the reviewer can check them
-  against your SPEC.
+- **Section 9** lists all 12 open items in one place, so the reviewer can check them against your SPEC.
 
-One thing to decide: your NBA vs WNBA data covers 2024–25, and 2025–26 is now
-the latest finished season.
-- Reuse 2024–25: this saves time. It already has height/weight, shot zones,
-  and AST%/REB%.
-- Either way: speed tracking, rim FG%, and clutch stats would be new downloads.
+**One thing to decide.** Your NBA vs WNBA data covers 2024-25, and 2025-26 is now the latest finished season.
+- **Reuse 2024-25:** this saves time. It already has height/weight, shot zones and AST%/REB%.
+- **Either way:** speed tracking, rim FG% and clutch stats would be new downloads.
 
 I've listed this as open item 8.
 
-SPEC.md has the five sections you asked for: Game Specification, Overview,
-Controls, Core Gameplay, and Interface and Audio, plus Technical Notes. Every
-field is a blank label or heading for later specification work.
+**[SPEC.md](PokeJam/SPEC.md)** has the five sections you asked for: Game Specification, Overview, Controls, Core Gameplay, and Interface and Audio, plus Technical Notes. Every field is a blank label or an empty table, with no requirements filled in. The roster lists have 10 numbered slots per region, and Controls has separate keyboard, gamepad and touch tables.
 
 --------------------------------------------------------------------------------
 
-Agent 2: NBA Jam x Pokémon comparison model; Claude Opus 5.5 (Extra High
- effort)
->> me
+Agent 2: NBA Jam x Pokemon comparion model; Claude Opus 5.5 (Extra High effort)
+>> me 
 
-I am building an NBA Jam x Pokémon web application in JavaScript. Please read
-review1.txt, revision1.txt, and then SPEC.md (outlined entirely by me
-following the revision's drafting), understand the task at hand, then ask me
-literally anything about what we need to do workflow wise, as I want to begin
-implementing this with your help.
+I am building an nba jam x pokemon web application in javascript. please read review1.txt, 
+revision1.txt, and then SPEC.md (outlined entirely by me following the revision's drafting), 
+understand the task at hand, then ask me literally anything about what we need to do workflow wise, 
+as I want to begin implementing this with your help. 
 
-The very first thing I want to get out of the way is the comparison model and
-making sure we have our rating and attribute systems down packed.
+the very first thing i want to get out of the way is the comparison model and 
+making sure we have our rating and attribute systems down pack.
 
 >>> AI
 
-I've read all three files and checked the old NBA vs WNBA data. Here's what
-I'm treating as settled, then my questions. Each question has my pick, so you
-can answer with something like "your pick" or "different".
+I've read all three files and checked the old NBA vs WNBA data. Here's what I'm treating as settled, then my questions. Each question has my pick, so you can answer with something like "your picks, except 2b and 6."
 
-Settled by SPEC.md (it overrides revision1.txt where they differ):
-- Season is 2025–26. We need a fresh data pull.
-- Ball Handling is a 10th attribute.
-- Passing is now SpD + SpA.
-- Thief is dropped from Steal.
-- Postponed: saving between visits and the leaderboard.
-- Out of scope for v1: signature dunks.
-- Correction to revision1: your old zone data already has Restricted Area FG%,
-  not just the attempt share.
+**Settled by SPEC.md (it overrides revision1.txt where they differ):**
+- **Season is 2025-26.** We need a fresh data pull. The old scripts can be reused, but the 2024-25 data can't.
+- **Ball Handling is a 10th attribute.** It doesn't have an NBA-side formula yet.
+- **Passing is now SpD + SpA.**
+- **Thief is dropped from Steal.** That was right: it's a move hundreds of Pokemon can learn, so it can't tell them apart.
+- **Postponed:** saving between visits and the leaderboard.
+- **Out of scope for v1:** signature dunks.
+- **Correction to revision1:** your old zone data already has Restricted Area FG%, not just the attempt share. The same endpoint will give it for 2025-26.
 
 ## Part A: Ratings and attributes
 
-1. Five stars or 1–10?
-   SPEC says a five-star system based on base stat total (BST), and revision1
-   says 1–10 bars. My reading is both: one overall rating of 1–5 stars per
-   Pokémon (from its BST), plus per-attribute stars that can be 1–10.
+**1. Five stars or 1–10?** SPEC says a five-star system based on base stat total (BST), and revision1 says 1–10 bars. My reading is both: one overall rating of 1–5 stars per Pokemon (from its BST percentile) on the select screen, plus a 1–10 bar for each attribute. Is that right, or should the attributes themselves be in stars?
 
-2. How uneven should the roster be?
-   Your 20 range from Croagunk (BST 300) and Pikachu (320) up to Mewtwo (680).
-   Ranked against all ~1,025 Pokémon, Croagunk and Pikachu land near the bottom
-   of most categories, while Mewtwo is a top-tier powerhouse. There are three
-   options:
-   - a) Leave it as the model says. Mewtwo is simply better.
-   - b) Compress the game scale so percentiles map to 3–10 instead of 1–10.
-   - c) Give everyone the same total, spread by profile shape.
+**2. How uneven should the roster be?** Your 20 range from Croagunk (BST 300) and Pikachu (320) up to Mewtwo (680). Ranked against all ~1,025 Pokemon, Croagunk and Pikachu land near the bottom of most bars (Pikachu's Speed is the exception), and Mewtwo lands near the top of most.
+- a) Leave it as the model says. Mewtwo is simply better.
+- b) Compress the game scale so percentiles map to 3–10 instead of 1–10. Weak picks are worse but still playable. **(my pick)**
+- c) Give everyone the same total, spread by the shape of their profile. Pikachu becomes a fast guard instead of a bad player, and only the stars show the overall gap.
 
-Also: did you pick Wartortle, Pikachu and Croagunk over Blastoise, Raichu and
-Toxicroak on purpose?
+Also: did you pick Wartortle, Pikachu and Croagunk over Blastoise, Raichu and Toxicroak on purpose? And I'll use `luxray` for "Luxuray".
 
-3. Which attributes go into the comparison?
-   The concept summary lists 9 attributes and the table lists 10. My pick is to
-   compare on 9 (the 8 core ones plus Ball Handling) and make Clutch a game-
-   only stat.
+**3. Which attributes go into the comparison?** The concept summary lists 9 attributes and the table lists 10. My pick is to compare on 9 (the 8 core ones plus Ball Handling) and make Clutch game-only. Clutch = BST is a problem in the comparison for two reasons:
+- BST is the sum of the six base stats that already feed the other attributes. It counts overall level twice in Overall match and adds a fake spike in Style match.
+- NBA clutch stats only cover the last 5 minutes of close games. The samples are tiny, so for most players they're mostly noise.
 
-4. NBA side of Ball Handling.
-   Turnover rate alone rewards corner shooters who never dribble. My pick is to
-   combine ball control, driving pace, and dribble volume.
+If you want Clutch in the comparison anyway, it needs a Pokemon formula other than BST.
 
-5. NBA side of Dunk.
-   Revision1 has rim attempt share + rim FG%. Shot-level data tags each shot by
-   type, so we could count real dunks instead.
+**4. NBA side of Ball Handling.** Turnover rate alone rewards corner shooters who never dribble. My pick is to combine how much a player handles the ball (time of possession or dribbles per touch, from tracking data) with how rarely they turn it over for their usage. Or do you have another idea?
 
-6. Type and ability bonuses.
-   My proposal is +10 percentile points, added after the percentile step and
-   capped at 99. That is easy to explain and easy to turn off later.
+**5. NBA side of Dunk.** Revision1 has rim attempt share + rim FG%. Shot-level data tags each shot by type ("Dunk Shot", "Driving Dunk Shot"...), so we could count real dunks instead. That's one extra pull. My pick: dunks per 36 + rim attempt share.
 
-7. Which Pokémon count?
-   In: default species plus regional forms.
-   Out: Megas, Gigantamax, cosmetic forms.
+**6. Type and ability bonuses.** My proposal is +10 percentile points, added after the percentile step and capped at 99. That's easy to explain ("Electric types get +10 Speed") and easy to switch off.
+- **Size:** is +10 right?
+- **In the comparison too?** My pick is yes. Otherwise the game and the comparison run on two different models. The cost is that Electric types will match faster NBA players.
+- **Hidden abilities:** do they count? Weavile's Pickpocket is a hidden ability. My pick: yes.
+- **Stacking:** can Weavile get both the Dark and Pickpocket bonuses? My pick: no, at most one bonus per attribute.
 
-8. NBA eligibility.
-   Reuse the NBA vs WNBA cutoffs (10 GP, 10 MPG, ~200 min)? My pick: yes.
+**7. Which Pokemon count?** This decides the percentile population and the search list. My pick:
+- **In:** the 1,025 default species plus regional forms (Alolan, Galarian, Hisuian, Paldean), since those have different stats.
+- **Out:** Megas, Gigantamax and cosmetic forms. Eternamax alone is 100 m tall.
 
-9. Your gut-check pairs.
-   Can you send 10–15? Mix in roster and non-roster Pokémon, both directions.
+**8. NBA eligibility.** Reuse the NBA vs WNBA cutoffs (10 GP, 10 MPG, ~200 min)? My pick: yes.
 
-Defaults I'll use unless you object:
-- Combine each formula input into a percentile, then take a weighted average.
-- Speed: tracking average speed
-- Shooting: 3PA rate × regressed 3P%, plus FT% as a shooting-touch signal
-- Passing: AST% + potential assists
-- Power: weight + FTA rate + OREB%
-- Steal: STL per 36
-- Block: BLK per 36
-- Rebound: REB%
-- Shared inputs: Speed feeds three attributes; HP feeds one.
+**9. Your gut-check pairs.** These have to come from you, before any formulas exist, or they don't test anything. Can you send 10–15? Mix in roster and non-roster Pokemon, in both directions (Pokemon → player and player → Pokemon).
+
+**Defaults I'll use unless you object:**
+- **Combining a formula's inputs:** turn each input into a percentile, take a weighted average (equal weights to start), then turn that into a percentile again. Raw Atk (5–190) and height (1–1000 dm) can't simply be added.
+- **Rest of the NBA side:**
+  - Speed: tracking average speed
+  - Shooting: 3PA rate × regressed 3P%, plus FT% as a shooting-touch signal
+  - Passing: AST% + potential assists
+  - Power: weight + FTA rate + OREB%
+  - Steal: STL per 36
+  - Block: BLK per 36
+  - Rebound: REB%
+- **Shared inputs:** Speed (Spe) feeds three attributes and HP feeds only one. I'll leave that as is and let your gut-check pairs show whether it skews the matches.
+- **Who computes what:** Python exports the percentile vectors, and the browser does the matching. Switching between Overall and Style then needs no re-export.
 
 ## Part B: Workflow
 
-10. Who writes the formulas?
-My proposal: I build everything around them and you write the two formula
-functions.
+**10. Who writes the formulas?** Revision1 says you'll write the mapping formulas by hand. My proposal: I build everything around them and you write the two formula functions.
+- **I build:** the PokeAPI and nba_api pulls with caching, the percentile helpers, the JSON export, and a script that scores the gut-check pairs.
+- **You write:** `pokemon_attributes()` and `nba_attributes()`, which I leave as stubs with every input already loaded. Then I review them.
 
-11. Who runs the data pulls?
-I can run the 2025–26 pulls in this session, or you can run them.
+Or I draft them and you rewrite. Which do you prefer?
 
-12. Folder layout.
+**11. Who runs the data pulls?** nba_api 1.11.4 is already installed in your system Python 3.13. I can run the 2025-26 pulls in this session, or you can run them. Do you also want a separate virtualenv for PokeJam?
+
+**12. Folder layout.** My proposal:
+```
 PokeJam/
-  pipeline/
-  pipeline/cache/
-  data/
+  pipeline/         Python: fetch, build attributes, validate
+  pipeline/cache/   raw API responses (gitignored)
+  data/             pokemon.json, nba_players.json (committed; the site loads these)
+```
+I'd copy the useful parts of the NBA vs WNBA scripts into this folder rather than importing them from there.
 
-13. Where do decisions go?
-I'd record your answers in a revision2.txt file.
+**13. Where do decisions go?** I'd record your answers in a `revision2.txt` (same CONFIRMED/OPEN format as revision1) and leave [SPEC.md](PokeJam/SPEC.md) for you to edit. Or should I edit SPEC directly?
 
-14. Prompt log and PROCESS.md.
-Should I add each exchange to prompt_log.txt, or are you keeping it yourself?
+**14. Prompt log and PROCESS.md.** Should I add each exchange to [prompt_log.txt](PokeJam/prompt_log.txt), or are you keeping it yourself? And should I start PROCESS.md with this round's decisions?
 
-15. Git.
-Do you commit, or should I commit at milestones?
+**15. Git.** Do you commit, or should I commit at milestones? On main or on a branch? Either way I'll leave your uncommitted `Portfolio_Website/index.html` change alone.
 
-Parked for the game phase:
-- Decoded GIF animations vs static sprites.
-- AI announcer would need a backend.
+**Parked for the game phase:** two SPEC items conflict with revision1:
+- **Decoded GIF animations:** SPEC wants PokeAPI animations decoded from their GIFs, but revision1 chose static sprites animated in code.
+- **AI announcer:** it would need a backend to hide the API key, and the site is meant to stay static.
 
-A. 1. Make them stars from 1–5.
-2. I’m thinking a hybrid of b and c.
-3. Your pick is good for this one; don’t include clutch.
-4. That pick is good.
-5. That pick is good.
-6. Let’s try 10 for now; no stacking of single-attribute boosts.
-7. I like that pick.
-8. Go to 30 GP and 300 minutes.
-9. Gut pairings I currently have: Russ = Infernape, LeBron = Mewtwo, Giannis =
-   Charizard.
+Neither affects the model, so I'll bring them up when we get to the game.
+
+>> 
+
+A.
+1. make them stars from 1-5 (obvious possibility of 3.5 stars e.g.)
+2. im thinking a hybrid of b and c; you obviously can’t give everyone the same bst, but compensating for large gaps like making it feel more profile centric is great (and yes those picks were purposeful; think like how in smash bros ultimate, you can fight pichu and mewtwo and it not feel that bad in reality, even though its a really terrible mismatch)
+3. your pick is good for this one; don’’t include clutch
+4. that pick is good
+5. that pick is good
+6. let’s try 10 for now; NO stacking of single attribute boosts, no weavile doesn’t get + 20 if it had pickpocket in steal.
+7. i like that pick
+8. go to 30 gp and 300 mins
+9. gut pairings i currently have: russ = infernape
+* lebron = mewtwo (?)
+* giannis = charizard (?)
+i like all that you have for the rest of this section
 
 B.
-10. Go ahead and draft them then I’ll revise.
-11. Yes, you can run them.
-12. I like that layout; don’t forget to also make a README.md.
-13. Sure, you could record them in revision2.txt.
-14. I’m already recording in prompt log so don’t worry.
+10. go ahead and draft them then i’ll revise
+11. Yes you can run them.  separate virtual environment isn’t necessary i don’t think here.
+12. I like that layout. don’t forget to also make a README.md (leave it blank for now).
+13. sure you could record them in revision2.txt
+14. I’m already recording in prompt log so don’t worry
 15. I’ll decide when to commit or even ask you when fit.
 
 >>>
 
-I recorded your answers, built the data pipeline, ran it, and scored your three
-gut-check pairs. All three miss badly, and the cause is the model's design, not
-a bug. Nothing is committed.
+I recorded your answers, built the data pipeline, ran it, and scored your three gut-check pairs. All three miss badly, and the cause is the model's design, not a bug. Nothing is committed.
 
-What exists now:
-- revision2.txt records every decision, what the first run found, and the open
-  items.
-- formulas.py holds every input, weight, bonus, and game-rating setting.
-- Two fetch scripts pull the data; build_attributes.py writes data/pokemon.json
-  and data/nba_players.json; validate.py writes the validation report.
-- After editing formulas.py, rerun with python3 build_attributes.py && python3
-  validate.py from the pipeline folder.
-- Cleaned CSVs are in pipeline/tables/.
+## What exists now
 
-Two data problems I worked around:
-- Tracked speed is broken in nba.com's 2025–26 data for some teams.
-- Five players have no weight in any nba.com source; they get the median weight
-  of players the same height.
+- [revision2.txt](PokeJam/revision2.txt) records every decision, what the first run found, and the open items.
+- [formulas.py](PokeJam/pipeline/formulas.py) is the part you'll revise. It holds every input, weight, bonus and the game-rating setting, and nothing else.
+- Two fetch scripts pull the data, `build_attributes.py` writes [data/pokemon.json](PokeJam/data/pokemon.json) and [data/nba_players.json](PokeJam/data/nba_players.json), and `validate.py` writes [validation_report.md](PokeJam/pipeline/validation_report.md).
+- After editing `formulas.py`, rerun with `python3 build_attributes.py && python3 validate.py` from `pipeline/`.
+- Cleaned CSVs are in `pipeline/tables/` so you can check the numbers by eye. The 233 MB raw cache is gitignored, and the README is blank as asked.
 
-Results:
-- Star ratings work the way you described.
-- The top players in each attribute look right on both sides.
-- Your three gut checks all miss.
+## Two data problems I worked around
+
+- **Tracked speed is broken in nba.com's 2025-26 data** for Dallas, Portland, Milwaukee and New York players. Their median speed is 6–8 mph, against about 4.4 elsewhere. Speed now uses the fallback revision1 already listed: drives plus fast-break points per 36.
+- **Five players have no weight in any nba.com source.** They get the median weight of players the same height. Only Jaylen Wells passes the cutoff.
+
+## Results
+
+- **Star ratings work the way you described.** Overall stars range from 2.5 (Croagunk, Pikachu) to 4.0 (Mewtwo, Garchomp). Pikachu still has 5-star Speed and Onix 5-star Block.
+- **The top players in each attribute look right on both sides,** e.g. Curry in Shooting, Wembanyama in Block, Machamp in Dunk, Weavile in Steal.
+- **Your three gut checks all miss.** Infernape is only Westbrook's 270th–333rd match out of 1,082 Pokemon, and the other two do worse. There are three reasons:
+  1. **Shooting is the biggest gap in every pair.** Infernape, Mewtwo and Charizard have high SpA, so they come out as elite shooters, while Giannis is in the 4th percentile for shooting.
+  2. **Overall mode mostly measures how strong a Pokemon is.** Strong Pokemon are good at everything. NBA players aren't, because guard skills and big-man skills trade off. Mewtwo's attributes average 95, which no NBA player resembles, so it matches Scottie Barnes, Kawhi and Cade almost regardless of style.
+  3. **Your pairs describe players at their peak, but the data is 2025-26.** LeBron is 41, and Westbrook made 0.16 dunks per 36 minutes.
 
 ## Assumptions to check
-- I read "stars from 1–5" as applying to every attribute and overall rating.
-- 30 GP / 300 min replaced the old cutoffs entirely.
-- You didn't object to bonuses counting in the comparison.
-- The bonus cap is 100, not 99.
+
+- I read "stars from 1–5" as applying to every attribute *and* the overall rating.
+- 30 GP / 300 min replaced the old cutoffs entirely, so there's no minutes-per-game minimum.
+- You didn't object to two of my picks, so I applied them: bonuses also count in the comparison, and hidden abilities count.
+- The bonus cap is 100, not 99, because a cap of 99 would lower a Pokemon already at 99.9.
 
 ## Decisions for you
-1. Write 7–12 more gut-check pairs first, before any formula changes.
-2. Redesign Overall mode? I'd do it.
-3. Shooting = SpA: keep it or change it?
+
+1. **Write 7–12 more gut-check pairs first,** before any formula changes, or the pairs stop being a fair test.
+2. **Redesign Overall mode? I'd do it.** Split every profile into a level and a shape, as the game ratings already do. Pokemon level would be BST, and NBA level would come from an impact stat such as PIE (the NBA's player impact estimate) or minutes per game. Overall match would then combine shape similarity with how close the two levels are.
+3. **Shooting = SpA: keep it or change it?** One idea: in the NBA, shooting and dunking are strongly opposed (correlation −0.71). Scoring Shooting by how much a Pokemon favours SpA over Atk would copy that trade-off. It's your formula to decide either way.
 
 >>
 
-Couple notes:
-1. An update on the MPG and GP filter for NBA players and percentiles: bump up MPG
-   to 20 minutes and GP to 50.
-2. An explanation on the differences between "style" and "overall" in the
-   comparison model. Is overall just by percentiles in BST/stars? Is style
-   denoting similarity in attribute spread?
+couple notes:
+1. an update on the mpg and gp filter for nba players and percentiles; bump up mpg to 20 mins and gp to 50. 
+2. an explanation on the differences between "style" and "overall" in the comparison model. Is overall just by percentiles in bst/stars? is style denoting similarity in attribute spread? stuff like that
 
 >>>
 
-I applied the new filter and rebuilt everything. The pool is now half the size,
-and that cuts some stars, including Giannis.
+I applied the new filter and rebuilt everything. The pool is now half the size, and that cuts some stars, including Giannis.
 
 ## 1. NBA filter: now 50+ games and 20+ minutes per game
-- Pool: 402 → 208 players.
-- Side effect: anyone who missed a lot of games is out, including Giannis.
-- Alternative: if your goal was mainly to drop low-minute bench players,
-  30+ games and 20+ minutes per game gives 252 players and keeps those stars.
+
+- **Pool:** 402 → 208 players. Percentiles are recomputed within the new pool, so a percentile now means "compared with regular rotation players", and most players' numbers drop a bit.
+- **Side effect:** anyone who missed a lot of games is out, including Giannis (36 games), Embiid, Curry, Markkanen and Butler. Your Giannis–Charizard gut check can't be scored now; the report lists it as "not in the eligible NBA pool."
+- **Alternative:** if your goal was mainly to drop low-minute bench players, 30+ games and 20+ minutes per game gives 252 players and keeps those stars. It's a one-line change in [formulas.py](PokeJam/pipeline/formulas.py), so tell me if you'd prefer it.
+- **Recorded:** `revision2.txt` (A8) has the change.
 
 ## 2. Overall vs style
-Neither mode uses BST or stars. Both compare the same nine attribute percentiles,
-including type bonuses. Stars only exist for the game. BST only feeds Clutch,
-which isn't compared, though it affects other internal calculations.
 
-- Overall compares the numbers directly. It takes the gap in each attribute and
-  combines them into one distance.
-- Style first subtracts each profile's own average. Then it compares only the
-  pattern: what they're best and worst at relative to themselves.
+Neither mode uses BST or stars. Both compare the same nine attribute percentiles, including type bonuses. Stars only exist for the game. BST only feeds Clutch, which isn't compared, though it affects the attributes indirectly because they're built from base stats.
 
-A three-attribute example. The Pokémon has Speed 80, Shooting 60, Rebound 20:
+- **Overall** compares the numbers directly. It takes the gap in each attribute and combines them into one distance (Euclidean distance), so a player needs similar numbers to match. How high a profile is and how it's shaped both count.
+- **Style** first subtracts each profile's own average. Then it compares only the pattern: what they're best and worst at relative to themselves (cosine similarity). How high the numbers are no longer matters. Your "attribute spread" description is right.
 
-| Player | Speed / Shoot / Reb | Overall distance | Style similarity |
+A three-attribute example. The Pokemon has Speed 80, Shooting 60, Rebound 20:
+
+| Player | Speed / Shoot / Reb | Overall distance (lower = closer) | Style similarity (1 = same shape) |
 |---|---|---|---|
-| B | 75 / 55 / 30 | 12.2 | 0.992 |
-| C | 40 / 30 / 5 | 52.2 | 0.999 |
+| B | 75 / 55 / 30 | **12.2** (best) | 0.992 |
+| C | 40 / 30 / 5 | 52.2 (worst) | **0.999** (best) |
 | D | 55 / 52 / 48 | 38.4 | 0.994 |
-| E | 60 / 60 / 60 | 44.7 | 0 |
+| E | 60 / 60 / 60 | 44.7 | 0 (no shape at all) |
 
-- C has the same pattern at a much lower level, so it's the worst overall match
-  and the best style match.
-- D shows a weakness of style mode.
+- **C** has the same pattern at a much lower level, so it's the worst overall match and the best style match.
+- **D** shows a weakness of style mode. D is nearly flat, but its slight tilt points the same way, so it scores 0.994. Style looks at which way a profile leans, not how strongly. If that bothers you, comparing distances after subtracting the averages would keep the size of the spikes.
 
 **A real example: Mewtwo**, whose attributes average 95:
-- Overall: Kawhi, Cade, Scottie Barnes, Cooper Flagg, Anthony Edwards.
-- Style: Quickley, LaMelo, Jrue Holiday, Donovan Mitchell, Caldwell-Pope.
+- **Overall:** Kawhi, Cade, Scottie Barnes, Cooper Flagg, Anthony Edwards. No NBA player is near 95 at everything, so it picks the most all-round players.
+- **Style:** Quickley, LaMelo, Jrue Holiday, Donovan Mitchell, Caldwell-Pope. After subtracting 95, Mewtwo's relative peaks are Shooting and Passing (+5) and its dips are Block (−7) and Dunk/Power (−4), which is a guard's shape. Those tilts are tiny, the same effect as player D above.
 
-**Does overall end up measuring how strong a Pokémon is?** In practice, mostly
-yes, but not by design.
+**Does overall end up measuring how strong a Pokemon is?** In practice, mostly yes, but not by design. A strong Pokemon is high at everything, while NBA players trade guard skills against big-man skills. That's why I suggested splitting each profile into a level and a shape (open item 2 in `revision2.txt`).
 
 >>
 
-i think my issue is the fact that I don't think there is much overlap in reality
-between a player like KCP, Donovan Mitchell, IQ and LaMelo, then even a Jrue
-Holiday. Very different types of player. I think a better way to work around
-this without tweaking the model too much is replacing the word "style" with
-something that indicates this Pokémon has "traits of these players." So
-something like Mewtwo conducts offense like LaMelo, handles like Donovan
-Mitchell, defends like Jrue Holiday.
+i think my issue is the fact that i dont think there is much overlap in reality 
+between a player like KCP, donovan mitchell, IQ and lamelo then even a jrue holiday. 
+very different types of player. I think a better way to work around this without 
+tweaking the model too much is replacing the word “style” with something that 
+indicates this pokemon has “traits of these players”. so something like mewtwo 
+(being a bigger ‘guard’ with what i gather you’re eluding to) conducts offense 
+like lamelo, handle like donovan mitchell, defense like jrue blah blah. 
 
-You know, I am actually considering switching to using NBA 2K API instead, and
-mapping data using that as opposed to traditional statistics. I think the
-stats already being somewhat translated to a gamified version in 2K would be a
-lot easier to work with. That way, as well, we could get past needing to
-filter games played and MPG. What do you think?
+you know, I am actually considering switching to using NBA 2K API instead, 
+and mapping data using that as opposed to traditional statistics. I think the 
+stats already being somewhat translated to a gamified version in 2k would be a lot easier
+to work with. that way as well, we could get past needing to filter gmapes played 
+and mpg etc. what do you think?
 
 >>>
 
-I agree with both instincts. "Traits of these players" is a better feature
-than style mode. Switching the NBA side to 2K ratings is reasonable and fixes
-more than the filter problem, but it has costs.
+I agree with both instincts. "Traits of these players" is a better feature than style mode. Switching the NBA side to 2K ratings is reasonable and fixes more than the filter problem, but it has costs.
 
 ## On "style"
-You're right that those five aren't one type of player. Mewtwo is about 95 at
-everything, so once its average is subtracted the differences are tiny. Style
-mode treats that faint lean as a full personality profile. That is not a good
-match between player archetypes.
 
-Renaming alone wouldn't fix it, because the same five names would still appear.
-Your traits idea would, and it doesn't change any formulas. We split the nine
-attributes into groups and find the closest player in each group:
-- Scoring (Shooting, Dunk) -> "scores like ___"
-- Playmaking (Passing, Ball Handling) -> "handles like ___"
-- Defense (Steal, Block) -> "defends like ___"
-- Physical (Speed, Power, Rebound) -> "moves like ___"
+You're right that those five aren't one type of player. Mewtwo is about 95 at everything, so once its average is subtracted the differences are tiny (±7). Style mode treats that faint lean as a full guard profile. It works better for Pokemon with a clear shape, like Snorlax → Zubac and Valančiūnas, or Weavile → the Thompson twins. It's unreliable for flat profiles, which covers most legendaries.
 
-Each line is one player whose two or three numbers are close to the Pokémon's,
-so each line actually means something.
+Renaming alone wouldn't fix it, because the same five names would still appear. Your traits idea would, and it doesn't change any formulas. We split the nine attributes into groups and find the closest player for each group:
+
+- **Scoring** (Shooting, Dunk) → "scores like ___"
+- **Playmaking** (Passing, Ball Handling) → "handles like ___"
+- **Defense** (Steal, Block) → "defends like ___"
+- **Physical** (Speed, Power, Rebound) → "moves like ___"
+
+Each line is one player whose two or three numbers are close to the Pokemon's, so each line actually means something. I'd replace Style with this and keep Overall for the whole-profile match.
 
 ## On 2K
-2K has no official API. There is a free community one, nba2kapi.com. It needs a
-free key, allows 100 requests per hour, and is updated weekly. It covers
-current, classic and player data.
 
-What switching gets us:
-- No games or minutes filter.
-- No broken speed data.
-- A nearly 1:1 mapping.
-- A better Overall mode.
-- Groups that already exist.
-- Closer to your gut checks.
+2K has no official API. There is a free community one, [nba2kapi.com](https://www.nba2kapi.com/). It needs a free key, allows 100 requests per hour, and is updated weekly. It covers current, classic and all-time players, using data taken from 2kratings.com. There are also static 2K27 rating files on GitHub.
 
-What it costs:
-- The NBA side stops being your analysis and becomes 2K's raters' judgment.
-- The API is a hobby project built on data copied from a fan site.
-- The ratings belong to 2K.
+**What switching gets us:**
+- **No games or minutes filter.** Every rostered player has ratings, so Giannis, Curry and Embiid come back.
+- **No broken speed data.** 2K has its own Speed rating.
+- **A nearly 1:1 mapping.** Three-Point Shot → Shooting, Driving/Standing Dunk → Dunk, Ball Handle → Ball Handling, Strength → Power, and so on.
+- **A better Overall mode.** 2K rates stars highly across the board, just like strong Pokemon, so NBA profiles get the "level" that box-score percentiles lack.
+- **Groups that already exist.** 2K's own categories (Finishing, Shooting, Playmaking, Defense, Rebounding, Physical) line up with the traits groups.
+- **Closer to your gut checks.** 2K ratings lean on reputation, the way your gut checks do (LeBron = Mewtwo), so they'll probably agree more often. Part of that is because 2K shares the same bias, which is worth saying in the README.
 
-What stays: everything except fetch_nba.py and the NBA half of formulas.py.
+**What it costs:**
+- **The NBA side stops being your analysis** and becomes 2K's raters' judgment. The Pokemon translation, the more creative half, stays yours. I'd keep the stats pipeline as a cross-check: one table showing how well your stats-based Shooting agrees with 2K's 3PT rating. That keeps a real data-analysis story for interviews.
+- **The API is a hobby project built on data copied from a fan site.** It could disappear, but we'd pull the data once on your machine and save the JSON, so the site wouldn't depend on it.
+- **The ratings belong to 2K.** Publishing them on GitHub Pages adds a small copyright risk on top of the Pokemon one. The mitigation is the same: non-commercial, with a disclaimer.
 
-Next step: if you want to switch, sign up for a free key at nba2kapi.com.
+**What stays:** everything except `fetch_nba.py` and the NBA half of `formulas.py`. That means the Pokemon side, percentiles, bonuses, stars, matching, validation and `show.py`.
+
+**Next step:** if you want to switch, sign up for a free key at nba2kapi.com, since that needs your account. Put it in `PokeJam/pipeline/.env` and I'll add that file to `.gitignore`. I haven't tested the API yet. With the key I'll check that it has current 2K27 ratings and that 100 requests per hour is enough, then swap the NBA side. I can build the traits view either way, since it works on any set of nine attributes.
 
 Sources:
-- NBA 2K API (nba2kapi.com)
-- woverfield/nba2kapi on GitHub
-- lostboyy24/nba2k-ratings
-- NBA 2K Lab: 2K27 player ratings
-- 2kratings.com attributes filter
+- [NBA 2K API (nba2kapi.com)](https://www.nba2kapi.com/)
+- [woverfield/nba2kapi on GitHub](https://github.com/woverfield/nba2kapi)
+- [lostboyy24/nba2k-ratings (unofficial 2K27 ratings JSON)](https://github.com/lostboyy24/nba2k-ratings)
+- [NBA 2K Lab: 2K27 player ratings](https://www.nba2klab.com/nba2k-player-ratings)
+- [2kratings.com attributes filter](https://www.2kratings.com/attributes-filter)
 
 >>
 
-okay lets pivot to using 2K ratings for the NBA side then. I made the .env
-file and put the API key there for nba2kapi. Let's discard the files for the
-NBA side we aren't using and work towards the mapping we're gonna be doing
-with the 2K data. We'll put all that in revision4 and work towards
-implementing that in our next steps, see if it's working as desired in
-show.py, then the next stage hopefully.
+okay lets pivot to using 2k ratings for the nba side then. i made the .env file 
+and put the api key there for nba2kapi. lets discard the files for the nba side 
+we aren't using and work towards the mapping we're gonna be doing with the 2k data. 
+we'll put all that in revision4 and work towards implementing that in our next steps,
+see if it's working as desired in show.py, then the next stage hopefully.
 
 >>>
 
-The NBA side now runs on NBA 2K27 ratings, and show.py has the "plays like"
-view you described. I wrote it all up in revision3.txt.
+The NBA side now runs on NBA 2K27 ratings, and `show.py` has the "plays like" view you described. I wrote it all up in [revision3.txt](PokeJam/revision3.txt). I used revision3 rather than revision4 because no revision3 existed yet; rename it if you meant to skip one.
 
 ## What changed
-- Removed the box-score pipeline.
-- New fetch script: fetch_nba2k.py makes one bulk request with your key and
-  caches the raw response.
-- Who's included: 652 current 2K27 players, free agents included, with no games
-  or minutes filter.
-- The mapping in formulas.py is a draft for you to revise. Each attribute takes
-  the 2K ratings that describe it directly.
-- Style is replaced by traits, each matched separately:
+
+- **Removed:** the box-score pipeline (`fetch_nba.py`, its tables and its 55 MB cache). It was never committed, so it isn't in git history. `nba_api` is out of the requirements.
+- **New fetch script:** [fetch_nba2k.py](PokeJam/pipeline/fetch_nba2k.py) makes one bulk request with your key and caches the raw response, so reruns don't call the API again.
+- **Who's included:** 652 current 2K27 players, free agents included, with no games or minutes filter. Only Tyler Nickel is skipped, because his data has 9 of 35 attributes.
+- **The mapping** in [formulas.py](PokeJam/pipeline/formulas.py) is a draft for you to revise. Each attribute takes the 2K ratings that describe it directly, with equal weights: Speed = speed + agility, Shooting = three-point + mid-range + free throw, and so on. Body measurements are only used for Power, as weight, because 2K's ratings already reflect size.
+- **Style is replaced by traits,** each matched separately:
   - scores like (Shooting, Dunk)
   - handles like (Passing, Ball Handling)
   - defends like (Steal, Block)
   - built like (Speed, Power, Rebound)
 
-Run it from the pipeline folder as before:
+Run it from the `pipeline` folder as before:
+```
 python3 show.py mewtwo
 python3 show.py giannis
-
-Mewtwo now shows: scores like Donovan Mitchell, handles like Luka, defends like
-Ausar Thompson, built like Giannis.
+```
+Mewtwo now shows: scores like Donovan Mitchell, handles like Luka, defends like Ausar Thompson, built like Giannis.
 
 ## What the first 2K build shows
-- The attribute leaders look right and better than with stats.
-- Gut checks improved but still aren't close.
-- Weak Pokémon match fringe players.
-- Westbrook's 2K27 overall is listed as 42; that is a data error.
+
+- **The attribute leaders look right,** and better than with stats: Lillard and Curry for Shooting, Ja Morant for Speed, Zion for Dunk, Wembanyama for Block.
+- **Gut checks improved but still aren't close.** Infernape went from Westbrook's 333rd match to 141st, and LeBron is now Mewtwo's 7th-closest player. The worst trait is still "scores like", because Shooting = SpA turns Infernape, Mewtwo and Charizard into shooters.
+- **I was wrong that 2K would give NBA profiles a "level".** Guard and big-man skills still trade off, so whole-profile matching still mostly measures how strong the Pokemon is. 2K's overall rating would work as the NBA level if we split matching into level + shape.
+- **Weak Pokemon match fringe players:** Pikachu's closest are Emanuel Sharp and Chaz Lanier.
+- **Westbrook's 2K27 overall is listed as 42** (it was 80 in 2K26). That's a data error, but his attributes are normal and the model never uses the overall rating.
 
 ## Next decisions (from revision3)
-1. Shooting = SpA: keep it or change it?
-2. Level + shape for the whole-profile match, using 2K overall as the NBA
-   level?
-3. More gut-check pairs.
-4. Trait matches for weak Pokémon: should they only use well-known players?
 
-Your .env is now gitignored.
+1. **Shooting = SpA:** keep it or change it?
+2. **Level + shape for the whole-profile match,** using 2K overall as the NBA level?
+3. **More gut-check pairs.** There are still only three.
+4. **Trait matches for weak Pokemon:** should they only use well-known players (e.g. 2K overall 80+), so Pikachu doesn't match rookies?
+
+Your `.env` is now giti
 
 >>
 
 1. can you make the ratings >=78.
-2. keep shooting as special attack. It genuinely does make sense, attack stat
-   counting towards "slashing" aspects of the game.
-3. let's put gut checks aside; I'll just judge it by the model and see if stuff
-   fits with Pokémon/players I think of on the fly.
+2. keep shooting as special attack. It genuinely does make sense, attack stat counting towards "slashing" aspects of the game
+3. lets put gut checks aside, Ill just judge it by the model and see if stuff fits with pokemon/players i think of on the fly
 
 >>>
 
-All three are done, and recorded as a dated update section in revision3.txt.
+All three are done, and recorded as a dated update section in [revision3.txt](PokeJam/revision3.txt).
 
-1. Ratings >= 78: only players with a 2K overall of 78 or higher can now appear
-   as a Pokémon's match.
-- I applied the cutoff to the matches only. Percentiles still compare each player
-  with all 652 players.
-- Pikachu now matches rotation players instead of fringe rookies.
-- Westbrook's broken 42 would have hidden him from matches.
+**1. Ratings ≥ 78:** only players with a 2K overall of 78 or higher can now appear as a Pokemon's match, both whole-profile and per trait. That's 194 of 652 players.
+- I applied the cutoff to the matches only. Percentiles still compare each player with all 652, and any player can still be looked up in `show.py`. If you meant to remove everyone under 78 from the model entirely, it's a quick change.
+- Pikachu now matches rotation players (Will Riley, Jaylen Wells, Christian Braun) instead of fringe rookies. It handles like Chet Holmgren and is built like Zach LaVine.
+- Westbrook's broken 42 would have hidden him from matches. When an overall drops 15+ points from one 2K edition to the next, the fetch now keeps the previous edition's rating, so he's 80 again. He's the only player that rule affects.
 
-2. Shooting stays Special Attack, with your reasoning recorded: Attack feeds the
-   slashing side, and Special Attack is the ranged side.
+**2. Shooting stays Special Attack,** with your reasoning recorded: Attack feeds the slashing side (Dunk, Power, Steal), and Special Attack is the ranged side.
 
-3. Gut checks are set aside. I kept gut_checks.csv and its table in the
-   validation report, but they're no longer a pass/fail test.
+**3. Gut checks are set aside.** I kept `gut_checks.csv` and its table in the validation report, but they're no longer a pass/fail test. To check the model, just run:
+```
+cd PokeJam/pipeline
+python3 show.py <any pokemon or player>
+```
 
-The model has one design item left: splitting the whole-profile match into
-level + shape, using 2K overall as the NBA level. Otherwise it's ready for the
-next stage in the build order, the comparison tool and game shell.
+The model has one design item left: splitting the whole-profile match into level + shape, using 2K overall as the NBA level. Otherwise it's ready for the next stage in the build order, the comparison page.
 
->>
+>> 
 
-let's implement the profile match using the 2K overalls then.
-after that outline our next phases in a revision4 file.
+lets implement the porfile match using the 2k overalls then.
+after that outline our next phases in a revision4 file
 
 >>>
 
-Written for: you, plus anyone picking up the next phase without this
-conversation. That's why revision4.txt explains its terms instead of assuming
-this chat.
+Written for: you, plus anyone (or any agent) picking up the next phase without this conversation. That's why [revision4.txt](PokeJam/revision4.txt) explains its terms instead of assuming this chat.
 
 ## 1. The profile match now uses 2K overalls
-The whole-profile match now compares two things:
-- Shape: each attribute minus the profile's own average.
-- Level: how strong each side is overall, on the same 0–100 scale. For Pokémon,
-  that's BST percentile; for NBA players, it's the 2K overall percentile.
 
-The level gap counts with weight 9, which is PROFILE_LEVEL_WEIGHT in
-formulas.py. I tried 1, 3 and 9. At 9, NBA → Pokémon matches land on Pokémon
-of similar strength.
+The whole-profile match now compares two things:
+- **Shape:** each attribute minus the profile's own average, compared attribute by attribute.
+- **Level:** how strong each side is overall, on the same 0–100 scale. For Pokemon that's the base stat total percentile; for NBA players it's the 2K overall percentile.
+
+The level gap counts with weight 9, which is `PROFILE_LEVEL_WEIGHT` in [formulas.py](PokeJam/pipeline/formulas.py). I tried 1, 3 and 9. At 9, NBA → Pokemon matches land on Pokemon of similar strength: Jokić gets Hisuian Goodra, Volcanion, Necrozma and Tyranitar, where 1 gave him Exeggutor. Some results:
 
 - Snorlax → Zubac, Hartenstein, Naz Reid, Sabonis, Clingan
 - Weavile → Tari Eason, Christian Braun, Murray-Boyles, Dort, Herb Jones
 - Mewtwo → Flagg, Barnes, Avdija, Jaylen Brown, Kawhi
 - Giannis → Roaring Moon, Iron Boulder, Iron Leaves, Zacian, Zamazenta
 
-I removed the old style code from match.py. Traits work the same as before.
+I removed the old style code from `match.py`. Traits work the same as before. `show.py` uses the new match, so try `python3 show.py <name>` from `pipeline/` again.
 
 ## 2. Next phases (revision4, part 2)
+
 Phase 1, the data and attribute model, is done. What's left:
 
-Phase 2: Site shell + comparison page
-Phase 3: Pokedex page
-Phase 4: Game core in Phaser
-Phase 5: Team select, quarters and overtime, stat sheet, settings, touch controls
-Phase 6: The rest of the NBA Jam rules
-Phase 7: Presentation: effects, type dunks, cries, callouts, stages
-Phase 8: README, PROCESS.md, screenshots, portfolio card
+| Phase | What | Tier |
+|---|---|---|
+| 2 | Site shell (title menu) + comparison page: search, radar chart, top 5, traits, deployed | MVP |
+| 3 | Pokedex page: roster and full Pokedex with star cards | Small |
+| 4 | Game core in Phaser: court, ball, shooting, dunks, passing, steals, computer players, clock | MVP, biggest |
+| 5 | Team select, quarters and overtime, stat sheet, settings, touch controls | MVP |
+| 6 | The rest of the NBA Jam rules: blocks, shoves, alley-oops, shot clock, on fire, rubber-band AI | Polish |
+| 7 | Presentation: effects, type dunks, cries, callouts, stages | Polish |
+| 8 | README, PROCESS.md, screenshots, portfolio card | MVP |
+
+Each phase in the file lists what it contains, the decisions it needs first, and when it counts as done.
 
 Decisions to make before Phase 2:
-1. NBA pictures.
-2. Checking the JavaScript matcher against match.py.
-3. Site layout.
-4. Your due date.
+1. **NBA pictures:** nba.com headshots matched by name (my recommendation), 2kratings.com images, or no pictures.
+2. **Checking the JavaScript matcher against `match.py`:** install Node.js, or use a browser test page.
+3. **Site layout:** separate pages (my recommendation) or one single-page app.
+4. **Your due date.** The game is most of the remaining work, so it decides how much of phases 6–7 fits.
 
 >>
 
-one final tweak, when I look up a Pokémon like Pikachu, I see that he "handles
-like Chet Holmgren" and I just don't think that should match. Speed should
-absolutely be a factor for handles. I also think the profile match should be
-stronger and more sensible around big wings without turning into constant
-point-guard matches.
+one final tweak, when i loook up a pokemon like pikachu, i see that he "handles like chet holmgren" and i jjust don't think that should match. speed should absolutely be a factor for handles. I also think we should add another atttribute: layups, being a combination of attack + speed, so "scores like" isnt so dunking and jumpshot centric.
 
 >>>
 
 Both tweaks are in, and the results look right.
 
-Speed is now part of "handles like" (Passing, Ball Handling, Speed). Pikachu now
-handles like Dillon Brooks, then OG Anunoby and Tari Eason, instead of Chet
-Holmgren.
+**Speed is now part of "handles like"** (Passing, Ball Handling, Speed). Pikachu now handles like Dillon Brooks, then OG Anunoby and Tari Eason, instead of Chet Holmgren.
+- They're fast wings rather than guards because Pikachu's Passing is in the 22nd percentile.
+- I tested doubling Speed's weight inside the Pokemon Ball Handling formula, and the matches barely changed, so I left that formula alone.
+- If you want Pikachu to handle like a guard, Passing (SpD + SpA) is the lever to change.
 
-Layup is a tenth attribute.
-- Formula: Attack + Speed on the Pokémon side.
-- "Scores like" is now Shooting, Layup and Dunk.
-- Leaders: SGA, Brunson, Giannis, Luka and Anthony Edwards in the NBA;
-  Deoxys, Pheromosa, Koraidon and Roaring Moon among Pokémon.
+**Layup is a tenth attribute.**
+- **Formulas:** Attack + Speed on the Pokemon side, and 2K's driving layup rating on the NBA side. Neither has a type bonus.
+- **"Scores like"** is now Shooting, Layup and Dunk.
+- **Leaders:** SGA, Brunson, Giannis, Luka and Anthony Edwards in the NBA; Deoxys, Pheromosa, Koraidon and Roaring Moon among Pokemon.
+- **Star card:** Layup has its own row. Pikachu gets 3.5 stars.
+- **Profile-match weight:** it now equals the number of attributes (10 instead of 9), so it still means "one per attribute".
 
-Everything is rebuilt, and python3 show.py <name> shows the new results.
+Everything is rebuilt, and `python3 show.py <name>` shows the new results. I recorded the change in [revision4.txt](PokeJam/revision4.txt), and the phase plan now has a layup rule for the game (shoot near the rim without turbo). [SPEC.md](PokeJam/SPEC.md)'s attribute table doesn't list Layup yet; I left that for you since SPEC is your document.
 
 >>
 
-revise handling; make speed matter more, say 70/15/15 split with how speed and
-defenses are weighed.
+revise handling; make speed matter more, say 70/15/15 split with how speed and defenses are weighed
 
 >>>
 
-Pokemon Ball Handling is now 70% Speed, 15% Defense, 15% Special Defense.
+Pokemon Ball Handling is now **70% Speed, 15% Defense, 15% Special Defense** (it was equal thirds). The data is rebuilt, and the change is recorded in [revision4.txt](PokeJam/revision4.txt).
 
 | Pokemon | Ball Handling | Handles like |
 |---|---|---|
-| Pikachu | 31st → 61st percentile | Jaden McDaniels, OG Anunoby, Jaylen Wells |
-| Weavile | 96th | Shaedon Sharpe, AJ Dybantsa, Zach LaVine |
-| Gengar | 87th | Reed Sheppard, Ryan Rollins, Kawhi Leonard |
-| Snorlax | 18th | Joel Embiid, Santi Aldama, Derik Queen |
+| Pikachu | 31st → **61st** percentile (4 stars) | Jaden McDaniels, OG Anunoby, Jaylen Wells |
+| Weavile | 96th (4.5 stars) | Shaedon Sharpe, AJ Dybantsa, Zach LaVine |
+| Gengar | 87th (4 stars) | Reed Sheppard, Ryan Rollins, Kawhi Leonard |
+| Snorlax | 18th (1.5 stars) | Joel Embiid, Santi Aldama, Derik Queen |
 
-The NBA side did not change.
+The NBA side (ball handle + speed with ball) didn't change.
+
+Pikachu still matches wings rather than point guards. Its Passing is in the 22nd percentile, and Passing is one of the three attributes in "handles like". If you want small, fast Pokemon to handle like guards, the Pokemon Passing formula (SpD + SpA) is what to change next.
 
 >>
 
-actually, make handles speed + defense. keep the weights 80/20.
+actually, make handles speed + defense. keep the weights 80/20
 
 >>>
 
-Pokemon Ball Handling is now 80% Speed + 20% Defense. Special Defense is out.
+Pokemon Ball Handling is now **80% Speed + 20% Defense**. Special Defense is out. The data is rebuilt, and [revision4.txt](PokeJam/revision4.txt) has the change.
 
 | Pokemon | Ball Handling | Handles like |
 |---|---|---|
-| Pikachu | 65th percentile | Jaden McDaniels, OG Anunoby, Luguentz Dort |
-| Weavile | 96th | Shaedon Sharpe, AJ Dybantsa, Zach LaVine |
-| Gengar | 87th | Reed Sheppard, Ryan Rollins, Kawhi Leonard |
-| Snorlax | 8th | Nikola Vučević, Joel Embiid, Dereck Lively II |
+| Pikachu | **65th** percentile (4 stars) | Jaden McDaniels, OG Anunoby, Luguentz Dort |
+| Weavile | 96th (4.5 stars) | Shaedon Sharpe, AJ Dybantsa, Zach LaVine |
+| Gengar | 87th (4 stars) | Reed Sheppard, Ryan Rollins, Kawhi Leonard |
+| Snorlax | 8th (1 star) | Nikola Vučević, Joel Embiid, Dereck Lively II |
+
+Compared with 70/15/15, only the slow, bulky end moved noticeably: Snorlax dropped from the 18th to the 8th percentile. The top Ball Handling Pokemon are still fast legendaries (Zacian, Zamazenta, Iron Bundle, Koraidon).
 
 >>
 
-okay, now put everything we've done now, along with the next phases for
-revision4, in a file called "next steps". I am about to deploy another agent
-to move on with it.
+okay, now put everything we've done now (including a run down of what this is), along with the next phases for revision4 in a file called "next steps". I am about to deploy another agent to move on with this phase.
 
 >>>
 
-Written for: the next agent picking up Phase 2 with no access to this
-conversation.
+Written for: the next agent picking up Phase 2 with no access to this conversation.
 
-The handoff is in next_steps.md. It includes:
-1. What PokeJam is.
-2. Working agreements.
-3. Where things stand.
-4. Expected results for Pikachu, Snorlax, Mewtwo, Curry and Jokic.
-5. Phases 2–8 from revision4.
-6. Open decisions to ask before or early in Phase 2.
+The handoff is in [next_steps.md](PokeJam/next_steps.md). It's meant to be the first thing the new agent reads.
 
-The match pool is 195 players, not 194, because Westbrook's fix added him back.
+1. **What PokeJam is:** the two parts sharing one attribute model, the assignment constraints, and the tech stack.
+2. **Working agreements with you:**
+   - record decisions in revision files, and leave `SPEC.md` and the prompt log alone
+   - don't commit
+   - you write the shot-make function and the computer-player logic yourself
+   - ask numbered questions with a recommended pick
+   - never print the API key
+3. **Where things stand:**
+   - every pipeline file and how to run it
+   - who's included on each side, and why 2K replaced box-score stats
+   - the full formula table, with today's Ball Handling (Speed 80 / Defense 20)
+   - type bonuses and the star-rating math
+   - the exact matching math, with the 78+ rule
+   - the JSON field layout, with a real Pokemon record and a real player record
+4. **Expected results** for Pikachu, Snorlax, Mewtwo, Curry and Jokić, so the agent can check its JavaScript matcher against `show.py`.
+5. **Phases 2–8 from revision4**, with Phase 2 (site shell + comparison page) in the most detail, plus the scope note.
+6. **Open decisions** the agent should ask you before or early in Phase 2: NBA pictures, how to check the JavaScript matcher against the Python, separate pages vs one page, and your due date.
+
+The match pool is 195 players, not the 194 in `revision3.txt`, because Westbrook's fix added him back; I corrected that in revision3. Nothing is committed.
+
 
 Agent 3: Review Pokejam Implementation Plan; Codex (GPT sol 6.1; High effort)
 
 >> me
 
-I am building a web app in JavaScript called pokejam, a mashup of Pokémon and
-NBA Jam that is essentially the same 2v2 NBA Jam, but with Pokémon. I am now
-transitioning into actually implementing the game—control wise, design wise,
-actually getting the game going. Read and understand this plan/project in
-"next_steps.md" and let me know of 1. critiques of the model/anything thus far,
-and 2. a plan to actually implement this.
+I am building a web app in javascript called pokejam, a mashup of pokemon and nba jam that is essentially the same 2v2 nba jam, but with pokemon.
+i am now transitioning into actually implementing the game-- control wise, design wise, actually getting the game going.
+read and understand this plan/project in "next_steps.md" and let me know of 1. critiques of the model/anything thus far, and 2. a plan to actually implement this.
 
-I read next_steps.md, revision4.txt, SPEC.md, and the current Python model.
+I read [next_steps.md](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/next_steps.md:1), [revision4.txt](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/revision4.txt:1), [SPEC.md](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/SPEC.md:1), and the key pipeline code. No edits made.
 
-Critiques
-The overall direction is strong. The best decision so far is having one
- ten-attribute model power both the comparison tool and game ratings. That gives
- the project a real identity instead of being just a game with a comparison page.
+**Critiques**
 
-The matching model is also much better than a naive full-vector comparison.
-Shape plus level is explainable and flexible.
+The overall direction is strong. The best decision so far is having one ten-attribute model power both the comparison tool and game ratings. That gives the project a real identity instead of being “Pokemon sprites on a court.”
 
-Main critique: there is a level naming trap. In JSON, level means BST/2K overall
-percentile for matching, but game stars use a separate mean-of-attributes level.
+The matching model is also much better than a naive full-vector comparison. Shape plus level in [match.py](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/pipeline/match.py:14) is explainable and avoids the earlier “all strong Pokemon match all stars” problem.
 
-The type bonuses are fun, but they make the comparison less statistical and
-more design-flavored. That is fine, but the UI should be honest that the model
-is a game design model, not a scientific one.
+Main critique: there is a `level` naming trap. In JSON, `level` means BST/2K overall percentile for matching, but game stars use a separate mean-of-attributes level internally in [build_attributes.py](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/pipeline/build_attributes.py:89). Before game code starts, I’d rename mentally and in JS comments as `matchLevel` versus `gameOverallBasis`, even if the exported JSON stays unchanged.
 
-Scope is the biggest risk. Full NBA Jam rules, mobile controls, AI,
-presentation juice, stages, Pokedex, comparison, and docs is too much for 8
-focused hours. The right MVP is: finished comparison page, playable prototype,
-then core game loop.
+The type bonuses are fun, but they make the comparison less “statistical” and more “design-flavored.” That is fine, but the UI should be honest: “attributes are a design model,” not “this proves Pikachu is Quentin Grimes.”
 
-There is a little doc drift: SPEC.md still says older things like 25–26/nbaapi,
-while the current plan uses 2K27 data.
+Scope is the biggest risk. Full NBA Jam rules, mobile controls, AI, presentation juice, stages, Pokedex, comparison, and docs is too much for 8 focused hours. The right MVP is: finished comparison page plus a simple but playable 2v2 desktop game. Blocks, shoves, on-fire, goaltending, alley-oops, multiple courts, cries, and signature dunks should be polish.
 
-Implementation Plan
-First, lock decisions in revision5.txt: separate pages, static PokeAPI sprites
-first, one court, browser-based match verification unless Node gets installed,
-and NBA headshots only if the offline image source is good enough.
+There is a little doc drift: `SPEC.md` still says older things like 25-26/nbaapi, while the current plan uses 2K27 data. Also the comment in [match.py](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/pipeline/match.py:42) says “handles like” is passing and ball handling, but the current trait also includes speed. Tiny stuff, but worth cleaning before submission.
+
+**Implementation Plan**
+
+First, lock decisions in `revision5.txt`: separate pages, static PokeAPI sprites first, one court, browser-based match verification unless Node gets installed, and NBA headshots only if the offline ID-matching step is quick. My picks are: nba.com headshots, browser test page, separate pages.
 
 Then build the static site shell:
-1. index.html: arcade menu with Play, Compare, Pokedex.
-2. js/data.js: load pokemon.json and nba_players.json.
-3. js/match.js: JS port of pipeline/match.py.
-4. compare.html: search/autocomplete, radar chart, top matches, traits, "why they
-   match."
-5. test_match.html: compares JS match results against expected outputs.
 
-After that, make the Pokedex as a small reusable card exercise: one star-card
-component, roster section, searchable full list. This also gives you UI pieces
-for team select.
+1. `index.html`: arcade menu with Play, Compare, Pokedex.
+2. `js/data.js`: load `pokemon.json` and `nba_players.json`.
+3. `js/match.js`: JS port of `pipeline/match.py`.
+4. `compare.html`: search/autocomplete, radar chart, top matches, traits, “why they match.”
+5. `test_match.html`: compares JS match results against expected outputs from `show.py`.
 
-For the game, build a vertical slice in Phaser before trying to build "all of
-NBA Jam":
-1. play.html loads Phaser and js/game/*.
-2. Create one MatchScene with a court, four Pokémon sprites, one ball, two hoops.
-3. Add an input action layer.
-4. Implement 2.5D positions.
-5. Add movement, stamina/turbo, court bounds, and body spacing.
-6. Add ball states.
-7. Scaffold calculateShotChance(context).
-8. Scaffold chooseAiAction(state).
+After that, make the Pokedex as a small reusable card exercise: one star-card component, roster section, searchable full list. This also gives you UI pieces for team select.
+
+For the game, build a vertical slice in Phaser before trying to build “all of NBA Jam”:
+
+1. `play.html` loads Phaser and `js/game/*`.
+2. Create one `MatchScene` with a drawn court, two teams, four Pokemon sprites, one ball, two hoops.
+3. Add an input action layer: `move`, `turbo`, `shootHeld`, `shootReleased`, `pass`, `pause`.
+4. Implement 2.5D positions: `x`, `y`, `z`, `vz`, shadow at floor, draw order by `y`.
+5. Add movement, stamina/turbo, court bounds, and basic body spacing.
+6. Add ball states: `held`, `shot`, `pass`, `loose`.
+7. Scaffold `calculateShotChance(context)` for you to write by hand.
+8. Scaffold `chooseAiAction(state)` for you to write by hand.
 9. Implement shot arc, make/miss, rebound pickup, score update, possession flip.
-10. Add pass, steal attempt, simple defender contest, and simple AI calls.
+10. Add pass, steal attempt, simple defender contest, and simple teammate/opponent AI calls.
 11. Add game clock, quarters, pause, final stat sheet.
 
-Then add team select and mobile controls. Team select should pick 2 from
-Kanto/Sinnoh using the same star cards from Pokedex.
+Then add team select and mobile controls. Team select should pick 2 from Kanto/Sinnoh using the same star cards from Pokedex. Mobile should come after desktop works: joystick left, shoot/pass right, turbo top right, pause top left, landscape prompt.
 
-My strongest recommendation: make the first playable game extremely small.
-Something like Pikachu/Charizard vs Lucario/Snorlax, one quarter, one court,
-move/pass/shoot/score. Once that feels alive, expand.
+My strongest recommendation: make the first playable game extremely small. Something like Pikachu/Charizard vs Lucario/Snorlax, one quarter, one court, move/pass/shoot/score. Once that feels alive, every extra rule has somewhere to attach.
 
 >>
 
-1. The spec is old from when I was trying to use real stats from this past
-season. I opted on using 2K stats instead, so ignore that.
-2. We'll postpone working on the mobile aspect until we get it running on
-computers first.
-3. This all sounds good. Now let's do it.
+1. the spec is old from wehn i was trying to use real stats from this past season. I opted on using 2k stats instead, so ignore that
+2. We’ll postpone working on the mobile aspect till we get it running on computers first
+3. This all sounds good. Now lets do it
 
 >>>
 
 Implemented the first real PokeJam pass.
 
 Added:
-- Site shell.
-- Comparison tool.
-- JS match model port.
-- Pokedex/star cards.
-- Browser match checker.
-- Desktop Phaser prototype.
-- Shared styling and data helpers.
-- Decision log.
+- Site shell: [index.html](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/index.html:1)
+- Comparison tool: [compare.html](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/compare.html:1), [js/compare.js](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/js/compare.js:1)
+- JS match model port: [js/match.js](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/js/match.js:1)
+- Pokedex/star cards: [pokedex.html](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/pokedex.html:1), [js/pokedex.js](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/js/pokedex.js:1)
+- Browser match checker: [test_match.html](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/test_match.html:1)
+- Desktop Phaser prototype: [play.html](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/play.html:1), [js/play.js](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/js/play.js:1)
+- Shared styling/data helpers: [css/styles.css](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/css/styles.css:1), [js/data.js](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/js/data.js:1)
+- Decision log: [revision5.txt](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/revision5.txt:1)
 
 The local server is running here:
-http://127.0.0.1:8000/
+
+`http://127.0.0.1:8000/`
 
 Verification done:
-- All new static routes return HTTP 200.
+- All new static routes return HTTP 200: `/`, `/compare.html`, `/pokedex.html`, `/play.html`, `/test_match.html`.
 - JSON data validates.
-- JS files pass a syntax check.
-- JS match math matches the known Python outputs for whole-profile examples and
-  trait winners.
+- JS files pass a syntax check via Apple’s JS runtime.
+- JS match math matches the known Python outputs for whole-profile examples and trait winners I checked.
 
-Important note: the game has a temporary fallback shot chance hook at
-js/play.js. It will use window.pokeJamShotChance(context) until the final shot
-model is written.
+Important note: the game has a temporary fallback shot chance hook at [js/play.js](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/js/play.js:28). It will use `window.pokeJamShotChance(context)` if you define it, so your hand-written shot probability function can drop in cleanly. The current CPU behavior is also prototype logic, not the final AI state machine.
 
-I did not edit prompt_log.txt, did not commit, and left the unrelated
-Portfolio_Website/index.html change alone.
+I did not edit `prompt_log.txt`, did not commit, and left the unrelated `Portfolio_Website/index.html` change alone.
 
 >>
 
-1. Start page needs to be fixed; the title text is obscured by the image.
-2. Let's get rid of "built like" for NBA players when you search for them to
-   compare to Pokémon.
-3. The game actually plays, which is good. However, it's expectedly quite
-   clunky. There isn't a scoreboard, timer, or means to pause; the rims face the
-   other way; when you perform a jumpshot, it lets you move through the shot.
-4. No NBA pictures implemented.
-5. The aesthetic is bland and boring, but it's fine for a first look.
-
-Overall, great start, but we can absolutely be better.
+1. start page needs to be fixed (picture of the page upon loading site; title text is obscured by image)
+2. lets get rid of “built like” for nba players when you search for them to compare to pokemon
+3. The game actually plays, which is good. However, it’s expectedly quite clunky. There isn’t a scorekeep, timer, means to pause, the rims face the other way, when you perform a jumpshot  it lets you go up and down— no travel (expected given it’s just a first time implementation), really no difference between dunking and jumpshots visually right now, rebounding is weird as the ball doesnt bounce, no real stealing mechanic right now (i want it so that when you press “i” you jockey when guarding and “j” is steals attempt), no out of bounds, no alley oops— you get it the game is buggy and incomplete
+4. no nba pictures implemented
+5. aesthetic is bland and boring, but its fine as, again, its the first look
+overall great start, but we can absolutely be better
 
 >>>
 
-Second pass is in. The local preview is now safely bound to localhost only.
+Second pass is in. The local preview is now safely bound to localhost only:
+
+`http://127.0.0.1:8000/`
 
 Changed:
-- Fixed the start page hero overlap/clipping.
-- Removed "built like" from the comparison UI when the searched item is an NBA
-  player.
-- Added NBA player images using the cached 2K playerImage URL, with initials
-  fallback.
-- Regenerated data/nba_players.json so image URLs exist.
-- Reworked the desktop game prototype:
+- Fixed the start page hero overlap/clipping in [index.html](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/index.html:1) and [styles.css](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/css/styles.css:1).
+- Removed “built like” from the comparison UI when the searched item is an NBA player.
+- Added NBA player images using the cached 2K `playerImage` URL, with initials fallback.
+- Regenerated `data/nba_players.json` so image URLs exist.
+- Reworked the desktop game prototype in [play.js](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/js/play.js:1):
   - clearer scoreboard/timer HUD
-  - pause overlay via Esc
+  - pause overlay via `Esc`
   - corrected rim/backboard orientation
-  - shot movement lock
-  - visible dunk/lob messaging
+  - shot movement lock, so no walking through a jump shot
+  - visible dunk/lob messaging and simple dunk lunge
   - bouncing loose balls
   - rebound pickup
   - first-pass out-of-bounds reset
-  - J = shoot with ball / steal on defense
-  - I = pass with ball / jockey on defense
+  - `J` = shoot with ball / steal on defense
+  - `I` = pass with ball / jockey on defense
+  - first-pass alley-oop trigger near the rim
+- Updated [revision5.txt](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/revision5.txt:1) with the decisions.
 
 Verified:
-- python3 validate.py passes.
+- `python3 validate.py` passes and regenerated `validation_report.md`.
 - Both JSON files parse.
 - JS files pass syntax checks.
-- Local routes return 200.
+- Local routes return 200 for `/`, `/play.html`, and the data JSON.
+
+One note: NBA photos are working through the 2K/2kratings image URLs because that’s what the current cache actually contains. The better later version is still nba.com headshots with a real NBA ID mapping step.
 
 >>
 
-1. It's quite hard to actually steal.
-2. Holding "I" should prompt the alley-oop to start happening.
-3. I want the dunking to be initiated when you hold J and you're close enough to
-   dunk it.
-4. If you don't have the ball and a player goes up for the shot/dunk, pressing J
-   should switch to blocking.
-5. I see the HUD, but I'm not actually seeing any game clock/quarters.
-6. Still no NBA pictures.
+1. it’s quite hard to actually steal (i havent been able to stop lucario and he’s doing the exact same dribble, shot off the right elbow, miss, o rebound, and put back and idk if that’s a bug)
+2. holding “i" should really prompt the alley oop to start happening (think about how it works the same way in mario sports mix). Once you let go of ‘i’ and if you’re teammate is in the air, the ball should get passed to them and then have them dunk automatically (if it is com; if player 2 is playing with them, they must press ‘j’ to finish it). f a teammate is also under the basket (and it is a com) an exclamation mark should pop up over their head (like when a trainer spots you in the pokemon games) that indicates they want an alley oop (calling for it). if it is 2 player, the teammate without the ball holding ‘i’ should be them also “calling for the ball” with the exclamation popping up.
+3. I want the dunking to be initiated when you hold ‘j’ and if you’re close enough to dunk it (given dunking ability and distance). that way if you’re holding ‘j’ near or within your pokemon’s respective dunking distance, they start jumping and going to dunk, and if they arent interrupted (getting blocked, rimming the dunk), then they dunk it.
+4. if you dont have the ball and a player goes up for the shot/dunk, pressing ‘j’ should go from stealing to attempting to block, so the player jumps and tries to block the shot.
+5. i see the hud, but im not actually seeing any game clock/quarters
+6. still no nba pictures
 
 >>>
 
-Implemented and tested in Chrome.
+Implemented and tested in Chrome. [Play the updated game](http://127.0.0.1:8001/play.html).
 
-- Steals: improved reach, jockey assistance, and recovery.
-- Alley-oops: hold I to prepare; release while your teammate is airborne to lob.
-- Dunks: J starts a dunk within your Pokémon's rating-based range.
-- Defense: J switches to a jumping block against shots and dunks.
-- Clock: fixed the Phaser text bug. Scores, quarters, countdown, and overtime now
-  display.
-- NBA pictures: 651 locally cached portraits, including every comparison-pool
-  player.
+- **Steals:** improved reach, jockey assistance, and recovery. CPU attacks now vary.
+- **Alley-oops:** hold **I** to prepare; release while your teammate is airborne to lob. CPU teammates display **!** and finish automatically.
+- **Dunks:** **J** starts a dunk within your Pokemon’s rating-based range. Blocks and rimmed finishes interrupt it.
+- **Defense:** **J** switches to a jumping block against shots and dunks.
+- **Clock:** fixed the Phaser text bug. Scores, quarters, countdown, and overtime now display.
+- **NBA pictures:** 651 locally cached portraits, including every comparison-pool player. Khalifa Diop retains initials.
 
-Co-op is selectable. Player 2 uses arrows, K to shoot/finish, L to pass/call,
-and Enter for turbo.
+Co-op is selectable. Player 2 uses **arrows**, **K** to shoot/finish, **L** to pass/call, and **Enter** for turbo.
 
-Browser regression checks pass.
+Browser regression checks pass. Steal odds and CPU strategy remain provisional until you playtest them.
 
 >>
 
-1. There should be a button players are able to click when playing single player
-   to switch between mons they're controlling.
-2. Pump faking mechanic should be in this.
-3. The comps should be within reason.
-4. I want to start implementing "on fire" features if you keep making
-   consecutive buckets.
+1. there should be a button players are able to click (when playing single player) to switch between mons they’re controlling. im thinking of making that ‘q’, since it’s next to WASD. 
+2. pump faking mechanic should be in this; should work by quick tapping ‘j’/shoot button (without pressing turbo/‘shift’). now, obviously without animations right now it’s kind of hard to indicate that visually, but let’s see how that works right now.
+3. with the comps and the model, I get how “shape” proportionality in attribute spread makes it so there is a player for every pokemon, but the comps should be within reason. i.e., a player like quentin grimes being the comp for, say, pichu, but its spread, though proportional, is so much smaller than grimes’. if that spread isn’t somewhat overlapping decently, I honestly pose raising a “no matching player due to the distance being so big” or something like that, and have a “closest match” case. what do you think? (refer to picture for what im talking about with the spread being so much smaller than grimes’)
+4. I want to start implementing “on fire” features if you keep making consecutive buckets
 
 >>>
 
 Implemented and tested:
 
-1. Q + switch button.
-2. Pump fake: quick-tap J without Shift.
-3. Comparisons: nearest is no longer enough; matches now need sufficient overlap.
-4. On fire: three unanswered makes by one mon activate flames, a shooting bonus,
-   and unlimited turbo.
+1. **Q + switch button:** switches mons on offense or defense without transferring the ball. Your selection persists until you switch again or restart.
+2. **Pump fake:** quick-tap **J** without Shift. Holding J commits to shooting/dunking; turbo skips the fake window. Fakes raise the ball and squash the sprite.
+3. **Comparisons:** I agree that “nearest” shouldn’t automatically mean “good match.” Pichu–Grimes averages a **43.6-point attribute gap**. Matches now need sufficient absolute overlap; otherwise the page says **“No close match”** and shows **“Closest available.”** The cutoff is provisional; the original ranking formulas remain intact.
+4. **On fire:** three unanswered makes by one mon activate flames, a shooting bonus, and unlimited turbo. A miss, block, or opposing basket extinguishes it.
 
-Browser regression checks pass.
+Browser regression checks pass, including the existing gameplay and matching checks.
+
+[Play the update](http://127.0.0.1:8001/play.html).
 
 >>
 
-1. When we reset, you should always start out as the player with the ball for
-   single players.
-2. Now I want to start working toward those “special” shots.
+1. when we reset, you should always start out as player with ball (for single players).
+2. now i want to start working towards those “special” shots (remember how i outlined some mons having special finishes; every mon has an ultimate finish—dunk/shot from anywhere— that has an animation with whatever typing you are, but those outlined mons will have moves actual moves that look cool), these will also go towards style points later (in addition to adding to points total when it goes in, obviously). 
 
 >>>
 
 Implemented the first ultimate-finish pass:
 
 - Solo resets immediately select the mon holding the ball.
-- Charge earned: basket +35, steal +15, block +20.
-- E activates a ready ultimate; Shift + E forces a dunk.
-- Typed effects and named signatures support full-court finishes, blocks,
-  misses, and normal scoring.
+- Charge earned: **basket +35, steal +15, block +20**.
+- **E** activates a ready ultimate; **Shift + E** forces a dunk. P2 uses **O**.
+- Typed effects and named signatures support full-court finishes, blocks, misses, and normal scoring.
+- Finish outcomes are recorded for future style points; no style total yet.
+
+These still use prototype sprite effects. Both browser test suites passed.
+
+Try it: [PokeJam](http://127.0.0.1:8002/play.html)
 
 >>
-
-few inquiries:
-1. Specials should be harder to block/steal.
-2. The other AIs shouldn't just automatically run under the basket for
-   positioning like that.
-3. Make quarters 2 minutes.
+few inquiries: 
+1. specials should be harder to block/steal
+2. the other ais shouldnt just automatically run under the basket for positioning like that (or at least ALL THE TIME). like if charizard has the ball for instance, pikachu could be looking for space trying to get open (because right now it is quite easy to steal and block the ball..)
+3. make quarters 2 mins
 
 >>>
 
 Done:
-- Specials have tighter block windows.
-- Off-ball AI seeks open space and passing lanes.
-- Regulation quarters are 2 minutes; overtime stays 1 minute.
+- Specials have tighter block windows, 65% lower block-success odds, and explicit protection against steals while active.
+- Off-ball AI seeks open space and passing lanes, relocates when guarded, and makes occasional rim cuts. Holding I still sets up alley-oops.
+- Regulation quarters are **2 minutes**; overtime stays 1 minute.
 
-Both browser test suites passed.
-
->>
-
-okay. I’d say this is a decent foundation for what we’re trying to get to.
-But I know for a fact that we could reach a better level visually and
-aesthetically; the court presentation is still too plain.
-
->>>
-
-Created next phase 2.md.
-
-It covers court depth and proper hoops, character animation, stages,
-crowd/announcer/refs, ultimate-ready cues, style scoring, and additional
-arcade features.
-
-Recommended starting point: one polished arena and the current four mons. No
-gameplay code changed.
+Both browser test suites passed. [Play PokeJam](http://127.0.0.1:8002/play.html).
 
 >>
 
-Okay, now please, using next phase 2.md, implement the next phase of this
-project. I agree with starting off with the one stadium and expanding when we
-settle on something we like.
+okay. I’d say that this is a decent foundation for what we’re trying to get to. but i know for a fact that we could reach a better level visually and aesthetically, the court presentation is still a lot more “flat” and basic compared to nba jam itself, sprite animations for running (passing and dunking idk what we could do with those, maybe “using a move” animation), background/stages/hoops being actual hoops, crowd/announcer/refs, style point system, some sort of indication that you have an the ultimate finish available, etc. I want to start moving towards this phase of the project. take all these things, along with things you think that (when we look at an nba jam) we could implement here as well, and put them in a file called “next phase 2”, that I’ll go over and implement after (using that file as a blueprint).
 
 >>>
 
-The first phase-two slice is ready: Play Indigo Arena.
+Created [next phase 2.md](</Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/next phase 2.md>).
+
+It covers court depth and proper hoops, character animation, stages, crowd/announcer/refs, ultimate-ready cues, style scoring, and additional arcade features, with implementation milestones and acceptance checks.
+
+Recommended starting point: **one polished arena and the current four mons**, then expand. No gameplay code changed.
+
+>>
+
+Okay, now please, using next phase 2.md, implement the next phase of this project. I agree with starting off with the one stadium and expanding when we settle on womething we like; yes, we can use indigo arena for the first one.
+
+>>>
+
+The first phase-two slice is ready: [Play Indigo Arena](http://127.0.0.1:8002/play.html).
 
 Implemented:
-- Angled court, layered hoops/nets, crowd reactions, sideline referee.
+- Angled court, layered hoops/nets, crowd reactions and sideline referee.
 - Directional movement animations for all four mons.
-- Ultimate READY cues, richer player HUD, separate style scoring.
-- Arena sounds, optional spoken callouts, lineup selection, results/rematch,
-  settings.
+- Ultimate READY cues, richer player HUD and separate style scoring.
+- Arena sounds, optional spoken callouts, lineup selection, results/rematch and settings.
 
-Basketball actions currently reuse attack/charge poses; custom animations,
-recorded voice acting, and additional arenas remain future work.
+All three browser test suites pass.
 
->>
-
-1. Add a meter for jumpshots so the player has some effect on shot likelihood.
-2. I like the indicator for the special move when it is ready, but it should be
-   shown on the actual canvas screen.
-3. Add a dramatic scene when the Pokémon uses its move.
-4. Bind a button that lets me get the clock to 0:01 and end the game.
-5. Add a bit of animation to a pass on the ball itself.
-6. If you go up and down with a jumpshot and land without letting go of J, it
-   should be a travelling violation.
-7. How do you shove in this game again? and are those mechanics implemented?
-8. Is it possible to get the backgrounds of the stages looking anything close to
-   what KOF 13 has going on?
-
-Put all of this, along with how you think this could work, in a file called
-"phase_2.1".
-
->>>
-
-Created phase_2.1.md covering all eight requests, critiques, proposed
-mechanics, implementation order, and acceptance tests.
-
-Shoving is not currently implemented. The blueprint proposes Shift + I / Enter +
-L, with cooldowns, resistance, and attack/hurt animations.
+Basketball actions currently reuse attack/charge poses; custom animations, recorded voice acting and additional arenas remain future work. Scope and sprite-rights notes are in [phase2_implementation.md](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/phase2_implementation.md).
 
 >>
 
-That all sounds pretty good. My only caution is that the meter shouldn't be
-obstructive to players in any way. It should be appropriately sized and not
-block the mons.
+1. Adding a meter for jumpshots so player has some effect on likelihood of shot going in (similar to how you green a shot in 2k). (couple ideas for this; meter vs circle)
+2. I like adding the indicator to make it known when we have the special move, but If we could, somehow someway, get that on the actual screen (canvas where the game is being played). now this would probably clutter the screen if we had all of their indicators up on the screen, so I’m posing adding some type of “typing aura” around the sprite when it is available. so for instance, charizard would be a bit fiery, pikachu would have some electricity sparks, etc. 
+3. a bit of a “dramatic scene” when the pokemon uses its move; kind of a dim screen with that aura around the pokemon— essentially just make it look good. You know how like in the smash bros games, when you use your ultimate smash the screen dims a bit and its a “cool spectacle” kind of thing. Really gives “ultimate move” kind of vibe.
+4. FOR NOW, bind a button that lets me get the clock to 0:01, and “end the game”, to ‘0’, i just want to see what the end of game screen looks like and i havent sat and played through a whole match yet. I want to see what happens next that the player has options to do.
+5. i dont want this specifically to be excessive, but lets get a bit of an animation on a pass on the ball itself— force from the pass being visually depicted maybe with a bit of topspin or like “wind” from after you pass (think of something like in the anime kuroko no basketball with how cool all that stuff looks)
+6. when you go “up and down” with a jumpshot, if you land without letting go of ‘j’, it should be a travelling violation (up and down)
+7. how do you shove in this game again? and are those mechanics implemented (with animations here), if they are?
+8. is it possible if we could get the backgrounds of the stages looking anything close to what kof (king of fighters) 13 has going on?
+put all of this, along with how you think this could work/critiques and solutions, in a file called “phase_2.1”, that we will use as a blueprint to follow in implementing in a subsequent prompt
 
 >>>
 
-Implemented. Try PokeJam.
+Created [phase_2.1.md](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/phase_2.1.md) covering all eight requests, critiques, proposed mechanics, implementation order, and acceptance tests. No gameplay code changed.
 
-- Compact shot meter stays outside the court.
-- Typed readiness auras, dramatic ultimate dimming, pass trails, and richer
-  Indigo stadium art.
+Key recommendations: an arc shot meter with a bar option, subtle typed READY auras, and a dimmed ultimate windup that preserves readability.
+
+Shoving is **not currently implemented**. The blueprint proposes `Shift + I` / `Enter + L`, with cooldowns, resistance, and attack/hurt animations.
+
+>>
+
+that all sounds pretty good. my only caution is that the meter (arc/bar) shouldn't be obstructive to players in any way (no blocking of mons in particular). It should be appropriately sized (all this in the case that it isnt static and in a fixed position off court or something). go ahead and implement these updates.
+
+>>>
+
+Implemented. Try [PokeJam](http://127.0.0.1:8002/play.html).
+
+- Compact shot meter stays **outside the court**, with Arc/Bar options. Green timing improves accuracy without guaranteeing a make.
+- Typed readiness auras, dramatic ultimate dimming, pass trails, and richer Indigo stadium art.
 - Up-and-down travelling violations and animated shoves.
 - Improved results screen with Rematch, Change Lineup, and Main Menu.
 
-Controls: Shift + I to shove; Enter + L for player two. Press 0 to preview the
-final second and results.
+Controls: **Shift + I** to shove; **Enter + L** for player two. Press **0** locally to preview the final second and results.
 
-All four browser test suites pass.
+All four browser test suites pass, including meter placement, timing, travel, effects, and both players’ shove controls.
+
+[Implementation notes](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/phase21_implementation.md). The [stadium PNG](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/assets/arenas/indigo-backdrop-v1.png) was generated with the built-in image tool; its [exact prompt and credits](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/assets/arenas/CREDITS.md) are recorded.
 
 >>
 
-1. Make it so it automatically switches you onto the mon if they have the ball.
-2. Make the shot meter bigger and more animated.
-3. Put the HUD portraits at the top of the screen with icons.
-4. Make it slightly easier to shove.
+1. make it so it automatically switches you onto the mon if player has the ball (only same teams obviously, so charizar-pikachu/lucario-snorlax)
+2. actually, maybe we should make the shot meter bigger lol. make it about the size of the indigo arena font, maybe slightly bigger, and more “animated” (akin to how meters look on fighting games)
+3. on the note of hud, put this[refer to picture] on the actual screen, at the top, but instead of boxes/cells, make them icons (similar to smash bros with how they have the picture of the character along with their percentage of damage as a subscript, but instead this is going to be on the top of the screen); we can move the indigo arena sign and put it to the corner— maybe have that as a mechanic that denotes the name of the stage—or something like a sign in the back
+4. make it slightly easier to shove, as i havent actually been able to do that and it be effective
 
 >>>
 
 Implemented all four:
 
-- Solo control automatically follows the friendly ball holder.
-- Larger animated shot meter.
-- Canvas portrait HUD with charge percentages, stamina, and control/READY
-  indicators.
-- Easier shoves with greater reach, mild aim assistance, and improved success
-  odds.
+- Solo control automatically follows the friendly ball holder, even after switching with Q. Co-op assignments stay fixed.
+- Larger animated shot meter, still safely outside the court.
+- Canvas portrait HUD with charge percentages, stamina, and control/READY indicators. Indigo Arena signage moved to a back corner.
+- Easier shoves with greater reach, mild aim assistance, and improved success odds. Use **Shift + I**.
 
-The four browser suites pass.
+All four browser suites pass. Refresh [PokeJam](http://127.0.0.1:8002/play.html) to try it.
 
 >>
 
-1. You see this picture of Blaze Blue Central Fiction? Look down and you will
-   see a meter. Make the shot meter look something like that.
-2. Make the icons look more animated.
-3. When they're "on fire", each Pokémon has a perk depending on type and BST.
-4. Make a shot clock, 24 seconds, violation. No eight-second violation.
-5. The Indigo Arena sign is boring and ugly.
+1. You see this picture of blaze blue central fiction? look down and you will see a meter (two actually, but i just want one of this). make the shot meter look something like that. and put it
+2. make the icons look more animated. this is a game. a circle around the sprite doesnt cut it visually.
+3. when they're "on fire" i have an idea; lets make it so each pokemon has a "perk(s)" when on fire (depending on bst/noteriety, certain mons will probably have 2-3. these perks will really be moves from the game. e.g., when charizard is on fire, if he has the ball, make it so it uses flamethrower and he can dunk from further (because he can fly, make sure it's animated). the flamethrower will only be able to spread in a partial semicircle in front of charizard and mons will be "burnt" and partially slowed for a couple seconds, with it being harder for their meter to charge over those seconds of burn-- sidenote, we'll probably have to do other status conditions as well for the other mons). for this specific idea, don't implement it along with 2 and 3, put this in an "on_fire" file that we'll work on some more for plannig status effects and giving certain mons more perks, what general perks are going to be for mons as well.
+4. make a shot clock, 24 seconds, violation in not, you get the deal. dont include an 8 second violation
+5. the indigo arena sign is very very boring, i really dont like that font either. it looks very uninspired and out of place
 
 >>>
 
 Implemented:
-- Reference-inspired metallic shot gauge in a bottom band.
+
+- Reference-inspired metallic shot gauge in a bottom band, clear of mons.
 - Animated HUD portraits with angular frames and type effects.
-- 24-second shot clock and turnover violations.
+- 24-second shot clock and turnover violations, with no eight-second rule.
 - Redesigned Indigo Arena sign with a crystal badge and bold lettering.
 
-The perk/status system is planning only in on_fire.md.
+The perk/status system is **planning only** in [on_fire.md](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/on_fire.md), including Charizard’s Flamethrower, burn penalties, and flying dunks.
 
-All five browser suites pass.
+All five browser suites pass. Refresh [PokeJam](http://127.0.0.1:8002/play.html).
 
 >>
 
-Now, along with on_fire.md, this is also what I want included in the
-implementation that you should follow. Include all of these effects for the
-opposing Pokémon only.
-
-1. Status effects:
-   - paralysis
-   - burn
-   - freeze
-   - sleep
-   - confusion
-   - poison
-   - stun
-2. Pokémon perks:
-   - general perks for water, electric, normal, fire, grass, ice, fighting,
-     poison, ground, flying, psychic, bug, rock, ghost, dragon, dark, steel,
-     fairy
-   - special perks for monsters with unique moves
+now, along with on_fire.md, this is also what I want included in the implementation that you should follow. I see that you went ahead and made suggestions already, but if you could implement that within the lines of what i've given here, sure. otherwise, all these things must be present. 
+note that all these should apply in effect to the “opposing pokemon” (can’t affect teammate)
+1. status effects:
+   1. paralysis
+      1. very very slowed movement, even worse than burn; occasionally freeze for half a second from “being paralyzed”
+   2. burn
+      1. already outlined
+      2. steals/blocks/shoves do less “damage”
+   3. freeze
+      1. literally frozen; in ice and i want that in a sprite/animated, it being slightly opaque and you being able to see the mon in the ice
+      2. player must “mash” (that being displayed slightly above ice; hovering up and down) ‘j’ and ‘i’ to get out of it; let amount of mashing necessary vary (within reason, shouldnt be needing to mash for more than 3 seconds if im reasonably pressing of course; if not mashing efficiently, say 5 taps per second or something, ice will melt after 7 seconds automatically)
+   4. sleep
+      1. asleep, for 6 seconds
+      2. mashing should be also applied here, but let it be harder here than when you’re frozen
+   5. confusion
+      1. opposing mons move in inverted directions for 5 seconds
+   6. poison
+      1. slows mon as much as burn, gauge doesnt charge at all for 15 seconds
+   7. stun (not in pokemon, but mine)
+      1. pokemon cant move for 3 seconds
+2. pokemon perks
+   1. General Perks
+      1. Water pokemon that don’t have a special perks given to them get hydro pump
+         1. one blast every 6 seconds of on fire active; pushes mons back 5 spots (or to edge if near edge) if they’re hit
+      2. electric mons get discharge
+         1. shocks opponents within steal range and paralyzes them
+      3. normal mons get take down
+         1. sends opponents back 4 spots if hit; essentially a buffed up shove that you can use if you try to shove if on fire as a normal type with this perk
+      4. fire gets flame burst
+         1. burst is a projectile that fires reasonably far, splatters flames that if it by them, or flame burst itself, have a high chance to burn; flames on court for 3 seconds only; 3-4 bits of flame per flame burst; it should fire only every 7 seconds
+      5. grass gets razor blade
+         1. projectiles that push back opponents 4 spots; fires every 4 seconds
+      6. ice gets powder snow
+         1. slows down mons with chance to freeze
+      7. fighting gets close mach punch and stuns
+      8. poison gets toxic and is used in a 1 spot radius around mon; poisons opposing mon that are caught
+         1. fires every 7 seconds
+      9. ground gets bulldoze and it stuns mons on floor; fires every 6 seconds
+      10. flying gets tailwind; every mon gets faster so long as they have on fire
+      11. psychic gets hypnosis; it should be somethign that fires and gradually gets wider as it goes; if you’re hit you fall asleep; fires every 7 seconds
+      12. bug gets bug buzz; stuns mons hit; fires every 6 seconds
+      13. rock gets rock polish; can’t steal ball so long as it’s on fire, speed boost as well
+      14. Ghost gets shadow ball; if it has the ball, every 8 seconds , it uses shadow ball and it is an automatic jumpshot bucket (akin to an ultimate move when you press ’e’)
+      15. Dragon gets dragon rush; same as ghost, but with dunking from anywhere
+      16. Dark gets sucker punch; if opponent tries to steal the ball from you, there is a very high chance they get stunned and it doesnt work
+      17. steel gets iron defense; can’t block its dunks
+      18. fairy gets unlimited passing; cant intercept alley oops or passes
+   2. for the special perks, i dont really remember who i gave special moves, so I’ll let you do that and i'll approve/edit them
 
 >>>
 
-Implemented using 32 court units per spot.
+**For this continuous court, I’ll treat one “spot” as 32 court units, so Hydro Pump pushes 160 units and four-spot moves push 128, clamped at the boundary. Do you want a different distance?**
 
-- All seven status effects, with animated ice, sleep effects, and mash-to-
-  escape controls.
+>> 
+
+32 court units per spot
+
+>>>
+
+Implemented using **32 court units per spot**.
+
+- All seven status effects, with animated ice, sleep effects and mash-to-escape controls.
 - All 18 type perks, automatic cooldown casts and opponent-only targeting.
-- Named perks for the four playable mons, documented for your review in
-  on_fire.md.
+- Named perks for the four playable mons, documented for your review in [on_fire.md](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/on_fire.md).
 - HUD status/cooldown feedback and pause/reset cleanup.
 
-Freeze/sleep recovery: alternate J/I or K/L for P2.
+Freeze/sleep recovery: alternate **J/I**, or **K/L** for P2.
 
-All six browser test suites pass.
+All six browser test suites pass. The roster remains four mons; other type perks are implemented and fixture-tested.
+
+[Play PokeJam](http://127.0.0.1:8002/play.html)
 
 >>
 
-1. On comparisons:
-   - overalls/stars should be displayed.
-   - remove the "verify matches" feature
-2. Game:
-   - Indigo League sign is better here; make it slightly smaller and position it
-     appropriately above the door.
-   - dunks outside of the arc should count as 3 points.
-   - perks not involving scoring the ball can be used without the ball on defense.
-   - shoving can also have a chance to stun.
-3. Make a "How to Play" section with controls and keycaps.
-4. When they have their special move, again, the icons at the top of the screen
-   should have the aura around the sprite/icon.
+1. on comparisons
+    1. overalls/stars should be displayed.
+    2. remove the “verify matches” feature
+2. game
+    1. indigo league sign is better here, make it slightly smaller and position it appropriately above the door
+    2. dunks outside of the arc should count as 3 points
+    3. make it so that the perks arent involving scoring the ball can be used without it on defense
+        1. e.g., a move like flamethrower should be able to be used w/o the ball  to slow players
+    4. make it so shoving can also have a chance to stun
+3. make a “how to play” section we can choose that outlines controls. make the layout and font aesthetically pleasing/matching to the game, and use icons for keycaps, not just blatantly stating ‘i’, ‘j’, etc.
+4. when they have their special move, again, the icons at the top of the screen, in addition to animation, should have the aura around the sprite/icon. charizard should be fiery as hell when he has his stuff, pikachu should be really "jolted up", you know?
 
 >>>
 
 Implemented all requested updates:
+
 - Comparison overall ratings and Pokémon stars; removed Verify Matches.
 - Smaller Indigo sign positioned above the door.
 - Three-point dunks based on takeoff position, including ultimates.
 - Off-ball defensive perks, including Flamethrower.
 - Chance-based shove stuns.
-- How to Play panel with styled keycaps.
+- How to Play panel with styled keycaps, accessible from the book button or main menu.
 - Stronger typed READY auras around portraits and court sprites.
 
 All seven browser suites pass.
 
+[Play PokeJam](http://127.0.0.1:8002/play.html)
+
 >>
 
-The file is now wrapped for readability and preserved as a working project log.
+1. on fire should work as a timer 15 seconds active, can replenish 5 seconds if you score; only goes out if they score against you or get directly stolen from, not if you miss
+2. make the shot clock a mini timer on the score board, right now it just looks like it’s floating on top of the arena.
+
+after that, im starting to think this is ready for our other pokemon. what do you think?
+
+>>>
+
+Done:
+- Fire lasts **15 seconds of live play**, adding **5 seconds per make**. Misses don’t extinguish it; direct steals, opposing baskets and expiry do.
+- Shot clock is now a **mini timer inside the scoreboard**, with the floating arena clock removed.
+
+All eight browser suites pass. [Play PokeJam](http://127.0.0.1:8002/play.html)
+
+**Yes, I think we’re ready to expand.** I’d add 4-6 Pokémon next, making roster selection, sprite sizing and ball attachments data-driven first. The shared perk/status systems are ready; each new mon still needs animation, positioning and balance checks before expanding to the full 20.
+
+>>
+
+go ahead and add 4-6 of the other mons outlined with their special moves and perks if outlined
+If this is good, we're gonna add the full 20, then we'll get into the stages and stage selection screens
+
+>>>
+
+Added **Wartortle, Venusaur, Gengar, Mewtwo, Gardevoir and Weavile**, bringing the playable roster to **10**.
+
+All six have directional animations, ultimates, on-fire perks and READY auras. Named finishes include **Shadow Ball, Psystrike and Moonblast**; the others use typed finishes.
+
+The lineup menu now selects **both teams**, with rating and move previews. Indigo remains the only stage.
+
+**Verification:** All nine browser suites passed, with desktop and narrow-layout screenshots checked.
+
+[Play PokeJam](http://127.0.0.1:8002/play.html), then open **Choose Lineups** to test the batch before expanding to twenty.
+
+>>
+
+cool. But, animations animations animations on those new characters.
+
+>>>
+
+Upgraded all six with more animation: timed passes, catches, reaches, blocks, shot/dunk transitions, perk casts and celebrations.
+
+Gengar floats and uses tongue reaches; Mewtwo hovers; Gardevoir casts; Weavile quick-strikes; Venusaur has heavier movement; Wartortle swings and hops. These use adapted Pokémon action frames, not newly drawn basketball sprites.
+
+**All 10 browser suites passed**, including visible frame-change checks.
+
+Refresh [PokeJam](http://127.0.0.1:8002/play.html) and try the new lineups.
+
+>>
+
+make venusaur bigger (no reason wartortle appears bigger on screen); be sure to check sizes and safeguard against that.
+other than that, this looks pretty good. go ahead and implement the remaining pokemon so we can move onto stages. remember to be sure that ALL animations (both on court and on the icon) are as good as what we've got thus far.  
+we're only going to make 2 more because im kind of short for time. The regions itll be based in are sinnoh and unova (make it sinnoh league and the PWT for stadiums; remember our pseudo-kof 13 aesthetic we got going on rn). Be sure to implement, in addition to this, a screen that lets us select teams/opponents (with option for random), then subsequently lets us choose stage (random as well)
+
+>>>
+
+Implemented:
+- Larger Venusaur, with visible-body sizing safeguards across all twenty mons.
+- Full twenty-mon roster with native court/HUD animations, outlined specials, and applicable perks.
+- Sinnoh League and Unova PWT, alongside Indigo.
+- Teams/opponents → stage selection, with random options throughout.
+
+All twelve browser suites passed, plus the final label-spacing check. Stage art and generation prompts are documented in [credits](/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/assets/arenas/CREDITS.md).
+
+Play: [PokeJam](http://127.0.0.1:8003/play.html)
+
+>>
+
+1. make the shove animation slightly less aggressive, sometimes it looks like coms glitch when they're just trying to shove. specifically with mons like arcanine. also darkrai's sprite sometimes glitches like its teleporting in and out of existence. idk if that's intentional, but if it is i dont like it.
+2. the meter bar as it is right now looks pretty sloppy, on the edges. clean it up as right now it looks like someone’s best attempt at remaking that blaze blue meter after looking at it for 5 seconds.
+3. gonna have to do away with the ai announcer on via render backend idea and the mobile idea
+4. make sure every file here is relevant and discard what doesnt need to be her
+5. the local address doesnt work sometimes, what if someone else wants to use the site?
+other than that, this is really solid
+
+>>>
+
+Done:
+- Gentler shoves, especially Arcanine; stabilized Darkrai’s sprite.
+- Cleaned the meter’s edges, bevels and fill.
+- Removed mobile and Render/AI announcer plans.
+- Removed obsolete files after backing them up; preserved your prompt log, data and credits.
+- Added a launcher that automatically finds a free port.
+
+**All 13 browser suites passed.**
+
+Play: [localhost:8004](http://127.0.0.1:8004/play.html).
+
+Others need a public deployment, not your localhost address. PokeJam can use [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages) without a backend. Hosting instructions and a clean export tool are ready; I haven’t published it.
 
 
+----------------------------
+
+WHERE AI GOT IT WRONG
+Certain design choices for the HUD and background stages that I either had to point at examples for or elaborate a lot on.
