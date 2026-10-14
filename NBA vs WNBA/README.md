@@ -1,12 +1,36 @@
-Cross-League Player Comps
+# Cross-League Player Comps
 An interactive Python app for finding statistical counterparts between NBA and WNBA players.
 
-TO ACCESS THE APP, DOWNLOAD THESE FILES/FOLDERS FROM THIS FOLDER
- - app.py
- - similarity_v3.py
- - data (folder)
- - requirements.txt (these tell you the packages required for the imports)
-[RUN THIS COMMAND in terminal: streamlit run app.py]
+**Live app:** Coming soon — deployment pending.
+
+## Run locally
+
+Use Python 3.13. From the repository root:
+
+```sh
+cd "NBA vs WNBA"
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+On Windows PowerShell, activate with `.venv\Scripts\Activate.ps1` instead.
+Open http://localhost:8501.
+
+Runtime files (all included in the repository):
+
+- `app.py`
+- `similarity_v3.py`
+- `similarity.py` (imported by `similarity_v3.py`)
+- `data/player_seasons.csv`
+- `data/profile_stats/*.csv`
+- `requirements.txt`
+
+Run the deployment smoke test with `python3 smoke_test.py` from this folder,
+or `python3 "NBA vs WNBA/smoke_test.py"` from the repository root.
+See [DEPLOY_PLAN.md](DEPLOY_PLAN.md) for Community Cloud deployment settings.
+See [REVIEW.md](REVIEW.md) for tested flows and prioritized UI/model improvements.
 
 Search for a player, explore their closest cross-league matches, and inspect why the model considers them similar. Comparisons combine league-relative production, regression-adjusted statistics, shot selection, efficiency, and defensive box-score indicators.
 
@@ -87,41 +111,13 @@ Higher does not always mean better: a higher foul percentile means more fouls. P
 
 These indicators do not measure the full scope of defense, including matchup difficulty, positioning, switchability, rim deterrence, or defensive assignments.
 
-Getting started
-1. Clone the repository
-git clone <your-repository-url>
-cd <your-repository-folder>
-2. Create a virtual environment
-python -m venv .venv
-Activate it on macOS/Linux:
+## Refreshing data (optional)
 
-source .venv/bin/activate
-Or on Windows PowerShell:
-
-.venv\Scripts\Activate.ps1
-3. Install dependencies
-pip install --upgrade streamlit pandas numpy scikit-learn plotly requests Pillow nba_api
-Use a recent Streamlit version: the interface uses st.html, query parameters, keyed containers, and button icons.
-
-4. Prepare the data
-The app requires:
-
-data/player_seasons.csv
-If a prepared dataset is not already included, run:
-
-python make_player_seasons.py
-The CSV must match the input requirements of similarity_v3.py. The original basic-statistics prototype alone is not sufficient for the current model’s advanced and shooting-location features. Complete any data-enrichment steps required by your model before launching.
-
-For the additional player-profile tables, run:
-
-python download_profile_stats.py
-These profile datasets support the per-game, advanced, and season-total tabs. Some also supply additional defensive context.
-
-5. Launch the app
-streamlit run app.py
-Open the local URL printed in your terminal, usually:
-
-http://localhost:8501
+The prepared CSVs are committed, so no data download is needed to run or deploy.
+Run data collection/enrichment scripts locally only when intentionally refreshing
+seasons; NBA Stats may block requests from cloud hosts. The model requires the
+advanced and shot-location fields as well as basic statistics. Profile tables are
+created by `download_profile_stats.py`. Commit refreshed CSVs before redeploying.
 
 Using the app
 Search for a player.

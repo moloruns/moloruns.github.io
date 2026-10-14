@@ -424,7 +424,7 @@ def show_player_headshot(player):
     if image is not None:
         st.image(
             image,
-            use_container_width=True,
+            width="stretch",
         )
     else:
         st.markdown(
@@ -462,7 +462,7 @@ def player_card(player, label, key):
     if st.button(
         "View profile",
         key=key,
-        use_container_width=True,
+        width="stretch",
     ):
         open_profile(player)
 
@@ -513,7 +513,9 @@ def show_profile_table(player, kind):
         value = float(row[field])
 
         if field.endswith("_PCT") or field == "PIE":
-            record[field] = value * 100
+            # NBA Stats supplies turnover percentage on a 0–100 scale;
+            # the other displayed percentage fields are fractions.
+            record[field] = value if field == "TM_TOV_PCT" else value * 100
             column_config[field] = st.column_config.NumberColumn(
                 field,
                 format="%.1f%%",
@@ -543,7 +545,7 @@ def show_profile_table(player, kind):
     st.dataframe(
         pd.DataFrame([record]),
         hide_index=True,
-        use_container_width=True,
+        width="stretch",
         column_config=column_config,
     )
 
@@ -770,7 +772,7 @@ def render_defense_comparison(players, source, candidate, detail):
     st.dataframe(
         pd.DataFrame(rows),
         hide_index=True,
-        use_container_width=True,
+        width="stretch",
     )
 
     st.caption(
@@ -807,7 +809,7 @@ def render_defense_comparison(players, source, candidate, detail):
             ]
         ],
         hide_index=True,
-        use_container_width=True,
+        width="stretch",
     )
 
     st.info(
@@ -853,7 +855,7 @@ def render_inspection(players, profiles, source_index, candidate_index):
         st.dataframe(
             pd.DataFrame(emphasis_rows),
             hide_index=True,
-            use_container_width=True,
+            width="stretch",
         )
 
         pair_defensive_weight = (
@@ -897,7 +899,7 @@ def render_inspection(players, profiles, source_index, candidate_index):
     st.dataframe(
         pd.DataFrame(sample_rows),
         hide_index=True,
-        use_container_width=True,
+        width="stretch",
         column_config={
             "MPG": st.column_config.NumberColumn(format="%.1f"),
             "Estimated total minutes": st.column_config.NumberColumn(
@@ -939,7 +941,7 @@ def render_inspection(players, profiles, source_index, candidate_index):
                 ]
             ],
             hide_index=True,
-            use_container_width=True,
+            width="stretch",
             column_config={
                 "Allocated weight (%)": st.column_config.NumberColumn(
                     format="%.1f"
@@ -1037,7 +1039,7 @@ def render_inspection(players, profiles, source_index, candidate_index):
 
         st.plotly_chart(
             figure,
-            use_container_width=True,
+            width="stretch",
             key=f"shot_chart_{source_index}_{candidate_index}",
         )
 
@@ -1059,7 +1061,7 @@ def render_inspection(players, profiles, source_index, candidate_index):
         st.dataframe(
             pd.DataFrame(shot_rows),
             hide_index=True,
-            use_container_width=True,
+            width="stretch",
             column_config={
                 "Selected (%)": st.column_config.NumberColumn(
                     format="%.1f"
@@ -1106,7 +1108,7 @@ def render_inspection(players, profiles, source_index, candidate_index):
                 ]
             ],
             hide_index=True,
-            use_container_width=True,
+            width="stretch",
         )
 
         st.markdown("""
@@ -1452,7 +1454,7 @@ def main():
                             f"{subtitle}. "
                             f"Distance: {result['distance']:.3f}"
                         ),
-                        use_container_width=True,
+                        width="stretch",
                         on_click=choose_comparison,
                         args=(candidate_index, state_key, picker_key),
                     )
@@ -1464,7 +1466,7 @@ def main():
                         icon=":material/person:",
                         key=f"open_profile_button_{row_token}",
                         help=f"Open {result['PLAYER_NAME']}'s season profile",
-                        use_container_width=True,
+                        width="stretch",
                     ):
                         open_profile(players.loc[candidate_index])
 
@@ -1528,7 +1530,7 @@ def main():
                 selected_index,
                 active_index,
             ),
-            use_container_width=True,
+            width="stretch",
             key=f"radar_{selected_index}_{active_index}",
         )
 
