@@ -1,5 +1,30 @@
 # App review — October 14, 2026
 
+## Implemented follow-up
+
+The UI follow-up adds example searches and coverage, compact results beside the
+comparison (below it on phones), paired sample-size cards, a visible role filter,
+plain-language trait/difference summaries, a component overview and full-feature
+horizontal chart, an optional radar with short labels, shareable comparison URLs,
+named profile buttons, compact profile tables, and an accessible explanation of
+weighted squared difference. The methodology now describes v3 accurately; see
+[DATA_DICTIONARY.md](DATA_DICTIONARY.md) for units and missing-data behavior.
+
+An optional sensitivity panel reports the eight ±20% weight perturbations and a
+fixed-25%-defense baseline, with first-match and top-five stability. The production
+model, weights, and input data remain unchanged. Independent expert-label
+validation, game-level uncertainty estimates, and alternative statistical models
+remain research work, rather than changes to the live ranking.
+
+Verification: smoke and interaction tests pass. A fresh browser session restored a
+shared comparison, and Chrome checks covered all three charts and compact profile
+tables at desktop, 390-pixel, and 320-pixel widths, with no app exceptions. The
+public pre-update app also passed an anonymous Wilson–Davis search and profile-tab
+check. The new interface is a local preview until this commit is pushed.
+
+The original review below records the pre-change interface. Regression coverage
+for the follow-up lives in `smoke_test.py` and `ui_test.py`.
+
 The app works locally and its comparison explanations are unusually inspectable:
 feature weights, raw statistics, transformed values, and distance contributions are
 all available. The largest opportunities are a faster first impression, clearer

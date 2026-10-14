@@ -21,7 +21,7 @@ assert not at.exception, [e.value for e in at.exception]
 assert not at.error, [e.value for e in at.error]
 
 labels = [b.label for b in at.button if b.label]
-assert labels and "Anthony Davis" in labels[0], labels
+assert any("01 · Anthony Davis" in label for label in labels), labels
 
 # Exercise the ranked result's profile button and all three data tables.
 profile_button = next(
@@ -38,9 +38,13 @@ assert len(at.dataframe) == 3
 assert all(not table.value.empty for table in at.dataframe)
 
 # Fixed season fixtures catch mixed percentage units (8.3%, not 830%).
+advanced = at.dataframe[1].value.set_index('Statistic')['Value']
+assert advanced['Turnover %'] == '8.3%', advanced
+assert advanced['True shooting %'] == '58.8%', advanced
+at.toggle[0].set_value(False).run()
 advanced = at.dataframe[1].value.iloc[0]
-assert advanced["TM_TOV_PCT"] == 8.3, advanced
-assert abs(advanced["TS_PCT"] - 58.8) < 1e-9, advanced
+assert advanced['TM_TOV_PCT'] == 8.3, advanced
+assert abs(advanced['TS_PCT'] - 58.8) < 1e-9, advanced
 
 at.button[0].click().run()
 assert not at.exception, [e.value for e in at.exception]

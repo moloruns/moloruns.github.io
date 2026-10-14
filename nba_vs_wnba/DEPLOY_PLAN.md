@@ -17,15 +17,12 @@
   and the portfolio source link use the new path.
 - The failed build used Python **3.14.8**, not the tested **3.13**. This did not
   cause the path-parsing error, but the replacement deployment should select 3.13.
-- Before pushing the rename, delete the failed app in Community Cloud. Then push
-  the prepared commit and redeploy with `nba_vs_wnba/app.py` and Python **3.13**.
-  Streamlit recommends deleting the old deployment before changing its GitHub
-  coordinates to preserve access to app administration:
-  [entrypoint changes](https://docs.streamlit.io/deploy/streamlit-community-cloud/manage-your-app/rename-your-app),
-  [Python version changes](https://docs.streamlit.io/deploy/streamlit-community-cloud/manage-your-app/upgrade-python).
-- Phase 2 remains an owner login step. A public successful build is still pending.
-- Phase 3 remains pending a real, verified public URL. The README has a clear
-  placeholder; no speculative live link has been added to the portfolio.
+- The rename is deployed successfully at https://nbawnba.streamlit.app/.
+  The public landing page was verified in a fresh Chrome session without login.
+- Phase 3 now uses that URL in the portfolio and README. The UI follow-up is
+  prepared locally and must be pushed before it appears on Community Cloud.
+- Future changes to Python version or entrypoint still require deleting and
+  redeploying the app; ordinary application changes deploy from pushes to `main`.
 
 The original preparation checklist follows for reference; Phase 2 below uses the corrected path.
 

@@ -1,5 +1,3 @@
-import json
-
 from pathlib import Path
 
 from io import BytesIO
@@ -10,6 +8,11 @@ from PIL import Image
 import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
+
+from comparison_ui import (
+    SHORT_LABELS, STAT_NAMES, player_token, parse_comparison_query,
+    comparison_query, comparison_url, profile_chart, sensitivity_results,
+)
 
 from similarity_v3 import (
     MODEL_VERSION,
@@ -61,75 +64,20 @@ ADVANCED_FIELDS = [
 def apply_styles():
     st.html("""
     <style>
-    /* The joined player-button/profile-button control. */
-    [class*="st-key-comparison_cell_"]
-    [data-testid="stHorizontalBlock"] {
-        gap: 0 !important;
-        flex-wrap: nowrap !important;
-        align-items: stretch !important;
+    .block-container { max-width: 1480px; padding-top: 4rem; }
+    .st-key-player_pair [data-testid="stVerticalBlock"] { gap: 0.4rem; }
+    .st-key-workspace button[kind="primary"] { background: #0369a1; border-color: #0369a1; color: white; }
+    .st-key-player_pair [data-testid="stImage"] { max-width: 96px; }
+    .st-key-player_pair [data-testid="stImage"] img { border-radius: 12px; }
+    .st-key-workspace button:focus-visible { outline: 3px solid #0284c7; outline-offset: 3px; }
+    @media (max-width: 760px) {
+        .st-key-workspace > [data-testid="stLayoutWrapper"] > [data-testid="stHorizontalBlock"] { flex-direction: column-reverse; }
+        .st-key-player_pair > [data-testid="stLayoutWrapper"] > [data-testid="stHorizontalBlock"] { flex-wrap: nowrap; }
+        .st-key-player_pair > [data-testid="stLayoutWrapper"] > [data-testid="stHorizontalBlock"] > [data-testid="stColumn"] {
+            min-width: 0; flex: 1 1 0%;
+        }
     }
-
-    /* Let the main player button take all remaining space. */
-    [class*="st-key-comparison_cell_"]
-    [data-testid="stHorizontalBlock"]
-    > [data-testid="stColumn"]:first-child {
-        flex: 1 1 0% !important;
-        min-width: 0 !important;
-    }
-
-    /* Fixed-width square at the right edge. */
-    [class*="st-key-comparison_cell_"]
-    [data-testid="stHorizontalBlock"]
-    > [data-testid="stColumn"]:last-child {
-        flex: 0 0 48px !important;
-        width: 48px !important;
-        min-width: 48px !important;
-        max-width: 48px !important;
-    }
-
-    [class*="st-key-comparison_select_"] button {
-        width: 100% !important;
-        min-height: 48px !important;
-        border-radius: 9px 0 0 9px !important;
-        margin: 0 !important;
-        justify-content: flex-start !important;
-        padding-left: 16px !important;
-    }
-
-    [class*="st-key-comparison_select_"] button p {
-        text-align: left !important;
-    }
-
-    [class*="st-key-comparison_profile_"] button {
-        width: 48px !important;
-        min-width: 48px !important;
-        height: 48px !important;
-        min-height: 48px !important;
-        border-radius: 0 9px 9px 0 !important;
-        background-color: #cbd5e1 !important;
-        color: #0f172a !important;
-        border: 1px solid #94a3b8 !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-
-    [class*="st-key-comparison_profile_"] button * {
-        color: #0f172a !important;
-    }
-
-    [class*="st-key-comparison_profile_"] button:hover {
-        background-color: #f1f5f9 !important;
-        border-color: #38bdf8 !important;
-    }
-
-    [class*="st-key-comparison_profile_"] button:focus-visible {
-        outline: 3px solid #38bdf8 !important;
-        outline-offset: 2px;
-    }
-
+    .diagnostic-table-wrap { overflow-x: auto; }
     /* Diagnostic table. */
     .diagnostic-table {
         width: 100%;
@@ -212,6 +160,7 @@ def load_model(path, version, model_version):
 
 def open_profile(player):
     st.query_params.from_dict({
+        **st.session_state.get('comparison_query', {}),
         "view": "profile",
         "league": str(player["league"]),
         "player_id": str(int(player["PLAYER_ID"])),
@@ -221,7 +170,9 @@ def open_profile(player):
 
 
 def back_to_search():
-    st.query_params.clear()
+    query = {k: v for k, v in st.query_params.to_dict().items()
+             if k not in {'view', 'player_id', 'league', 'season'}}
+    st.query_params.from_dict(query or st.session_state.get('comparison_query', {}))
     st.rerun()
 
 
@@ -301,7 +252,9 @@ def render_difference_table(detail):
         tooltip_header,
     )
 
-    st.html(table_html)
+    st.html('<div class="diagnostic-table-wrap">' + table_html + '</div>')
+    with st.expander('What does weighted squared difference mean?'):
+        st.write(tooltip_text)
 
 
 # ============================================================
@@ -315,7 +268,7 @@ def radar_chart(players, profiles, left_index, right_index):
         pct=True,
     ) * 100
 
-    labels = [FEATURE_LABELS[feature] for feature in FEATURES]
+    labels = [SHORT_LABELS[feature] for feature in FEATURES]
     theta = labels + labels[:1]
 
     figure = go.Figure()
@@ -333,6 +286,7 @@ def radar_chart(players, profiles, left_index, right_index):
             [
                 format_feature(feature, player[feature]),
                 float(profiles.loc[index, feature]),
+                FEATURE_LABELS[feature],
             ]
             for feature in FEATURES
         ]
@@ -349,7 +303,7 @@ def radar_chart(players, profiles, left_index, right_index):
                 marker={"size": 5},
                 customdata=hover_data + hover_data[:1],
                 hovertemplate=(
-                    "<b>%{theta}</b><br>"
+                    "<b>%{customdata[2]}</b><br>"
                     "Model-profile percentile: %{r:.1f}<br>"
                     "Original statistic: %{customdata[0]}<br>"
                     "Model feature: %{customdata[1]:.2f}"
@@ -359,8 +313,8 @@ def radar_chart(players, profiles, left_index, right_index):
         )
 
     figure.update_layout(
-        height=550,
-        margin={"l": 75, "r": 75, "t": 35, "b": 75},
+        height=440,
+        margin={"l": 65, "r": 65, "t": 40, "b": 75},
         polar={
             "radialaxis": {
                 "visible": True,
@@ -446,32 +400,29 @@ def show_player_headshot(player):
         st.caption("Headshot unavailable")
 
 def player_card(player, label, key):
-    st.caption(label)
-
-    show_player_headshot(player)
-
-    st.subheader(player["PLAYER_NAME"])
-    st.caption(
-        f"{player['league']} · {player['season']} · {player['role']}"
-    )
-
-    st.metric("Points", f"{player['PTS']:.1f}")
-    st.metric("Rebounds", f"{player['REB']:.1f}")
-    st.metric("Assists", f"{player['AST']:.1f}")
-
-    if st.button(
-        "View profile",
-        key=key,
-        width="stretch",
-    ):
-        open_profile(player)
+    with st.container(border=True):
+        st.caption(label)
+        portrait, summary = st.columns([1, 3])
+        with portrait:
+            photo = get_player_headshot(player['league'], int(player['PLAYER_ID']))
+            if photo:
+                st.image(photo, width=96)
+            else:
+                st.caption('Photo unavailable')
+        with summary:
+            st.markdown(f"**{player['PLAYER_NAME']}**")
+            st.caption(f"{player['league']} · {player['season']} · {player['role']}")
+            st.markdown(f"**{player['PTS']:.1f}** PTS · **{player['REB']:.1f}** REB · **{player['AST']:.1f}** AST")
+            st.caption(f"Per game · {int(player['GP'])} games · {player['MIN']:.1f} MPG")
+        if st.button(f"View {player['PLAYER_NAME']}'s profile", key=key, width='stretch'):
+            open_profile(player)
 
 
 # ============================================================
 # PROFILE PAGES
 # ============================================================
 
-def show_profile_table(player, kind):
+def show_profile_table(player, kind, compact=False):
     path = PROFILE_DIR / (
         f"{player['league']}_{player['season']}_{kind}.csv"
     )
@@ -542,12 +493,17 @@ def show_profile_table(player, kind):
                 format="%.2f",
             )
 
-    st.dataframe(
-        pd.DataFrame([record]),
-        hide_index=True,
-        width="stretch",
-        column_config=column_config,
-    )
+    if compact:
+        formatted = []
+        for field, value in record.items():
+            if field.endswith('_PCT') or field == 'PIE':
+                value = f'{value:.1f}%'
+            elif isinstance(value, float):
+                value = f'{value:.2f}'
+            formatted.append({'Statistic': STAT_NAMES.get(field, field), 'Value': str(value)})
+        st.dataframe(pd.DataFrame(formatted), hide_index=True, width='stretch', height='auto')
+    else:
+        st.dataframe(pd.DataFrame([record]), hide_index=True, width='stretch', column_config=column_config)
 
     if kind == "advanced":
         st.caption(
@@ -599,6 +555,7 @@ def profile_page(players):
         "from the selected season."
     )
 
+    compact = st.toggle("Compact stat tables", value=True)
     basic_tab, advanced_tab, totals_tab = st.tabs([
         "Basic — per game",
         "Advanced",
@@ -606,13 +563,13 @@ def profile_page(players):
     ])
 
     with basic_tab:
-        show_profile_table(player, "basic")
+        show_profile_table(player, "basic", compact)
 
     with advanced_tab:
-        show_profile_table(player, "advanced")
+        show_profile_table(player, "advanced", compact)
 
     with totals_tab:
-        show_profile_table(player, "totals")
+        show_profile_table(player, "totals", compact)
 
 
 # ============================================================
@@ -1114,10 +1071,12 @@ def render_inspection(players, profiles, source_index, candidate_index):
         st.markdown("""
 **How the model values are constructed**
 
-- **Points, rebounds, assists:** 50% standardized league percentile,
+- **Points and assists:** 50% standardized league percentile,
   25% league z-score, and 25% standardized regression residual.
-- **Other production features and TS%:** 50% league z-score and
+- **Turnovers, usage, and TS%:** 50% league z-score and
   50% standardized regression residual.
+- **Rebounding percentages, steals/36, blocks/36:** 50% league z-score and 50% standardized league percentile.
+- **Regression:** ridge with role dummies, standardized minutes, and alpha 10.
 - **Shot selection:** attempt shares on a shared cross-league scale,
   with each league given equal aggregate influence when fitting it.
 - **Distance:** square root of the sum of weighted squared differences.
@@ -1128,442 +1087,245 @@ def render_inspection(players, profiles, source_index, candidate_index):
 # MAIN APP
 # ============================================================
 
+def select_example(index):
+    st.session_state['player_search_clean_v3'] = index
+
+
+def sync_comparison_url(query):
+    st.session_state['comparison_query'] = query
+    st.session_state['last_comparison_query'] = query
+    if st.query_params.to_dict() != query:
+        st.query_params.from_dict(query)
+
+
+def restore_comparison_url(players):
+    query = st.query_params.to_dict()
+    if query == st.session_state.get('last_comparison_query'):
+        return
+    st.session_state['last_comparison_query'] = query
+    try:
+        shared = parse_comparison_query(players, query)
+    except ValueError as exc:
+        st.warning(f'{exc} Choose a player below to start a new comparison.')
+        return
+    if shared is None:
+        return
+    source, against, filters = shared
+    st.session_state['player_search_clean_v3'] = source
+    st.session_state['remembered_player'] = source
+    target = 'NBA' if players.loc[source, 'league'] == 'WNBA' else 'WNBA'
+    saved = {
+        'number_of_results': filters['n'], 'same_role': filters['same_role'],
+        'min_games': filters['games'], 'min_mpg': filters['mpg'],
+        'min_total_minutes': filters['minutes'],
+    }
+    st.session_state.setdefault('saved_comparison_filters_v3', {})[target] = saved
+    for key, value in saved.items():
+        st.session_state[f'{key}_v3_{target}'] = value
+    # Restore explicit manual comparisons even when they fall outside the filters.
+    st.session_state['shared_candidate'] = (source, against)
+
+
+def match_explanation(detail):
+    gaps = (detail['Selected model value'] - detail['Counterpart model value']).abs()
+    closest = detail.loc[gaps.nsmallest(2).index, 'Feature'].str.lower().tolist()
+    components = detail.groupby('Component')['Contribution share'].sum().sort_values(ascending=False)
+    st.markdown('**Closest traits:** ' + ' and '.join(closest) + ', after the model’s adjustments.')
+    if components.sum() > 0:
+        st.markdown(
+            f"**Largest difference:** {components.index[0].lower()} accounts for "
+            f"{components.iloc[0]:.0%} of squared distance."
+        )
+    st.caption('Closest traits are relative to the other features in this pairing; they do not imply equal ability.')
+
+
+@st.cache_data(show_spinner=False, max_entries=256)
+def cached_counterparts(players, profiles, player_id, league, same_role, min_games, min_mpg, min_total_minutes, model_version):
+    return find_counterparts(players, profiles, player_id, league, n=len(players), same_role=same_role,
+                             min_games=min_games, min_mpg=min_mpg, min_total_minutes=min_total_minutes)
+
+
+@st.cache_data(show_spinner=False, max_entries=256)
+def cached_sensitivity(players, profiles, source_index, candidate_indices, model_version):
+    return sensitivity_results(players, profiles, source_index, players.loc[candidate_indices])
+
+
 def main():
     apply_styles()
-
     if not DATA_PATH.exists():
-        st.error("Run make_player_seasons.py before launching the app.")
+        st.error('The prepared player dataset is unavailable.')
         st.stop()
-
-    players, profiles = load_model(
-        str(DATA_PATH),
-        DATA_PATH.stat().st_mtime_ns,
-        MODEL_VERSION,
-    )
-
-    if st.query_params.get("view") == "profile":
+    players, profiles = load_model(str(DATA_PATH), DATA_PATH.stat().st_mtime_ns, MODEL_VERSION)
+    if st.query_params.get('view') == 'profile':
         profile_page(players)
         return
+    restore_comparison_url(players)
 
-    st.title("🏀 Cross-League Player Comps")
-    st.write(
-        "Search for a player to find their closest cross-league counterparts."
-    )
+    has_selection = st.session_state.get('player_search_clean_v3', st.session_state.get('remembered_player')) is not None
+    if has_selection:
+        st.subheader('NBA × WNBA Player Comps')
+    else:
+        st.caption('NBA × WNBA  /  A STUDY IN STATISTICAL RESEMBLANCE')
+        st.title('Find their cross-league counterpart.')
+        st.write('Explore who fills a similar statistical role in the other league — and what makes the match.')
+    coverage = [f'{league} {season} · {len(group)} players' for (league, season), group in players.groupby(['league', 'season'])]
+    st.caption('  |  '.join(coverage) + '  ·  Regular season')
 
-    options = players.sort_values(
-        ["PLAYER_NAME", "league", "season"]
-    ).index.tolist()
-
+    options = players.sort_values(['PLAYER_NAME', 'league', 'season']).index.tolist()
     def player_label(index):
-        player = players.loc[index]
-        return (
-            f"{player['PLAYER_NAME']} "
-            f"— {player['league']} ({player['season']})"
-        )
+        p = players.loc[index]
+        return f"{p['PLAYER_NAME']} — {p['league']} ({p['season']})"
 
-    remembered = st.session_state.get("remembered_player")
-
-    default_index = (
-        options.index(remembered)
-        if remembered in options
-        else None
-    )
-
+    remembered = st.session_state.get('remembered_player')
     selected_index = st.selectbox(
-        "Search for a player",
-        options=options,
-        format_func=player_label,
-        index=default_index,
-        placeholder="Type a player's name...",
-        key="player_search_clean_v3",
+        'Search for a player', options, format_func=player_label,
+        index=options.index(remembered) if remembered in options else None,
+        placeholder='Start with a name…', key='player_search_clean_v3',
     )
-
     if selected_index is None:
+        sync_comparison_url({})
+        st.markdown('**Start with a familiar player**')
+        for column, name in zip(st.columns(3), ["A'ja Wilson", 'Stephen Curry', 'Caitlin Clark']):
+            match = players.index[players['PLAYER_NAME'].eq(name)]
+            if len(match):
+                column.button(f'Try {name}', key=f'example_{int(match[0])}', width='stretch',
+                              on_click=select_example, args=(int(match[0]),))
+        st.info('Statistical resemblance is not equivalent ability, a player ranking, or a prediction of performance in another league.')
+        st.caption('Compare production, shooting tendencies, efficiency, and defensive box-score indicators. Every result can be inspected.')
         return
 
-    st.session_state["remembered_player"] = selected_index
-
+    st.session_state['remembered_player'] = selected_index
     selected = players.loc[selected_index]
-    target_league = "NBA" if selected["league"] == "WNBA" else "WNBA"
-
-    # These copies survive navigation to the profile page, where
-    # Streamlit temporarily removes the filter widgets.
-    all_saved_filters = st.session_state.setdefault(
-        "saved_comparison_filters_v3", {}
+    target_league = 'NBA' if selected['league'] == 'WNBA' else 'WNBA'
+    saved_filters = st.session_state.setdefault('saved_comparison_filters_v3', {}).get(target_league, {})
+    defaults = {'same_role': False, 'number_of_results': 5,
+                'min_games': 40 if target_league == 'NBA' else 20,
+                'min_mpg': 0.0, 'min_total_minutes': 0}
+    for name, default in defaults.items():
+        st.session_state.setdefault(f'{name}_v3_{target_league}', saved_filters.get(name, default))
+    same_role = st.checkbox(
+        'Only compare players in the same role',
+        key=f'same_role_v3_{target_league}',
+        help='Roles are Guard, Wing, or Big. This changes the candidate pool, not the distance formula.',
     )
-
-    saved_filters = all_saved_filters.get(target_league, {})
-
-    default_min_games = 40 if target_league == "NBA" else 20
-
-    with st.expander("Comparison settings and eligibility filters"):
-        number_of_results = st.slider(
-            "Number of comparisons",
-            min_value=1,
-            max_value=10,
-            value=int(saved_filters.get("number_of_results", 5)),
-            key=f"number_of_results_v3_{target_league}",
-        )
-
-        same_role = st.checkbox(
-            "Only compare players in the same role",
-            value=bool(saved_filters.get("same_role", False)),
-            key=f"same_role_v3_{target_league}",
-        )
-
-        st.markdown(f"#### Filter {target_league} counterparts")
-        st.caption(
-            "Filters change the candidate pool, not the similarity "
-            "formula or the searched player."
-        )
-
-        games_col, mpg_col, minutes_col = st.columns(3)
-
-        with games_col:
-            min_games = st.number_input(
-                "Minimum games played",
-                min_value=0,
-                value=int(saved_filters.get("min_games", default_min_games)),
-                step=1,
-                key=f"min_games_v3_{target_league}",
-                help=(
-                    "Defaults to 40 games for NBA counterparts "
-                    "and 20 games for WNBA counterparts."
-                ),
-            )
-
-        with mpg_col:
-            min_mpg = st.number_input(
-                "Minimum minutes per game",
-                min_value=0.0,
-                value=float(saved_filters.get("min_mpg", 0.0)),
-                step=1.0,
-                key=f"min_mpg_v3_{target_league}",
-                help="Playing opportunity, not a measure of player quality.",
-            )
-
-        with minutes_col:
-            min_total_minutes = st.number_input(
-                "Minimum estimated total minutes",
-                min_value=0,
-                value=int(saved_filters.get("min_total_minutes", 0)),
-                step=100,
-                key=f"min_total_minutes_v3_{target_league}",
-                help=(
-                    "Games played × rounded minutes per game. "
-                    "This approximates exact season minutes."
-                ),
-            )
-
-        st.caption(
-            "Zero adds no restriction. The model still requires at least "
-            "10 games, 10 MPG, approximately 200 total minutes, complete "
-            "statistics, and a role assignment."
-        )
-
-    all_saved_filters[target_league] = {
-        "number_of_results": int(number_of_results),
-        "same_role": bool(same_role),
-        "min_games": int(min_games),
-        "min_mpg": float(min_mpg),
-        "min_total_minutes": int(min_total_minutes),
+    with st.expander('Playing-time filters and result count'):
+        number_of_results = st.slider('Number of comparisons', 1, 10,
+                                      key=f'number_of_results_v3_{target_league}')
+        a, b, c = st.columns(3)
+        min_games = a.number_input('Minimum games played', min_value=0, max_value=1000,
+                                  key=f'min_games_v3_{target_league}')
+        min_mpg = b.number_input('Minimum minutes per game', min_value=0.0, max_value=100.0,
+                                step=1.0, key=f'min_mpg_v3_{target_league}')
+        min_total_minutes = c.number_input('Minimum estimated total minutes', min_value=0, max_value=100000,
+                                          step=100,
+                                          key=f'min_total_minutes_v3_{target_league}')
+        st.caption('These filters apply only to counterparts. Search eligibility requires 10 games, 10 MPG, about 200 total minutes, complete statistics, and a role. Total minutes are estimated as games × rounded MPG.')
+    st.session_state['saved_comparison_filters_v3'][target_league] = {
+        'number_of_results': number_of_results, 'same_role': same_role, 'min_games': min_games,
+        'min_mpg': min_mpg, 'min_total_minutes': min_total_minutes,
     }
-
-    results = find_counterparts(
-        df=players,
-        profiles=profiles,
-        player_id=selected["PLAYER_ID"],
-        league=selected["league"],
-        n=int(number_of_results),
-        same_role=bool(same_role),
-        min_games=int(min_games),
-        min_mpg=float(min_mpg),
-        min_total_minutes=float(min_total_minutes),
-    )
-
-    if results.empty:
-        st.info(
-            "No counterparts meet these settings. Lower the games/minutes "
-            "requirements or turn off the same-role restriction."
-        )
+    filters = {'n': number_of_results, 'same_role': same_role, 'games': min_games, 'mpg': min_mpg, 'minutes': min_total_minutes}
+    all_results = cached_counterparts(players, profiles, selected['PLAYER_ID'], selected['league'],
+                                     same_role, min_games, min_mpg, min_total_minutes, MODEL_VERSION)
+    if all_results.empty:
+        sync_comparison_url(comparison_query(selected, None, filters))
+        st.info('No counterparts meet these settings. Lower the games/minutes requirements or turn off the same-role restriction.')
         return
-
-    closest_index = results.index[0]
-
-    other_players = players[
-        players["league"] != selected["league"]
-    ].sort_values("PLAYER_NAME")
-
+    results = all_results.head(number_of_results)
+    state_key = f'comparison_choice_v3_{player_token(selected)}'
+    picker_key = f'comparison_picker_v3_{player_token(selected)}'
+    signature_key = f'filter_signature_{player_token(selected)}'
+    other_players = players[players['league'].ne(selected['league'])].sort_values('PLAYER_NAME')
     comparison_options = other_players.index.tolist()
+    signature = (same_role, min_games, min_mpg, min_total_minutes)
+    if state_key not in st.session_state or st.session_state[state_key] not in comparison_options:
+        st.session_state[state_key] = int(results.index[0])
+    # Changing pool filters selects the new top result, making role comparisons immediate.
+    if st.session_state.get(signature_key, signature) != signature:
+        st.session_state[state_key] = int(results.index[0])
+    st.session_state[signature_key] = signature
+    shared = st.session_state.pop('shared_candidate', None)
+    if shared and shared[0] == selected_index and shared[1] in comparison_options:
+        st.session_state[state_key] = shared[1]
+    st.session_state[picker_key] = st.session_state[state_key]
 
-    # Permanent comparison selection, separate from the temporary widget.
-    source_token = (
-        f"{selected['league']}_"
-        f"{int(selected['PLAYER_ID'])}_"
-        f"{selected['season']}"
-    )
+    with st.container(key='workspace'):
+        results_column, comparison_column = st.columns([1, 2.2], gap='large')
+        with results_column:
+            st.subheader('Closest matches')
+            st.caption(f"{len(all_results)} eligible {target_league} counterparts · {'Same role: ' + selected['role'] if same_role else 'All roles'}")
+            st.caption('Lower distance = closer statistical profile. It is not a similarity percentage.')
+            for rank, (candidate_index, result) in enumerate(results.iterrows(), 1):
+                candidate = players.loc[candidate_index]
+                with st.container(border=True):
+                    st.button(f"{rank:02d} · {result['PLAYER_NAME']}",
+                              key=f'select_comparison_button_{selected_index}_{candidate_index}',
+                              type='primary' if candidate_index == st.session_state[state_key] else 'secondary',
+                              width='stretch', on_click=choose_comparison,
+                              args=(candidate_index, state_key, picker_key))
+                    st.caption(f"{candidate['role']} · {int(candidate['GP'])} games · Distance {result['distance']:.3f}")
+            with st.expander('Choose any counterpart'):
+                st.selectbox('Currently comparing against', comparison_options, format_func=player_label,
+                             key=picker_key, on_change=comparison_picker_changed, args=(state_key, picker_key))
+                st.caption('Manual comparisons can include players outside the ranked list or its filters.')
 
-    state_key = f"comparison_choice_v3_{source_token}"
-    picker_key = f"comparison_picker_v3_{source_token}"
-    filter_key = f"comparison_filter_signature_v3_{source_token}"
-
-    if (
-        state_key not in st.session_state
-        or st.session_state[state_key] not in comparison_options
-    ):
-        st.session_state[state_key] = closest_index
-
-    filter_signature = (
-        bool(same_role),
-        int(min_games),
-        float(min_mpg),
-        float(min_total_minutes),
-    )
-
-    # Reset only if changed filters actually exclude the active player.
-    if st.session_state.get(filter_key) != filter_signature:
-        current = players.loc[st.session_state[state_key]]
-
-        passes_filters = (
-            float(current["GP"]) >= min_games
-            and float(current["MIN"]) >= min_mpg
-            and (
-                float(current["GP"]) * float(current["MIN"])
-                >= min_total_minutes
-            )
-            and (
-                not same_role
-                or current["role"] == selected["role"]
-            )
-        )
-
-        if not passes_filters:
-            st.session_state[state_key] = closest_index
-
-        st.session_state[filter_key] = filter_signature
-
-    active_index = st.session_state[state_key]
-
-    # Synchronize before the picker widget is rendered.
-    st.session_state[picker_key] = active_index
-
-    # --------------------------------------------------------
-    # JOINED COMPARISON CELLS
-    # --------------------------------------------------------
-
-    st.divider()
-    st.subheader("Player comparisons")
-    st.caption(
-        "Click the main part of a cell to update the comparison below. "
-        "Click the lighter person-icon square to open the player's profile."
-    )
-
-    for rank, (candidate_index, result) in enumerate(
-        results.iterrows(),
-        start=1,
-    ):
-        candidate = players.loc[candidate_index]
-        row_token = f"{selected_index}_{candidate_index}"
-        is_active = candidate_index == active_index
-
-        subtitle = (
-            f"{candidate['league']} · "
-            f"{candidate['season']} · "
-            f"{candidate['role']}"
-        )
-
-        # Quoted CSS strings for the secondary text and distance.
-        subtitle_css = json.dumps(subtitle, ensure_ascii=False)
-        distance_css = json.dumps(f"{result['distance']:.3f}")
-
-        background = "#142b40" if is_active else "#131820"
-        border_color = "#38bdf8" if is_active else "#39424e"
-
-        st.html(f"""
-        <style>
-        .st-key-comparison_select_{row_token} button {{
-            position: relative !important;
-            min-height: 88px !important;
-            height: 88px !important;
-            padding: 12px 130px 34px 20px !important;
-            justify-content: flex-start !important;
-            align-items: center !important;
-            background: {background} !important;
-            border-color: {border_color} !important;
-            color: #f1f5f9 !important;
-        }}
-
-        .st-key-comparison_select_{row_token} button p {{
-            font-size: 1.05rem !important;
-            text-align: left !important;
-        }}
-
-        .st-key-comparison_select_{row_token} button::after {{
-            content: {subtitle_css};
-            position: absolute;
-            left: 20px;
-            bottom: 14px;
-            font-size: 0.80rem;
-            font-weight: 400;
-            color: #a8b5c7;
-            pointer-events: none;
-        }}
-
-        .st-key-comparison_select_{row_token} button::before {{
-            content: "DISTANCE\\A" {distance_css};
-            white-space: pre;
-            position: absolute;
-            right: 20px;
-            top: 23px;
-            text-align: right;
-            font-size: 0.82rem;
-            font-weight: 500;
-            line-height: 1.6;
-            color: #cbd5e1;
-            pointer-events: none;
-        }}
-
-        .st-key-comparison_select_{row_token} button:hover {{
-            background: #1b2a3b !important;
-            border-color: #7dd3fc !important;
-        }}
-
-        .st-key-comparison_profile_{row_token} button {{
-            height: 88px !important;
-            min-height: 88px !important;
-            background: #dbe4ee !important;
-        }}
-        </style>
-        """)
-
-        with st.container(key=f"comparison_cell_{row_token}"):
-            main_cell, icon_cell = st.columns(
-                [12, 1],
-                gap="small",
-                vertical_alignment="center",
-            )
-
-            with main_cell:
-                with st.container(key=f"comparison_select_{row_token}"):
-                    st.button(
-                        f"{rank:02d} · **{result['PLAYER_NAME']}**",
-                        key=f"select_comparison_button_{row_token}",
-                        type="secondary",
-                        help=(
-                            f"Compare with {result['PLAYER_NAME']}. "
-                            f"{subtitle}. "
-                            f"Distance: {result['distance']:.3f}"
-                        ),
-                        width="stretch",
-                        on_click=choose_comparison,
-                        args=(candidate_index, state_key, picker_key),
-                    )
-
-            with icon_cell:
-                with st.container(key=f"comparison_profile_{row_token}"):
-                    if st.button(
-                        "",
-                        icon=":material/person:",
-                        key=f"open_profile_button_{row_token}",
-                        help=f"Open {result['PLAYER_NAME']}'s season profile",
-                        width="stretch",
-                    ):
-                        open_profile(players.loc[candidate_index])
-
-    # --------------------------------------------------------
-    # OPTIONAL MANUAL COUNTERPART SELECTION
-    # --------------------------------------------------------
+        active_index = st.session_state[state_key]
+        active_player = players.loc[active_index]
+        detail, distance = comparison_breakdown(players, profiles, selected_index, active_index)
+        query = comparison_query(selected, active_player, filters)
+        sync_comparison_url(query)
+        with comparison_column:
+            st.subheader(f"{selected['PLAYER_NAME']} vs. {active_player['PLAYER_NAME']}")
+            st.caption(f'Distance {distance:.3f} · Statistical resemblance, not equal ability.')
+            if active_index not in results.index:
+                st.info('This manual comparison is outside the displayed ranked list. Your filters still apply to the list.')
+            with st.container(key='player_pair'):
+                left, right = st.columns(2)
+                with left:
+                    player_card(selected, 'SEARCHED PLAYER', 'searched_player_profile')
+                with right:
+                    player_card(active_player, 'COUNTERPART', f'open_profile_button_{selected_index}_{active_index}')
+            low_samples = [p for p in [selected, active_player] if p['GP'] < (40 if p['league'] == 'NBA' else 20)]
+            if low_samples:
+                st.warning('Limited sample: ' + '; '.join(f"{p['PLAYER_NAME']} has {int(p['GP'])} games" for p in low_samples)
+                           + '. Search and manual selection allow smaller samples than the default counterpart filters.')
+            chart_view = st.radio('Profile view', ['Overview', 'All features', 'Radar'], horizontal=True, key='profile_view')
+            if chart_view == 'Radar':
+                figure = radar_chart(players, profiles, selected_index, active_index)
+            else:
+                figure = profile_chart(players, profiles, selected_index, active_index, overview=chart_view == 'Overview')
+            st.plotly_chart(figure, width='stretch', config={'displayModeBar': False})
+            st.caption('Display-only percentiles across eligible model profiles. Overview averages the feature percentiles in each component; it is not a component rating. Weights are not shown, and higher is not always better.')
+            with st.container(border=True):
+                match_explanation(detail)
+            with st.expander('Share this comparison'):
+                st.write('Copy this link to reopen both players, role policy, and playing-time filters.')
+                st.code(comparison_url(query), language=None, wrap_lines=True)
 
     st.divider()
-
-    st.selectbox(
-        "Currently comparing against",
-        options=comparison_options,
-        format_func=player_label,
-        key=picker_key,
-        on_change=comparison_picker_changed,
-        args=(state_key, picker_key),
-        help=(
-            "This selector also allows inspection of model-eligible "
-            "players outside your filtered ranked results."
-        ),
-    )
-
-    active_index = st.session_state[state_key]
-    active_player = players.loc[active_index]
-
-    _, active_distance = comparison_breakdown(
-        players,
-        profiles,
-        selected_index,
-        active_index,
-    )
-
-    if active_index not in results.index:
-        st.caption(
-            "This manually selected player is outside the displayed "
-            "ranked list. The list follows your filters and result count."
-        )
-
-    # --------------------------------------------------------
-    # ACTIVE RADAR
-    # --------------------------------------------------------
-
-    st.subheader(
-        f"{selected['PLAYER_NAME']} vs. {active_player['PLAYER_NAME']}"
-    )
-
-    left, middle, right = st.columns([1, 2.6, 1])
-
-    with left:
-        player_card(
-            selected,
-            "Searched player",
-            "searched_player_profile",
-        )
-
-    with middle:
-        st.plotly_chart(
-            radar_chart(
-                players,
-                profiles,
-                selected_index,
-                active_index,
-            ),
-            width="stretch",
-            key=f"radar_{selected_index}_{active_index}",
-        )
-
-    with right:
-        player_card(
-            active_player,
-            "Selected counterpart",
-            "active_counterpart_profile",
-        )
-        st.caption(f"Distance: {active_distance:.3f}")
-
-        st.caption(
-        "Radar values are display-only percentiles of model features "
-        "across the combined eligible player pool. Production and "
-        "efficiency are league-adjusted; shot-selection features use "
-        "a shared cross-league scale. The radar does not visually "
-        "apply feature weights, and larger values do not necessarily "
-        "indicate better performance."
-    )
-
-    # --------------------------------------------------------
-    # ACTIVE COMPARISON EXPLANATION
-    # --------------------------------------------------------
-
-    st.divider()
-
-    render_inspection(
-        players,
-        profiles,
-        selected_index,
-        active_index,
-    )
+    with st.expander('Explore the match in detail'):
+        render_inspection(players, profiles, selected_index, active_index)
+    with st.expander('How stable is this match?'):
+        st.write('Explore how the ranking responds to small changes in the model’s assumptions.')
+        if st.checkbox('Run weight-sensitivity check', key='show_sensitivity'):
+            base_top, experiments = cached_sensitivity(players, profiles, selected_index, all_results.index.tolist(), MODEL_VERSION)
+            retained = int(experiments.iloc[:8]['First match'].eq(base_top).sum())
+            st.markdown(f'**{base_top} stays first in {retained} of 8 weight variations.**')
+            st.dataframe(experiments, hide_index=True, width='stretch')
+            st.caption('Each variation scales one component by ±20% and renormalizes all pair weights. The additional baseline fixes defense at 25%. The candidate pool and transformed profiles stay fixed. Top-five overlap compares each experiment with the current model. This is sensitivity, not a confidence interval or validated accuracy; it does not change the matches above.')
+    with st.expander('Methodology and limitations'):
+        st.markdown('''
+- **Production:** points, assists, turnovers, usage, and offensive rebound percentage.
+- **Shooting:** four shot-location shares plus free-throw attempts / field-goal attempts.
+- **Efficiency:** true shooting percentage. **Defense:** steals and blocks per 36, and defensive rebound percentage.
+- Points and assists blend standardized league percentiles (50%), league z-scores (25%), and standardized ridge residuals (25%). Turnovers, usage, and true shooting blend z-scores and residuals equally. Ridge uses role dummies and standardized minutes, with alpha 10.
+- Rebounding percentages, steals, and blocks blend league z-scores and standardized percentiles equally. Shooting shares use a common scale fitted with equal aggregate weight per league.
+- The four components begin at 25% each; defense can rise to 30%. These are assumptions, not learned measures of importance. Correlated features can count similar traits more than once.
+- Per-game production and per-36 defense do not fully control pace or opportunity. Size, play types, off-ball movement, and defensive assignments are absent. A nearest match may still be very different.
+- Rankings have not been independently validated against expert labels. Game-level data would be needed to estimate sampling uncertainty. The sensitivity check is a first diagnostic, not evidence of accuracy.
+        ''')
+        st.link_button('NBA Stats glossary', 'https://www.nba.com/stats/help/glossary')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
