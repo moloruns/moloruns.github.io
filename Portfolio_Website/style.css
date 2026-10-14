@@ -92,6 +92,21 @@ nav.site-nav a:hover {
 }
 
 /* ---------- Hero / header ---------- */
+header.hero {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+header.hero .headshot {
+    width: 112px;
+    height: 112px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 1px solid var(--rule);
+    object-fit: cover;
+}
+
 header.hero h1 {
     font-family: var(--serif);
     font-weight: 400;
@@ -203,5 +218,12 @@ footer .footer-meta {
     }
     nav.site-nav ul {
         gap: 1.25rem;
+    }
+    header.hero {
+        gap: 1rem;
+    }
+    header.hero .headshot {
+        width: 84px;
+        height: 84px;
     }
 }
