@@ -8,7 +8,7 @@ An interactive Python app for finding statistical counterparts between NBA and W
 Use Python 3.13. From the repository root:
 
 ```sh
-cd "NBA vs WNBA"
+cd nba_vs_wnba
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -28,7 +28,7 @@ Runtime files (all included in the repository):
 - `requirements.txt`
 
 Run the deployment smoke test with `python3 smoke_test.py` from this folder,
-or `python3 "NBA vs WNBA/smoke_test.py"` from the repository root.
+or `python3 nba_vs_wnba/smoke_test.py` from the repository root.
 See [DEPLOY_PLAN.md](DEPLOY_PLAN.md) for Community Cloud deployment settings.
 See [REVIEW.md](REVIEW.md) for tested flows and prioritized UI/model improvements.
 

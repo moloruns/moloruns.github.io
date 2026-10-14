@@ -11,12 +11,23 @@
   not be multiplied by 100. The model and data are unchanged.
 - Local AppTest and Chrome checks are documented in [REVIEW.md](REVIEW.md), along
   with model sensitivity observations and UI recommendations.
-- Phase 2 remains an owner login step. Deploy the existing spaced path first;
-  no folder rename has been needed for local execution.
+- The first cloud build failed during dependency installation: the installer split
+  `NBA vs WNBA/requirements.txt` and tried to install `WNBA/requirements.txt`.
+  The folder-name fallback is now applied locally: `nba_vs_wnba/`. README commands
+  and the portfolio source link use the new path.
+- The failed build used Python **3.14.8**, not the tested **3.13**. This did not
+  cause the path-parsing error, but the replacement deployment should select 3.13.
+- Before pushing the rename, delete the failed app in Community Cloud. Then push
+  the prepared commit and redeploy with `nba_vs_wnba/app.py` and Python **3.13**.
+  Streamlit recommends deleting the old deployment before changing its GitHub
+  coordinates to preserve access to app administration:
+  [entrypoint changes](https://docs.streamlit.io/deploy/streamlit-community-cloud/manage-your-app/rename-your-app),
+  [Python version changes](https://docs.streamlit.io/deploy/streamlit-community-cloud/manage-your-app/upgrade-python).
+- Phase 2 remains an owner login step. A public successful build is still pending.
 - Phase 3 remains pending a real, verified public URL. The README has a clear
   placeholder; no speculative live link has been added to the portfolio.
 
-The original deployment instructions follow.
+The original preparation checklist follows for reference; Phase 2 below uses the corrected path.
 
 ## Goal
 
@@ -52,7 +63,7 @@ Use **Streamlit Community Cloud** (free; deploys straight from this GitHub repo)
 cannot run Python. Relevant platform rules (from docs.streamlit.io):
 
 - The entrypoint can be in a subdirectory. `requirements.txt` is looked up next to the
-  entrypoint first, then at the repo root. Keep it in `NBA vs WNBA/`; there is no root
+  entrypoint first, then at the repo root. Keep it in `nba_vs_wnba/`; there is no root
   `requirements.txt` to conflict with it.
 - `.streamlit/config.toml`, if used, must be at the **repo root**, not in this folder.
 - Apps sleep after **12 hours without traffic**. Any visitor can wake one with a button on the
@@ -111,7 +122,7 @@ model, feature weights, `MODEL_VERSION`, or anything under `data/`.
 6. **Fix the README's run instructions.** Replace the "TO ACCESS THE APP, DOWNLOAD THESE
    FILES/FOLDERS" block at the top of `README.md` with:
    - a "Live app" line (placeholder until Phase 3 fills in the URL);
-   - "Run locally": `cd "NBA vs WNBA"`, `pip install -r requirements.txt`,
+   - "Run locally": `cd nba_vs_wnba`, `pip install -r requirements.txt`,
      `streamlit run app.py`, then open http://localhost:8501;
    - the corrected runtime file list, including `similarity.py`.
 7. **Commit** with a clear message and push to `main` once the smoke test passes.
@@ -119,14 +130,18 @@ model, feature weights, `MODEL_VERSION`, or anything under `data/`.
 ## Phase 2: deploy (the repo owner does this; it needs their GitHub login)
 
 1. Go to https://share.streamlit.io and sign in with the GitHub account `moloruns`.
+   Delete the failed app before pushing the folder rename. In GitHub Desktop,
+   push the prepared commit to `main` after deletion. Keep the current subdomain
+   if you want to reuse it for the replacement deployment.
 2. Click **Create app**, then **Deploy a public app from GitHub**:
    - Repository: `moloruns/moloruns.github.io`
    - Branch: `main`
-   - Main file path: `NBA vs WNBA/app.py`
+   - Main file path: `nba_vs_wnba/app.py`
    - App URL: choose a readable subdomain, e.g. `nba-wnba-comps` → `https://nba-wnba-comps.streamlit.app`
    - Advanced settings → Python version: **3.13** (matches the tested environment)
 3. Deploy, wait for the build, then open the URL in a private/incognito window and search a player.
-4. If the build fails on the path, go back to Phase 1 step 5.
+4. If the build still fails, inspect the new log; it should reference
+   `nba_vs_wnba/requirements.txt` and Python 3.13, without the old spaced path.
 
 ## Phase 3: link it from the portfolio (agent, after the URL exists)
 
@@ -134,7 +149,7 @@ model, feature weights, `MODEL_VERSION`, or anything under `data/`.
    "View code" link and add a live link after it, following the PokeJam and LeBron entries:
 
    ```html
-   <a href="https://github.com/moloruns/moloruns.github.io/tree/main/NBA%20vs%20WNBA" target="_blank">View code</a>
+   <a href="https://github.com/moloruns/moloruns.github.io/tree/main/nba_vs_wnba" target="_blank">View code</a>
    <br>
    <a href="https://<subdomain>.streamlit.app" target="_blank" rel="noopener noreferrer">Open the app</a>
    ```
