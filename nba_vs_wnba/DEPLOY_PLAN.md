@@ -20,7 +20,8 @@
 - The rename is deployed successfully at https://nbawnba.streamlit.app/.
   The public landing page was verified in a fresh Chrome session without login.
 - Phase 3 now uses that URL in the portfolio and README. The UI follow-up is
-  prepared locally and must be pushed before it appears on Community Cloud.
+  deployed and verified publicly. The October 17 model lab is prepared locally
+  and must be pushed before it appears on Community Cloud.
 - Future changes to Python version or entrypoint still require deleting and
   redeploying the app; ordinary application changes deploy from pushes to `main`.
 

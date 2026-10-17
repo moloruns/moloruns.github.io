@@ -1,26 +1,36 @@
 # App review — October 14, 2026
 
-## Implemented follow-up
+## Current status — October 17, 2026
 
-The UI follow-up adds example searches and coverage, compact results beside the
-comparison (below it on phones), paired sample-size cards, a visible role filter,
-plain-language trait/difference summaries, a component overview and full-feature
-horizontal chart, an optional radar with short labels, shareable comparison URLs,
-named profile buttons, compact profile tables, and an accessible explanation of
-weighted squared difference. The methodology now describes v3 accurately; see
-[DATA_DICTIONARY.md](DATA_DICTIONARY.md) for units and missing-data behavior.
+- [x] Deployment and original UI improvements: examples, coverage, mobile charts,
+  paired cards, role filtering, explanations, share links, and readable profiles.
+- [x] Public updated UI verified in anonymous Chrome: example search, comparison,
+  sharing, no login prompt or app exception.
+- [x] Twelve-model research lab: simpler raw/rate baselines, true per-possession
+  inputs, equal component weights, covariance adjustment, Hellinger shooting,
+  and four component ablations. Main production rankings are unchanged.
+- [x] Official game collection: NBA 2024–25 and WNBA 2025 logs, source metadata,
+  and complete game-count coverage for all 565 eligible players.
+- [x] Reproducible game-resampling uncertainty for a separately labeled nine-feature
+  rate baseline, with frequencies, rank ranges, and source-statistic ranges.
+- [x] Offline audit across all 565 source players and downloadable research outputs.
+- [x] Blinded human-review workflow, frozen development/holdout split, CSV import,
+  grade validation, judged-pool metrics, and reviewer disagreement summary.
+- [ ] Actual independent expert judgments and evaluation results: reviewers have
+  not supplied real ratings. The app cannot create independent human evidence.
+- [ ] Full-v3 sampling uncertainty: basic game logs do not contain every required
+  game-level usage, rebounding-percentage, and shot-zone input. The implemented
+  bootstrap must not be interpreted as uncertainty for the full v3 ranking.
 
-An optional sensitivity panel reports the eight ±20% weight perturbations and a
-fixed-25%-defense baseline, with first-match and top-five stability. The production
-model, weights, and input data remain unchanged. Independent expert-label
-validation, game-level uncertainty estimates, and alternative statistical models
-remain research work, rather than changes to the live ranking.
+Open a player comparison, expand **Model lab · experimental comparisons**, then
+turn on **Enable model lab**. See [research/README.md](research/README.md) for
+methods, measured results, data provenance, and reproduction commands. New research
+features are local until their commit is pushed. Previous UI features are public.
 
-Verification: smoke and interaction tests pass. A fresh browser session restored a
-shared comparison, and Chrome checks covered all three charts and compact profile
-tables at desktop, 390-pixel, and 320-pixel widths, with no app exceptions. The
-public pre-update app also passed an anonymous Wilson–Davis search and profile-tab
-check. The new interface is a local preview until this commit is pushed.
+The production model, its weights, and its existing input CSVs are unchanged.
+New game data and experiment outputs live separately under `research/`. Smoke,
+interaction, and numerical research checks cover these additions; the human-label
+fixtures in tests are explicitly artificial and never presented as real ratings.
 
 The original review below records the pre-change interface. Regression coverage
 for the follow-up lives in `smoke_test.py` and `ui_test.py`.
@@ -31,7 +41,9 @@ all available. The largest opportunities are a faster first impression, clearer
 interpretation of a match, and evidence that the rankings survive reasonable changes
 to the modeling assumptions.
 
-## What was tested
+## Original October 14 review (historical)
+
+### What was tested
 
 - Python 3.13 with the pinned dependencies; smoke test launched from the repository
   root and project folder.

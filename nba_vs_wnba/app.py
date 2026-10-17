@@ -9,6 +9,8 @@ import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
 
+from research_ui import render_lab, render_blind_review
+
 from comparison_ui import (
     SHORT_LABELS, STAT_NAMES, player_token, parse_comparison_query,
     comparison_query, comparison_url, profile_chart, sensitivity_results,
@@ -1159,6 +1161,9 @@ def main():
     if st.query_params.get('view') == 'profile':
         profile_page(players)
         return
+    if st.query_params.get('view') == 'review':
+        render_blind_review(players)
+        return
     restore_comparison_url(players)
 
     has_selection = st.session_state.get('player_search_clean_v3', st.session_state.get('remembered_player')) is not None
@@ -1313,6 +1318,8 @@ def main():
             st.markdown(f'**{base_top} stays first in {retained} of 8 weight variations.**')
             st.dataframe(experiments, hide_index=True, width='stretch')
             st.caption('Each variation scales one component by ±20% and renormalizes all pair weights. The additional baseline fixes defense at 25%. The candidate pool and transformed profiles stay fixed. Top-five overlap compares each experiment with the current model. This is sensitivity, not a confidence interval or validated accuracy; it does not change the matches above.')
+    with st.expander('Model lab · experimental comparisons'):
+        render_lab(players, profiles, selected_index, all_results.index.tolist())
     with st.expander('Methodology and limitations'):
         st.markdown('''
 - **Production:** points, assists, turnovers, usage, and offensive rebound percentage.
@@ -1322,7 +1329,7 @@ def main():
 - Rebounding percentages, steals, and blocks blend league z-scores and standardized percentiles equally. Shooting shares use a common scale fitted with equal aggregate weight per league.
 - The four components begin at 25% each; defense can rise to 30%. These are assumptions, not learned measures of importance. Correlated features can count similar traits more than once.
 - Per-game production and per-36 defense do not fully control pace or opportunity. Size, play types, off-ball movement, and defensive assignments are absent. A nearest match may still be very different.
-- Rankings have not been independently validated against expert labels. Game-level data would be needed to estimate sampling uncertainty. The sensitivity check is a first diagnostic, not evidence of accuracy.
+- Rankings have not been independently validated against expert labels. The model lab resamples real games for a separate rate baseline; it does not estimate uncertainty for full v3. Sensitivity and resampling are diagnostics, not evidence of accuracy.
         ''')
         st.link_button('NBA Stats glossary', 'https://www.nba.com/stats/help/glossary')
 

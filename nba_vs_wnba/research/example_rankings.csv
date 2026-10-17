@@ -1,0 +1,301 @@
+Source,Model,Rank,Match,Distance
+LeBron James,Current model,1,Sabrina Ionescu,0.7645080551672836
+LeBron James,Current model,2,Kelsey Plum,0.8743189439364301
+LeBron James,Current model,3,Nneka Ogwumike,0.9066171768582195
+LeBron James,Current model,4,Jackie Young,0.960393075630619
+LeBron James,Current model,5,Jonquel Jones,0.9757178881947934
+LeBron James,Fixed components,1,Sabrina Ionescu,0.7645080551672836
+LeBron James,Fixed components,2,Kelsey Plum,0.8743189439364301
+LeBron James,Fixed components,3,Nneka Ogwumike,0.9066171768582195
+LeBron James,Fixed components,4,Jackie Young,0.960393075630619
+LeBron James,Fixed components,5,Jonquel Jones,0.9757178881947934
+LeBron James,League z-score,1,Sabrina Ionescu,0.7639596808647064
+LeBron James,League z-score,2,Kelsey Plum,0.9829018193670064
+LeBron James,League z-score,3,Skylar Diggins,1.0054032833729625
+LeBron James,League z-score,4,Marina Mabrey,1.0288108032476497
+LeBron James,League z-score,5,Paige Bueckers,1.0354290488688436
+LeBron James,Per-36 baseline,1,Sabrina Ionescu,0.7588062411980427
+LeBron James,Per-36 baseline,2,Skylar Diggins,1.0247592179709142
+LeBron James,Per-36 baseline,3,Marina Mabrey,1.0267294384119714
+LeBron James,Per-36 baseline,4,Jackie Young,1.0368877383183044
+LeBron James,Per-36 baseline,5,Kelsey Plum,1.0411012325374351
+LeBron James,Per-100 possessions,1,Sabrina Ionescu,0.7608910848362558
+LeBron James,Per-100 possessions,2,Marina Mabrey,1.0136152237360285
+LeBron James,Per-100 possessions,3,Skylar Diggins,1.0296553663261092
+LeBron James,Per-100 possessions,4,Jackie Young,1.0306089867940973
+LeBron James,Per-100 possessions,5,Kelsey Plum,1.0427227863448687
+LeBron James,Game-rate baseline,1,Sabrina Ionescu,0.7479825798034998
+LeBron James,Game-rate baseline,2,Jackie Young,0.9087426160227869
+LeBron James,Game-rate baseline,3,Kelsey Plum,0.9155063996297547
+LeBron James,Game-rate baseline,4,Alyssa Thomas,1.0186693658381605
+LeBron James,Game-rate baseline,5,Chelsea Gray,1.039751808902671
+LeBron James,Covariance adjusted,1,Marina Mabrey,0.7596960504510816
+LeBron James,Covariance adjusted,2,Jonquel Jones,0.8503388952833631
+LeBron James,Covariance adjusted,3,Myisha Hines-Allen,0.8722131165924365
+LeBron James,Covariance adjusted,4,Sabrina Ionescu,0.933218962923727
+LeBron James,Covariance adjusted,5,Natasha Cloud,1.038469259675404
+LeBron James,Hellinger shooting,1,Sabrina Ionescu,0.7142403343370419
+LeBron James,Hellinger shooting,2,Kelsey Plum,0.7823820244673272
+LeBron James,Hellinger shooting,3,Alyssa Thomas,0.7981131741142682
+LeBron James,Hellinger shooting,4,Jackie Young,0.8650055040330515
+LeBron James,Hellinger shooting,5,Nneka Ogwumike,0.8875015678341618
+LeBron James,Without offensive production,1,Nneka Ogwumike,0.4077805085237139
+LeBron James,Without offensive production,2,Li Yueru,0.5265400143927503
+LeBron James,Without offensive production,3,DeWanna Bonner,0.5331345998926567
+LeBron James,Without offensive production,4,Myisha Hines-Allen,0.6169822181305744
+LeBron James,Without offensive production,5,Maddy Siegrist,0.6366093227046984
+LeBron James,Without shot selection,1,Sabrina Ionescu,0.819207972295861
+LeBron James,Without shot selection,2,Kelsey Plum,0.8430646752477495
+LeBron James,Without shot selection,3,Alyssa Thomas,0.8635637747154022
+LeBron James,Without shot selection,4,Veronica Burton,0.9836444784016927
+LeBron James,Without shot selection,5,Jackie Young,0.9953924453089785
+LeBron James,Without efficiency,1,Sabrina Ionescu,0.797171882214908
+LeBron James,Without efficiency,2,Marina Mabrey,0.8674962545666961
+LeBron James,Without efficiency,3,Kelsey Plum,1.0095635440715967
+LeBron James,Without efficiency,4,Nneka Ogwumike,1.0216462593752555
+LeBron James,Without efficiency,5,Jackie Young,1.0694874818780609
+LeBron James,Without defense,1,Sabrina Ionescu,0.6907311306813744
+LeBron James,Without defense,2,Kelsey Plum,0.7543078620404714
+LeBron James,Without defense,3,Skylar Diggins,0.8817689641637155
+LeBron James,Without defense,4,Jackie Young,0.8997376442913945
+LeBron James,Without defense,5,Ariel Atkins,0.958513603104243
+Nikola Jokić,Current model,1,Alyssa Thomas,0.7640257611101082
+Nikola Jokić,Current model,2,Dearica Hamby,0.8805691830784856
+Nikola Jokić,Current model,3,Napheesa Collier,0.9155418151195774
+Nikola Jokić,Current model,4,Jackie Young,0.9363867366521519
+Nikola Jokić,Current model,5,Aliyah Boston,0.9784108326303775
+Nikola Jokić,Fixed components,1,Alyssa Thomas,0.7640257611101082
+Nikola Jokić,Fixed components,2,Dearica Hamby,0.8805691830784856
+Nikola Jokić,Fixed components,3,Napheesa Collier,0.9155418151195774
+Nikola Jokić,Fixed components,4,Jackie Young,0.9363867366521519
+Nikola Jokić,Fixed components,5,Aliyah Boston,0.9784108326303775
+Nikola Jokić,League z-score,1,Alyssa Thomas,0.7438120506544809
+Nikola Jokić,League z-score,2,Napheesa Collier,1.2474947014789683
+Nikola Jokić,League z-score,3,Jackie Young,1.2893534834132199
+Nikola Jokić,League z-score,4,Sabrina Ionescu,1.3172525610456842
+Nikola Jokić,League z-score,5,Breanna Stewart,1.3649444456445974
+Nikola Jokić,Per-36 baseline,1,Alyssa Thomas,0.7857637395485434
+Nikola Jokić,Per-36 baseline,2,Napheesa Collier,1.1723057187182697
+Nikola Jokić,Per-36 baseline,3,Jackie Young,1.1835773912561327
+Nikola Jokić,Per-36 baseline,4,Sabrina Ionescu,1.2468298475969264
+Nikola Jokić,Per-36 baseline,5,Breanna Stewart,1.2511337298334837
+Nikola Jokić,Per-100 possessions,1,Alyssa Thomas,0.7785788402158633
+Nikola Jokić,Per-100 possessions,2,Napheesa Collier,1.1513212376330033
+Nikola Jokić,Per-100 possessions,3,Jackie Young,1.1559408801660254
+Nikola Jokić,Per-100 possessions,4,Aliyah Boston,1.2275847660371602
+Nikola Jokić,Per-100 possessions,5,Breanna Stewart,1.2320998469814488
+Nikola Jokić,Game-rate baseline,1,Alyssa Thomas,0.8367463712118409
+Nikola Jokić,Game-rate baseline,2,Dearica Hamby,1.16804578464663
+Nikola Jokić,Game-rate baseline,3,Sabrina Ionescu,1.2284634739608635
+Nikola Jokić,Game-rate baseline,4,Jackie Young,1.2294208436271497
+Nikola Jokić,Game-rate baseline,5,Paige Bueckers,1.3445023168694035
+Nikola Jokić,Covariance adjusted,1,Jackie Young,0.9109751209770558
+Nikola Jokić,Covariance adjusted,2,Alyssa Thomas,0.9499874084736091
+Nikola Jokić,Covariance adjusted,3,Sabrina Ionescu,1.034360247738515
+Nikola Jokić,Covariance adjusted,4,Aliyah Boston,1.0720536277847537
+Nikola Jokić,Covariance adjusted,5,Satou Sabally,1.273932965016411
+Nikola Jokić,Hellinger shooting,1,Alyssa Thomas,0.6379631615067093
+Nikola Jokić,Hellinger shooting,2,Dearica Hamby,0.683630516958944
+Nikola Jokić,Hellinger shooting,3,Napheesa Collier,0.8783364415833708
+Nikola Jokić,Hellinger shooting,4,Jackie Young,0.8963790347162395
+Nikola Jokić,Hellinger shooting,5,Aliyah Boston,0.916800642001338
+Nikola Jokić,Without offensive production,1,Natasha Howard,0.544732999261648
+Nikola Jokić,Without offensive production,2,Isabelle Harrison,0.6516447755752545
+Nikola Jokić,Without offensive production,3,Napheesa Collier,0.7311521551967041
+Nikola Jokić,Without offensive production,4,Alyssa Thomas,0.740289888489972
+Nikola Jokić,Without offensive production,5,Nneka Ogwumike,0.7574246685768573
+Nikola Jokić,Without shot selection,1,Alyssa Thomas,0.7150462872911865
+Nikola Jokić,Without shot selection,2,Dearica Hamby,0.7513744664284805
+Nikola Jokić,Without shot selection,3,Napheesa Collier,1.0131714281474216
+Nikola Jokić,Without shot selection,4,Jackie Young,1.018638926336257
+Nikola Jokić,Without shot selection,5,Aliyah Boston,1.0489925789593868
+Nikola Jokić,Without efficiency,1,Alyssa Thomas,0.7111749299100268
+Nikola Jokić,Without efficiency,2,Satou Sabally,0.9937753375259005
+Nikola Jokić,Without efficiency,3,Dearica Hamby,0.9995759936333862
+Nikola Jokić,Without efficiency,4,Aliyah Boston,1.0360357165503251
+Nikola Jokić,Without efficiency,5,Napheesa Collier,1.0452168511270192
+Nikola Jokić,Without defense,1,Jackie Young,0.8016802933784921
+Nikola Jokić,Without defense,2,Napheesa Collier,0.8362351213545446
+Nikola Jokić,Without defense,3,Alyssa Thomas,0.8774117400955974
+Nikola Jokić,Without defense,4,Dearica Hamby,0.968411213344917
+Nikola Jokić,Without defense,5,Jonquel Jones,0.9837244698787299
+Stephen Curry,Current model,1,Kelsey Plum,0.5977463881653794
+Stephen Curry,Current model,2,Sabrina Ionescu,0.6372292940199606
+Stephen Curry,Current model,3,Jackie Young,0.6921301127599081
+Stephen Curry,Current model,4,Kayla McBride,0.7530698720060546
+Stephen Curry,Current model,5,Kelsey Mitchell,0.7855345784069401
+Stephen Curry,Fixed components,1,Kelsey Plum,0.5977463881653794
+Stephen Curry,Fixed components,2,Sabrina Ionescu,0.6372292940199606
+Stephen Curry,Fixed components,3,Jackie Young,0.6921301127599081
+Stephen Curry,Fixed components,4,Kayla McBride,0.7530698720060546
+Stephen Curry,Fixed components,5,Kelsey Mitchell,0.7855345784069401
+Stephen Curry,League z-score,1,Sabrina Ionescu,0.37807905363141575
+Stephen Curry,League z-score,2,Kelsey Plum,0.6354271138610105
+Stephen Curry,League z-score,3,Rhyne Howard,0.6770713465799734
+Stephen Curry,League z-score,4,Marina Mabrey,0.7246250446643094
+Stephen Curry,League z-score,5,Jackie Young,0.7405176746878059
+Stephen Curry,Per-36 baseline,1,Sabrina Ionescu,0.44663839655908755
+Stephen Curry,Per-36 baseline,2,Kelsey Plum,0.6970740217455847
+Stephen Curry,Per-36 baseline,3,Jackie Young,0.7983395883575382
+Stephen Curry,Per-36 baseline,4,Marina Mabrey,0.8208913036849385
+Stephen Curry,Per-36 baseline,5,Kahleah Copper,0.8213265942173544
+Stephen Curry,Per-100 possessions,1,Sabrina Ionescu,0.4241757856555993
+Stephen Curry,Per-100 possessions,2,Kelsey Plum,0.6908216351056053
+Stephen Curry,Per-100 possessions,3,Jackie Young,0.7704814043748996
+Stephen Curry,Per-100 possessions,4,Kahleah Copper,0.7954503014634956
+Stephen Curry,Per-100 possessions,5,Marina Mabrey,0.8022560439544454
+Stephen Curry,Game-rate baseline,1,Sabrina Ionescu,0.48854949740010745
+Stephen Curry,Game-rate baseline,2,Kelsey Plum,0.6146857246306263
+Stephen Curry,Game-rate baseline,3,Jackie Young,0.6266113081103125
+Stephen Curry,Game-rate baseline,4,Natisha Hiedeman,0.8299540148474084
+Stephen Curry,Game-rate baseline,5,Kahleah Copper,0.928917714179346
+Stephen Curry,Covariance adjusted,1,Sabrina Ionescu,0.6040672188321049
+Stephen Curry,Covariance adjusted,2,Sami Whitcomb,0.6289703606608269
+Stephen Curry,Covariance adjusted,3,Kelsey Plum,0.7643361824188624
+Stephen Curry,Covariance adjusted,4,Marine Johannes,0.808060427218323
+Stephen Curry,Covariance adjusted,5,Jonquel Jones,0.8082585989738057
+Stephen Curry,Hellinger shooting,1,Kelsey Plum,0.4641644312134949
+Stephen Curry,Hellinger shooting,2,Jackie Young,0.4779377271765702
+Stephen Curry,Hellinger shooting,3,Sabrina Ionescu,0.5670523824863539
+Stephen Curry,Hellinger shooting,4,Paige Bueckers,0.6164668247291857
+Stephen Curry,Hellinger shooting,5,Kelsey Mitchell,0.6803279276749082
+Stephen Curry,Without offensive production,1,Kayla McBride,0.45340669947636697
+Stephen Curry,Without offensive production,2,Sami Whitcomb,0.4967589513763465
+Stephen Curry,Without offensive production,3,Sonia Citron,0.5476395729086873
+Stephen Curry,Without offensive production,4,Kennedy Burke,0.5515317687424545
+Stephen Curry,Without offensive production,5,Natisha Hiedeman,0.5652782074266847
+Stephen Curry,Without shot selection,1,Kelsey Plum,0.3808030952377384
+Stephen Curry,Without shot selection,2,Jackie Young,0.5417044784345088
+Stephen Curry,Without shot selection,3,Sabrina Ionescu,0.642969975429825
+Stephen Curry,Without shot selection,4,Paige Bueckers,0.6849536161922419
+Stephen Curry,Without shot selection,5,Allisha Gray,0.732999069629935
+Stephen Curry,Without efficiency,1,Sabrina Ionescu,0.47172355058243837
+Stephen Curry,Without efficiency,2,Kelsey Plum,0.663378904132612
+Stephen Curry,Without efficiency,3,Rhyne Howard,0.7414051312243689
+Stephen Curry,Without efficiency,4,Marina Mabrey,0.742032692940148
+Stephen Curry,Without efficiency,5,Kahleah Copper,0.7705573708849537
+Stephen Curry,Without defense,1,Kelsey Plum,0.6336520714017102
+Stephen Curry,Without defense,2,Sabrina Ionescu,0.704604035303579
+Stephen Curry,Without defense,3,Kelsey Mitchell,0.7329516557403063
+Stephen Curry,Without defense,4,Jackie Young,0.7517704091832752
+Stephen Curry,Without defense,5,Kayla McBride,0.7642988061387467
+A'ja Wilson,Current model,1,Anthony Davis,0.7361648095190719
+A'ja Wilson,Current model,2,Jaren Jackson Jr.,1.0061677711953818
+A'ja Wilson,Current model,3,John Collins,1.0859370521207343
+A'ja Wilson,Current model,4,Shai Gilgeous-Alexander,1.0974703185113195
+A'ja Wilson,Current model,5,Jonas Valanciunas,1.1136459406949692
+A'ja Wilson,Fixed components,1,Anthony Davis,0.7416306482800583
+A'ja Wilson,Fixed components,2,Jaren Jackson Jr.,1.0034785012685175
+A'ja Wilson,Fixed components,3,John Collins,1.0834324976943348
+A'ja Wilson,Fixed components,4,Shai Gilgeous-Alexander,1.0890325562681937
+A'ja Wilson,Fixed components,5,Jonas Valanciunas,1.1097507458286782
+A'ja Wilson,League z-score,1,Anthony Davis,0.6892284999260669
+A'ja Wilson,League z-score,2,Jaren Jackson Jr.,1.057486586030844
+A'ja Wilson,League z-score,3,Alperen Sengun,1.1698868515492027
+A'ja Wilson,League z-score,4,Bam Adebayo,1.1746271559193049
+A'ja Wilson,League z-score,5,John Collins,1.2110566239868668
+A'ja Wilson,Per-36 baseline,1,Anthony Davis,0.7150501613898763
+A'ja Wilson,Per-36 baseline,2,Jaren Jackson Jr.,1.0513128979091326
+A'ja Wilson,Per-36 baseline,3,Alperen Sengun,1.2332963062310804
+A'ja Wilson,Per-36 baseline,4,John Collins,1.2599075395580843
+A'ja Wilson,Per-36 baseline,5,Kristaps Porziņģis,1.26007344885043
+A'ja Wilson,Per-100 possessions,1,Anthony Davis,0.7179725808412893
+A'ja Wilson,Per-100 possessions,2,Jaren Jackson Jr.,1.0807003968307263
+A'ja Wilson,Per-100 possessions,3,Alperen Sengun,1.234812818180149
+A'ja Wilson,Per-100 possessions,4,Kristaps Porziņģis,1.2504550958073477
+A'ja Wilson,Per-100 possessions,5,Bam Adebayo,1.2572099741300966
+A'ja Wilson,Game-rate baseline,1,Anthony Davis,0.6130347549621116
+A'ja Wilson,Game-rate baseline,2,Jaren Jackson Jr.,0.9944856721097394
+A'ja Wilson,Game-rate baseline,3,Evan Mobley,1.0141074335053846
+A'ja Wilson,Game-rate baseline,4,Mark Williams,1.0971805292838743
+A'ja Wilson,Game-rate baseline,5,Kristaps Porziņģis,1.1735472990998663
+A'ja Wilson,Covariance adjusted,1,Anthony Davis,0.9250862748449814
+A'ja Wilson,Covariance adjusted,2,Jaren Jackson Jr.,1.0280978502457812
+A'ja Wilson,Covariance adjusted,3,Kristaps Porziņģis,1.074473530482842
+A'ja Wilson,Covariance adjusted,4,Bam Adebayo,1.1103615163448064
+A'ja Wilson,Covariance adjusted,5,Shai Gilgeous-Alexander,1.16479473306662
+A'ja Wilson,Hellinger shooting,1,Anthony Davis,0.5384265517420191
+A'ja Wilson,Hellinger shooting,2,Evan Mobley,0.7414288352417281
+A'ja Wilson,Hellinger shooting,3,Jaren Jackson Jr.,0.8528353248669668
+A'ja Wilson,Hellinger shooting,4,Kristaps Porziņģis,0.8631746511525472
+A'ja Wilson,Hellinger shooting,5,Giannis Antetokounmpo,0.8724216307670104
+A'ja Wilson,Without offensive production,1,Anthony Davis,0.8208140133847113
+A'ja Wilson,Without offensive production,2,Jakob Poeltl,1.0399271976621132
+A'ja Wilson,Without offensive production,3,Jaren Jackson Jr.,1.0471091204610596
+A'ja Wilson,Without offensive production,4,Jonas Valanciunas,1.0716059101989084
+A'ja Wilson,Without offensive production,5,Amen Thompson,1.0924363954756158
+A'ja Wilson,Without shot selection,1,Anthony Davis,0.607941454816752
+A'ja Wilson,Without shot selection,2,Evan Mobley,0.8009701529749499
+A'ja Wilson,Without shot selection,3,Victor Wembanyama,0.8984989029112267
+A'ja Wilson,Without shot selection,4,Jaren Jackson Jr.,0.9376089685665285
+A'ja Wilson,Without shot selection,5,John Collins,0.9547626156277828
+A'ja Wilson,Without efficiency,1,Anthony Davis,0.6938575035243214
+A'ja Wilson,Without efficiency,2,Jaren Jackson Jr.,1.0712070574673171
+A'ja Wilson,Without efficiency,3,Alperen Sengun,1.1538338729004356
+A'ja Wilson,Without efficiency,4,Scottie Barnes,1.1640754035395122
+A'ja Wilson,Without efficiency,5,Bam Adebayo,1.2138518719232156
+A'ja Wilson,Without defense,1,Anthony Davis,0.8042645880817304
+A'ja Wilson,Without defense,2,Collin Sexton,0.9141578778067323
+A'ja Wilson,Without defense,3,Shai Gilgeous-Alexander,0.9239100429930869
+A'ja Wilson,Without defense,4,Jaren Jackson Jr.,0.961208482352561
+A'ja Wilson,Without defense,5,Jonas Valanciunas,1.0095909157180887
+Caitlin Clark,Current model,1,James Harden,0.8720033511584636
+Caitlin Clark,Current model,2,LaMelo Ball,0.9008982207867847
+Caitlin Clark,Current model,3,Luka Dončić,0.9595055694657806
+Caitlin Clark,Current model,4,Russell Westbrook,0.9617959243006134
+Caitlin Clark,Current model,5,Trae Young,0.9963078090264577
+Caitlin Clark,Fixed components,1,James Harden,0.8783306468708819
+Caitlin Clark,Fixed components,2,LaMelo Ball,0.897584188648491
+Caitlin Clark,Fixed components,3,Luka Dončić,0.9661208777003476
+Caitlin Clark,Fixed components,4,Russell Westbrook,0.9812098940093228
+Caitlin Clark,Fixed components,5,Trae Young,0.985548450613595
+Caitlin Clark,League z-score,1,James Harden,0.8371125814709705
+Caitlin Clark,League z-score,2,LaMelo Ball,0.8992174709811135
+Caitlin Clark,League z-score,3,Trae Young,0.9469016494155023
+Caitlin Clark,League z-score,4,Cade Cunningham,1.0088704231151788
+Caitlin Clark,League z-score,5,Luka Dončić,1.0279424225332459
+Caitlin Clark,Per-36 baseline,1,James Harden,0.9096633180139987
+Caitlin Clark,Per-36 baseline,2,LaMelo Ball,0.9310898571567443
+Caitlin Clark,Per-36 baseline,3,Trae Young,0.9373478430294454
+Caitlin Clark,Per-36 baseline,4,Russell Westbrook,1.0120108299398225
+Caitlin Clark,Per-36 baseline,5,Cade Cunningham,1.0567618025808898
+Caitlin Clark,Per-100 possessions,1,James Harden,0.8301052201630664
+Caitlin Clark,Per-100 possessions,2,LaMelo Ball,0.8756528292164693
+Caitlin Clark,Per-100 possessions,3,Trae Young,0.9401042669065444
+Caitlin Clark,Per-100 possessions,4,Russell Westbrook,0.956070457549927
+Caitlin Clark,Per-100 possessions,5,Cade Cunningham,1.0144983651582216
+Caitlin Clark,Game-rate baseline,1,Russell Westbrook,0.9771946983465021
+Caitlin Clark,Game-rate baseline,2,Trae Young,0.99594206187544
+Caitlin Clark,Game-rate baseline,3,Cade Cunningham,1.002773780004018
+Caitlin Clark,Game-rate baseline,4,James Harden,1.0104358421575799
+Caitlin Clark,Game-rate baseline,5,Ja Morant,1.0443043438974926
+Caitlin Clark,Covariance adjusted,1,James Harden,1.081302022695127
+Caitlin Clark,Covariance adjusted,2,Cade Cunningham,1.1290354644415368
+Caitlin Clark,Covariance adjusted,3,Russell Westbrook,1.2163484087485799
+Caitlin Clark,Covariance adjusted,4,Trae Young,1.276044426095889
+Caitlin Clark,Covariance adjusted,5,LeBron James,1.2765245158597018
+Caitlin Clark,Hellinger shooting,1,James Harden,0.8199760134856166
+Caitlin Clark,Hellinger shooting,2,Ja Morant,0.8599582687366262
+Caitlin Clark,Hellinger shooting,3,LaMelo Ball,0.8685228362067039
+Caitlin Clark,Hellinger shooting,4,Russell Westbrook,0.8948299438683822
+Caitlin Clark,Hellinger shooting,5,Luka Dončić,0.9346339835226408
+Caitlin Clark,Without offensive production,1,Cody Martin,0.3143375746862076
+Caitlin Clark,Without offensive production,2,Russell Westbrook,0.4641993454977987
+Caitlin Clark,Without offensive production,3,Brandon Boston Jr.,0.5027495044529031
+Caitlin Clark,Without offensive production,4,Fred VanVleet,0.5177336619858277
+Caitlin Clark,Without offensive production,5,Paul George,0.5201822049823646
+Caitlin Clark,Without shot selection,1,James Harden,0.8319945198073445
+Caitlin Clark,Without shot selection,2,Ja Morant,0.9546730324295212
+Caitlin Clark,Without shot selection,3,LaMelo Ball,0.9967487001828552
+Caitlin Clark,Without shot selection,4,Russell Westbrook,1.0207745898198142
+Caitlin Clark,Without shot selection,5,Trae Young,1.0286559495358103
+Caitlin Clark,Without efficiency,1,James Harden,0.7998131337410643
+Caitlin Clark,Without efficiency,2,Luka Dončić,0.9032799956104393
+Caitlin Clark,Without efficiency,3,LaMelo Ball,1.0272265669736342
+Caitlin Clark,Without efficiency,4,Trae Young,1.0590352068113758
+Caitlin Clark,Without efficiency,5,Ja Morant,1.0722221088827426
+Caitlin Clark,Without defense,1,Trae Young,0.7768367538342112
+Caitlin Clark,Without defense,2,LaMelo Ball,0.8383575812265911
+Caitlin Clark,Without defense,3,Cade Cunningham,0.8891768607728318
+Caitlin Clark,Without defense,4,James Harden,0.9810741149629852
+Caitlin Clark,Without defense,5,Ja Morant,1.0324983120731286

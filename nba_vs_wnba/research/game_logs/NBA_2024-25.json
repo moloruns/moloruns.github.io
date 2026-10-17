@@ -1,0 +1,9 @@
+{
+  "source": "NBA Stats LeagueGameLog",
+  "league_id": "00",
+  "season": "2024-25",
+  "season_type": "Regular Season",
+  "retrieved_utc": "2026-10-17T20:19:39.827731+00:00",
+  "rows": 26306,
+  "sha256": "f183fdf79c63d1b7747fe222878578c2c66c1d61dac757c58e2dbb01792ee337"
+}

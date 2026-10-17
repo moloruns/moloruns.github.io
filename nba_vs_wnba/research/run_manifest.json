@@ -1,0 +1,25 @@
+{
+  "model_version": "v3-defense-adaptive-25-to-30",
+  "packet_version": "review-2026-10-17-v1",
+  "player_data_sha256": "9a681228f2c91673dcd28b40d5a69207f0ce8e43bcc1e1a8aa23356b1140f737",
+  "models": {
+    "Current model": "The unchanged v3 ranking, including role-specific and adaptive defensive weights.",
+    "League z-score": "Equal feature weights on league-standardized raw v3 inputs; no regression or percentile blend.",
+    "Per-36 baseline": "Equal-weight league z-scores; points, assists, turnovers, steals, and blocks use per-36 rates.",
+    "Per-100 possessions": "Equal-weight league z-scores; counting features use official season totals / on-court possessions \u00d7 100. No pace approximation.",
+    "Fixed components": "The v3 profiles and within-component role weights, with defense fixed at 25%.",
+    "Covariance adjusted": "Mahalanobis distance on v3 profiles. Separate Ledoit\u2013Wolf covariance estimates per league are averaged before inversion; no v3 feature weights.",
+    "Hellinger shooting": "V3 outside shooting. Four location shares are one Hellinger distribution distance with 80% of the shooting budget; FTA/FGA retains 20%. This changes the block scale as well as geometry.",
+    "Game-rate baseline": "Equal-weight league z-scores of six per-36 counts, true shooting, 3PA/FGA, and FTA/FGA, aggregated from game logs. This is the bootstrap model.",
+    "Without offensive production": "V3 with offensive production removed; remaining pair weights renormalized.",
+    "Without shot selection": "V3 with shot selection removed; remaining pair weights renormalized.",
+    "Without efficiency": "V3 with efficiency removed; remaining pair weights renormalized.",
+    "Without defense": "V3 with defense removed; remaining pair weights renormalized."
+  },
+  "human_judgments": 0,
+  "research_code_sha256": {
+    "research_models.py": "0e84ebf61d553d64e83b9cfad0da9afb06dc5eb535be2826ab113dd32ffbbb76",
+    "research_review.py": "b7af8def186f8eb6d9607a285800abc302040c70fba3b37ba3f39fcd7216b099"
+  },
+  "interpretation": "Model agreement is not accuracy. Human evaluation remains pending."
+}

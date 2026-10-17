@@ -22,6 +22,8 @@ Runtime files (all included in the repository):
 
 - `app.py`
 - `comparison_ui.py`
+- `research_models.py`, `research_review.py`, `research_ui.py`
+- `research/` (game logs, frozen review packet, and audit outputs)
 - `similarity_v3.py`
 - `similarity.py` (imported by `similarity_v3.py`)
 - `data/player_seasons.csv`
@@ -244,8 +246,21 @@ recoverable message. Profile pages retain that comparison context in their URLs.
 “How stable is this match?” runs eight relative ±20% component-weight variations
 and a fixed-25%-defense baseline against the same filtered candidate pool. It
 reports first matches and top-five overlap without modifying the production
-ranking. It measures sensitivity, not accuracy or sampling uncertainty. Independent
-expert-label validation and game-level uncertainty estimation remain future work.
+ranking. It measures sensitivity, not accuracy or sampling uncertainty. The model lab adds real game-resampling uncertainty for a separate rate baseline
+and a blinded human-evaluation workflow. Actual independent human ratings and
+full-v3 sampling uncertainty are still pending.
 
 Run `python3 ui_test.py` for shared-link, navigation, filtering, and sensitivity
 regression checks in addition to the smoke test.
+
+
+## Model lab
+
+After choosing a player, expand **Model lab · experimental comparisons** and enable
+it. Compare 12 methods, inspect game-bootstrap results, or collect blinded human
+judgments. Research methods and measured results are in [research/README.md](research/README.md).
+The default production ranking stays unchanged. New data is committed, so visitors
+need no API access; collection runs locally with `python3 download_game_logs.py`.
+Reproduce the offline audit with `python3 run_research.py` and validate it with
+`python3 research_test.py`. No human accuracy score appears until actual judgments
+are uploaded; partially judged sources are excluded from scoring.

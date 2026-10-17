@@ -1,0 +1,9 @@
+{
+  "source": "NBA Stats LeagueGameLog",
+  "league_id": "10",
+  "season": "2025",
+  "season_type": "Regular Season",
+  "retrieved_utc": "2026-10-17T20:19:40.023185+00:00",
+  "rows": 5407,
+  "sha256": "3e932bb3b006aaf58e687423977850d8e942e90a21f0687464490be2a8551b2f"
+}
