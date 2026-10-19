@@ -149,5 +149,5 @@ help plan, implement, debug, test, and document that design. The built-in
 AI image-generation tool created the three stadium backdrops. Existing Pokemon
 sprites came from the credited sources above, not from AI generation.
 
-This README is AI-generated.AI-generated documentation is identified here and in the linked development
+This README is AI-generated. AI-generated documentation is identified here and in the linked development
 notes. AI assistance does not establish correctness or clear third-party rights.
