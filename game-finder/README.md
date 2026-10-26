@@ -6,7 +6,11 @@ OpenAI Codex assisted with implementation, testing, and this README. The develop
 
 A command-line app for finding games by title, remembered details, or an experience you want to play. It searches **800 games** in ChromaDB and shows up to five results with source excerpts and explanations for different parts of your query.
 
-The games come from the public [FronkonGames Steam dataset](https://huggingface.co/datasets/FronkonGames/steam-games-dataset). The app imports 800 of its 125,855 entries as **6,076 description passages**. One database item is a passage; its metadata includes the game's ID, title, source link, genres, tags, and platforms. The [catalog manifest](catalog_manifest.json) records the selection.
+Games are a useful choice for this demo because people often remember a mechanic or describe a mood without knowing a title or a store's exact wording.
+
+The games come from the public [FronkonGames Steam dataset](https://huggingface.co/datasets/FronkonGames/steam-games-dataset). The app imports 800 of its 125,855 entries as **6,076 description passages**. Descriptions are split at sentence boundaries, combining short fragments toward 100 model tokens and splitting longer sentences as needed; every passage stays within 240 tokens. One database item is a passage; its metadata includes the game's ID, title, source link, genres, tags, platforms, source revision, and passage index. Search results group passages into distinct games. The [catalog manifest](catalog_manifest.json) records the selection.
+
+**ChromaDB** stores the vectors locally, using cosine distance. The embedding model is **all-MiniLM-L6-v2**, run locally through Chroma's ONNX implementation.
 
 ## Install and run
 
@@ -32,7 +36,7 @@ bash run
 
 If you're already inside `game-finder/`, skip `cd game-finder`. If your Python command is `python3`, check `python3 --version`; you can use it in the environment-creation command if it reports 3.11 or newer. The remaining commands use the environment's own Python.
 
-First setup downloads a roughly 401 MB CSV and an 83 MB model, then builds the database. The measured import took about nine minutes, excluding downloads. No API key is needed.
+The raw dataset is not committed to this repository. `ingest.py --download` downloads the pinned CSV into `data/games.csv`, verifies its checksum, selects the games in the manifest, and loads their passages into ChromaDB. First setup downloads a roughly 401 MB CSV and an 83 MB model; later runs reuse the local files. No API key is needed.
 
 **To open the app again, run `bash run` from `game-finder/`.** Your database, added games, and saved notes stay in `chroma_store/`. Keep `data/`, `.venv/`, and both catalog manifests in place.
 
@@ -91,7 +95,7 @@ Search `pilot glass submarines to harvest bioluminescent algae` immediately afte
 
 ## Two example queries
 
-These are the default enhanced-search results recorded on October 26, 2026. Additions or updates can change their order.
+These are the default enhanced-search results. Additions or updates can change their order. Add `--compare` to either command to also show the simple keyword baseline, which counts distinct shared words in each description passage and keeps each game's best score.
 
 ### 1. `something with cooking and adventure`
 
@@ -107,6 +111,8 @@ bash test "something with cooking and adventure"
 | 4 | [The Hungry Lamb: Traveling in the Late Ming Dynasty](https://store.steampowered.com/app/2593370/) | 0.736 |
 | 5 | [Fields of Mistria](https://store.steampowered.com/app/2142790/) | 0.585 |
 
+**Keyword comparison:** The baseline's first five are Beacon Pines, AdVenture Capitalist, Terraria, Ori and the Will of the Wisps, and Kind Words (lo fi chill beats to write to). It misses all five enhanced results at this cutoff: it counts words such as `adventure` and even `something`, rather than assessing the combination of cooking and adventure. Relevant details can also occur in separate passages or source tags, which this baseline does not combine.
+
 ### 2. `something about action and romance`
 
 ```sh
@@ -121,7 +127,9 @@ bash test "something about action and romance"
 | 4 | [Dragon Age™: The Veilguard](https://store.steampowered.com/app/1845910/) | 0.740 |
 | 5 | [Pathfinder: Wrath of the Righteous - Enhanced Edition](https://store.steampowered.com/app/1184370/) | 0.777 |
 
-Both queries share words with some descriptions or tags. Enhanced search combines these clues with semantic similarity. Lower vector distance means closer embedding similarity; the default ranking also considers query-aspect coverage, so distances alone do not determine order.
+**Keyword comparison:** The baseline's first five are World of Tanks, Scarlet Hollow, Counter-Strike, Call of Duty: World at War, and Call of Duty®: Modern Warfare® 2 (2009). It again misses all five enhanced results at this cutoff. A passage containing `action` earns the same one-word score as a passage containing `romance`; matching both aspects across a game's description and tags is not rewarded. Ties use app ID order, rather than semantic relevance.
+
+These comparisons show a limitation of the app's simple description-only keyword baseline, **not that every keyword search would miss these games**. Both queries share words with some descriptions or tags; a stronger keyword search that includes metadata could retrieve them. Enhanced search combines these clues with semantic similarity. Lower vector distance means closer embedding similarity; the default ranking also considers query-aspect coverage, so distances alone do not determine order.
 
 ## Things to try
 
