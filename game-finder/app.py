@@ -14,10 +14,12 @@ from retrieval import METHODS, assess_matches, search
 from features import evidence_label
 
 
+# Let any input prompt return to the menu through /cancel.
 class Cancelled(Exception):
     pass
 
 
+# Read an answer, checking required fields and the cancellation command.
 def ask(prompt, required=False):
     while True:
         value = input(prompt).strip()
@@ -28,6 +30,7 @@ def ask(prompt, required=False):
         print("Please enter a value, or /cancel to return.")
 
 
+# Validate selected result numbers and convert them to list indexes.
 def select_numbers(value, count, minimum=1, maximum=3):
     try:
         numbers = list(dict.fromkeys(int(piece.strip()) for piece in value.split(",")))
@@ -38,6 +41,7 @@ def select_numbers(value, count, minimum=1, maximum=3):
     return [n - 1 for n in numbers]
 
 
+# Display recorded platform support; missing metadata stays Unknown.
 def platform_label(meta, name):
     value = meta.get(name)
     return "Yes" if value is True else "No" if value is False else "Unknown"
@@ -45,11 +49,14 @@ def platform_label(meta, name):
 
 def display_evidence(meta, shown_passage=""):
     """Show each source sentence once, and distinguish tags from description evidence."""
+    # Ignore case and spacing when checking whether text was already shown.
     def normalized(text):
         return ' '.join(re.findall(r'\w+|[^\w\s]', text.casefold()))
 
+    # Remember the main result passage so explanations do not repeat it.
     quoted = [normalized(shown_passage)] if shown_passage else []
 
+    # Print only the source sentences the user has not already seen.
     def quote_new(text):
         fresh = []
         for sentence in re.split(r'(?<=[.!?])\s+|\n+', text):
@@ -63,6 +70,7 @@ def display_evidence(meta, shown_passage=""):
             print(textwrap.fill(excerpt, width=96, initial_indent='     ', subsequent_indent='     '))
         return bool(fresh)
 
+    # Explain each query aspect using its description matches, labels, or unknowns.
     details = meta.get('_search', {})
     for aspect in details.get('aspects', []):
         states = {'matched': 'source wording or label matches; verify context',
@@ -98,6 +106,7 @@ def display_evidence(meta, shown_passage=""):
         printed = [quote_new(text) for text in snippets if text]
         if printed and not any(printed):
             print('     Description: see excerpt above.')
+    # Also support evidence saved by the earlier rule-based search method.
     for item in details.get('requirements', []):
         print(textwrap.fill(evidence_label(item), width=96, initial_indent='   ', subsequent_indent='   '))
         count = 2 if item['state'] == 'unknown' else 1
@@ -108,6 +117,7 @@ def display_evidence(meta, shown_passage=""):
 
 def compare_candidates(candidates):
     """Compare recorded attributes and excerpts, without generating game features."""
+    # Build a side-by-side table from stored platforms, genres, and tags.
     width = 27
     rows = [("Game", [meta["title"] for meta, _, _ in candidates])]
     for name, label in [("windows", "Windows"), ("mac", "macOS"), ("linux", "Linux")]:
@@ -121,6 +131,7 @@ def compare_candidates(candidates):
             cells = [(value[line] if line < len(value) else "").ljust(width) for value in wrapped]
             print(f"{label if line == 0 else '':12} | " + " | ".join(cells))
         print("-" * (15 + (width + 3) * len(values)))
+    # Follow the table with the source passages behind each candidate.
     for meta, passage, _ in candidates:
         print(f"\n{meta['title']} — evidence from its description:")
         print(textwrap.fill(passage, width=96, initial_indent="  ", subsequent_indent="  "))
@@ -129,6 +140,7 @@ def compare_candidates(candidates):
     print("\nUse these details to choose a candidate or refine your description.")
 
 
+# Show ranked candidates and explain partial, broad, or weak matches.
 def display_matches(query, results):
     status = assess_matches(query, results)
     if status == "empty":
@@ -146,6 +158,7 @@ def display_matches(query, results):
         print("Feature checks cover a limited vocabulary; other details and narrative connections remain unverified.")
     if results[0][0].get('_search', {}).get('aspects'):
         print('Ranked against the whole request and its aspects. Excerpts and source labels are clues, not verified feature claims.')
+    # Present each candidate with its distance, source, and query-aspect evidence.
     print("\nGames to consider — compare their features and evidence.")
     for rank, (meta, passage, distance) in enumerate(results, 1):
         score_label = 'vector distance' if meta.get('_search') else 'distance'
@@ -156,9 +169,11 @@ def display_matches(query, results):
     return results
 
 
+# Search once, then let the user compare, refine, or save the results.
 def search_flow(collection, tokenizer, shortlist_path, method='enhanced'):
     query = ask("Game title, remembered details, or experience you want: ", required=True)
     while True:
+        # Retrieve candidates using the selected search method and show their evidence.
         results = display_matches(query, search(collection, tokenizer, query, method))
         while True:
             choices = "[c] Compare  [s] Save  [r] Refine  [b] Back" if results else "[r] Refine  [b] Back"
@@ -179,12 +194,14 @@ def search_flow(collection, tokenizer, shortlist_path, method='enhanced'):
                 continue
             try:
                 if action in {"c", "compare"} and results:
+                    # Compare selected candidates using their recorded metadata.
                     if len(results) < 2:
                         print("Only one candidate is available. Refine your description to find alternatives.")
                         continue
                     indices = select_numbers(ask("Compare 2–3 results (e.g. 1,2): "), len(results), minimum=2)
                     compare_candidates([results[i] for i in indices])
                 elif action in {"s", "save"} and results:
+                    # Persist the chosen candidate, query, evidence, and personal note.
                     index = select_numbers(ask("Save which result number? "), len(results), maximum=1)[0]
                     note = ask("Your note (optional): ")
                     saved = save_candidate(shortlist_path, results[index], query, 'search', note)
@@ -196,16 +213,19 @@ def search_flow(collection, tokenizer, shortlist_path, method='enhanced'):
                 print(error)
 
 
+# Collect a new game and make it searchable during the current session.
 def add_flow(collection, tokenizer):
     print("\nAdd a game. Enter /cancel at any prompt to return.")
     title = ask("Title: ", required=True)
     print("Description (paste multiple lines; a blank line finishes):")
+    # Accept a multiline description until the user enters a blank line.
     lines = []
     while line := ask("> "):
         lines.append(line)
     description = " ".join(lines)
     if not description.strip():
         raise ValueError("A description is required; nothing was added.")
+    # Collect optional metadata without guessing values the user leaves blank.
     source = ask("Source URL or label (optional): ")
     genres = ask("Genres, separated by commas (optional): ")
     platforms = {}
@@ -217,11 +237,13 @@ def add_flow(collection, tokenizer):
                     platforms[name] = value in {"y", "yes"}
                 break
             print("Enter y, n, or leave it blank for unknown.")
+    # Embed and persist the description passages for immediate retrieval.
     print("Adding and indexing the description...", flush=True)
     _, count = add_game(collection, tokenizer, title, description, source, genres, platforms)
     print(f"Added {title} ({count} passages). It is searchable now; no restart needed.")
 
 
+# Reopen saved candidates and notes, with an option to inspect or compare them.
 def shortlist_flow(path):
     entries = load_shortlist(path)
     if not entries:
@@ -240,6 +262,7 @@ def shortlist_flow(path):
             return
         try:
             indices = select_numbers(value, len(entries))
+            # Use the saved evidence snapshot, including entries from older versions.
             compare_candidates([({**entries[i], '_search': entries[i].get('search_evidence', {})},
                                  entries[i]["passage"], entries[i].get("distance", 0.0))
                                 for i in indices])
@@ -247,6 +270,7 @@ def shortlist_flow(path):
             print(error)
 
 
+# Keep the main menu open and route each choice to its demo feature.
 def run_app(collection, tokenizer, shortlist_path, method='enhanced'):
     print("Game Finder — describe, compare, and save. /cancel returns from a task.")
     while True:
@@ -261,6 +285,7 @@ def run_app(collection, tokenizer, shortlist_path, method='enhanced'):
             elif choice == "3":
                 shortlist_flow(shortlist_path)
             elif choice == "4":
+                # Distinguish imported games from additions and count searchable passages.
                 stats = statistics(collection)
                 print(f"\n{stats['games']} games / {stats['passages']} searchable passages")
                 print(f"Imported: {stats['imported_games']} games / {stats['imported_passages']} passages")
@@ -276,7 +301,9 @@ def run_app(collection, tokenizer, shortlist_path, method='enhanced'):
             print(f"Could not complete that action: {error}")
 
 
+# Configure the local database and model, then start the interactive menu.
 def main():
+    # Optional arguments select the database location, catalog, and search method.
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--store", type=Path, default=ROOT / "chroma_store", help="Optional isolated database directory.")
     parser.add_argument("--shortlist", type=Path, help="Defaults to shortlist.json in the database directory.")
@@ -284,14 +311,17 @@ def main():
     parser.add_argument("--target", type=int, choices=[750, 800], help="Explicit catalog size.")
     parser.add_argument('--method', choices=METHODS, default='enhanced', help='Default: source anchors and semantic relevance across query aspects.')
     args = parser.parse_args()
+    # Reuse the local embedding model and tokenizer across menu actions.
     embedding, tokenizer = embedding_tools()
     with store_lock(args.store):
+        # Open the persistent catalog, importing it if this store is not ready yet.
         collection = prepare_collection(embedding, tokenizer, args.store, args.collection, args.target)
         print(f"Catalog: {collection.name}")
         print(f"Search method: {args.method}")
         run_app(collection, tokenizer, args.shortlist or args.store / "shortlist.json", args.method)
 
 
+# Launch the CLI and handle quit interrupts or startup errors cleanly.
 if __name__ == "__main__":
     try:
         main()
