@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+data/
+chroma_store/
+smoke_store/
+.env
+.env.*
+!.env.example
