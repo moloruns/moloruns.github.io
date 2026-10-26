@@ -8,7 +8,7 @@ A command-line vector database app for finding games from remembered details or 
 
 **Search games** accepts a title, remembered details, or an experience you want to play in one place.
 
-You can inspect which parts of your request match the stored descriptions or tags, compare games, refine your search, save a shortlist, and **add new games while the app is running**.
+You can inspect which parts of your request match the stored descriptions or tags, compare games, refine your search, save a shortlist, and **add new games**.
 
 ## Install and run
 
