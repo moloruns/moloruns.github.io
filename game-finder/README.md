@@ -1,39 +1,50 @@
 ## AI acknowledgment
 
-OpenAI Codex assisted with planning, implementation, testing, evaluation, and this README. The app's purpose and experience examples came from my descriptions. The development prompts are recorded separately in [prompt_log.md](prompt_log.md).
+OpenAI Codex assisted with implementation, testing, and this README. The development prompts are in [prompt_log.md](prompt_log.md).
 
-# Game Finder: Semantic Game Search
+# Game Finder
 
-A command-line vector database app for finding games from remembered details or describing something you want to play. It searches **800 games**, stored as **6,076 description passages** in ChromaDB, and returns up to five candidates with source excerpts.
+A command-line app for finding games by title, remembered details, or an experience you want to play. It searches **800 games** in ChromaDB and shows up to five results with source excerpts and explanations for different parts of your query.
 
-**Search games** accepts a title, remembered details, or an experience you want to play in one place.
-
-You can inspect which parts of your request match the stored descriptions or tags, compare games, refine your search, save a shortlist, and **add new games**.
+The games come from the public [FronkonGames Steam dataset](https://huggingface.co/datasets/FronkonGames/steam-games-dataset). The app imports 800 of its 125,855 entries as **6,076 description passages**. One database item is a passage; its metadata includes the game's ID, title, source link, genres, tags, and platforms. The [catalog manifest](catalog_manifest.json) records the selection.
 
 ## Install and run
 
-Tested on macOS with Python 3.11 and `chromadb==1.5.9`. From the repository's `game-finder/` folder:
+**You need Python 3.11 or newer. Python 3.11 is the tested version.** These instructions are for macOS/Linux; the app was tested on macOS with Chroma 1.5.9.
+
+First, check that Python is installed:
 
 ```sh
+python3.11 --version
+```
+
+If that command is missing, macOS users with Homebrew can install it with [`brew install python@3.11`](https://formulae.brew.sh/formula/python@3.11). If you need Homebrew, follow the instructions at [brew.sh](https://brew.sh/).
+
+From the repository's main folder, run:
+
+```sh
+cd game-finder
 python3.11 -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
 .venv/bin/python ingest.py --download
 bash run
 ```
 
-Setup downloads a roughly 401 MB dataset and an 83 MB embedding model, then builds the database. The measured import took about nine minutes, excluding downloads. No API key or Steam login is needed; searches run locally.
+If you're already inside `game-finder/`, skip `cd game-finder`. If your Python command is `python3`, check `python3 --version`; you can use it in the environment-creation command if it reports 3.11 or newer. The remaining commands use the environment's own Python.
 
-For later sessions, run `bash run`. The database, additions, and shortlist persist under `game-finder/chroma_store/`. The first enhanced search also caches source-label vectors using the existing model.
+First setup downloads a roughly 401 MB CSV and an 83 MB model, then builds the database. The measured import took about nine minutes, excluding downloads. No API key is needed.
 
-If macOS reports `CERTIFICATE_VERIFY_FAILED` during the CSV download, retry with the installed certificate bundle:
+**To open the app again, run `bash run` from `game-finder/`.** Your database, added games, and saved notes stay in `chroma_store/`. Keep `data/`, `.venv/`, and both catalog manifests in place.
+
+If downloading reports `CERTIFICATE_VERIFY_FAILED`, retry with the installed certificate bundle:
 
 ```sh
 SSL_CERT_FILE="$(.venv/bin/python -m certifi)" .venv/bin/python ingest.py --download
 ```
 
-## Example search and query explanations
+## Example session
 
-Choose **1. Search games** and enter a title or description:
+Choose **1. Search games**:
 
 ```text
 1. Search games
@@ -45,7 +56,7 @@ Choose: 1
 Game title, remembered details, or experience you want: stealth and puzzle solving
 ```
 
-The default search considers the whole request and separate aspects such as **stealth** and **puzzle solving**. Here is an explanation excerpt for [Batman™: Arkham Knight](https://store.steampowered.com/app/208650/) from a recorded run:
+One result is **Batman: Arkham Knight**. Its explanation includes these source excerpts (shortened output):
 
 ```text
 Request aspect: stealth — description wording and source labels match
@@ -59,41 +70,28 @@ Request aspect: puzzle solving — mentioned in description
   of man and machine.
 ```
 
-The explanations show **which query aspects match source wording or tags**. Each description sentence is quoted once; repeated evidence points back to the excerpt above. Tag-only matches are labelled separately. Other aspects may show **“no direct source match; semantic suggestion only,”** conflicting wording, or an unverified exclusion. A romance tag does not establish a tragic ending. Missing evidence stays unknown.
+The app distinguishes description matches, tag-only matches, and unknowns. It quotes each sentence once. A related excerpt or tag does not prove every part of your request.
 
-Results include source links and vector distances. Lower distance means closer embedding similarity, not confidence. Default ranking also considers source coverage and relevance across aspects, so distance alone does not determine order.
+After a search, use **`c`** to compare 2–3 games, **`r`** to refine your query, **`s`** to save a result with a note, or **`b`** to return. Choose **5** or press **Ctrl+C** to quit. `/cancel` cancels an input task.
 
-After searching, choose:
+## Add your own game
 
-- **`c`** to compare 2–3 results using their platforms, genres, tags, and excerpts.
-- **`r`** to revise your description and search again.
-- **`s`** to save a candidate, its search evidence, and your own note.
-- **`b`** to return to the menu.
+Choose **2. Add a game**, enter its title and description, then enter a blank line to finish. Source, genres, and platform details are optional.
 
-## Add a game and search it immediately
-
-1. Choose **2. Add a game**. Enter a title and description; a blank line finishes the description.
-2. Optionally enter a source, genres, and Windows/macOS/Linux support. Leave unknown details blank.
-3. Return to **Search games** and describe the game. It is searchable immediately, without restarting, and remains available next session.
-
-For a clearly labelled **synthetic demo**, try:
+For a synthetic demo, try:
 
 ```text
 Title: Algae Lantern (demo fixture)
-Description: Pilot glass submarines through glowing caverns to harvest
-bioluminescent algae. Cultivate underwater gardens and trade luminous
-seeds with traveling botanists.
+Description: Pilot glass submarines through glowing caverns to harvest bioluminescent algae.
 
 Source: Synthetic demo fixture
 ```
 
-Then search `pilot glass submarines to harvest bioluminescent algae`. **4. Database statistics** shows imported and user-added counts separately.
-
-To quit, enter `5`, `q`, `quit`, or `exit` at the main menu, or press **Ctrl+C**. Completed additions and shortlist saves remain stored. `/cancel` returns from an input task.
+Search `pilot glass submarines to harvest bioluminescent algae` immediately afterward. The new game is searchable without restarting and remains stored next time. **3. View shortlist** reopens saved results and notes; **4. Database statistics** shows imported and added counts.
 
 ## Two example queries
 
-These exact queries were tested using the default **enhanced** search on the 800-game catalog. The results below were recorded on October 26, 2026. Enhanced search combines description vectors with keywords and source metadata; rankings can change after additions or updates.
+These are the default enhanced-search results recorded on October 26, 2026. Additions or updates can change their order.
 
 ### 1. `something with cooking and adventure`
 
@@ -109,8 +107,6 @@ bash test "something with cooking and adventure"
 | 4 | [The Hungry Lamb: Traveling in the Late Ming Dynasty](https://store.steampowered.com/app/2593370/) | 0.736 |
 | 5 | [Fields of Mistria](https://store.steampowered.com/app/2142790/) | 0.585 |
 
-Black Desert's description lists cooking among its life-skill activities and describes an open-world adventure. Core Keeper's retrieved passage mentions recipes and an underground adventure, while its **Cooking** tag supplies the direct cooking match. The explanations distinguish description wording from tag-only matches so you can inspect how each result relates to the request.
-
 ### 2. `something about action and romance`
 
 ```sh
@@ -125,36 +121,19 @@ bash test "something about action and romance"
 | 4 | [Dragon Age™: The Veilguard](https://store.steampowered.com/app/1845910/) | 0.740 |
 | 5 | [Pathfinder: Wrath of the Righteous - Enhanced Edition](https://store.steampowered.com/app/1184370/) | 0.777 |
 
-Mass Effect's description mentions action and interactive storytelling, while its **Romance** source tag supplies the romance match. The explanation identifies that distinction and quotes the description once. Other candidates also rely on tags for some aspects; inspect their evidence to judge whether their kind of action or romance fits your request.
-
-Both queries share words with some descriptions or tags. These examples demonstrate the combined search and its explanations.
+Both queries share words with some descriptions or tags. Enhanced search combines these clues with semantic similarity. Lower vector distance means closer embedding similarity; the default ranking also considers query-aspect coverage, so distances alone do not determine order.
 
 ## Things to try
 
-- Ask for an exclusion, such as `a horror game without jump scares`. Check which descriptions actually establish the absence and which remain uncertain.
-- Compare two candidates, refine the request, and save a result with a personal note. Reopen the app and view the shortlist.
-- Add a game you know, search it immediately, then reopen the app and search again.
-- Try an unrelated or nonsense query. The app can still show misleading neighbors; its weak-match cutoff does not reliably reject every bad request.
+- Search for a game by title, then describe its story or gameplay instead.
+- Ask for `a horror game without jump scares` and inspect whether the source establishes that exclusion.
+- Compare candidates, save a note, quit, and reopen the shortlist.
+- Add a game you know and search for it immediately.
+- Try an unrelated query. The app can still return misleading matches.
 
-For a single search without the full menu, use `bash test "your description"`. Run `bash test` for repeated searches and enter `/quit` to leave.
+Descriptions can omit details, tags can mislead, and complex requests can produce poor results. The explanations help you inspect the evidence; they do not verify game features.
 
-## Data and how the search works
-
-The public [FronkonGames Steam dataset](https://huggingface.co/datasets/FronkonGames/steam-games-dataset) contains **125,855 entries** in the pinned snapshot. The app selects 800 games using review volume/reception and disclosed demo inclusions. The [selection manifest](catalog_manifest.json) lists the games and records the source revision, checksum, and selection rules.
-
-**One database item is a passage from a game's description.** Longer descriptions are split to fit the embedding model. Metadata retains the game ID, title, source link, genres, tags, platform support, and passage number. Multiple passages can belong to one game.
-
-[ingest.py](ingest.py) prepares the data and embeddings. The app uses Chroma's persistent local storage and **all-MiniLM-L6-v2**. Default search combines description vectors with keyword retrieval over titles, metadata, and descriptions, then ranks candidates using query aspects and source clues. [app.py](app.py) provides the menu; [database.py](database.py) handles additions and shortlist storage.
-
-Keep both catalog manifests alongside the code: the default uses `catalog_manifest.json`, and `catalog_manifest_750.json` supports the optional 750-game catalog. Runtime data lives in `data/` (CSV, embedding model, and label cache) and `chroma_store/` (database and saved shortlist). These folders and `.venv/` are ignored by Git.
-
-## Current limits and further details
-
-Descriptions omit details, tags can mislead, and backstory wording can be mistaken for gameplay. Explanations are source clues, not verified features. Complex requests, narrative relationships, and exclusions still produce poor matches. Added games can change rankings.
-
-Use `bash test --method vector "your description"` to inspect description-only vector search. Add `--compare` to include the keyword baseline. The `tests/` folder checks search behavior, additions, shortlist persistence, and catalog imports using temporary stores.
-
-To run the automated checks:
+Start with [app.py](app.py): its comments explain the menu and demo steps. To run the automated checks:
 
 ```sh
 .venv/bin/python -m unittest discover -s tests -v
