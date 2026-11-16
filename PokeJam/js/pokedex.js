@@ -1,4 +1,5 @@
-import { label, loadGameData, plain, pokemonSpriteUrl } from "./data.js";
+import { label, loadGameData, pokemonSpriteUrl } from "./data.js";
+import { selectPokedexRecords } from "./catalog_logic.js";
 
 const elements = {
   roster: document.querySelector("#roster-cards"),
@@ -76,13 +77,7 @@ function pokemonCard(record) {
 }
 
 function renderCards() {
-  const query = plain(elements.search.value);
-  const playable = new Set(playableRoster.players.map((entry) => entry.slug));
-  const roster = data.pokemon.filter((record) => playable.has(record.slug));
-  const others = data.pokemon.filter((record) => !playable.has(record.slug));
-  const filtered = query
-    ? others.filter((record) => plain(`${record.name} ${record.slug} ${record.types.join(" ")}`).includes(query))
-    : others.slice(0, 72);
+  const { roster, filtered } = selectPokedexRecords(data.pokemon, playableRoster.players, elements.search.value);
 
   elements.roster.innerHTML = "";
   for (const record of roster) {

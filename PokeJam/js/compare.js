@@ -9,6 +9,7 @@ import {
   searchItems,
 } from "./data.js";
 import { profileResults, topTraitMatches } from "./match.js";
+import { attributeComparison, candidatesFor } from "./catalog_logic.js";
 
 let data;
 let chart;
@@ -35,13 +36,6 @@ function setQueryParams(kind, record) {
 
 function kindForCandidates(queryKind) {
   return queryKind === "pokemon" ? "player" : "pokemon";
-}
-
-function candidatesFor(queryKind) {
-  if (queryKind === "pokemon") {
-    return data.players.filter((record) => record.match_pool);
-  }
-  return data.pokemon;
 }
 
 function createPokemonArt(record) {
@@ -271,15 +265,7 @@ function renderTraitMatches(queryKind, matchKind, traits) {
 }
 
 function renderWhy(queryRecord, matchRecord, hasCloseMatch) {
-  const rows = data.attributes.map((attribute) => ({
-    attribute,
-    query: queryRecord.attributes[attribute],
-    match: matchRecord.attributes[attribute],
-    gap: Math.abs(queryRecord.attributes[attribute] - matchRecord.attributes[attribute]),
-  }));
-
-  const minGap = Math.min(...rows.map((row) => row.gap));
-  const maxGap = Math.max(...rows.map((row) => row.gap));
+  const { rows, minGap, maxGap } = attributeComparison(queryRecord, matchRecord, data.attributes);
 
   elements.why.innerHTML = hasCloseMatch ? "<h3>Why They Match</h3>" : "<h3>Attribute Comparison</h3>";
   for (const row of rows) {
@@ -300,7 +286,7 @@ function renderWhy(queryRecord, matchRecord, hasCloseMatch) {
 
 function renderComparison(queryKind, queryRecord) {
   const matchKind = kindForCandidates(queryKind);
-  const candidates = candidatesFor(queryKind);
+  const candidates = candidatesFor(queryKind, data);
   const result = profileResults(
     queryRecord,
     candidates,
