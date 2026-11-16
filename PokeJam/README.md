@@ -98,6 +98,18 @@ arena rendering, team selection, finishes, perks, audio, and comparisons.
 `data/` contains exported model/roster data; `assets/` contains images and credits.
 The Python `pipeline/` rebuilds data; Python is not a production game backend.
 
+For the HW9 Project 2 logic tests, use Node 26 and run from this `PokeJam/`
+directory:
+
+```sh
+node --test tests/*.test.js
+```
+
+The suite uses Node's built-in runner, with no dependency installation. Its 18
+tests cover catalog filtering, comparison attributes and profile matching.
+The repository-root GitHub Actions workflow runs this command on pushes and
+pull requests. Browser rendering and gameplay use the separate Python suites.
+
 With Python Playwright, Pillow, and Chrome installed, set the `CHROME` path in
 the browser tests for your machine, then use the actual preview address:
 
