@@ -63,8 +63,17 @@ See [verifier-handoff.md](verifier-handoff.md) for the proposed prompt and
 diff display, and identified the model as Astra. Internal tool traces were not exported.
 Source repair and unchanged tests were independently verified, with 18/18 passing.
 
-## Final repaired run: pending push
+## Final repaired run: verified
 
-Repair commit: `f69d513d93d551eaee2c4b107e08c6a36833ba76`. No final repaired CI URL
-is available yet. Push the repair/evidence commits through GitHub Desktop and
-verify the resulting completed workflow. Existing green/red URLs above remain valid.
+- Run: https://github.com/moloruns/moloruns.github.io/actions/runs/44161725467
+- Head SHA: `cbcaac4a9e27e10fff6609639025f72112ca7dd8` (includes source repair `f69d513d93d551eaee2c4b107e08c6a36833ba76` and the evidence commit).
+- Run status: `completed`; conclusion: `success`.
+- Job ID: `134317030980`; conclusion: `success`.
+- Actual test-step excerpt: `name: Run node --test tests/*.test.js; conclusion: success`.
+- [Captured run metadata](logs/final-ci-runs-api.json) and [job metadata](logs/final-ci-jobs-api.json).
+- Exact CI test count is not in this public metadata; the identical local suite independently passed 18/18. No downloaded CI transcript is claimed.
+
+The experimental branch is repaired and its latest pushed run is green. Both the
+red checkpoint and passing runs remain in history. No merge to main is required.
+The final-CI evidence update can be pushed together with the student's remaining
+submission documents; it does not change source or tests.

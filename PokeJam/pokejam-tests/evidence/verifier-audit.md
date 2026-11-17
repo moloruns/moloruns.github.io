@@ -43,6 +43,7 @@ alone as `f69d513d93d551eaee2c4b107e08c6a36833ba76`. Tests remain identical to
 extraction commit `4194d3a`, so all deliberate mutations are undone.
 The [final local run](logs/final-local-tests.txt) also passed 18/18.
 
-The repair still needs a push and completed passing CI result. Browser interaction
-checks remain unverified because Python Playwright is unavailable. Student-owned
-`TESTING.md` and prompt-log completion are still pending.
+The repair was pushed and final CI succeeded:
+https://github.com/moloruns/moloruns.github.io/actions/runs/44161725467.
+Browser interaction checks remain unverified because Python Playwright is
+unavailable. Student-owned `TESTING.md` and prompt-log completion are still pending.
