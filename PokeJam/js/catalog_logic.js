@@ -15,7 +15,7 @@ export function selectPokedexRecords(pokemon, playablePlayers, rawQuery) {
 
 export function candidatesFor(queryKind, data) {
   if (queryKind === "pokemon") {
-    return data.players.filter((record) => record.match_pool);
+    return data.players.filter((record) => !record.match_pool);
   }
   return data.pokemon;
 }
