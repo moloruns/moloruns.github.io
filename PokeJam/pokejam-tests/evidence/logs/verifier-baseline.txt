@@ -1,0 +1,151 @@
+SHA=411d0b55a824cb2f06607250bbef83264256a655
+Working directory: /tmp/pokejam-hw9-verifier/PokeJam
+$ /tmp/pokejam-hw9-runtime/node-v26.13.1-darwin-arm64/bin/node --test --test-reporter=tap tests/*.test.js
+TAP version 13
+# Subtest: a Pokémon query only includes eligible NBA players
+not ok 1 - a Pokémon query only includes eligible NBA players
+  ---
+  duration_ms: 3.15675
+  type: 'test'
+  location: '/private/tmp/pokejam-hw9-verifier/PokeJam/tests/catalog_logic.test.js:10:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    +   'ineligible',
+    +   'missing-flag'
+    -   'eligible-first',
+    -   'eligible-second'
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'eligible-first'
+    1: 'eligible-second'
+  actual:
+    0: 'ineligible'
+    1: 'missing-flag'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/pokejam-hw9-verifier/PokeJam/tests/catalog_logic.test.js:24:10)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1402:25)
+    Test.start (node:internal/test_runner/test:1262:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17)
+  ...
+# Subtest: a player query uses the Pokémon collection without NBA eligibility filtering
+ok 2 - a player query uses the Pokémon collection without NBA eligibility filtering
+  ---
+  duration_ms: 0.194542
+  type: 'test'
+  ...
+# Subtest: an empty NBA candidate pool returns an empty array
+ok 3 - an empty NBA candidate pool returns an empty array
+  ---
+  duration_ms: 0.096875
+  type: 'test'
+  ...
+# Subtest: Pokédex partitions playable records in source order and retains record identity
+ok 4 - Pokédex partitions playable records in source order and retains record identity
+  ---
+  duration_ms: 0.71975
+  type: 'test'
+  ...
+# Subtest: blank Pokédex search returns the first 72 non-playable records
+ok 5 - blank Pokédex search returns the first 72 non-playable records
+  ---
+  duration_ms: 0.291917
+  type: 'test'
+  ...
+# Subtest: Pokédex search normalizes accents, case and spaces and matches inside name, slug or second type
+ok 6 - Pokédex search normalizes accents, case and spaces and matches inside name, slug or second type
+  ---
+  duration_ms: 0.54325
+  type: 'test'
+  ...
+# Subtest: a nonempty Pokédex search is not capped at 72 results
+ok 7 - a nonempty Pokédex search is not capped at 72 results
+  ---
+  duration_ms: 0.264041
+  type: 'test'
+  ...
+# Subtest: an unmatched Pokédex query leaves the playable roster pinned
+ok 8 - an unmatched Pokédex query leaves the playable roster pinned
+  ---
+  duration_ms: 0.125083
+  type: 'test'
+  ...
+# Subtest: attribute comparison returns absolute gaps and extrema in the requested order
+ok 9 - attribute comparison returns absolute gaps and extrema in the requested order
+  ---
+  duration_ms: 0.250125
+  type: 'test'
+  ...
+# Subtest: equal absolute gaps preserve both rows and tied extrema
+ok 10 - equal absolute gaps preserve both rows and tied extrema
+  ---
+  duration_ms: 0.167208
+  type: 'test'
+  ...
+# Subtest: empty comparison attributes preserve empty rows and infinite extrema
+ok 11 - empty comparison attributes preserve empty rows and infinite extrema
+  ---
+  duration_ms: 0.288166
+  type: 'test'
+  ...
+# Subtest: a 25-point gap is close and a 26-point gap is not
+ok 12 - a 25-point gap is close and a 26-point gap is not
+  ---
+  duration_ms: 2.203667
+  type: 'test'
+  ...
+# Subtest: 60 percent overlap is close but 40 percent fails even below the RMS limit
+ok 13 - 60 percent overlap is close but 40 percent fails even below the RMS limit
+  ---
+  duration_ms: 0.230583
+  type: 'test'
+  ...
+# Subtest: when no close profile exists the nearest fallbacks remain in ranked order
+ok 14 - when no close profile exists the nearest fallbacks remain in ranked order
+  ---
+  duration_ms: 0.428584
+  type: 'test'
+  ...
+# Subtest: when close profiles exist the results exclude far candidates
+ok 15 - when close profiles exist the results exclude far candidates
+  ---
+  duration_ms: 0.227209
+  type: 'test'
+  ...
+# Subtest: an empty match pool reports no close match and no fallbacks
+ok 16 - an empty match pool reports no close match and no fallbacks
+  ---
+  duration_ms: 0.107417
+  type: 'test'
+  ...
+# Subtest: profile ranking sorts by distance, preserves ties and respects the limit
+ok 17 - profile ranking sorts by distance, preserves ties and respects the limit
+  ---
+  duration_ms: 0.1785
+  type: 'test'
+  ...
+# Subtest: positive level weight favors the closer level while zero weight removes that contribution
+ok 18 - positive level weight favors the closer level while zero weight removes that contribution
+  ---
+  duration_ms: 0.37525
+  type: 'test'
+  ...
+1..18
+# tests 18
+# suites 0
+# pass 17
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 92.76
+
+exit=1

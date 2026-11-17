@@ -3,22 +3,21 @@
 AI-generated coordination note, updated November 17, 2026.
 
 - Branch: `pokejam-tests`.
-- HEAD / `BROKEN_SHA`: `1f6fc4d9dcffabc694f70c8eb6a30c6b35c4188f`.
-- Remote branch currently contains the passing workflow commit `db408e44724aac880f9bea8b05896201ab796d1a`.
+- Source repair commit: `f69d513d93d551eaee2c4b107e08c6a36833ba76`.
+- `BROKEN_SHA` / verifier base: `411d0b55a824cb2f06607250bbef83264256a655`.
+- Original mutation commit: `1f6fc4d9dcffabc694f70c8eb6a30c6b35c4188f`.
 - `REFACTOR_SHA`: `4194d3afd5eccf6712d0b2d57e1927f7dfde1c8d`.
 - `TESTS_SHA` / `FINAL_TESTS_SHA`: `1cc73ed43673da41965f2220391e5e832970f1e1`.
-- Course-track clarification: student is in statistics; per their November 17 clarification, the first test may be specified in words and implemented with AI. No instructor confirmation pending.
-- First test is student-specified and AI-coded; [provenance](first-test.md).
-- Three computations extracted and used by the app; 18 tests were passing before the deliberate experiment.
-- Five mutations were caught and restored individually; [ledger](mutations.md).
-- **First passing CI run verified:** https://github.com/moloruns/moloruns.github.io/actions/runs/44138174421
-- **Current local state is intentionally failing:** one source mutation recommitted for the red-CI/verifier experiment; 17 tests pass and the eligibility test fails. Tests unchanged.
-- User authorized branch pushes. GitHub Desktop published the passing branch; shell Git authentication still unavailable.
-- **Next action: Push origin in GitHub Desktop to upload the single prepared commit.** Then record the red CI run. Do not merge into main.
-- Fresh-session verifier/transcript/diffs and final repaired CI: not run.
-- Browser regression checks remain unavailable: Python Playwright is missing. HTTP checks passed; interactions and rendering are unverified.
+- Three computations extracted and used by the app; **18 tests pass** on the repaired branch.
+- Five mutations caught; [actual failure evidence](mutations.md). All mutations are now undone in production source.
+- **Passing CI:** https://github.com/moloruns/moloruns.github.io/actions/runs/44138174421
+- **Failing CI:** https://github.com/moloruns/moloruns.github.io/actions/runs/44140326948
+- **Verifier completed:** repaired source; tests unchanged; independent 18/18 pass. See [audit](verifier-audit.md).
+- Source/test/complete diffs saved. User confirmed the exact single prompt and Astra model, and supplied the reply and diff. The [recorded exchange](verifier-transcript.txt) is user-supplied; internal verifier tool traces were not exported.
+- **Next action: Push origin in GitHub Desktop for the repair and evidence commits, then verify final green CI.** Existing push authorization remains valid; shell Git authentication has been unavailable.
+- Browser UI/gameplay checks remain unverified because Python Playwright is missing. HTTP checks passed earlier.
 - Student-owned `TESTING.md` and prompt log remain pending; existing prompt logs unchanged.
-- Plan and evidence remain untracked outside the future verifier checkout. Unrelated `.DS_Store` and `hw8_handoff.zip` retained.
+- Student is in the statistics track; per their clarification, stating the first test behavior with AI coding is the intended workflow. No instructor confirmation pending.
 
 ## Run the suite
 
@@ -30,17 +29,23 @@ cd PokeJam
 node --test tests/*.test.js
 ```
 
-The temporary runtime reports `v26.13.1`. At the intentional broken checkpoint,
-expect 18 tests, 17 passing and 1 failing, exit 1. See
-[red preparation output](logs/red-ci-preparation.txt).
+Verified after integration: 18 tests, 18 pass, 0 fail, 0 skipped, exit 0.
+[Output](logs/final-local-tests.txt).
+
+## Experiment context retained
+
+The user committed the plan/evidence and unrelated `.DS_Store`/ZIP files in the
+failed CI commit. The verifier used that exact SHA with planning/evidence and
+unrelated projects hidden by sparse checkout. Those items remained accessible
+in Git history; this was not hermetic isolation. A `.DS_Store` change preceded
+the verifier work and was preserved. The verifier checkout remains at
+`/tmp/pokejam-hw9-verifier`; its original repair has not been cleaned up.
 
 ## Remaining work
 
-1. Push the single prepared broken commit through GitHub Desktop; record its actual failing CI URL and named failure. Authorization already granted.
-2. Student opens a fresh session in a clean checkout of `BROKEN_SHA` with the simple repair prompt from the plan. Do not provide the evidence or mutation description to that verifier.
-3. Capture the transcript and complete source/test diffs; independently verify the repair and compare tests against `FINAL_TESTS_SHA`.
-4. Bring back a sound repair, push and save final passing CI evidence. Repeat affected browser checks when available.
-5. Student writes the final narrative and maintains the prompt log. Commit evidence after the independent experiment so it cannot reveal the mutation to the verifier.
+1. Push the repaired branch and confirm a final successful CI run.
+2. Verifier exchange and Astra attribution are recorded; no additional back-and-forth transcript is pending.
+3. Complete browser regression review when available.
+4. Student writes `PokeJam/TESTING.md`, completes the prompt log with accurate attribution, and submits the repository/branch link and course form.
 
-See [ci-runs.md](ci-runs.md) for run evidence, API access limitations and Pages
-observations. The full assignment is not yet complete.
+Implementation and local verification are complete; submission preparation is not.

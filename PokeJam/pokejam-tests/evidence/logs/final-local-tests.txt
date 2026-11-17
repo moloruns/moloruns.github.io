@@ -1,0 +1,29 @@
+$ node --test tests/catalog_logic.test.js tests/match.test.js
+✔ a Pokémon query only includes eligible NBA players (2.242542ms)
+✔ a player query uses the Pokémon collection without NBA eligibility filtering (0.17075ms)
+✔ an empty NBA candidate pool returns an empty array (0.102958ms)
+✔ Pokédex partitions playable records in source order and retains record identity (0.658542ms)
+✔ blank Pokédex search returns the first 72 non-playable records (0.304875ms)
+✔ Pokédex search normalizes accents, case and spaces and matches inside name, slug or second type (0.712875ms)
+✔ a nonempty Pokédex search is not capped at 72 results (0.261459ms)
+✔ an unmatched Pokédex query leaves the playable roster pinned (0.131542ms)
+✔ attribute comparison returns absolute gaps and extrema in the requested order (0.244834ms)
+✔ equal absolute gaps preserve both rows and tied extrema (0.174666ms)
+✔ empty comparison attributes preserve empty rows and infinite extrema (0.239125ms)
+✔ a 25-point gap is close and a 26-point gap is not (2.247584ms)
+✔ 60 percent overlap is close but 40 percent fails even below the RMS limit (0.229375ms)
+✔ when no close profile exists the nearest fallbacks remain in ranked order (0.466708ms)
+✔ when close profiles exist the results exclude far candidates (0.222ms)
+✔ an empty match pool reports no close match and no fallbacks (0.108625ms)
+✔ profile ranking sorts by distance, preserves ties and respects the limit (0.1845ms)
+✔ positive level weight favors the closer level while zero weight removes that contribution (0.543834ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 84.568083
+
+exit=0
