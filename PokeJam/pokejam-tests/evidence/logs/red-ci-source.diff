@@ -1,0 +1,13 @@
+diff --git a/PokeJam/js/catalog_logic.js b/PokeJam/js/catalog_logic.js
+index e265c13..6a60f2e 100644
+--- a/PokeJam/js/catalog_logic.js
++++ b/PokeJam/js/catalog_logic.js
+@@ -15,7 +15,7 @@ export function selectPokedexRecords(pokemon, playablePlayers, rawQuery) {
+ 
+ export function candidatesFor(queryKind, data) {
+   if (queryKind === "pokemon") {
+-    return data.players.filter((record) => record.match_pool);
++    return data.players.filter((record) => !record.match_pool);
+   }
+   return data.pokemon;
+ }

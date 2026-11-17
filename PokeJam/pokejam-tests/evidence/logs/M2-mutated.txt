@@ -1,0 +1,294 @@
+$ node --test --test-reporter=tap tests/*.test.js
+TAP version 13
+# Subtest: a Pokémon query only includes eligible NBA players
+ok 1 - a Pokémon query only includes eligible NBA players
+  ---
+  duration_ms: 2.1475
+  type: 'test'
+  ...
+# Subtest: a player query uses the Pokémon collection without NBA eligibility filtering
+ok 2 - a player query uses the Pokémon collection without NBA eligibility filtering
+  ---
+  duration_ms: 0.197791
+  type: 'test'
+  ...
+# Subtest: an empty NBA candidate pool returns an empty array
+ok 3 - an empty NBA candidate pool returns an empty array
+  ---
+  duration_ms: 0.089208
+  type: 'test'
+  ...
+# Subtest: Pokédex partitions playable records in source order and retains record identity
+ok 4 - Pokédex partitions playable records in source order and retains record identity
+  ---
+  duration_ms: 0.32525
+  type: 'test'
+  ...
+# Subtest: blank Pokédex search returns the first 72 non-playable records
+not ok 5 - blank Pokédex search returns the first 72 non-playable records
+  ---
+  duration_ms: 1.300041
+  type: 'test'
+  location: '/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/tests/catalog_logic.test.js:59:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    ... Skipped lines
+    
+      [
+        'other-0',
+        'other-1',
+        'other-2',
+        'other-3',
+    ...
+        'other-70',
+    -   'other-71'
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'other-0'
+    1: 'other-1'
+    2: 'other-2'
+    3: 'other-3'
+    4: 'other-4'
+    5: 'other-5'
+    6: 'other-6'
+    7: 'other-7'
+    8: 'other-8'
+    9: 'other-9'
+    10: 'other-10'
+    11: 'other-11'
+    12: 'other-12'
+    13: 'other-13'
+    14: 'other-14'
+    15: 'other-15'
+    16: 'other-16'
+    17: 'other-17'
+    18: 'other-18'
+    19: 'other-19'
+    20: 'other-20'
+    21: 'other-21'
+    22: 'other-22'
+    23: 'other-23'
+    24: 'other-24'
+    25: 'other-25'
+    26: 'other-26'
+    27: 'other-27'
+    28: 'other-28'
+    29: 'other-29'
+    30: 'other-30'
+    31: 'other-31'
+    32: 'other-32'
+    33: 'other-33'
+    34: 'other-34'
+    35: 'other-35'
+    36: 'other-36'
+    37: 'other-37'
+    38: 'other-38'
+    39: 'other-39'
+    40: 'other-40'
+    41: 'other-41'
+    42: 'other-42'
+    43: 'other-43'
+    44: 'other-44'
+    45: 'other-45'
+    46: 'other-46'
+    47: 'other-47'
+    48: 'other-48'
+    49: 'other-49'
+    50: 'other-50'
+    51: 'other-51'
+    52: 'other-52'
+    53: 'other-53'
+    54: 'other-54'
+    55: 'other-55'
+    56: 'other-56'
+    57: 'other-57'
+    58: 'other-58'
+    59: 'other-59'
+    60: 'other-60'
+    61: 'other-61'
+    62: 'other-62'
+    63: 'other-63'
+    64: 'other-64'
+    65: 'other-65'
+    66: 'other-66'
+    67: 'other-67'
+    68: 'other-68'
+    69: 'other-69'
+    70: 'other-70'
+    71: 'other-71'
+  actual:
+    0: 'other-0'
+    1: 'other-1'
+    2: 'other-2'
+    3: 'other-3'
+    4: 'other-4'
+    5: 'other-5'
+    6: 'other-6'
+    7: 'other-7'
+    8: 'other-8'
+    9: 'other-9'
+    10: 'other-10'
+    11: 'other-11'
+    12: 'other-12'
+    13: 'other-13'
+    14: 'other-14'
+    15: 'other-15'
+    16: 'other-16'
+    17: 'other-17'
+    18: 'other-18'
+    19: 'other-19'
+    20: 'other-20'
+    21: 'other-21'
+    22: 'other-22'
+    23: 'other-23'
+    24: 'other-24'
+    25: 'other-25'
+    26: 'other-26'
+    27: 'other-27'
+    28: 'other-28'
+    29: 'other-29'
+    30: 'other-30'
+    31: 'other-31'
+    32: 'other-32'
+    33: 'other-33'
+    34: 'other-34'
+    35: 'other-35'
+    36: 'other-36'
+    37: 'other-37'
+    38: 'other-38'
+    39: 'other-39'
+    40: 'other-40'
+    41: 'other-41'
+    42: 'other-42'
+    43: 'other-43'
+    44: 'other-44'
+    45: 'other-45'
+    46: 'other-46'
+    47: 'other-47'
+    48: 'other-48'
+    49: 'other-49'
+    50: 'other-50'
+    51: 'other-51'
+    52: 'other-52'
+    53: 'other-53'
+    54: 'other-54'
+    55: 'other-55'
+    56: 'other-56'
+    57: 'other-57'
+    58: 'other-58'
+    59: 'other-59'
+    60: 'other-60'
+    61: 'other-61'
+    62: 'other-62'
+    63: 'other-63'
+    64: 'other-64'
+    65: 'other-65'
+    66: 'other-66'
+    67: 'other-67'
+    68: 'other-68'
+    69: 'other-69'
+    70: 'other-70'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/tests/catalog_logic.test.js:68:12)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1402:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+    Test.postRun (node:internal/test_runner/test:1542:19)
+    Test.run (node:internal/test_runner/test:1467:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+  ...
+# Subtest: Pokédex search normalizes accents, case and spaces and matches inside name, slug or second type
+ok 6 - Pokédex search normalizes accents, case and spaces and matches inside name, slug or second type
+  ---
+  duration_ms: 0.252375
+  type: 'test'
+  ...
+# Subtest: a nonempty Pokédex search is not capped at 72 results
+ok 7 - a nonempty Pokédex search is not capped at 72 results
+  ---
+  duration_ms: 0.21275
+  type: 'test'
+  ...
+# Subtest: an unmatched Pokédex query leaves the playable roster pinned
+ok 8 - an unmatched Pokédex query leaves the playable roster pinned
+  ---
+  duration_ms: 0.103666
+  type: 'test'
+  ...
+# Subtest: attribute comparison returns absolute gaps and extrema in the requested order
+ok 9 - attribute comparison returns absolute gaps and extrema in the requested order
+  ---
+  duration_ms: 0.215583
+  type: 'test'
+  ...
+# Subtest: equal absolute gaps preserve both rows and tied extrema
+ok 10 - equal absolute gaps preserve both rows and tied extrema
+  ---
+  duration_ms: 0.164292
+  type: 'test'
+  ...
+# Subtest: empty comparison attributes preserve empty rows and infinite extrema
+ok 11 - empty comparison attributes preserve empty rows and infinite extrema
+  ---
+  duration_ms: 0.102208
+  type: 'test'
+  ...
+# Subtest: a 25-point gap is close and a 26-point gap is not
+ok 12 - a 25-point gap is close and a 26-point gap is not
+  ---
+  duration_ms: 1.910167
+  type: 'test'
+  ...
+# Subtest: 60 percent overlap is close but 40 percent fails even below the RMS limit
+ok 13 - 60 percent overlap is close but 40 percent fails even below the RMS limit
+  ---
+  duration_ms: 0.204
+  type: 'test'
+  ...
+# Subtest: when no close profile exists the nearest fallbacks remain in ranked order
+ok 14 - when no close profile exists the nearest fallbacks remain in ranked order
+  ---
+  duration_ms: 0.411834
+  type: 'test'
+  ...
+# Subtest: when close profiles exist the results exclude far candidates
+ok 15 - when close profiles exist the results exclude far candidates
+  ---
+  duration_ms: 0.210417
+  type: 'test'
+  ...
+# Subtest: an empty match pool reports no close match and no fallbacks
+ok 16 - an empty match pool reports no close match and no fallbacks
+  ---
+  duration_ms: 0.1005
+  type: 'test'
+  ...
+# Subtest: profile ranking sorts by distance, preserves ties and respects the limit
+ok 17 - profile ranking sorts by distance, preserves ties and respects the limit
+  ---
+  duration_ms: 0.1735
+  type: 'test'
+  ...
+# Subtest: positive level weight favors the closer level while zero weight removes that contribution
+ok 18 - positive level weight favors the closer level while zero weight removes that contribution
+  ---
+  duration_ms: 0.142333
+  type: 'test'
+  ...
+1..18
+# tests 18
+# suites 0
+# pass 17
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 70.184625
+
+exit=1

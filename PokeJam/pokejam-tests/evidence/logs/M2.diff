@@ -1,0 +1,11 @@
+--- a/PokeJam/js/catalog_logic.js
++++ b/PokeJam/js/catalog_logic.js
+@@ -8,7 +8,7 @@
+   const others = pokemon.filter((record) => !playable.has(record.slug));
+   const filtered = query
+     ? others.filter((record) => plain(`${record.name} ${record.slug} ${record.types.join(" ")}`).includes(query))
+-    : others.slice(0, 72);
++    : others.slice(0, 71);
+ 
+   return { roster, filtered };
+ }

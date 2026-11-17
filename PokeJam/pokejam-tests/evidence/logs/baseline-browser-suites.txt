@@ -1,0 +1,13 @@
+Running game
+Traceback (most recent call last):
+  File "/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/tests/browser_game.py", line 11, in <module>
+    from playwright.sync_api import sync_playwright
+ModuleNotFoundError: No module named 'playwright'
+Traceback (most recent call last):
+  File "/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/tests/run_browser_suites.py", line 11, in <module>
+    subprocess.run([sys.executable, str(ROOT / f"browser_{name}.py"), BASE], check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/Library/Frameworks/Python.framework/Versions/3.13/bin/python3', '/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/tests/browser_game.py', 'http://127.0.0.1:8005']' returned non-zero exit status 1.

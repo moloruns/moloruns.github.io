@@ -1,0 +1,16 @@
+$ ['/tmp/pokejam-hw9-runtime/node-v26.13.1-darwin-arm64/bin/node', '--version']
+v26.13.1
+exit=0
+$ ['/tmp/pokejam-hw9-runtime/node-v26.13.1-darwin-arm64/bin/node', '--input-type=module', '-e', 'import * as logic from "./PokeJam/js/catalog_logic.js"; console.log("Imported without browser globals:", Object.keys(logic).join(", "));']
+Imported without browser globals: attributeComparison, candidatesFor, selectPokedexRecords
+exit=0
+$ ['/tmp/pokejam-hw9-runtime/node-v26.13.1-darwin-arm64/bin/node', '--check', 'PokeJam/js/catalog_logic.js']
+exit=0
+$ ['/tmp/pokejam-hw9-runtime/node-v26.13.1-darwin-arm64/bin/node', '--check', 'PokeJam/js/pokedex.js']
+exit=0
+$ ['/tmp/pokejam-hw9-runtime/node-v26.13.1-darwin-arm64/bin/node', '--check', 'PokeJam/js/compare.js']
+exit=0
+$ ['/tmp/pokejam-hw9-runtime/node-v26.13.1-darwin-arm64/bin/node', '--check', 'PokeJam/js/match.js']
+exit=0
+$ ['git', 'diff', '--check']
+exit=0

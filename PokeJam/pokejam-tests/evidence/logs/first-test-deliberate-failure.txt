@@ -1,0 +1,47 @@
+$ node --test --test-reporter=tap tests/catalog_logic.test.js
+TAP version 13
+# Subtest: a Pokémon query only includes eligible NBA players
+not ok 1 - a Pokémon query only includes eligible NBA players
+  ---
+  duration_ms: 2.410417
+  type: 'test'
+  location: '/Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/tests/catalog_logic.test.js:10:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    +   'ineligible',
+    +   'missing-flag'
+    -   'eligible-first',
+    -   'eligible-second'
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'eligible-first'
+    1: 'eligible-second'
+  actual:
+    0: 'ineligible'
+    1: 'missing-flag'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/mook/Documents/GitHub/moloruns.github.io/PokeJam/tests/catalog_logic.test.js:24:10)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1402:25)
+    Test.start (node:internal/test_runner/test:1262:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17)
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 0
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 62.559
+
+exit=1

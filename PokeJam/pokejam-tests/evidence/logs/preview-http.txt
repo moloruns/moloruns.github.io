@@ -1,0 +1,5 @@
+http://127.0.0.1:8005/pokedex.html: HTTP 200
+http://127.0.0.1:8005/compare.html: HTTP 200
+http://127.0.0.1:8005/play.html: HTTP 200
+http://127.0.0.1:8005/js/catalog_logic.js: HTTP 200
+HTTP availability only; JavaScript rendering and interactions were not verified.

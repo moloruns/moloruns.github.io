@@ -1,0 +1,19 @@
+$ node --test --test-reporter=tap tests/catalog_logic.test.js
+TAP version 13
+# Subtest: a Pokémon query only includes eligible NBA players
+ok 1 - a Pokémon query only includes eligible NBA players
+  ---
+  duration_ms: 2.19075
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 90.600125
+
+exit=0

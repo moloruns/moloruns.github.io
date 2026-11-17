@@ -1,0 +1,15 @@
+November 17, 2026 — authorized branch push attempts
+
+$ git push -u origin pokejam-tests
+fatal: could not read Username for 'https://github.com': Device not configured
+exit=128
+
+$ git -c credential.username=moloruns push -u origin pokejam-tests
+fatal: could not read Password for 'https://moloruns@github.com': Device not configured
+exit=128
+
+Configured credential helper: osxkeychain (system Git configuration).
+No credentials were printed or changed.
+
+GET https://api.github.com/repos/moloruns/moloruns.github.io/actions/runs?branch=pokejam-tests&per_page=5
+{"total_count": 0, "workflow_runs": []}

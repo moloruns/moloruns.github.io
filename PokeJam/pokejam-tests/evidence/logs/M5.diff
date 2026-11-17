@@ -1,0 +1,11 @@
+--- a/PokeJam/js/match.js
++++ b/PokeJam/js/match.js
+@@ -26,7 +26,7 @@
+     rmsGap,
+     meanGap,
+     withinTolerance,
+-    close: rmsGap <= PROFILE_FIT.maxRmsGap && withinTolerance / gaps.length >= PROFILE_FIT.minOverlap,
++    close: rmsGap < PROFILE_FIT.maxRmsGap && withinTolerance / gaps.length >= PROFILE_FIT.minOverlap,
+   };
+ }
+ 

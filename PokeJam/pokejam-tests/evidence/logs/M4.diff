@@ -1,0 +1,11 @@
+--- a/PokeJam/js/catalog_logic.js
++++ b/PokeJam/js/catalog_logic.js
+@@ -25,7 +25,7 @@
+     attribute,
+     query: queryRecord.attributes[attribute],
+     match: matchRecord.attributes[attribute],
+-    gap: Math.abs(queryRecord.attributes[attribute] - matchRecord.attributes[attribute]),
++    gap: (queryRecord.attributes[attribute] - matchRecord.attributes[attribute]),
+   }));
+ 
+   const minGap = Math.min(...rows.map((row) => row.gap));
