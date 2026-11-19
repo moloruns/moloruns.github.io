@@ -1,0 +1,5 @@
+PASS production game page loads the 20-player setup menu
+PASS movement key changes the controlled player position
+PASS game startup, 20-player menu, chosen lineup/arena, start and pause/resume
+Uncaught JavaScript errors: []
+Console errors: ["Failed to load resource: the server responded with a status of 404 (File not found)", "Failed to load resource: the server responded with a status of 404 (File not found)"]

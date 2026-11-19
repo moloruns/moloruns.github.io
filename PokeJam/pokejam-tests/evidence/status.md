@@ -17,7 +17,7 @@ AI-generated coordination note, updated November 19, 2026.
 - **Final repaired CI verified:** https://github.com/moloruns/moloruns.github.io/actions/runs/44161725467 (head `cbcaac4a9e27e10fff6609639025f72112ca7dd8`).
 - `PokeJam/TESTING.md` written by Codex November 19 at the student's explicit request, using the saved evidence and disclosing AI authorship. No reflection placeholders remain.
 - **Next action: complete the prompt log and publish remaining documentation.**
-- Browser UI/gameplay checks remain unverified because Python Playwright is missing. HTTP checks passed earlier.
+- Focused Chrome browser checks passed November 19: Pokédex, both comparison directions, charts, lineup/arena selection, movement and pause/resume. See [browser-checks.md](browser-checks.md). Full gameplay regression suites were not run.
 - Testing report now exists; prompt log remains pending and unchanged.
 - Student is in the statistics track; per their clarification, stating the first test behavior with AI coding is the intended workflow. No instructor confirmation pending.
 
@@ -45,7 +45,7 @@ the verifier work and was preserved. The verifier checkout remains at
 
 ## Remaining work
 
-1. Complete browser regression review when available (Pokédex search, both comparison directions and game startup/basic controls).
+1. Focused browser review completed November 19; evidence saved in [browser-checks.md](browser-checks.md).
 2. Complete the prompt log with accurate attribution; `PokeJam/TESTING.md` is written. `PokeJam/pokejam-tests/prompt_log.md` is currently zero bytes on disk; do not mistake it for completed evidence.
 3. Commit/push remaining submission documents and final-CI evidence, then submit the repository/branch link and course form.
 
