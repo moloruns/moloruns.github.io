@@ -1,7 +1,7 @@
 Agent 1; Codex (Astra; high)
 >> me
 
-read help me implement plan.mde
+read and help me implement plan.mde
 
 >>> AI
 
