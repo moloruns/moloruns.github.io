@@ -2,3 +2,7 @@ __pycache__/
 *.pyc
 .venv/
 .DS_Store
+
+# Local environments and data retained from other project branches.
+/game-finder/
+/nba_vs_wnba/
