@@ -1,6 +1,6 @@
 # HW9 implementation status
 
-AI-generated coordination note, updated November 17, 2026.
+AI-generated coordination note, updated November 19, 2026.
 
 - Branch: `pokejam-tests`.
 - Source repair commit: `f69d513d93d551eaee2c4b107e08c6a36833ba76`.
@@ -15,9 +15,10 @@ AI-generated coordination note, updated November 17, 2026.
 - **Verifier completed:** repaired source; tests unchanged; independent 18/18 pass. See [audit](verifier-audit.md).
 - Source/test/complete diffs saved. User confirmed the exact single prompt and Astra model, and supplied the reply and diff. The [recorded exchange](verifier-transcript.txt) is user-supplied; internal verifier tool traces were not exported.
 - **Final repaired CI verified:** https://github.com/moloruns/moloruns.github.io/actions/runs/44161725467 (head `cbcaac4a9e27e10fff6609639025f72112ca7dd8`).
-- **Next action: student writes `PokeJam/TESTING.md` and completes the prompt log; final CI evidence updates can be pushed with those documents.**
+- `PokeJam/TESTING.md` written by Codex November 19 at the student's explicit request, using the saved evidence and disclosing AI authorship. No reflection placeholders remain.
+- **Next action: complete the prompt log and publish remaining documentation.**
 - Browser UI/gameplay checks remain unverified because Python Playwright is missing. HTTP checks passed earlier.
-- Student-owned `TESTING.md` and prompt log remain pending; existing prompt logs unchanged.
+- Testing report now exists; prompt log remains pending and unchanged.
 - Student is in the statistics track; per their clarification, stating the first test behavior with AI coding is the intended workflow. No instructor confirmation pending.
 
 ## Run the suite
@@ -45,7 +46,7 @@ the verifier work and was preserved. The verifier checkout remains at
 ## Remaining work
 
 1. Complete browser regression review when available (Pokédex search, both comparison directions and game startup/basic controls).
-2. Student writes `PokeJam/TESTING.md` and completes the prompt log with accurate attribution. `PokeJam/pokejam-tests/prompt_log.md` is currently zero bytes on disk; do not mistake it for completed evidence.
+2. Complete the prompt log with accurate attribution; `PokeJam/TESTING.md` is written. `PokeJam/pokejam-tests/prompt_log.md` is currently zero bytes on disk; do not mistake it for completed evidence.
 3. Commit/push remaining submission documents and final-CI evidence, then submit the repository/branch link and course form.
 
 Submission branch: https://github.com/moloruns/moloruns.github.io/tree/pokejam-tests
