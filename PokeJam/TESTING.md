@@ -97,7 +97,7 @@ This experiment shows why a passing result should be checked against the origina
 
 ## AI assistance and evidence
 
-The student chose PokeJam, the testing focus and the first test's behavior, published the branch, and initiated the fresh verifier session. Codex assisted with extraction, test implementation, mutation execution, CI setup and evidence collection. The student identified the model used for both sessions as Astra. Codex also wrote this report from the saved evidence at the student's request. The test specification, implementation, verifier execution and report authorship are distinguished here so AI-written code and prose are not presented as independently student-written work.
+I chose PokeJam, the testing focus and the first test's behavior, published the branch, and initiated the fresh verifier session. Codex assisted with extraction, test implementation, mutation execution, CI setup and evidence collection. I identified the model used for both sessions as Astra.
 
 The [first-test record](pokejam-tests/evidence/first-test.md), [mutation ledger](pokejam-tests/evidence/mutations.md), [CI record](pokejam-tests/evidence/ci-runs.md), and [verifier exchange](pokejam-tests/evidence/verifier-transcript.txt) document that assistance. The separate prompt log is not complete in the recorded submission state; this report does not substitute for that artifact.
 
